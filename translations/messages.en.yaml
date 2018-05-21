@@ -1,0 +1,99 @@
+########## HOME ###############
+mma.home: Home
+mma.home.depot: Lager
+mma.home.depot.comment: Wir haben ein Lager wo unsere Lebensmittel gelagert werden
+mma.home.exposition: Ausstellung
+mma.home.exposition.comment: Unsere Produkte sind in mehr als 100 Laden in Europa zu finden
+mma.home.import: Import
+mma.home.import.comment: Wir importieren unsere Lebensmittel per Boot
+mma.home.origin: Herkunftsland 
+mma.home.origin.comment: Auf die Karte grünmarkierte Länder stehen die Herkunftländer unserer Lebensmittel 
+
+########## CATEGORY ###############
+mma.category: Kategorie
+mma.category.price: Preis
+mma.category.from: von
+mma.category.to: bis
+mma.category.action: produkt in Angebot
+mma.category.numberofproduct1: Diese Kategorie beinhalte 
+mma.category.numberofproduct2: Produkte
+mma.category.displayin: Anzeige
+mma.category.liste: Listr
+mma.category.grille: Grill
+mma.category.fruits: Früchte
+mma.category.vegetables: Gemüse
+mma.category.flourandsemolina: Mehl und Grieß
+mma.category.fishandshellfish: Fisch 
+mma.category.fishandshellfishraw: roher Fisch 
+mma.category.fishandshellfishsmoke: geräucherter Fisch
+mma.category.meat: Fleich
+mma.category.meatraw: roher Fleich
+mma.category.meatsmoke: geräucherter Fleich
+mma.category.preserves: Dosen
+mma.category.spices: Gewürze
+
+
+########## SOME RECIPES ###############
+mma.somerecipes: Kochrezept
+mma.some.recipe.norecipeconfigured: No recipe configured
+
+########## LIVRAISON ###############
+mma.delivery: Lieferung
+
+########## CONTACT ###############
+mma.contact: Kontakt
+mma.contact.reciever: Empfänger
+mma.contact.youremail: Deine Email
+mma.contact.sent: Senden
+mma.contact.message: Dein Nachricht
+
+########## CONFIGURATION ###############
+mma.configuration: Konfiguration
+mma.configuration.editer.produit.action: Offer
+mma.configuration.recipes: recipes
+mma.configuration.products: Products
+mma.configuration.clients: Clients
+mma.configuration.save.edited.product: Save
+########## CONNEXION ###############
+mma.connection: Log in
+mma.logout: Log out
+mma.connection.authenticateyourself: Identifikation
+mma.connection.createyouraccount: Konto erstellen 
+mma.connection.email: E-mail
+mma.connection.create: Erstellen 
+mma.connection.alreafylogggedin: Schon eingeloggt?
+mma.connection.password: Passwort
+mma.connection.passwordvorgoten: Ich habe mein Passwort vergessen
+
+
+########## DELIVERY ###############
+mma.deliver.where: We just deliver in europe
+mma.delivery.deliverycostsmokedproduct: Deliverycost for smoked product
+mma.delivery.weight: Poids colis
+mma.delivery.ratefrance: Tarif net france(Euro)
+mma.delivery.rateeurope: Tarif net Europe(Euro)
+mma.delivery.shippingcost: Shipping cost
+mma.delivery.additionalfeesfortax: Frais suplementaires de taxe et consore
+mma.delivery.deliverycostrawproduct: Frais de livraison des produits surgelés avec CHRONOPOSTFOOD
+mma.delivery.readattentivly: Lisez attentivement
+mma.delivery.readattentivly1: L´expédition des colis en france métropoliteine s´effectue à 14h après réception de votre payement. Si votre payement est arrivé après 14h alors l´expédition se fera le lendemain et la livraison s´effectuera au plus tard 24h après l´expédition.
+mma.delivery.readattentivly2: Pour les livraisons dans les autres pays d´europe, l´expédition est éffectuer suivant les memes closes que celles décrites plus haut. La livraison s´effectue après au plus 3 jours.
+mma.delivery.readattentivly3: Nous guarantissons pas les pertes de commande suite a une mauvaise adresse de livraison. Cependant toute perte de commande du à; une erreur de notre part sera régler dans les bref délais par des moyens express d´expédition ou part un remboursement avec compensation total de vos frais payements.
+
+
+########## LEFT MENU ###############
+mma.leftmenu.fruits: Fruits
+mma.leftmenu.vegetables: Vegetables
+mma.leftmenu.flourandsemolina: Flour and Semolina
+mma.leftmenu.fishandshellfish: Fish and Shellfish
+mma.leftmenu.fishandshellfishraw: Raw Fish and Shellfish
+mma.leftmenu.fishandshellfishsmoke: Smoked Shellfish
+mma.leftmenu.meat: Meat
+mma.leftmenu.meatraw: Raw meat
+mma.leftmenu.meatsmoke: Smoked meat
+mma.leftmenu.cans: Cans
+mma.leftmenu.spices: Spices
+
+
+########## PANIER ###############
+mma.basket.product.count: products

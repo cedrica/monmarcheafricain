@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">Creez votre compte</div>
+	<div class="row divider"></div>
+
+	{{  include("commun/error-info-success.html.twig") }}
+	<form action="/{{ app.request.locale }}/ouverture-de-compte-reussi" novalidate="novalidate"
+		method="post">
+		<div class="row">
+			<div class="col-lg-5 well">
+				<h4>Informations personnelles</h4>
+				<div class="divider"></div>
+				<div class="form-group">
+					<label for="inputPassword3">Titre</label>
+					<div class="form-group">
+						<select class="form-control" name="montitre" required="true">
+							<option value="" selected="true">--choisir un titre--</option>
+							<option value="monsieur" >M</option>
+							<option value="madame">Mme</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="inputNom">Nom</label> <input type="text"
+							class="form-control" id="inputNom" placeholder="nom" name="nom">
+					</div>
+					<div class="form-group">
+						<label for="inputPrenom">Pr&eacute;nom</label> <input type="text"
+							class="form-control" id="inputPrenom" name="prenom"
+							placeholder="Pr&eacute;nom">
+					</div>
+					<div class="form-group">
+						<label for="inputDateDeNaissance">Date de naissance</label>
+						<div class="input-group date ">
+							<input type='text' class="form-control js-datepicker" name="dateDeNaissance" />
+							<span class="input-group-addon"> <span
+								class="fa fa-calendar"> </span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-6 well">
+				<h4>Adresse de livraison</h4>
+				<div class="divider"></div>
+				<div class="form-group">
+					<label for="inputPays">Pays</label> <input type="text"
+						required="true" class="form-control" id="inputPays"
+						placeholder="Pays" name="pays">
+				</div>
+				<div class="form-group row">
+					<div class="col-lg-4" >
+						<label for="inputPrenom">BP</label> <input type="text"
+							required="true" class="form-control" id="inputBP"
+							name="boitePostale" placeholder="BP">
+					</div>
+					<div class="col-lg-8" >
+						<label for="inputPrenom">Ville</label> <input type="text"
+							required="true" name="ville" class="form-control" id="inputVille"
+							placeholder="Ville">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPays">Rue et nr.</label> <input type="text"
+						required="true" class="form-control" id="inputRue"
+						placeholder="Rue et nr." name="rueEtNr">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-5 well">
+				<h4>Donn&eacute;es pour connexion</h4>
+				<div class="divider"></div>
+				<div class="form-group">
+					<label for="inputPays">Adresse E-mail</label> <input type="text"
+						value="{{ email }}" required="true" class="form-control"
+						id="inputEmail" placeholder="Addresse e-mial" name="email">
+				</div>
+				<div class="form-group">
+					<label for="inputPays">Mot de passe</label> <input type="password"
+						required="true" class="form-control" id="inputMotDePasse"
+						placeholder="Mot de passe" name="motDePasse">
+				</div>
+				<div class="form-group">
+					<label for="inputPays">Confirmez votre mot de passe</label> <input
+						type="password" required="true" class="form-control"
+						id="confirmerMotDePasse"
+						placeholder="Confirmez votre mot de passe"
+						name="confirmerMotDePasse">
+				</div>
+			</div>
+		</div>
+		<div class="row divider"></div>
+		<div class="row">
+			<button class="btn" style="background-color: #33cc33; color: #fff"
+				type="submit">Creer le compte</button>
+		</div>
+		<script>
+            $(document).ready(function() {
+                // you may need to change this code if you are not using Bootstrap Datepicker
+                $('.js-datepicker').datepicker({
+                    format: 'yyyy-mm-dd'
+                });
+            });
+        </script>
+	</form>
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/configuration.css')}}" />
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+		<i class="fa fa-bars" style="color: #33cc33"></i> Categories
+	</div>
+	<div class="row divider"></div>
+	<div class="row">
+		<div class="col-lg-11">
+			<div class="collapse" id="collapseExample">
+				<div class="card card-body">
+					<div>
+						<button class="btn fa fa-remove pull-right" data-toggle="tooltip"
+							data-placement="top" title="reinitialiser le filtre"
+							style="font-size: 24px; margin-bottom: 10px; color: red">
+							</i>
+					</div>
+					<form>
+						<div class="form-group">
+							<div class="form-inline">
+								prix: <input type="text"
+									class="form-control mb-2 mr-sm-2 mb-sm-0"
+									placeholder="allant de"> - <input type="text"
+									class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="a">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="dropdown">
+								<button class="btn btn-secondary dropdown-toggle" type="button"
+									id="dropdownMenuButton" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">Triage par
+									lettre</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#">Action</a> <a
+										class="dropdown-item" href="#">Another action</a> <a
+										class="dropdown-item" href="#">Something else here</a>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<input class="form-check-input" type="checkbox"> Produits
+							en action
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-1">
+			<Button class="btn fa fa-filter pull-right"
+				style="font-size: 24px; margin-bottom: 10px; color: #33cc33"
+				data-toggle="collapse" data-target="#collapseExample"
+				aria-expanded="false" aria-controls="collapseExample">
+			</Button>
+		</div>
+	</div>
+	<div class="row divider"></div>
+	<div class="row">
+		<div class="col-lg-6">{{ cat }}</div>
+		<div class="col-lg-6">
+			<p class="pull-right">cette categorie contient {{ produits|length }} produits</p>
+		</div>
+	</div>
+	<div class="row">
+		<div
+			class="col-lg-9></div>
+		<div class="col-lg-3">
+			<div class="form-group-row pull-right">
+				Affichage en:
+				<div class="btn-group-vertical">
+					<a class="btn fa fa-list" 
+						href="/categories/{{ cat }}?affichage=lst"
+						style="font-size: 30px; color: #33cc33"></a>
+					<p style="font-size: 10px">Liste</p>
+				</div>
+				<div class="btn-group-vertical">
+					<a class="btn fa fa-th-large"
+						href="/categories/{{ cat }}?affichage=gr"
+						style="font-size: 30px; color: #33cc33"></a>
+					<p style="font-size: 10px">Grille</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row divider"></div>
+	<div class="row">
+	
+	{%   if affichage == 'gr' %}
+		{% for produit in produits %}
+			<div class="col-lg-3">
+    			<a href="{{ path('produit_controller_produit',{'_locale':app.request.locale,'id':produit.id }) }}" style="float:left" ><img src="/uploads/brochures/{{ produit.image }}" style="width:100%; height:150px" class="img-rounded"/></a>
+    
+    			<div class="col-lg-12">
+    				<p>{{ produit.nom }}</p>
+    			</div>
+    			<div class="col-lg-12">
+    				<p style="font-weight: bold">{{ produit.prix }} Euro</p>
+    			</div>
+    		</div>
+		{% endfor %}
+	{% elseif affichage == 'lst' %}
+		<table>
+		<tbody>
+    	    {% for produit in produits %}
+       			<tr>
+       				<td><img src="/uploads/brochures/{{produit.image}}" height="200px" width="200px"  class="img-rounded"
+        					 ></img></td>
+        			<td><p>{{ produit.nom }}</p></br>
+        				<p style="font-weight: bold">{{ produit.prix }} Euro</p>
+        			</td>
+       			</tr>
+        	{% endfor %}
+    	</tbody>
+    	</table>
+	{% endif %}
+	
+	</div>
+{% endblock %}
+
+
+{% block javascripts %}
+<script src="{{asset('js/categories.js')}}"></script>
+{% endblock %}

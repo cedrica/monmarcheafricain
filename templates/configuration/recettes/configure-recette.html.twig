@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="col-lg-12">Configurez votre Recette</div>
+	<div class="row divider"></div>
+	<div class="row">
+	{{  include("configuration/recettes/editer-recette.html.twig", {'recette':editerRecetteForm}) }}
+		<div class="col-lg-12"><b style="color:darkorange">{{ recette.nom }}</b>
+		<button data-toggle="modal" data-target="#creerRecetteModal" class="btn fa fa-edit pull-right"></button></div>
+		
+	</div>
+	<div class="row divider"></div>
+	<div class="row ">
+		<div class="col-lg-5 col-md-3 col-sm-3">
+			<p>Liste des ingredients</p>
+			{{ form_start(createIngredientForm) }}
+			{{ form_row(createIngredientForm.nom) }}
+				<button type="submit" class="btn michou-btn">Inserer</button>
+			{{ form_end(createIngredientForm) }}
+			<div class="row divider"></div>
+
+			{% if recette != null %}
+			<div class="sortable">
+				{% for igd in recette.ingredients %}
+				<div id="{{ igd.nom }}" class="box row" style="height: 30px">
+					{{ igd.nom }}
+					<a style="color: red" class="fa fa-close"
+						href="{{ path('mas_remove_ingredient',{'recetteId':recette.id,'ingredientId':igd.id})}}"></a>
+				</div>
+				{% endfor %}
+			</div>
+			{% endif %}
+
+		</div>
+
+		<div class="col-lg-7 col-md-4 col-sm-3">
+			<p>Steps de cuisson</p>
+			<div class="row well">
+				{{ form_start(decrireLeStepForm) }}
+				<div class="form-group">
+					{{ form_row(decrireLeStepForm.description) }}
+				</div>
+				<div class="form-group">
+					{{ form_row(decrireLeStepForm.temps) }}
+				</div>
+				<div class="form-group">
+					<button type="submit" id="creerStep" class="btn michou-btn">creer</button>
+				</div>
+				{{ form_end(decrireLeStepForm) }}
+
+			</div>
+
+			<div class="row divider"></div>
+
+			{% if recette != null %}
+			<div class="sortable">
+				{% for step in recette.steps %}
+				<div class="panel panel-default" id="panel{{ step.id }}">
+					<div class="panel-body">
+						{{ step.description }}
+						<span class="badge pull-right">{{ step.temps }} min</span>
+					</div>
+					<a class="fa fa-close" style="margin-left: 10px"
+						data-toggle="modal" data-target="#confirmModal{{ step.id }}"></a>
+					<a class="fa fa-edit" href="{{ path('configure_recette_controller_editer_step',{'stepId':step.id,'recetteId':recette.id}) }}"
+						style="margin-left: 10px"></a>
+				</div>
+				{{  include("confirm/confirm.html.twig", {'stepId':step.id,'todo':'remove_step', 'recetteId':recette.id, 'message':'Voulez vous vraiment suprimer ce step?'}) }}
+
+				{% endfor %}
+			</div>
+			{% endif %}
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/recettes.css')}}" />
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('js/configurerecette.js') }}"></script>
+{% endblock %}
+
+

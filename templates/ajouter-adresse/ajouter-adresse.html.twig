@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<div class="row divider"></div>
+	{{ form_start(adresseForm) }}
+	{{ form_widget(adresseForm) }}
+	<div class="modal-footer">
+		<button type="submit" class="btn michou-btn form-control">
+			<i class=" fa fa-lock" style="font-size: 20px; color: #fff"></i>
+			ajouter
+		</button>
+	</div>
+	{{ form_end(adresseForm) }}
+{% endblock %}

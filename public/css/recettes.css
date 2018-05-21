@@ -1,0 +1,64 @@
+@media ( min-width : 768px ) {
+	.grid-divider {
+		position: relative;
+		padding: 0;
+	}
+	.grid-divider>[class*='col-'] {
+		position: static;
+	}
+	.grid-divider>[class*='col-']:nth-child(n+2):before {
+		content: "";
+		border-left: 1px solid #DDD;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+	}
+	.col-padding {
+		padding: 0 15px;
+	}
+}
+
+#sortable {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 60%;
+}
+
+#sortable li {
+	margin: 0 3px 3px 3px;
+	padding: 0.4em;
+	padding-left: 1.5em;
+	font-size: 1.4em;
+	height: 18px;
+}
+
+#sortable li span {
+	position: absolute;
+	margin-left: -1.3em;
+}
+
+/* ==========================================================================
+   Boxes
+   ========================================================================== */
+
+.box {
+}
+
+
+
+.top-left-heading p{
+    position: relative;
+    margin:10px;
+
+}
+.top-left-heading p{
+    position: absolute;
+    top: 150px;
+}
+
+.ui-state-highlight {
+    background:#eee;
+    border:1px dotted #333;
+    height:30px;
+}

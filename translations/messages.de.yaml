@@ -1,0 +1,98 @@
+########## HOME ###############
+mma.home: Home
+mma.home.depot: Lager
+mma.home.depot.comment: Wir haben ein Lager wo unsere Lebensmittel gelagert werden
+mma.home.exposition: Ausstellung
+mma.home.exposition.comment: Unsere Produkte sind in mehr als 100 Laden in Europa zu finden
+mma.home.import: Import
+mma.home.import.comment: Wir importieren unsere Lebensmittel per Boot
+mma.home.origin: Herkunftsland 
+mma.home.origin.comment: Auf die Karte grünmarkierte Länder stehen die Herkunftländer unserer Lebensmittel 
+
+########## CATEGORY ###############
+mma.category: Kategorie
+mma.category.price: Preis
+mma.category.from: von
+mma.category.to: bis
+mma.category.action: produkt in Angebot
+mma.category.numberofproduct1: Diese Kategorie beinhalte 
+mma.category.numberofproduct2: Produkte
+mma.category.displayin: Anzeige
+mma.category.liste: Liste
+mma.category.grille: Grill
+mma.category.fruits: Früchte
+mma.category.vegetables: Gemüse
+mma.category.flourandsemolina: Mehl und Grieß
+mma.category.fishandshellfish: Fisch 
+mma.category.fishandshellfishraw: roher Fisch 
+mma.category.fishandshellfishsmoke: geräucherter Fisch
+mma.category.meat: Fleich
+mma.category.meatraw: roher Fleich
+mma.category.meatsmoke: geräucherter Fleich
+mma.category.preserves: Dosen
+mma.category.spices: Gewürze
+
+
+########## SOME RECIPES ###############
+mma.somerecipes: Kochrezept
+mma.some.recipe.norecipeconfigured: Kein Rezept konfiguriert
+
+########## LIVRAISON ###############
+mma.delivery: Lieferung
+
+########## CONTACT ###############
+mma.contact: Kontakt
+mma.contact.reciever: Empfänger
+mma.contact.youremail: Deine Email
+mma.contact.sent: Senden
+mma.contact.message: Dein Nachricht
+
+########## CONFIGURATION ###############
+mma.configuration: Konfiguration
+mma.configuration.editer.produit.action: Angebot
+mma.configuration.recipes: Rezept
+mma.configuration.products: Produkte
+mma.configuration.clients: Kunde
+mma.configuration.save.edited.product: Speichern
+########## CONNEXION ###############
+mma.connection: Einloggen
+mma.logout: Ausloggen
+mma.connection.authenticateyourself: Identifikation
+mma.connection.createyouraccount: Konto erstellen 
+mma.connection.email: E-mail
+mma.connection.create: Erstellen 
+mma.connection.alreafylogggedin: Schon eingeloggt?
+mma.connection.password: Passwort
+mma.connection.passwordvorgoten: Ich habe mein Passwort vergessen
+
+
+########## DELIVERY ###############
+mma.delivery.where: Wir liefern nur in Europa
+mma.delivery.deliverycostsmokedproduct: Versandkosten für gerauchte Lebensmittel
+mma.delivery.weight: Gewicht des Pakets
+mma.delivery.ratefrance: Netto Preis Frankreich(Euro)
+mma.delivery.rateeurope: Netto Preis Europa(Euro)
+mma.delivery.shippingcost:  Versand Kosten
+mma.delivery.additionalfeesfortax: Zusatz Kosten für Zoll und sonstiges
+mma.delivery.deliverycostrawproduct: Versandkosten für Tiefkühlprodukte via CHRONOPOSTFOOD
+mma.delivery.readattentivly: Bitte lesen
+mma.delivery.readattentivly1: Produktversand in Frankreich geht um 14 Uhr nach Zahlungseingang los. Soltte euere Zahlung nach 14 Uhr ankommen dann wird eur Paket erst am kommenden Morgen versand werden und Sie erhalten die Ware spätestens um 24 Uhr nach dem Versand 
+mma.delivery.readattentivly2: Für Lieferungen in anderen Ländern in Europa ist der Versand gleich wie oben geregelt. Die Lieferung geschieht spätestens nach 3 Tage.
+mma.delivery.readattentivly3: Wir gewährleisten kein Paketverlust wegen falscher Adresseingabe ihrerseits. Allerdings alle Paketverlust wegen Missachtung unsererseits wird so schnelll wie möglich von uns geregelt entweder durch Rückerstattung des Geldes oder durch erneute Sendung eines Paket mit beschleunigte Versandart.
+
+
+########## LEFT MENU ###############
+mma.leftmenu.fruits: Früchte
+mma.leftmenu.vegetables: Gemüse
+mma.leftmenu.flourandsemolina: Mehl und Grieß
+mma.leftmenu.fishandshellfish: Fische und Krebstiere
+mma.leftmenu.fishandshellfishraw: Poissons et crustacés crus
+mma.leftmenu.fishandshellfishsmoke: Poissons et crustacés fumés
+mma.leftmenu.meat: Fleish
+mma.leftmenu.meatraw: Viandes crus
+mma.leftmenu.meatsmoke: Viandes fumés
+mma.leftmenu.cans: Dosen
+mma.leftmenu.spices: Gewürze
+
+########## PANIER ###############
+mma.basket.product.count: Produkt(e)

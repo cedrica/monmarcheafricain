@@ -1,0 +1,61 @@
+
+<div id="confirmModal{{ stepId }}" class="modal fade" role="dialog">
+	<div class="vertical-alignment-helper">
+		<div class="modal-dialog vertical-align-center">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-2">
+							{% if todo == 'remove_recette' %}
+							<span class="fa fa-question-circle"
+								style="color: lightblue; font-size: 100px"></span>
+							{% elseif todo == 'configure_recette'%}
+							<span class="fa fa-info-circle"
+								style="color: darkorange; font-size: 100px"></span>
+							{% elseif todo == 'remove_step'%}
+							<span class="fa fa-question-circle"
+								style="color: lightblue; font-size: 100px"></span>
+							{% elseif todo == 'connexion'%}
+							<span class="fa fa-info-circle"
+								style="color: darkorange; font-size: 100px"></span>
+							{% endif %}
+						</div>
+						<div class="col-lg-10">
+							<p
+								style="display: table-cell; vertical-align: middle; height: 100px">
+								{{ message }}
+							</p>
+						</div>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					{% if todo == 'remove_recette' %}
+					<a class="btn michou-btn"
+						href="{{ path('configuration_recette_controller_remove',{'recetteId': recetteId}) }}">Oui</a>
+					<a type="button" class="btn btn-default"
+						href="{{ path('configuration_controller_init_view',{'cfg':'rct'}) }}">Non</a>
+					{% elseif todo == 'remove_step'%}
+					<a class="btn michou-btn" type="button"
+						href="{{ path('confirm_controller_remove_step',{'recetteId':recetteId, 'stepId':step.id})}}">Oui</a>
+					<button   data-dismiss="modal" class="btn btn-default">Non</button>
+					{% elseif todo == 'configure_recette' %}
+					<a class="btn michou-btn"
+						href="{{ path('configure_recette_controller_configure_recette',{'id':recetteId}) }}">Ok</a>
+					{% elseif todo == 'connexion'%}
+					<a class="btn michou-btn"
+						href="{{ path('connexion_controller_connexion') }}">Ok</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$('#confirmModal').modal({
+		backdrop : 'static',
+		show : true,
+		keyboard : false
+	})
+</script>
+

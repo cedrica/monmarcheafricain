@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{{ form_start(editProduitForm) }}
+	<div class="form-group">
+		{{ form_row(editProduitForm.nom) }}
+	</div>
+	<div class="form-group">
+		{{ form_row(editProduitForm.prix) }}
+	</div>
+	<div class="form-group">
+		{{ form_row(editProduitForm.etat) }}
+	</div>
+	<div class="form-group">
+		{{ form_row(editProduitForm.categorie) }}
+	</div>
+	<div class="form-group">
+		{{ form_row(editProduitForm.quantite) }}
+	</div>
+	<div class="form-group">
+		{{ form_row(editProduitForm.disponible) }}
+	</div>
+
+	<div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion"
+						href="#collapse1"> {{ 'mma.configuration.editer.produit.action'|trans }}</a>
+				</h4>
+			</div>
+			<div id="collapse1" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="form-group">
+            			{{ form_row(editProduitForm.action) }}
+            		</div>
+            		<div class="form-group">
+            			{{ form_row(editProduitForm.pourcentageDeRabait) }}
+            		</div>
+            		<div class="form-group">
+            			{{ form_row(editProduitForm.actionDebut) }}
+            		</div>
+            		<div class="form-group">
+            			{{ form_row(editProduitForm.actionFin) }}
+            		</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		{{ form_row(editProduitForm.image) }}
+	</div>
+	
+            		<div class="modal-footer">
+            			<button type="submit" class="btn michou-btn">{{ 'mma.configuration.save.edited.product'|trans }}</button>
+    					<a href="{{ path('configuration_controller_init_view',{'cfg':'prod'}) }}" class="btn btn-default">Annuler</a>
+					</div>
+	{{ form_end(editProduitForm) }}
+<script>
+    $(document).ready(function() {
+        // you may need to change this code if you are not using Bootstrap Datepicker
+        $('.js-datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    });
+</script>
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

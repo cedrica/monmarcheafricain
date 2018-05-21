@@ -1,0 +1,65 @@
+
+<div class="row">
+	<div class="col-lg-6 col-md-6">
+	<a  href="/{{ app.request.locale }}">
+	<img src="{{ asset('images/monmarcheafricain-logo.PNG') }}"
+			style="width: 300px; height: 100px; margin-left: 0px" />
+			</a>
+	</div>
+	<div class="col-lg-6 col-md-6">
+		<div class="row">
+			<a class="fa fa-shopping-cart pull-right" href="/{{ app.request.locale }}/panier"
+				style="font-size: 24px; margin-bottom: 10px; color: #33cc33"> {{ app.session.get('quantite')}}
+				{{ 'mma.basket.product.count'|trans }}
+			</a>
+		</div>
+		<div class="row">
+			<div class="input-group stylish-input-group">
+				<input id="recherche" type="text" onchange="recherche()" class="form-control" placeholder="Recherche...">
+				<span class="input-group-addon">
+					<button>
+						<span class="fa fa-search" style="color:lightgray"></span>
+					</button>
+				</span>
+			</div>
+		</div>
+	</div>
+		<script language = "javascript">   
+		function recherche() {
+	    	var x = document.getElementById("recherche");
+			$(document).ready(function(){  
+				$.ajax({  
+                    url:        '/recherche/ajax',  
+                    type:       'POST',   
+                    dataType:   'json',
+                    data : {
+                    	search: x.value
+                    }, 
+                    async:      true,  
+                     
+                    success: function(data, status) { 
+                        if(data.length == 0){
+                        	  $('.content').html('<div class="row  alert alert-info" role="info"><p>Aucun resultat trouvé pour cette recherche</p></div>');
+                        }else{
+                        	$('.content').html('');
+                        	var e = $('<table><tbody>');
+                        	$('.content').append(e);
+                        	for(i = 0; i < data.length; i++) {
+                                produit = data[i]; 
+								var e = $('<tr><td><img src=/uploads/'+produit['image']+ ' height="200px" width="200px"  class="img-rounded">'
+										+'</img></td><td><p>'+produit['nom']+'</p></br><p style="font-weight: bold">'+produit['prix']+' Euro</p>'
+                                			+'</td></tr>');
+								$('.content').append(e);
+                             } 
+                        	
+                        	$('.content').append('</tbody></table>');
+                        }
+                    },  
+                    error : function(xhr, textStatus, errorThrown) {  
+               	 		alert('Ajax request failed: '+errorThrown+' textStatus: '+textStatus);  
+                    }  
+    			});
+         });
+      } 
+   </script>
+</div>

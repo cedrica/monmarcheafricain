@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+		{{ compte.nom }}
+		{{ compte.prenom }}
+	</div>
+	<div class="row divider"></div>
+
+	<div class="row">
+		<table>
+			<tr>
+				<td><b>Titre:</b></td>
+				<td>{{ compte.titre }}</td>
+			<tr>
+			<tr>
+				<td><b>Nom:</b></td>
+				<td>{{ compte.nom }}</td>
+			<tr>
+			<tr>
+				<td><b>Prenom:</b></td>
+				<td>{{ compte.prenom }}</td>
+			<tr>
+			<tr>
+				<td><b>Date de naissance:</b></td>
+				<td>{{ compte.dateDeNaissance|date('Y-m-d') }}</td>
+			<tr>
+			<tr>
+				<td><b>Adresse:</b></td>
+				<td></td>
+			<tr>
+			<tr>
+				<td><b>Role actuel:</b></td>
+				<td>{{ compte.role }}</td>
+			<tr>
+		</table>
+	</div>
+	<form action="/changer-role/{{ compte.id }}" novalidate="novalidate"
+		method="post">
+		<div class="row">
+			<div class="col-lg-4 well">
+				<h4>Changer mon Role</h4>
+				<div class="form-group">
+					<select class="form-control" name="role">
+						<option selected="true">--choisir un role--</option>
+						<option value="ADMIN">Admin</option>
+						<option value="SIMPLE_CLIENT">Simple client</option>
+						<option value="WEB_MASTER">Webmaster</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<button>Valider</button>
+				</div>
+			</div>
+		</div>
+
+	</form>
+{% endblock %}

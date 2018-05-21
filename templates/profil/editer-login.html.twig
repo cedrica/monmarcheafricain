@@ -1,0 +1,21 @@
+
+<div id="editerLoginModal" id="editer_login_dialog"
+	class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Editer vos donnees d´enregistrement</h4>
+			</div>
+			<div class="modal-body">
+				{{ form_start(editerLoginForm) }}
+				{{ form_widget(editerLoginForm) }}
+				<div class="modal-footer">
+					<button type="submit" class="btn michou-btn">Editer</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+				</div>
+				{{ form_end(editerLoginForm) }}
+			</div>
+		</div>
+	</div>
+</div>

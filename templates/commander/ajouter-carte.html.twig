@@ -1,0 +1,27 @@
+
+<div id="ajouterCarteModal" id="ajouter_carte_dialog" class="modal fade"
+	role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Ajouter une carte de credit</h4>
+			</div>
+			<div class="modal-body">
+				{{ form_start(ajouterCarteForm) }}
+				{{ form_row(ajouterCarteForm.nomDeLaCarte) }}
+				{{ form_row(ajouterCarteForm.numeroDeLaCarte) }}
+				{{ form_row(ajouterCarteForm.dateDExpiration, {'date_pattern': '<span style="display: none;">{{ day }}</span> {{ month }} <span class="delim">&#47;</span> {{ year }}'}) }}
+				{{ form_row(ajouterCarteForm.defaultCarte) }}
+				<div class="modal-footer">
+					<button typeX="submit" class="btn michou-btn">Inserer</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Suprimer</button>
+				</div>
+				{{ form_end(ajouterCarteForm) }}
+				
+			</div>
+		</div>
+	</div>
+</div>

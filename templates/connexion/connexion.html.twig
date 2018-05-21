@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<div class="row">
+		<p class="pull-left">Identifiez-vous</p>
+	</div>
+	<div class="row divider"></div>
+{{  include("commun/error-info-success.html.twig") }}
+	<div class="row">
+		<div class="col-lg-5 well">
+			<p>Cr&eacute;ez votre compte</p>
+			<div class="divider"></div>
+
+			<form method="post" action="/{{ app.request.locale }}/creer-compte">
+				<div class="form-group">
+					<label for="inputEmail3">E-mail</label> <input type="email"
+						name="email" required="true" class="form-control" id="inputEmail"
+						placeholder="Email">
+				</div>
+				<div class="form-group">
+					<button class="btn form-control"
+						style="background-color: #33cc33; color: #fff; text-align: top;"
+						type="submit">
+						<i class="fa fa-user-circle" style="font-size: 20px; color: #fff;"></i>
+						Creer un compte
+					</button>
+				</div>
+			</form>
+		</div>
+		<div class="col-lg-1"></div>
+		<div class="col-lg-5  well">
+			<p>D&eacute;j&agrave; inscrit?</p>
+			<div class="divider"></div>
+				{{ form_start(sEnregisterForm) }}
+				{{ form_widget(sEnregisterForm) }}
+				<div class="modal-footer">
+					<button type="submit" class="btn michou-btn form-control">
+					<i class=" fa fa-lock" style="font-size: 20px; color: #fff"></i>
+					Connexion
+					</button>
+				</div>
+				<a href="{{ path('connection_controller_mot_de_pas_oublie',{'_locale':app.request.locale}) }}" class="pull-left">J´ai oublié mon mot de pass</a>
+				{{ form_end(sEnregisterForm) }}
+		</div>
+	</div>
+{% endblock %}
+{% block javascripts %}
+<script src="{{asset('/js/connection.js')}}"></script>
+{% endblock %}

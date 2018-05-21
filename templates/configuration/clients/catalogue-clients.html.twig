@@ -1,0 +1,74 @@
+{% block body %}
+		<div class="form-group" class="col-lg-12">
+			<input id="tfRecherche" type="text" onchange="chercherCompte()"  class="form-control" placeholder="chercher un client ...">
+		</div>
+	<div id="tableau" >
+		<table class="col-lg-12">
+			<thead>
+				<th>Titre</th>
+				<th>Nom Prenom</th>
+				<th>Role</th>
+				<th></th>
+				<th></th>
+			</thead>
+			<tbody id="tbClients">
+				{% for compte in comptes %}
+				<tr>
+					<td>{{ compte.titre }}</td>
+					<td>{{ compte.nom }} {{ compte.prenom }}</td>
+					<td>{{ compte.role }}</td>
+    				<td><a class="fa fa-edit"
+    					href="{{ path('compte_controller_edit',{'id':compte.id}) }}"></a></td>
+    				<td><a class="fa fa-trash" href="{{ path('compte_controller_delete',{'id':compte.id}) }}"  style="color:red"></a></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<script>
+    $("#tfRecherche").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#tbClients tr").filter(function() {
+			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+	</script>
+	<script language = "javascript">   
+		/*function chercherCompte() {
+	    	var x = document.getElementById("tfRecherche");
+			$(document).ready(function(){  
+				$.ajax({  
+                    url:        '/filtrer-compte/ajax',  
+                    type:       'POST',   
+                    dataType:   'json',
+                    data : {
+                    	search: x.value
+                    }, 
+                    async:      true,  
+                     
+                    success: function(data, status) {  
+                        alert('Ca entre');
+                        var e = $('<table class="col-lg-12"><thead><th>Titre</th><th>Nom Prenom</th><th>Role</th><th>Edit</th></thead><tbody>');  
+                        $('#tableau').html('');  
+                        $('#tableau').append(e);  
+                        for(i = 0; i < data.length; i++) {  
+                           compte = data[i];  
+                           var id = compte['id'];
+                           var e = $('<tr><td id = "titre"></td><td id = "nomprenom"></td><td id = "role"></td><td><a class="fa fa-edit" href="/editer-compte/'+id+'"></a></td></tr>');
+
+                           $('#titre', e).html(compte['titre']);  
+                           $('#nomprenom', e).html(compte['nom']+' '+compte['prenom']);  
+                           $('#role', e).html(compte['role']);  
+                           $('#tableau').append(e);  
+                        }  
+                        var e = $('</tbody></table>');
+                        $('#tableau').append(e);
+                    },  
+                    error : function(xhr, textStatus, errorThrown) {  
+               	 		alert('Ajax request failed.'+errorThrown+'textStatus'+textStatus);  
+                    }  
+    			});
+         });
+      } */
+   </script> 
+{% endblock %}

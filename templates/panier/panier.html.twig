@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">Mon Panier</div>
+	<div class="row divider"></div>
+	<div class="row">
+		{% if  panier.panieritems is empty %}
+		<div class="alert alert-info" role="alert">Votre panier est vide</div>
+		{% else %}
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Produit</th>
+					<th>Description</th>
+					<th>Quantit&eacute;</th>
+					<th width="100px">Prix total</th>
+				</tr>
+			</thead>
+			<tbody>
+				{%   for panierItem in panier.panieritems %}
+				<tr valign="center">
+					<td><img src="/uploads/brochures/{{  panierItem.produit.image }}"
+						height="200px;" width="200px"></td>
+					<td>
+						<table>
+							<tr>
+								<td><h3>
+										<b>{{  panierItem.produit.nom }}</b>
+									</h3></td>
+							</tr>
+							<tr>
+								<td>Prix unitaire: {{  panierItem.produit.prix }} €
+								</td>
+							</tr>
+							<tr>
+								<td>Reference: {{  panierItem.produit.reference }}</td>
+							</tr>
+							<tr>
+								<td><a style="font-size: 12px;"
+									href="{{path('mas_panier',{'id':panierItem.produit.id})}}">Enlever
+										du panier</a></td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+							</tr>
+							<tr>
+								<td>{{  panierItem.quantite }}</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+							</tr>
+
+							<tr>
+								<td></td>
+							</tr>
+							<tr>
+								<td>{{  panierItem.produit.prix *  panierItem.quantite }}
+									€</td>
+							</tr>
+						</table>
+					</td>
+
+				</tr>
+				{%  endfor %}
+				<tr>
+					<td></td>
+					<td></td>
+					<td colspan="2"><input type="text" value=""
+						placeholder="inserez votre coupon" style="float: left;">
+						<button class="btn">valider</button></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td>Total produits TTC :</td>
+					<td>{{ totalProduit }}</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td>Frais de port</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td>TOTAL</td>
+					<td>{{fraisDeTransport+totalProduit}}</td>
+				</tr>
+			</tbody>
+		</table>
+		{% endif %}
+	</div>
+	{% if  panier.panieritems is not empty %}
+	<div class="row">
+		<a class="btn btn-default" href="{{ path('panier_controller_verifier_connexion',{'_locale':app.request.locale}) }}"
+			style="background-color: #33cc33; color: #fff">Aller à la caisse</a>
+	</div>
+	{% endif %}
+{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('/css/panier.css')}}" />
+{% endblock %}
+
+{% block javascripts %}
+<script src="js/panier.js"></script>
+{% endblock %}

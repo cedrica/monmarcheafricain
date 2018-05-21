@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{  include("commun/error-info-success.html.twig") }}
+
+ <div id="recettes" class="tabcontent">
+	 {{  include("configuration/recettes/catalogue-des-recettes.html.twig") }}
+</div>
+
+<div id="produits" class="tabcontent">
+    {{  include("configuration/produits/catalogue-produit.html.twig") }}
+</div>
+
+<div id="clients" class="tabcontent">
+    {{  include("configuration/clients/catalogue-clients.html.twig") }}
+</div>
+<div id="produitModal" id="contact_dialog" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Inserer un produit</h4>
+			</div>
+			<div class="modal-body">
+				{{ form_start(produitForm) }}
+				{{ form_widget(produitForm) }}
+				<div class="modal-footer">
+					<button type="submit" class="btn michou-btn">Inserer</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+				</div>
+				{{ form_end(produitForm) }}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/configuration.css')}}" />
+{% endblock %}
+{% block javascripts %}
+<script src="{{asset('js/configuration.js')}}"></script>
+{% endblock %}

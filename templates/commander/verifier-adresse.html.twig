@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">Adresses</div>
+	<div class="row divider"></div>
+	<div class="row">
+		<div class="col-lg-3">
+			<p style="text-align: center;">03. Connexion</p>
+			<div style="background-color: lightgray; width: 100%; height: 10px"></div>
+		</div>
+		<div class="col-lg-3">
+			<p style="text-align: center;">04. Adresse</p>
+			<div style="background-color: #33cc33; width: 100%; height: 10px"></div>
+		</div>
+		<div class="col-lg-3">
+			<p style="text-align: center;">05. Livraison</p>
+			<div style="background-color: lightgray; width: 100%; height: 10px"></div>
+		</div>
+		<div class="col-lg-3">
+			<p style="text-align: center;">06. Payement</p>
+			<div style="background-color: lightgray; width: 100%; height: 10px"></div>
+		</div>
+	</div>
+	<div class="row" style="height: 30px"></div>
+	<div class="row">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group" style="margin-left: 10px">
+					<label for="adresse">Choisissez une adresse de livraison:</label> 
+					<select onchange="myFunction()"
+						class="form-control" id="adresse" name="adresseSelectionee">
+						{% for adresse in adresses %}
+						<option  value='<p>{{ adresse.boitePostale }} {{ adresse.ville }}</p> <p>{{ adresse.pays }} {{ adresse.rueEtNr }} </p>' >{{ adresse.rueEtNr }} </option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+
+				<div class="panel panel-default">
+					<div class="panel-heading">ADRESSE DE LIVRAISON</div>
+					<div class="panel-body">
+					</div>
+			</div>
+		</div>
+		<div class="col-lg-6"></div>
+	</div>
+	<div class="row">
+    	<div class="col-lg-6"><a class="btn" href="{{ path('commander_controller_ajouter_adresse',{'id': app.session.get('compte').id,'_locale':app.request.locale }) }}">Ajouter une adresse</a></div>
+    	<div class="col-lg-6"><a class="btn" href="{{ path('mas_moyen_de_livraison') }}">Continuer</a></div>
+	</div>
+	
+<script language = "javascript">   
+		function myFunction() {
+		    var x = document.getElementById("adresse").value;
+		    $('.panel-body').html(x);
+		}
+   </script>
+{% endblock %}

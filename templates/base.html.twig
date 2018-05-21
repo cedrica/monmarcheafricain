@@ -1,12 +1,176 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}mon marché africain{% endblock %}</title>
+{% block stylesheets %}
+{% endblock %}
+
+<link rel="icon" type="image/x-icon" href="{{ asset('/images/mon-marche-africain-ico.ico') }}" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="{{ asset('bundles/fosjsrouting/js/router.js')}}"></script>
+<script src="{{asset('js/fos_js_routes.js')}}"></script>
+
+<script src="{{asset('js/michouafroshop.core.js')}}"></script>
+{% block javascripts %}
+
+{% endblock %}
+<link href="{{ asset('css/michouafroshop.css') }}" rel="stylesheet" />
+<link href="{{ asset('css/card.css') }}" rel="stylesheet" />
+<style>
+</style>
+</head>
+
+<body>
+	<div class="col-lg-2 col-md-1 col-sm-1"></div>
+	<div class="col-lg-8 col-md-10 col-sm-10">
+			<div class="row" style="height: 10px"></div>
+			<div class="row">
+				<div class="col-lg-5"></div>
+				<div class="col-lg-2">
+					<a href="{{ path('start_controller_start',{'_locale':'de'}) }}"> <img
+						src="{{ asset('images/drapeau-allemend.png') }}"
+						style="height: 15px;" /></a> <a
+						href="{{ path('start_controller_start',{'_locale':'fr'}) }}"> <img
+						src="{{ asset('images/drapeau-francais.png') }}"
+						style="height: 15px;" /></a> <a
+						href="{{ path('start_controller_start',{'_locale':'en'}) }}"> <img
+						src="{{ asset('images/drapeau-anglais.jpg') }}"
+						style="height: 15px;" /></a>
+				</div>
+
+
+				{% if app.session.get('compte') != null %}
+				<div class="col-lg-3">
+					<a class="nav-link"
+						href="{{ path('profil_controller_open_profil',{'id': app.session.get('compte').id,'_locale':app.request.locale}) }}"
+						{{ app.session.get('compte').id }}> {{ app.session.get('compte').nom }}
+						{{ app.session.get('compte').prenom }}</a>
+				</div>
+				<div class="col-lg-2">
+					<a class="nav-link  pull-right"
+						href="{{ path('connection_controller_deconnexion',{'_locale':app.request.locale}) }}">{{ 'mma.logout'|trans }}</a>
+				</div>
+				{% else %}
+				<div class="col-lg-3"></div>
+				<div class="col-lg-2">
+					<a class="nav-link  pull-right" href="/{{ app.request.locale }}/connexion">{{ 'mma.connection'|trans }}</a>
+				</div>
+				{% endif %}
+			</div>
+
+			{{  include("logo-recherche.html.twig") }}
+			{{  include("menu-bar.html.twig") }}
+			<div class="conatiner">
+				<div class="row">
+						{% if (page == 'configuration') %}
+    						<div class="tab col-lg-3 col-md-4 col-sm-4" style="padding:0px">
+                                  <button class="tablinks" onclick="openCity(event, 'recettes')" id="defaultOpen">{{'mma.configuration.recipes'|trans }}</button>
+                                  <button class="tablinks" onclick="openCity(event, 'produits')">{{ 'mma.configuration.products'|trans }}</button>
+                                  <button class="tablinks" onclick="openCity(event, 'clients')">{{ 'mma.configuration.clients'|trans }}</button>
+    						</div>
+						{% elseif (page != 'start') %}
+    						<div class="col-lg-3 col-md-4 col-sm-4">
+    							<ul class="list-group">
+    								<li class="list-group-item"><a
+    									href="/{{ app.request.locale }}/categories/fruits?affichage=gr">{{ 'mma.leftmenu.fruits'|trans }}</a></li>
+    								<li class="list-group-item"><a
+    									href="/{{ app.request.locale }}/categories/légumes?affichage=gr">{{ 'mma.leftmenu.vegetables'|trans }}</a></li>
+    								<li class="list-group-item"><a href="">{{ 'mma.leftmenu.flourandsemolina'|trans }}</a></li>
+    								<li class="list-group-item"><a data-toggle="collapse"
+    									aria-expanded="false" href="#collapsePoissonsCrustaces"
+    									id="collapsePoissonsCrustacesHref"
+    									aria-controls="collapsePoissonsCrustaces">{{ 'mma.leftmenu.fishandshellfish'|trans }}</a> <i class="fa fa-plus-square pull-right"
+    									id="collapsePoissonsCrustacesHrefI" data-toggle="collapse"
+    									style="font-size: 24px; margin-bottom: 10px; color: #33cc33"></i></li>
+    								<div class="collapse" id="collapsePoissonsCrustaces">
+    									<div class="list-group-item">
+    										<a href="/{{ app.request.locale }}/categories/poissons et crustacés crus?affichage=gr">{{ 'mma.leftmenu.fishandshellfishraw'|trans }}</a>
+    									</div>
+    									<div class="list-group-item">
+    										<a href="/{{ app.request.locale }}/categories/poissons et crustacés fumés?affichage=gr">{{ 'mma.leftmenu.fishandshellfishsmoke'|trans }}</a>
+    									</div>
+    								</div>
+    
+    								<li class="list-group-item"><a data-toggle="collapse"
+    									href="#collapseViande" aria-expanded="false"
+    									aria-controls="collapseViande" id="collapseViandeHref">{{ 'mma.leftmenu.meat'|trans }}</a>
+    									<i id="collapseViandeHrefI"
+    									class="fa fa-plus-square pull-right"
+    									style="font-size: 24px; margin-bottom: 10px; color: #33cc33"></i></li>
+    								<div class="collapse" id="collapseViande">
+    									<div class="list-group-item">
+    										<a href="/{{ app.request.locale }}/categories/viandes crus?affichage=gr">{{ 'mma.leftmenu.meatraw'|trans }}</a>
+    									</div>
+    									<div class="list-group-item">
+    										<a href="/{{ app.request.locale }}/categories/viandes fumés?affichage=gr">{{ 'mma.leftmenu.meatsmoke'|trans }}</a>
+    									</div>
+    								</div>
+    								<li class="list-group-item"><a
+    									href="/{{ app.request.locale }}/categories/conserves?affichage=gr">{{ 'mma.leftmenu.cans'|trans }}</a></li>
+    								<li class="list-group-item"><a
+    									href="/{{ app.request.locale }}/categories/épices?affichage=gr">{{ 'mma.leftmenu.spices'|trans }}</a></li>
+    							</ul>
+    						</div>
+						{% endif %}
+						
+						{% if(page == 'start') %}
+						<div class="col-lg-12 col-md-10 col-sm-10 content">
+						{% else %}
+						<div class="col-lg-9 col-md-8 col-sm-8 content">
+						{% endif %}
+    						{% block body %}
+    						{% endblock %}
+						</div>
+						
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-2 col-md-1 col-sm-1"></div>
+	
+	<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+	$(function() {
+		$(".sortable").sortable({
+			containment : "parent",
+			placeholder : "ui-state-highlight"
+		});
+	});
+</script>
+</body>
 </html>

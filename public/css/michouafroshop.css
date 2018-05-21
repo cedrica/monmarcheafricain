@@ -1,0 +1,163 @@
+body {
+	font-family: HelveticaNeueW01-55Roma,HelveticaNeueW02-55Roma,HelveticaNeueW10-55Roma,sans-serif;
+}
+
+.bold{
+font-weight: bold;
+}
+
+td{
+	padding: 10px;
+	
+}
+
+.menu-item {
+	padding-top: 11px;
+}
+
+.menu-item a {
+	color: #fff;
+	text-decoration: none
+}
+
+.menu-item a.active {
+	background-color: gray;
+	padding: 11px;
+}
+
+.ul-helper {
+	list-style-type: none;
+	display: flex;
+	justify-content: center;
+}
+
+.ul-helper li {
+	display: list-item;
+	padding: 0px 0px 0px 20px;
+	margin: 0px 50px 0px 50px;
+}
+
+.ul-helper li a {
+	
+}
+
+p {
+	text-align: center;
+}
+
+.icon-flipped {
+	transform: scaleX(-1);
+	-moz-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	-ms-transform: scaleX(-1);
+}
+
+.michou-btn {
+	background-color: #33cc33;
+	color: #fff;
+}
+
+.divider {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.vertical-menu {
+    width: 200px;
+}
+
+.vertical-menu a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc;
+}
+
+.vertical-menu a.active {
+    background-color: #33cc33;
+    color: white;
+}
+
+.active {
+    background-color: #33cc33;
+    color: white;
+}
+
+.divider-vertical {
+    height: 200px;
+    margin: 0 9px;
+    border-right: 1px solid #ffffff;
+    border-left: 1px solid #f2f2f2;
+}
+
+.fa-close{
+	color: red;
+}
+
+.fa-edit{
+	color: darkorange;
+}
+
+.vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    margin:auto;
+}
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+}
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+.tab {
+    float: left;
+    background-color: #f1f1f1;
+    height: 300px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    padding: 0px 12px;
+}

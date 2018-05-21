@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+		<i class="fa fa-truck icon-flipped"
+			style="color: #33cc33; font-size: 20px"></i> {{ 'mma.delivery'|trans }}
+	</div>
+	<div class="row divider"></div>
+	<div class="row">{{ 'mma.delivery.where'|trans }}</div>
+	<div class="row">
+		<u style="color: darkorange;">{{ 'mma.delivery.deliverycostsmokedproduct'|trans }}</u>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>{{ 'mma.delivery.weight'|trans }}</th>
+					<th>{{ 'mma.delivery.ratefrance'|trans }}</th>
+					<th>{{ 'mma.delivery.rateeurope'|trans }}</th>
+					<th>{{ 'mma.delivery.additionalfeesfortax'|trans }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>0-5kg</td>
+					<td>0&euro;</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5-10kg</td>
+					<td>0&euro;</td>
+					<td>15&euro;</td>
+					<td>14,82&euro;</td>
+				</tr>
+				<tr>
+					<td>10-15kg</td>
+					<td>0&euro;</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>15-nkg</td>
+					<td>0&euro;</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<u style="color: blue;">{{ 'mma.delivery.deliverycostrawproduct'|trans }} <i style="font-weight: bold;">CHRONOPOSTFOOD</i>
+		</u>
+		<table class="table">
+			<thead>
+				<tr>		
+					<th>{{ 'mma.delivery.weight'|trans }}</th>
+					<th>{{ 'mma.delivery.ratefrance'|trans }}</th>
+					<th>{{ 'mma.delivery.rateeurope'|trans }}</th>
+					<th>{{ 'mma.delivery.additionalfeesfortax'|trans }}</th>
+					<th>{{ 'mma.delivery.shippingcost'|trans }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>0-5kg</td>
+					<td>0&euro;</td>
+					<td>15&euro;</td>
+					<td>23,52&euro;</td>
+					<td>10,68&euro;</td>
+				</tr>
+				<tr>
+					<td>5-10kg</td>
+					<td>0&euro;</td>
+					<td>15&euro;</td>
+					<td>23,52&euro;</td>
+					<td>7,40&euro;</td>
+				</tr>
+				<tr>
+					<td>10-15kg</td>
+					<td>0&euro;</td>
+					<td>10&euro;</td>
+					<td>23,52&euro;</td>
+					<td>gratuit <i class="fa fa-smile-o"
+						style="color: #33cc33; font-size: 24px"></td>
+				</tr>
+				<tr>
+					<td>15-nkg</td>
+					<td>0&euro;</td>
+					<td>10&euro;</td>
+					<td>23,52&euro;</td>
+					<td>gratuit <i class="fa fa-smile-o"
+						style="color: #33cc33; font-size: 24px"></i></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+
+		<div class="panel">
+			<div class="panel-heading"
+				style="background-color: #33cc33; color: #fff">{{ 'mma.delivery.readattentivly'|trans }}</div>
+			<div class="panel-body well">
+				<ul>
+					<li>{{ 'mma.delivery.readattentivly1'|trans }}</li>
+					<li>{{ 'mma.delivery.readattentivly2'|trans }}</li>
+					<li>{{ 'mma.delivery.readattentivly3'|trans }}
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/livraison.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('js/livraison.js') }}"></script>
+{% endblock %}

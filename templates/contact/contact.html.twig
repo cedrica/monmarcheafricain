@@ -1,0 +1,43 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+		<i class="fa fa-envelope-open" style="color: #33cc33; font-size: 20px"></i>
+		Laissez nous un message
+	</div>
+	<div class="row divider"></div>
+	<form action="/{{app.request.locale}}/message-envoye" method="post">
+		<div class="row">
+			<div class="col-lg-4">
+
+				<div class="form-group">
+					<label for="email">Destinataire:</label> 
+					<select class="form-control" name="reciever" required>
+						<option value="" selected>Choisissez</option>
+						<option value="webmaster@monmarcheafricain.com">Webmaster</option>
+						<option value="djikeussi2001@yahoo.fr">Service Client</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="email">Votre addresse E-mail:</label> <input 
+						type="email" class="form-control" name="sender" required>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn form-control"
+						style="background-color: #33cc33; color: #fff">
+						<i class="fa fa-envelope" style="color: #fff"></i> Envoyer
+					</button>
+				</div>
+			</div>
+			<div class="col-lg-8">
+				<div class="form-group">
+					<label for="message">Votre message:</label>
+					<textarea class="form-control" rows="7" id="message" name="msgbody" required></textarea>
+				</div>
+			</div>
+	</form>
+</div>
+
+{% endblock %}

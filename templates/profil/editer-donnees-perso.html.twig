@@ -1,0 +1,29 @@
+
+<div id="editerDonneesPersoModal" id="editer_donnees_perso_dialog"
+	class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Editer vos données personelles</h4>
+			</div>
+			<div class="modal-body">
+				{{ form_start(editerDonneesPersoForm) }}
+				{{ form_widget(editerDonneesPersoForm) }}
+				<div class="modal-footer">
+					<button type="submit" class="btn michou-btn">Editer</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+				</div>
+				<script>
+                    $(document).ready(function() {
+                        // you may need to change this code if you are not using Bootstrap Datepicker
+                        $('.js-datepicker').datepicker({
+                            format: 'yyyy-mm-dd'
+                        });
+                    });
+                </script>
+				{{ form_end(editerDonneesPersoForm) }}
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,42 @@
+<form method="post" action="{{ path("profil_controller_editer_adresse",{'id':adresse.id})  }}">
+<div id="editerAdressesModal{{ adresse.id }}" id="editer_adresse_dialog{{ adresse.id }}"
+	class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Editer vos adresses</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="inputPays">Pays</label> <input type="text"
+						required="true" class="form-control" id="inputPays" value="{{ adresse.pays }}"
+						placeholder="Pays" name="pays">
+				</div>
+				<div class="form-group-row">
+					<div class="col-xs-3" style="padding: 0px;">
+						<label for="inputPrenom">BP</label> <input type="text"
+							required="true" class="form-control" id="inputBP" value="{{ adresse.boitePostale }}"
+							name="boitePostale" placeholder="BP">
+					</div>
+					<div class="col-xs-9" style="padding: 0px;">
+						<label for="inputPrenom">Ville</label> <input type="text"
+							required="true" name="ville" class="form-control" id="inputVille" value="{{ adresse.ville }}"
+							placeholder="Ville">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPays">Rue et nr.</label> <input type="text"
+						required="true" class="form-control" id="inputRue" value="{{ adresse.rueEtNr }}"
+						placeholder="Rue et nr." name="rueEtNr">
+				</div>
+
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn michou-btn">Editer</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+			</div>
+		</div>
+	</div>
+</div>
+</form>

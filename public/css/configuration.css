@@ -1,0 +1,9 @@
+thead{
+	background-color: #33cc33;
+	color:#fff;
+	height: 40px;
+}
+th, td {
+    padding: 5px;
+}
+
