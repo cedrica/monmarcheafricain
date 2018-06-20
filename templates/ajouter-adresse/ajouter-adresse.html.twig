@@ -1,13 +1,19 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+	<div class="row">{{ 'mma.editadress.addnewadress'|trans }} </div>
 	<div class="row divider"></div>
-	{{ form_start(adresseForm) }}
-	{{ form_widget(adresseForm) }}
-	<div class="modal-footer">
-		<button type="submit" class="btn michou-btn form-control">
-			<i class=" fa fa-lock" style="font-size: 20px; color: #fff"></i>
-			ajouter
-		</button>
+	<div class="col-lg-6">
+		{{ form_start(adresseForm) }}
+    	{{ form_widget(adresseForm) }}
+    	<div class="modal-footer"  style="padding-left:0px;padding-right:0px">
+    		<button type="submit" class="btn michou-btn form-control">
+    			{{ 'mma.add'|trans }}
+    		</button>
+    	</div>
+    	{{ form_end(adresseForm) }}
 	</div>
-	{{ form_end(adresseForm) }}
+	<div class="col-lg-6">
+		<i class="fa fa-address-card" style="color:gray;font-size:300px"></i>
+	</div>
+
 {% endblock %}

@@ -17,9 +17,14 @@ class RecetteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-    	$builder->add('nom', TextType::class, array('required'=>true,'attr' => array('class' => 'form-control')
+    	$translator = $options['translator'];
+    	$builder->add('nom', TextType::class, array(
+    			'label' => $translator->trans('mma.recette.name'),
+    			'required'=>true,'attr' => array('class' => 'form-control')
         ))
-        ->add('image', FileType::class, array('required'=>true,'data_class' => null))
+        ->add('image', FileType::class, array('required'=>true,
+        		'label' => $translator->trans('mma.recette.image'),
+        		'data_class' => null))
         ;
     }
     
@@ -31,6 +36,7 @@ class RecetteType extends AbstractType
     	$resolver->setDefaults(array(
     			'data_class' => 'App\Entity\Recette'
     	));
+    	$resolver->setRequired('translator');
     }
 
 }

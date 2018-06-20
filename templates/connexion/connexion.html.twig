@@ -3,13 +3,13 @@
 {% block body %}
 
 	<div class="row">
-		<p class="pull-left">Identifiez-vous</p>
+		<p class="pull-left">{{ 'mma.connection.authenticateyourself'|trans }}</p>
 	</div>
 	<div class="row divider"></div>
 {{  include("commun/error-info-success.html.twig") }}
 	<div class="row">
 		<div class="col-lg-5 well">
-			<p>Cr&eacute;ez votre compte</p>
+			<p>{{ 'mma.connection.createyouraccount'|trans }}</p>
 			<div class="divider"></div>
 
 			<form method="post" action="/{{ app.request.locale }}/creer-compte">
@@ -23,24 +23,24 @@
 						style="background-color: #33cc33; color: #fff; text-align: top;"
 						type="submit">
 						<i class="fa fa-user-circle" style="font-size: 20px; color: #fff;"></i>
-						Creer un compte
+						{{ 'mma.connection.create'|trans }}
 					</button>
 				</div>
 			</form>
 		</div>
 		<div class="col-lg-1"></div>
 		<div class="col-lg-5  well">
-			<p>D&eacute;j&agrave; inscrit?</p>
+			<p>{{ 'mma.connection.alreafylogggedin'|trans }}</p>
 			<div class="divider"></div>
 				{{ form_start(sEnregisterForm) }}
 				{{ form_widget(sEnregisterForm) }}
-				<div class="modal-footer">
+				<div class="modal-footer" style="padding-left:0px;padding-right:0px">
 					<button type="submit" class="btn michou-btn form-control">
 					<i class=" fa fa-lock" style="font-size: 20px; color: #fff"></i>
-					Connexion
+					{{ 'mma.connection'|trans }}
 					</button>
 				</div>
-				<a href="{{ path('connection_controller_mot_de_pas_oublie',{'_locale':app.request.locale}) }}" class="pull-left">J´ai oublié mon mot de pass</a>
+				<a href="{{ path('connection_controller_mot_de_pas_oublie',{'_locale':app.request.locale}) }}" class="pull-left">{{ 'mma.connection.passwordvorgoten'|trans }}</a>
 				{{ form_end(sEnregisterForm) }}
 		</div>
 	</div>

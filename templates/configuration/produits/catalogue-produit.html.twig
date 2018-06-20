@@ -1,18 +1,19 @@
 {% block body %}
 	<div class="form-group" class="col-lg-12">
-			<input id="tfFiltreProduit" type="text"  class="form-control" placeholder="chercher un produit ...">
+			<input id="tfFiltreProduit" type="text"  class="form-control" placeholder="{{ 'mma.productcatalog.searchproduct'|trans }}">
 		</div>
     <table  class="col-lg-12">
     	<thead>
     		<th></th>
-    		<th>Nom</th>
-    		<th>Prix</th>
-    		<th>Categorie</th>
-    		<th>Quantite</th>
-    		<th>Disponibilité</th>
-    		<th>Etat</th>
+    		<th>{{ 'mma.productcatalog.productname'|trans }}</th>
+    		<th>{{ 'mma.productcatalog.productprice'|trans }}</th>
+    		<th>{{ 'mma.productcatalog.productcategory'|trans }}</th>
+    		<th>{{ 'mma.productcatalog.productquantity'|trans }}</th>
+    		<th>{{ 'mma.productcatalog.productavailable'|trans }}</th>
+    		<th>{{ 'mma.productcatalog.productstate'|trans }}</th>
+    		<th>-</th>
     		<th><a class="fa fa-plus-circle" href="" style="color:#fff" data-toggle="modal" data-target="#produitModal"></a></th>
-    		<th></th>
+    		
     	</thead>
     	<tbody id="tbProduits">
 		    {% for produit in produits %}
@@ -20,7 +21,7 @@
             		<td><input type="checkbox"></td>
             		<td>{{ produit.nom }}</td>
             		<td>{{ produit.prix }} €</td>
-            		<td>{{ produit.categorie  }}</td>
+            		<td>{{ produit.categorie   }}</td>
             		<td>{{ produit.quantite }}</td>
             		<td>{% if produit.disponible == '1' %} oui {% else %} Non {% endif %}</td>
             		<td>{{ produit.etat }}</td>

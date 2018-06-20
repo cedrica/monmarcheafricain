@@ -13,8 +13,13 @@ class EditerLoginType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-    	$builder->add('email',TextType::class,array('attr' => array('class' => 'form-control')))
-    	->add('motDePass',PasswordType::class,array('attr' => array('class' => 'form-control')));
+    	$translator = $options['translator'];
+    	$builder->add('email',TextType::class,array(
+    			'label' => $translator->trans('mma.editlogin.email'),
+    			'attr' => array('class' => 'form-control')))
+    			->add('motDePass',PasswordType::class,array(
+    					'label' => $translator->trans('mma.editlogin.password'),
+    					'attr' => array('class' => 'form-control')));
     }
     
     public function configureOptions(OptionsResolver $resolver)
@@ -22,5 +27,6 @@ class EditerLoginType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => Login::class,
         ));
+        $resolver->setRequired('translator');
     }
 }

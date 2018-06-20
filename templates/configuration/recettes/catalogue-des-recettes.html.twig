@@ -1,28 +1,27 @@
 
 {% block body %}
-	<div class="form-group" class="col-lg-12">
+	<div class="form-group" class="col-lg-12" >
 		<input id="tfFiltreRecette" type="text" onchange="chercherCompte()"
-			class="form-control" placeholder="chercher une recette ...">
+			class="form-control" placeholder="{{ 'mma.recipecatalog.searchrecipe'|trans }}">
 	</div>
 	<table class="col-lg-12">
 		<thead>
 			<th></th>
-			<th>Nom de la recette</th>
-			<th></th>
+			<th>{{ 'mma.recipecatalog.recipename'|trans }}</th>
+			<th>-</th>
 			<th><a href="" class="fa fa-plus-circle" data-toggle="modal"
-				data-target="#creerRecetteModal" style="color: #fff"></a></th>
-				<th></th>
+				data-target="#creerRecetteModal" style="color: #fff;"></a></th>
 		</thead>
 		<tbody id="tbRecettes">
 			{% for recette in recettes %}
 			<tr>
 				<td><input type="checkbox"></td>
 				<td>{{ recette.nom }}</td>
-				<td><a class="fa fa-close" style="margin-left: 10px"
-					data-toggle="modal" data-target="#confirmModal{{ recette.id }}"></a></td>
 				<td><a class="fa fa-edit"
 					href="{{ path('configure_recette_controller_configure_recette',{'id':recette.id}) }}"></a></td>
-				<td><a class="fa fa-trash" href="{{ path('configuration_recette_controller_remove',{'recetteId':recette.id}) }}"  style="color:red"></a></td>
+				
+				<td ><a class="fa fa-trash" style="margin-left: 10px; color:red"
+					data-toggle="modal" data-target="#confirmModal{{ recette.id }}"></a></td>
 			</tr>
 			{{  include("confirm/confirm.html.twig", {'stepId':recette.id,'todo':'remove_recette', 'recetteId':recette.id, 'message':'Voulez vous vraiment suprimer cette recette?'}) }}
 			{% endfor %}

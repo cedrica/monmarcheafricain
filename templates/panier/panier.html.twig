@@ -10,10 +10,10 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Produit</th>
-					<th>Description</th>
-					<th>Quantit&eacute;</th>
-					<th width="100px">Prix total</th>
+					<th>{{ 'mma.basket.products'|trans }}</th>
+					<th>{{ 'mma.basket.description'|trans }}</th>
+					<th>{{ 'mma.basket.quantity'|trans }}</th>
+					<th width="100px">{{ 'mma.basket.totalprice'|trans }}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -29,16 +29,15 @@
 									</h3></td>
 							</tr>
 							<tr>
-								<td>Prix unitaire: {{  panierItem.produit.prix }} €
+								<td>{{ 'mma.basket.unitprice'|trans }}: {{  panierItem.produit.prix }} €
 								</td>
 							</tr>
 							<tr>
-								<td>Reference: {{  panierItem.produit.reference }}</td>
+								<td>{{ 'mma.basket.reference'|trans }}: {{  panierItem.produit.reference }}</td>
 							</tr>
 							<tr>
 								<td><a style="font-size: 12px;"
-									href="{{path('mas_panier',{'id':panierItem.produit.id})}}">Enlever
-										du panier</a></td>
+									href="{{path('mas_panier',{'id':panierItem.produit.id})}}">{{ 'mma.basket.removefrombasket'|trans }}</a></td>
 							</tr>
 						</table>
 					</td>
@@ -79,29 +78,29 @@
 
 				</tr>
 				{%  endfor %}
+{# 				<tr>#}
+{# 					<td></td>#}
+{# 					<td></td>#}
+{# 					<td colspan="2"><input type="text" value=""#}
+{# 						placeholder="inserez votre coupon" style="float: left;">#}
+{# 						<button class="btn">valider</button></td>#}
+{# 				</tr>#}
 				<tr>
 					<td></td>
 					<td></td>
-					<td colspan="2"><input type="text" value=""
-						placeholder="inserez votre coupon" style="float: left;">
-						<button class="btn">valider</button></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td>Total produits TTC :</td>
+					<td>{{ 'mma.basket.totalproductsttc'|trans }} :</td>
 					<td>{{ totalProduit }}</td>
 				</tr>
+{# 				<tr>#}
+{# 					<td></td>#}
+{# 					<td></td>#}
+{# 					<td>Frais de port</td>#}
+{# 					<td></td>#}
+{# 				</tr>#}
 				<tr>
 					<td></td>
 					<td></td>
-					<td>Frais de port</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td>TOTAL</td>
+					<td>{{ 'mma.basket.total'|trans }}</td>
 					<td>{{fraisDeTransport+totalProduit}}</td>
 				</tr>
 			</tbody>
@@ -110,8 +109,12 @@
 	</div>
 	{% if  panier.panieritems is not empty %}
 	<div class="row">
-		<a class="btn btn-default" href="{{ path('panier_controller_verifier_connexion',{'_locale':app.request.locale}) }}"
-			style="background-color: #33cc33; color: #fff">Aller à la caisse</a>
+		<div class="col-lg-10"></div>
+		<div class="col-lg-2">
+    		<a class="btn btn-default" href="{{ path('panier_controller_verifier_connexion',{'_locale':app.request.locale}) }}"
+    			style="background-color: #33cc33; color: #fff">{{ 'mma.basket.gotocashier'|trans }}</a>
+		</div>
+		
 	</div>
 	{% endif %}
 {% endblock %}

@@ -2,75 +2,112 @@
 
 {% block body %}
 
-	<div class="row">
-		<div class="col-lg-3">
-			<p style="text-align: center;">03. Connexion</p>
-			<div style="background-color: lightgray; width: 100%; height: 10px"></div>
-		</div>
-		<div class="col-lg-3">
-			<p style="text-align: center;">04. Adresse</p>
-			<div style="background-color: lightgray; width: 100%; height: 10px"></div>
-		</div>
-		<div class="col-lg-3">
-			<p style="text-align: center;">05. Livraison</p>
-			<div style="background-color: #33cc33; width: 100%; height: 10px"></div>
-		</div>
-		<div class="col-lg-3">
-			<p style="text-align: center;">06. Payement</p>
-			<div style="background-color: lightgray; width: 100%; height: 10px"></div>
-		</div>
+<div class="row">
+	<div class="col-lg-3">
+		<button onclick="goTo('connexion')">
+			{{ 'mma.03connexion'|trans }}
+		</button>
+		<div class="current-pos"></div>
 	</div>
+	<div class="col-lg-3">
+		<button "onclick="goTo('adress')">
+			{{ 'mma.04adress'|trans }}
+		</button>
+		<div class="current-pos"></div>
+	</div>
+	<div class="col-lg-3">
+		<button style="color: #33cc33;" onclick="goTo('delivery')">
+			{{ 'mma.05delivery'|trans }}
+		</button>
+		<div style="background-color: #33cc33" class="current-pos"></div>
+	</div>
+	<div class="col-lg-3">
+		<button onclick="goTo('payement')">
+			{{ 'mma.06payement'|trans }}
+		</button>
+		<div class="current-pos"></div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-8">
 	<table class="table">
-		{%   for panierItem in app.session.get('panier').panieritems %}
-		<tr valign="center">
-			<td><img src="/uploads/brochures/{{  panierItem.produit.image }}" height="200px;"
-				width="200px"></td>
-			<td>
-				<table>
-					<tr>
-						<td><h3>
-								<b>{{  panierItem.produit.nom }}</b>
-							</h3></td>
-					</tr>
-					<tr>
-						<td>Prix unitaire: {{  panierItem.produit.prix }} €
-						</td>
-					</tr>
-					<tr>
-						<td>Reference: {{  panierItem.produit.reference }}</td>
-					</tr>
-				</table>
-			</td>
-			<td>
-				<table>
-					<tr>
-						<td colspan="3"><b>Choisissez votre moyen d´envoie</b></td>
-					</tr>
-					<tr>
-						<td><input type="radio" name="gender" value="chronopost"></td> <td align="left">Chronopost</td>
-					</tr>
-					<tr>
-						<td><input type="radio" name="gender" value="express"></td> <td align="left">Express</td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-		{%  endfor %}
-	</table>
-	<div class="row well">
-		<input type="checkbox">J'ai lu les conditions générales de
-		vente et j'y adhère sans réserve. <a>(Lire les Conditions
-			générales de vente)</a></input>
-	</div>
-	<div class="row">
-		<a class="btn" href="{{ path('commander_controller_aller_a_la_caisse',{'compteId':app.session.get('compte').id,'_locale':app.request.locale}) }}">Aller à la caisse</a>
+	{%   for panierItem in app.session.get('panier').panieritems %}
+	<tr valign="center">
+		<td><img src="/uploads/brochures/{{  panierItem.produit.image }}"
+			height="200px;" width="200px"></td>
+		<td>
+			<table>
+				<tr>
+					<td><h3>
+							<b>{{  panierItem.produit.nom }}</b>
+						</h3></td>
+				</tr>
+				<tr>
+					<td>{{ 'mma.deliveryway.unitprice'|trans }}: {{  panierItem.produit.prix }}
+						€</td>
+				</tr>
+				<tr>
+					<td>{{ 'mma.deliveryway.reference'|trans }}: {{  panierItem.produit.reference }}</td>
+				</tr>
+			</table>
+		</td>
+
+	</tr>
+	{%  endfor %}
+</table>
+</div>
+	<div class="col-lg-4 well" style="margin-top:100px">
+    	<table>
+        	<tr>
+        		<td colspan="3"><b>{{ 'mma.deliveryway.choosedeliveryway'|trans }}</b></td>
+        	</tr>
+        	<tr>
+        		<td><input type="radio" name="gender" value="chronopost"
+        			onclick="selectDeliveryWay(this.value)"></td>
+        		<td align="left">Chronopost</td>
+        	</tr>
+        	<tr>
+        		<td><input type="radio" name="gender" value="express"
+        			onclick="selectDeliveryWay(this.value)"></td>
+        		<td align="left">Express</td>
+        	</tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="row">
+	<div class="col-lg-10"></div>
+	<div class="col-lg-1" id="pay">
+		<button class="btn" disabled>
+			{{ 'mma.deliveryway.pay'|trans }}
+		</button>
 	</div>
 
+</div>
+
+<script language="javascript"> 
+
+		function selectDeliveryWay(way) {
+				$(document).ready(function(){  
+					$.ajax({  
+	                    url:        '/add-delivery-way-to-session/'+way,  
+	                    type:       'POST',   
+	                    dataType:   'json',
+	                    async:      true,  
+	                    success: function(data, status) { 
+		                    $('#pay').html('<a style="background-color: #33cc33; color:#fff" class="btn" href="{{ path('commander_controller_aller_a_la_caisse',{'compteId':app.session.get('compte').id,'_locale':app.request.locale}) }}">{{ 'mma.deliveryway.pay'|trans }}</a>');
+	                    },  
+	                    error : function(xhr, textStatus, errorThrown) {  
+	               	 		alert('ERROR');  
+	                    }  
+	    			});
+				});
+		}
+   </script>
 {% endblock %}
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ asset('css/livraison.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/proceedpayement.css') }}" />
 {% endblock %}
 
-{% block javascripts %}
-<script src="{{ asset('js/livraison.js') }}"></script>
-{% endblock %}

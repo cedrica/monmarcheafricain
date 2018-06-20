@@ -1,3 +1,8 @@
+########## GENERAL ############
+mma.edit: Editer
+mma.cancel: Cancel
+mma.create: Create
+
 ########## HOME ###############
 mma.home: Home
 mma.home.depot: Depot
@@ -29,7 +34,7 @@ mma.category.fishandshellfishsmoke: Poissons et crustacés fumés
 mma.category.meat: Viandes
 mma.category.meatraw: Viandes crus
 mma.category.meatsmoke: Viandes fumés
-mma.category.preserves: conservers
+mma.category.cans: conservers
 mma.category.spices: Épices
 
 ########## SOME RECIPES ###############
@@ -96,3 +101,45 @@ mma.basket.product.count: produits
 
 ########## CONFIGURATION ###############
 mma.configuration.product.name: nom
+
+########## PROFIL ###############
+mma.profil.myprofil: Mon profil
+mma.profil.privateinformation: DONNÉES PERSONNELLES
+mma.profil.title: Titre
+mma.profil.firstname: Nom
+mma.profil.lastname: Prenom
+mma.profil.birthdate: Date de naissance
+mma.profil.currentrole: Current right
+mma.profil.connexiondata: DONNÉES D´ENREGISTREMENT
+mma.profil.email: E-mail
+mma.profil.password: Password
+mma.profil.adresses: ADRESSES
+mma.profil.adress: Adresse
+mma.profil.city: Ville
+mma.profil.postalcode: BP
+mma.profil.streetnumber: Rue  nr.
+mma.profil.editpersonaldata: Editer les donn&eacute;es priv&eacute;es
+mma.profil.editconnexiondata: Editer les donnés de connexion
+mma.profil.editadresses: Editer l´adresse
+
+########## PRODUCT FORM ###############
+mma.product.name: name
+mma.product.price: price
+mma.product.state: state
+mma.product.category: category
+mma.product.fruts: fruts
+mma.product.spice: spice
+mma.product.vegetables: vegetables
+mma.product.flourandsemolina: flourandsemolina
+mma.product.rawedmeat: rawedmeat
+mma.product.smokedmeat: smokedmeat
+mma.product.shellfish: shellfish
+mma.product.cans: cans
+mma.product.quantity: quantity
+mma.product.available: available
+mma.product.offer: offer
+mma.product.reduction: reduction
+mma.product.offerstart: offerstart
+mma.product.offerend: offerend
+mma.product.image: image
+

@@ -1,40 +1,40 @@
 {% extends 'base.html.twig'  %}
 {% block body %}
-	<div class="row">Mon profil</div>
+	<div class="row">{{ 'mma.profil.myprofil'|trans }}</div>
 	<div class="row divider"></div>
 	<div class="row ">
 		<div class="pull-left">
-			<b>DONNÉES PERSONNELLES</b>
+			<b>{{ 'mma.profil.privateinformation'|trans }}</b>
 		</div>
 		<a class="fa fa-edit pull-right" href=""  data-toggle="modal" data-target="#editerDonneesPersoModal"></a>
 	</div>
 	<div class="row">
 		<table class="col-lg-12 well">
 			<tr>
-				<td><b>Titre:</b></td>
+				<td><b>{{ 'mma.profil.title'|trans }}:</b></td>
 				<td>{{ compte.titre }}</td>
 			<tr>
 			<tr>
-				<td><b>Nom:</b></td>
+				<td><b>{{ 'mma.profil.firstname'|trans }}:</b></td>
 				<td>{{ compte.nom }}</td>
 			<tr>
 			<tr>
-				<td><b>Prenom:</b></td>
+				<td><b>{{ 'mma.profil.lastname'|trans }}:</b></td>
 				<td>{{ compte.prenom }}</td>
 			<tr>
 			<tr>
-				<td><b>Date de naissance:</b></td>
+				<td><b>{{ 'mma.profil.birthdate'|trans }}:</b></td>
 				<td>{{ compte.dateDeNaissance|date('Y-m-d') }}</td>
 			<tr>
 			<tr>
-				<td><b>Role actuel:</b></td>
+				<td><b>{{ 'mma.profil.currentrole'|trans }}:</b></td>
 				<td>{{ compte.role }}</td>
 			<tr>
 		</table>
 	</div>
 	<div class="row ">
 		<div class="pull-left">
-			<b>DONNÉES D´ENREGISTREMENT</b>
+			<b>{{ 'mma.profil.connexiondata'|trans }}</b>
 		</div>
 		<a class="fa fa-edit pull-right" href=""  data-toggle="modal" data-target="#editerLoginModal"></a>
 	</div>
@@ -42,10 +42,10 @@
 	<div class="row">
 		<table class="col-lg-12 well">
 			<tr>
-				<td><b>Email:</b></td>
+				<td><b>{{ 'mma.profil.email'|trans }}:</b></td>
 				<td>{{ compte.login.email }}</td>
 			<tr>
-				<td><b>Mot de passe:</b></td>
+				<td><b>{{ 'mma.profil.password'|trans }}:</b></td>
 				<td>{{ compte.login.motDePass }}</td>
 			<tr>
 		</table>
@@ -53,7 +53,7 @@
 
 	<div class="row ">
 		<div class="pull-left">
-			<b>ADRESSES</b>
+			<b>{{ 'mma.profil.adresses'|trans }}</b>
 		</div>
 		<a class="fa fa-plus-circle pull-right" href="" style="color:#33cc33"  data-toggle="modal" data-target="#ajouterAdressseModal"></a>
 	</div>
@@ -62,7 +62,7 @@
 	<div class="row">
 		<table class="col-lg-12 well">
 			<tr>
-				<td><b>Adresse:</b></td>
+				<td><b>{{ 'mma.profil.adress'|trans }}:</b></td>
 				<td>
 					<table>
 						{% for adresse in compte.adresses %}

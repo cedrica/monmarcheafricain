@@ -13,8 +13,10 @@ class IngredientType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+    	$translator = $options['translator'];
     	$builder->add('nom', TextType::class, array(
-    			'attr' => array('class' => 'form-control')
+    			'attr' => array('class' => 'form-control'),
+    			'label' => $translator->trans('mma.ingredient.name')
     	));
     }
     
@@ -23,5 +25,6 @@ class IngredientType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => Ingredient::class,
         ));
+        $resolver->setRequired('translator');
     }
 }

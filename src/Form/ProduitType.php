@@ -23,17 +23,22 @@ class ProduitType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+    	$translator = $options['translator'];
     	$builder->add('nom', TextType::class, 
     			array(
-    					'required'=>true,'attr' => array('class' => 'form-control')
+    					'required'=>true,
+    					'label' => $translator->trans('mma.product.name'),
+    					'attr' => array('class' => 'form-control')
     					
     			))
         ->add('prix', MoneyType::class, 
         		array('required'=>true,
+        				'label' => $translator->trans('mma.product.price'),
         				'attr' => array('class' => 'form-control')
         		))
         ->add('etat', ChoiceType::class,
         		array('required'=>true,
+        				'label' => $translator->trans('mma.product.state'),
             'choices' => array(
                 "--Selectionez--"=>null,
                 "neuf" => 'Neuf',
@@ -42,28 +47,36 @@ class ProduitType extends AbstractType
         				'attr' => array('class' => 'form-control')
         ))
         ->add('categorie', ChoiceType::class,  array('required'=>true,
+        		'label' => $translator->trans('mma.product.category'),
             'choices' => array(
                 "--Selectionez--"=>null,
-                "fruits" => 'fruits', 
-                "épices" => 'épices',
-                "légumes" => 'légumes',
-                "farines et sémoules" => 'farines et sémoules',
-                "viandes crus" => 'viandes crus',
-                "viandes fumés" => 'viandes fumés',
-                "crustacés" => 'crustacés', 
-            		"conserves" => 'conserves'),'attr' => array('class' => 'form-control'))
+            		"fruits" => "fruits",//$translator->trans('mma.product.fruts'),
+            		"épices" => "épices",//$translator->trans('mma.product.spice'),
+            		"légumes" => "légumes",//$translator->trans('mma.product.vegetables'),
+            		"farines et sémoules" => "farines et sémoules",//$translator->trans('mma.product.flourandsemolina'),
+            		"viandes crus" => "viandes crus",//$translator->trans('mma.product.rawedmeat'),
+            		"viandes fumés" => "viandes fumés",//$translator->trans('mma.product.smokedmeat'),
+            		"crustacés" => "crustacés" ,//$translator->trans('mma.product.shellfish'),
+            		"conserves" => "conserves",//$translator->trans('mma.product.cans'),
+				),'attr' => array('class' => 'form-control'))
         )->add('quantite', IntegerType::class,array(
+        		'label' => $translator->trans('mma.product.quantity'),
         		'required'=>true,'attr' => array('class' => 'form-control')
         ))
         ->add('disponible', CheckboxType::class,array('required'=>false,
+        		'label' => $translator->trans('mma.product.available'),
             'value'=>false
         ))
         ->add('action', CheckboxType::class,array('required'=>false,
+        		'label' => $translator->trans('mma.product.offer'),
         		'value'=>false
         ))
         ->add('pourcentageDeRabait', PercentType::class, 
-        		array('required'=>false,'attr' => array('class' => 'form-control')))
+        		array('required'=>false,
+        				'label' => $translator->trans('mma.product.reduction'),
+        				'attr' => array('class' => 'form-control')))
         ->add('actionDebut', DateType::class, array('required'=>false,
+        		'label' => $translator->trans('mma.product.offerstart'),
         		'attr' => array('class' => 'form-control'),
         		'html5' => false,
         		'widget' => 'single_text',
@@ -71,12 +84,15 @@ class ProduitType extends AbstractType
         		'attr' => array('class' => 'js-datepicker form-control')
         ))
         ->add('actionFin', DateType::class, array('required'=>false,
+        		'label' => $translator->trans('mma.product.offerend'),
         		'html5' => false,
         		'widget' => 'single_text',
         		// adds a class that can be selected in JavaScript
         		'attr' => array('class' => 'js-datepicker form-control')
         ))
-        ->add('image', FileType::class, array('required'=>true,'data_class' => null))
+        ->add('image', FileType::class, array('required'=>true,
+        		'label' => $translator->trans('mma.product.image'),
+        		'data_class' => null))
        // ->add('Editer', SubmitType::class, array(
        // 		'attr' => array('class' => 'btn michou-btn'),
         //))
@@ -90,6 +106,7 @@ class ProduitType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'App\Entity\Produit'
         ));
+        $resolver->setRequired('translator');
     }
 
 

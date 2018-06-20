@@ -161,3 +161,10 @@ p {
 .tabcontent {
     padding: 0px 12px;
 }
+body{
+	font-family:sans-serif;
+}
+a.disabled {
+   pointer-events: none;
+   cursor: default;
+}

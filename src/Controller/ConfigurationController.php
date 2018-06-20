@@ -11,18 +11,20 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use App\Entity\Compte;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Translation\Translator;
+
 class ConfigurationController extends Controller
 {
 
     /**
      * @Route("/{_locale}/configuration", name="configuration_controller_init_view")
      */
-    public function adminAction(Request $request, ControllerHelper $helper)
+	public function adminAction(Request $request, ControllerHelper $helper,$_locale)
     {
         $message = $request->query->get('message');
         $alertType = $request->query->get('alertType');
         $produit = new Produit();
-        $createProduitForm = $this->createForm('App\Form\ProduitType', $produit);
+        $createProduitForm = $this->createForm('App\Form\ProduitType', $produit,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
         $createProduitForm->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
         $produitRepositorty = $this->getDoctrine()->getRepository(Produit::class);
@@ -67,7 +69,7 @@ class ConfigurationController extends Controller
         }
         
         $recette = new Recette();
-        $createRecette = $this->createForm('App\Form\RecetteType', $recette);
+        $createRecette = $this->createForm('App\Form\RecetteType', $recette,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
         $createRecette->handleRequest($request);
         if ($createRecette->isSubmitted() && $createRecette->isValid()) {
             $em = $this->getDoctrine()->getManager();

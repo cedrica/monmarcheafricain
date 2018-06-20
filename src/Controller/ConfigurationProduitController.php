@@ -12,18 +12,20 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use App\Entity\Compte;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Translation\Translator;
+
 class ConfigurationProduitController extends Controller
 {
 
     /**
      * @Route("/{_locale}/editer-produit/{id}", name="configuration_produit_controller_editer")
      */
-    public function editProduitAction(Request $request, $id)
+    public function editProduitAction(Request $request, $id, $_locale)
     {
     	$produitRepositorty = $this->getDoctrine()->getRepository(Produit::class);
     	$produit = $produitRepositorty->find($id);
     	$ancienneImage = $produit->getImage();
-        $editProduitForm = $this->createForm('App\Form\ProduitType', $produit);
+    	$editProduitForm = $this->createForm('App\Form\ProduitType', $produit,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
         $editProduitForm->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
         if ($editProduitForm->isSubmitted() && $editProduitForm->isValid()) {

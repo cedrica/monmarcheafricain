@@ -13,8 +13,16 @@ class EditerAdressesType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+    	$translator = $options['translator'];
         $builder->add('id', HiddenType::class)
-        ->add('boitePostale', TextType::class)->add('pays', TextType::class)->add('ville', TextType::class)->add('rueEtNr', TextType::class);
+        ->add('boitePostale', TextType::class,
+        		array('label' => $translator->trans('mma.editadresse.postalcode')))
+        ->add('pays', TextType::class,
+        				array('label' => $translator->trans('mma.editadresse.land')))
+		->add('ville', TextType::class,
+        				array('label' => $translator->trans('mma.editadresse.city')))
+        ->add('rueEtNr', TextType::class,
+        				array('label' => $translator->trans('mma.editadresse.streetnr')));
     }
     
     public function configureOptions(OptionsResolver $resolver)
@@ -22,5 +30,6 @@ class EditerAdressesType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => Adresse::class,
         ));
+        $resolver->setRequired('translator');
     }
 }

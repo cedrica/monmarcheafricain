@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Adresse;
 use App\Entity\Login;
-
+use Symfony\Component\Translation\Translator;
 /**
  * Profil controller.
  */
@@ -20,7 +20,7 @@ class ProfilController extends Controller
      *
      * @Method({"GET", "POST"})
      */
-    public function openProfilAction(Request $request, $id)
+	public function openProfilAction(Request $request, $id,$_locale)
     {
         
         $em = $this->getDoctrine()->getManager();
@@ -32,7 +32,7 @@ class ProfilController extends Controller
         if($compte == null){
         	return $this->redirectToRoute('start_controller_start');
         }
-        $editerDonneesPersoForm = $this->createForm('App\Form\EditerDonneesPersoType', $compte);
+        $editerDonneesPersoForm = $this->createForm('App\Form\EditerDonneesPersoType', $compte, array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
         $editerDonneesPersoForm->handleRequest($request);
         if ($editerDonneesPersoForm->isSubmitted() && $editerDonneesPersoForm->isValid()) {
            
@@ -49,7 +49,7 @@ class ProfilController extends Controller
          * @var Login $login
          */
         $login = $compte->getLogin();
-        $editerLoginForm = $this->createForm('App\Form\EditerLoginType', $login);
+        $editerLoginForm = $this->createForm('App\Form\EditerLoginType', $login,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
         $editerLoginForm->handleRequest($request);
         if ($editerLoginForm->isSubmitted() && $editerLoginForm->isValid()) {
             $encrypted_password = password_hash($login->getMotDePass(), PASSWORD_DEFAULT);
@@ -67,7 +67,7 @@ class ProfilController extends Controller
          * @var Adresse $adresse
          */
         $adresse =  new Adresse();
-        $editerAdresseForm = $this->createForm('App\Form\EditerAdressesType', $adresse);
+        $editerAdresseForm = $this->createForm('App\Form\EditerAdressesType', $adresse,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
         $editerAdresseForm->handleRequest($request);
         if ($editerAdresseForm->isSubmitted() && $editerAdresseForm->isValid()) {
             return $this->redirectToRoute('profil_controller_open_profil', array(

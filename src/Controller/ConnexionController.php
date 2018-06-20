@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use App\Service\ControllerHelper;
+use Symfony\Component\Translation\Translator;
 
 class ConnexionController extends Controller
 {
@@ -13,10 +14,10 @@ class ConnexionController extends Controller
     /**
      * @Route("{_locale}/connexion", name="connexion_controller_connexion")
      */
-    public function connexionAction(Request $request, ControllerHelper $helper)
+	public function connexionAction(Request $request, ControllerHelper $helper,$_locale)
     {
         $login = new Login();
-        $sEnregisterForm = $this->createForm('App\Form\SEnregistrerType', $login);
+        $sEnregisterForm = $this->createForm('App\Form\SEnregistrerType', $login,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
         $sEnregisterForm->handleRequest($request);
         if ($sEnregisterForm->isSubmitted() && $sEnregisterForm->isValid()) {
             $email = $login->getEmail();
@@ -67,6 +68,8 @@ class ConnexionController extends Controller
     {
         $request->getSession()->set('allerALaCaisse', false);
         $request->getSession()->set('compte', null);
+        $request->getSession()->set('deliveryAdress', null);
+        $request->getSession()->set('deliveryWay', null);
         return $this->redirectToRoute('connexion_controller_connexion');
     }
     

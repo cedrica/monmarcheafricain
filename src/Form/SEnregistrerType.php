@@ -15,8 +15,13 @@ class SEnregistrerType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-    	$builder->add('email', EmailType::class, array('required'=>true, 'label'=>'E-mail','attr' => array('class' => 'form-control')))
-    	->add('motDePass', PasswordType::class, array('required'=>true, 'label'=>'Mot de passe','attr' => array('class' => 'form-control')));
+    	$translator = $options['translator'];
+    	$builder->add('email', EmailType::class, array(
+    			'label' => $translator->trans('mma.senregistrer.email'),
+    			'required'=>true,'attr' => array('class' => 'form-control')))
+    	->add('motDePass', PasswordType::class, array(
+    			'label' => $translator->trans('mma.senregistrer.password'),
+    			'required'=>true,'attr' => array('class' => 'form-control')));
     }
     /**
      * {@inheritdoc}
@@ -26,6 +31,7 @@ class SEnregistrerType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'App\Entity\Login'
         ));
+        $resolver->setRequired('translator');
     }
 
     /**

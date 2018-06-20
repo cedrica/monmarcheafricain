@@ -1,0 +1,37 @@
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		{{ 'mma.payement.verifyyourdata'|trans }}
+	</div>
+	<div class="panel-body">
+		<table>
+			<tr>
+				<td>KUNDENNUMMER:</td>
+				<td>{{ app.session.get('compte').id }}</td>
+			</tr>
+			<tr>
+				<td>NOM ET PRENOM:</td>
+				<td>{{ app.session.get('compte').nom }} {{ app.session.get('compte').prenom }}</td>
+			</tr>
+		</table>
+		<div class="divider"></div>
+		<table>
+			<tr>
+				<td>BOITE POSTALE & VILLE:</td>
+				<td>{{ app.session.get('deliveryAdress').boitePostale }} {{ app.session.get('deliveryAdress').ville }}
+				</td>
+			</tr>
+			<tr>
+				<td>RUE:</td>
+				<td>{{ app.session.get('deliveryAdress').rueEtNr }}</td>
+			</tr>
+		</table>
+		<div class="divider"></div>
+		<table>
+			<tr>
+				<td>MOYEN DE LIVRAISON:</td>
+				<td>{{ app.session.get('deliveryWay') }}</td>
+			</tr>
+		</table>
+	</div>
+</div>

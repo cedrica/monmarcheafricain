@@ -1,60 +1,95 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<div class="row">Adresses</div>
-	<div class="row divider"></div>
 	<div class="row">
 		<div class="col-lg-3">
-			<p style="text-align: center;">03. Connexion</p>
-			<div style="background-color: lightgray; width: 100%; height: 10px"></div>
+			<button onclick="goTo('connexion')">{{ 'mma.03connexion'|trans }}</button>
+			<div class="current-pos"></div>
 		</div>
 		<div class="col-lg-3">
-			<p style="text-align: center;">04. Adresse</p>
-			<div style="background-color: #33cc33; width: 100%; height: 10px"></div>
+			<button style="color: #33cc33;" "onclick="goTo('adress')">{{ 'mma.04adress'|trans }}</button>
+			<div  style="background-color:#33cc33" class="current-pos"></div>
 		</div>
 		<div class="col-lg-3">
-			<p style="text-align: center;">05. Livraison</p>
-			<div style="background-color: lightgray; width: 100%; height: 10px"></div>
+			<button  onclick="goTo('delivery')">{{ 'mma.05delivery'|trans }}</button>
+			<div class="current-pos"></div>
 		</div>
 		<div class="col-lg-3">
-			<p style="text-align: center;">06. Payement</p>
-			<div style="background-color: lightgray; width: 100%; height: 10px"></div>
+			<button onclick="goTo('payement')">{{ 'mma.06payement'|trans }}</button>
+			<div class="current-pos"></div>
 		</div>
 	</div>
 	<div class="row" style="height: 30px"></div>
 	<div class="row">
 		<div class="row">
 			<div class="col-lg-6">
+			<form action="/{{ app.request.locale }}/add-delivery-adress-to-session" method="post">
 				<div class="form-group" style="margin-left: 10px">
-					<label for="adresse">Choisissez une adresse de livraison:</label> 
-					<select onchange="myFunction()"
+					<label for="adresse">{{ 'mma.verifyadress.choosedeliveryadress'|trans }}:</label> 
+					<select onchange="selectDeliveryAddress(this.value)" name="deliveryAdress"
 						class="form-control" id="adresse" name="adresseSelectionee">
+						<option value="">-- {{'mma.verifyadress.choosedeliveryadress'|trans}} --</option>
 						{% for adresse in adresses %}
-						<option  value='<p>{{ adresse.boitePostale }} {{ adresse.ville }}</p> <p>{{ adresse.pays }} {{ adresse.rueEtNr }} </p>' >{{ adresse.rueEtNr }} </option>
+						<option  value={{ adresse.id }} name='adressId'>{{ adresse.rueEtNr }} </option>
 						{% endfor %}
 					</select>
 				</div>
+			</form>
 			</div>
 		</div>
 		<div class="col-lg-6">
 
 				<div class="panel panel-default">
-					<div class="panel-heading">ADRESSE DE LIVRAISON</div>
+					<div class="panel-heading">
+					    {{ 'mma.verifyadress.deliveryaddress'|trans }}
+					    <div class="pull-right"><a class="fa fa-plus-circle" style="color:#33cc33" href="{{ path('commander_controller_ajouter_adresse',{'id': app.session.get('compte').id,'_locale':app.request.locale }) }}"></a></div>
+					</div>
 					<div class="panel-body">
+    						{% for adresse in adresses %}
+    						{{ adresse.boitePostale }} {{ adresse.ville }}; {{ adresse.rueEtNr }} </br>
+    						<div class="divider"></div>
+    						{% endfor %}
 					</div>
 			</div>
 		</div>
 		<div class="col-lg-6"></div>
 	</div>
 	<div class="row">
-    	<div class="col-lg-6"><a class="btn" href="{{ path('commander_controller_ajouter_adresse',{'id': app.session.get('compte').id,'_locale':app.request.locale }) }}">Ajouter une adresse</a></div>
-    	<div class="col-lg-6"><a class="btn" href="{{ path('mas_moyen_de_livraison') }}">Continuer</a></div>
+		<div class="col-lg-10"></div><div class="col-lg-1" id="continue"><button class="btn" disabled>{{ 'mma.verifyadress.continue'|trans }}</a></div>
 	</div>
 	
-<script language = "javascript">   
+<script language = "javascript"> 
 		function myFunction() {
 		    var x = document.getElementById("adresse").value;
 		    $('.panel-body').html(x);
 		}
+
+		function selectDeliveryAddress(adressId) {
+			if(adressId != '' ){
+				$(document).ready(function(){  
+					$.ajax({  
+	                    url:        '/add-delivery-adress-to-session/'+adressId,  
+	                    type:       'POST',   
+	                    dataType:   'json',
+	                    data : {
+	                    	search: adressId
+	                    }, 
+	                    async:      true,  
+	                    success: function(data, status) { 
+	                        $('#continue').html('<a class="btn" style="color: #fff; background-color:#33cc33" href={{ path('mas_moyen_de_livraison') }}>{{ 'mma.verifyadress.continue'|trans }}</a>');
+	                    },  
+	                    error : function(xhr, textStatus, errorThrown) {  
+	               	 		alert('INVALID ADRESS');  
+	                    }  
+	    			});
+				});
+			}else {
+                $('#continue').html('<button class="btn" disabled>{{ 'mma.verifyadress.continue'|trans }}</a>');
+			}
+		}
    </script>
 {% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/proceedpayement.css') }}" />
+{% endblock %}
+

@@ -1,0 +1,17 @@
+th {
+	text-align: left;
+}
+
+button{
+	width:100%;
+	height:40px;
+	background-color: transparent;
+	border: 0px
+}
+
+.current-pos{
+	background-color: lightgray;
+	 width: 100%; 
+	 height: 10px
+}
+

@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<div class="col-lg-12">Configurez votre Recette</div>
-	<div class="row divider"></div>
+	<div class="col-lg-12">{{ 'mma.configurerecipe.title'|trans }}</div>
+	<div class="col-lg-12 divider"></div>
 	<div class="row">
 	{{  include("configuration/recettes/editer-recette.html.twig", {'recette':editerRecetteForm}) }}
 		<div class="col-lg-12"><b style="color:darkorange">{{ recette.nom }}</b>
@@ -12,9 +12,11 @@
 	<div class="row divider"></div>
 	<div class="row ">
 		<div class="col-lg-5 col-md-3 col-sm-3">
-			<p>Liste des ingredients</p>
+			<p>{{ 'mma.configurerecipe.listofingredient'|trans }}</p>
 			{{ form_start(createIngredientForm) }}
-			{{ form_row(createIngredientForm.nom) }}
+			<div class="form-group">
+			{{ form_row(createIngredientForm.nom ) }}
+			</div>
 				<button type="submit" class="btn michou-btn">Inserer</button>
 			{{ form_end(createIngredientForm) }}
 			<div class="row divider"></div>
@@ -34,7 +36,7 @@
 		</div>
 
 		<div class="col-lg-7 col-md-4 col-sm-3">
-			<p>Steps de cuisson</p>
+			<p>{{ 'mma.configurerecipe.cookingstep'|trans }}</p>
 			<div class="row well">
 				{{ form_start(decrireLeStepForm) }}
 				<div class="form-group">

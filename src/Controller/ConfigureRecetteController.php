@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use App\Entity\Ingredient;
 use App\Entity\Step;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Translation\Translator;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
@@ -19,7 +20,7 @@ class ConfigureRecetteController extends Controller
     /**
      * @Route("/{_locale}/configurer-la-recette/{id}", name="configure_recette_controller_configure_recette")
      */
-    public function configureReceteAction(Request $request, $id)
+    public function configureReceteAction(Request $request, $id,$_locale)
     {
         $em = $this->getDoctrine()->getManager();
         /**
@@ -28,8 +29,7 @@ class ConfigureRecetteController extends Controller
          */
         $recette = $em->getRepository(Recette::class)->find($id);
         $ancienneImage = $recette->getImage();
-       // $recette->setImage(new File($recette->getImage()));
-        $editerRecetteForm = $this->createForm('App\Form\RecetteType', $recette);
+        $editerRecetteForm = $this->createForm('App\Form\RecetteType', $recette,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
         $editerRecetteForm->handleRequest($request);
         if ($editerRecetteForm->isSubmitted() && $editerRecetteForm->isValid()) {
         	/** @var Symfony\Component\HttpFoundation\File\UploadedFile $image */
@@ -51,7 +51,7 @@ class ConfigureRecetteController extends Controller
          * @var Ingredient
          */
         $ingredient = new Ingredient();
-        $createIngredientForm = $this->createForm('App\Form\IngredientType', $ingredient);
+        $createIngredientForm = $this->createForm('App\Form\IngredientType', $ingredient,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
         $createIngredientForm->handleRequest($request);
         if ($createIngredientForm->isSubmitted() && $createIngredientForm->isValid()) {
             $ingredient->setRecette($recette);
@@ -68,11 +68,12 @@ class ConfigureRecetteController extends Controller
          * @var \App\Entity\Step $step
          */
         $step = new Step();
-        $decrireLeStepForm = $this->createForm('App\Form\StepType', $step);
+        $decrireLeStepForm = $this->createForm('App\Form\StepType', $step,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
         $decrireLeStepForm->handleRequest($request);
         if ($decrireLeStepForm->isSubmitted() && $decrireLeStepForm->isValid()) {
             $step->setRecette($recette);
-            $position = $em->getRepository(Recette::class)->findAll().count();
+            $recettes = $em->getRepository(Recette::class)->findAll();
+            $position = count($recettes);
             $step->setPosition($position);
             $em->persist($step);
             $recette->getSteps()->add($step);
@@ -98,7 +99,7 @@ class ConfigureRecetteController extends Controller
     public function editerStepAction($stepId,$recetteId,Request $request){
     	$em = $this->getDoctrine()->getManager();
     	$step = $em->getRepository(Step::class)->find($stepId);
-    	$decrireLeStepForm = $this->createForm('App\Form\StepType', $step);
+    	$decrireLeStepForm = $this->createForm('App\Form\StepType', $step,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
     	$decrireLeStepForm->handleRequest($request);
     	if ($decrireLeStepForm->isSubmitted() && $decrireLeStepForm->isValid()) {
     		$recette = $em->getRepository(Recette::class)->find($recetteId);

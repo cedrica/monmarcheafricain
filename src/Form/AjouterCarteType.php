@@ -17,18 +17,19 @@ class AjouterCarteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+    	$translator = $options['translator'];
         $builder->add('nomDeLaCarte', TextType::class, array(
             'required' => true,
-            'label' => 'Nom sur la carte',
+        		'label' => $translator->trans('mma.addcard.addnameoncard'),
         		'attr' => array('class' => 'form-control')
         ))
             ->add('numeroDeLaCarte', TextType::class, array(
             'required' => true,
-            		'label' => 'Numero de la carte',
+            		'label' => $translator->trans('mma.addcard.cardnumber'),
             		'attr' => array('class' => 'form-control')
         ))
             ->add('dateDExpiration', DateType::class, array(
-            'label' => 'Date d´expiration',
+            		'label' => $translator->trans('mma.addcard.expiredate'),
             'widget' => 'choice',
             'html5' => false,
                 'by_reference'=> true,
@@ -37,9 +38,10 @@ class AjouterCarteType extends AbstractType
             ]
         ))
             -> add('defaultCarte', CheckboxType::class, array(
-            		'label' => 'Utiliser cette carte par defaut'
+            		'label' => 'mma.addcard.useasdefaultcard'
             ));
     }
+    
 
     /**
      *
@@ -50,6 +52,7 @@ class AjouterCarteType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'App\Entity\CarteDeCredit'
         ));
+        $resolver->setRequired('translator');
     }
 
     /**

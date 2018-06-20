@@ -1,3 +1,8 @@
+########## GENERAL ############
+mma.edit: Editer
+mma.cancel: Cancel
+mma.create: Create
+
 ########## HOME ###############
 mma.home: Home
 mma.home.depot: Lager
@@ -29,7 +34,7 @@ mma.category.fishandshellfishsmoke: geräucherter Fisch
 mma.category.meat: Fleich
 mma.category.meatraw: roher Fleich
 mma.category.meatsmoke: geräucherter Fleich
-mma.category.preserves: Dosen
+mma.category.cans: Dosen
 mma.category.spices: Gewürze
 
 
@@ -96,3 +101,25 @@ mma.leftmenu.spices: Gewürze
 
 ########## PANIER ###############
 mma.basket.product.count: Produkt(e)
+
+
+########## PROFIL ###############
+mma.profil.myprofil: Mein profil
+mma.profil.privateinformation: PRIVATE INFORMATIONEN
+mma.profil.title: Title
+mma.profil.firstname: Vorname
+mma.profil.lastname: Nachname
+mma.profil.birthdate: Geburstag
+mma.profil.currentrole: Aktuelle Role
+mma.profil.connexiondata: Verbindungsdaten
+mma.profil.email: E-mail
+mma.profil.password: Passwort
+mma.profil.adresses: Adressen
+mma.profil.adress: Adresse
+mma.profil.city: Stadt
+mma.profil.postalcode: PLZ
+mma.profil.streetnumber: Straße Nr.
+mma.profil.editpersonaldata: Private Informationen editieren
+mma.profil.editconnexiondata: Verbindungsdaten editieren
+mma.profil.editadresses: Adresse editieren
+
