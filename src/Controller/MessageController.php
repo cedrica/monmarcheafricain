@@ -11,7 +11,7 @@ class MessageController extends Controller
 
     
     /**
-     * @Route("/{_locale}/message-envoye", name="mas_msgenvoye")
+     * @Route("/{_locale}/message-envoye", name="message_controller_envoye")
      */
     public function messageEnvoyeAction(Request $request, \Swift_Mailer $mailer,$_locale)
     {
@@ -34,12 +34,12 @@ class MessageController extends Controller
     }
     
     /**
-     * @Route("/facturation/{reciever}", name="message_controller_facture")
+     * @Route("/facturation", name="message_controller_facture")
      */
-    public function facturationAction(Request $request, \Swift_Mailer $mailer,$reciever)
+    public function facturationAction(Request $request, \Swift_Mailer $mailer)
     {
-    	$reciever = $request->request->get($reciever);
-    	$sender = $request->request->get('service.client@monmarcheafricain.com');
+    	$reciever = $request->request->get("webmaster@monmarcheafricain.com");//reciever
+    	$sender = $request->request->get('webmaster@monmarcheafricain.com');
     	$msgbody = $request->request->get('msgbody');
     	$message = (new \Swift_Message('Un client vous a laisser un méssage'))
     	->setFrom($sender)

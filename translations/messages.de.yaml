@@ -1,7 +1,14 @@
 ########## GENERAL ############
-mma.edit: Editer
-mma.cancel: Cancel
-mma.create: Create
+mma.edit: Editieren
+mma.cancel: Abbrechen
+mma.create: Erstellen
+mma.add: Hinfügen
+mma.insert: Hinzufügen
+mma.search: Suchen...
+mma.03connexion: 03. Verbinden
+mma.04adress: 04. Adresse
+mma.05delivery: 05. Lieferung
+mma.06payement: 06. Zahlen
 
 ########## HOME ###############
 mma.home: Home
@@ -19,7 +26,7 @@ mma.category: Kategorie
 mma.category.price: Preis
 mma.category.from: von
 mma.category.to: bis
-mma.category.action: produkt in Angebot
+mma.category.action: Produkt in Angebot
 mma.category.numberofproduct1: Diese Kategorie beinhalte 
 mma.category.numberofproduct2: Produkte
 mma.category.displayin: Anzeige
@@ -32,8 +39,8 @@ mma.category.fishandshellfish: Fisch
 mma.category.fishandshellfishraw: roher Fisch 
 mma.category.fishandshellfishsmoke: geräucherter Fisch
 mma.category.meat: Fleich
-mma.category.meatraw: roher Fleich
-mma.category.meatsmoke: geräucherter Fleich
+mma.category.meatraw: Roher Fleich
+mma.category.meatsmoke: Geräucherter Fleich
 mma.category.cans: Dosen
 mma.category.spices: Gewürze
 
@@ -89,27 +96,38 @@ mma.delivery.readattentivly3: Wir gewährleisten kein Paketverlust wegen falsche
 ########## LEFT MENU ###############
 mma.leftmenu.fruits: Früchte
 mma.leftmenu.vegetables: Gemüse
-mma.leftmenu.flourandsemolina: Mehl und Grieß
+mma.leftmenu.flourandsemolina: Mehl und Gries
 mma.leftmenu.fishandshellfish: Fische und Krebstiere
-mma.leftmenu.fishandshellfishraw: Poissons et crustacés crus
-mma.leftmenu.fishandshellfishsmoke: Poissons et crustacés fumés
+mma.leftmenu.fishandshellfishraw: Lax
+mma.leftmenu.fishandshellfishsmoke: Getrockene Lax
 mma.leftmenu.meat: Fleish
 mma.leftmenu.meatraw: Viandes crus
-mma.leftmenu.meatsmoke: Viandes fumés
+mma.leftmenu.meatsmoke: Getrockene Fleich
 mma.leftmenu.cans: Dosen
 mma.leftmenu.spices: Gewürze
 
 ########## PANIER ###############
 mma.basket.product.count: Produkt(e)
-
+mma.basket.mybasket: Mein Warenkorb
+mma.basket.yourbasketisempty: Dein Warenkorb ist leer
+mma.basket.gotocashier: Zur kasse gehen
+mma.basket.products: Produkte
+mma.basket.description: Beschreibung 
+mma.basket.quantity: Menge 
+mma.basket.totalprice: Gesamtpreis
+mma.basket.unitprice: Einzelnpreis
+mma.basket.reference: Referenz
+mma.basket.removefrombasket: Aus Warenkorb entfernen
+mma.basket.totalproductsttc: Gesamt Producte TTC
+mma.basket.total: Gesamt
 
 ########## PROFIL ###############
 mma.profil.myprofil: Mein profil
 mma.profil.privateinformation: PRIVATE INFORMATIONEN
-mma.profil.title: Title
+mma.profil.title: Anrede
 mma.profil.firstname: Vorname
 mma.profil.lastname: Nachname
-mma.profil.birthdate: Geburstag
+mma.profil.birthdate: Geburstdatum
 mma.profil.currentrole: Aktuelle Role
 mma.profil.connexiondata: Verbindungsdaten
 mma.profil.email: E-mail
@@ -123,3 +141,122 @@ mma.profil.editpersonaldata: Private Informationen editieren
 mma.profil.editconnexiondata: Verbindungsdaten editieren
 mma.profil.editadresses: Adresse editieren
 
+
+
+########## CREATE ACCOUNT ###############
+ma.createaccount.land: Land
+ma.createaccount.city: Stadt
+ma.createaccount.postalcode: Postleitzahl
+ma.createaccount.streetnr: Straße-Nr.
+
+########## ADD CARD FORM ###############
+mma.addcard.addnameoncard: Kardname
+mma.addcard.cardnumber: Kardnummer
+mma.addcard.expiredate: Ablaufdatum
+mma.addcard.useasdefaultcard: Als Default Nützen
+
+########## CLIENT FORM ###############
+mma.client.ms: Ms
+mma.client.mme: Mme
+mma.client.firstname: Vorname
+mma.client.lastname: Nachname
+mma.client.birthdate: Geburtsdatum
+mma.client.role: Rolle
+mma.client.available: Vorhanden
+mma.client.image: Bild
+
+########## CREER COMPTE FORM ###############
+mma.createaccount.title: Anrede
+mma.createaccount.firstname: Vorname
+mma.createaccount.lastname: Nachname
+mma.createaccount.birthdate: Geburtsdatum
+
+########## EDIT ADRESSE FORM ###############
+mma.editadress.postalcode: Postleitzahl
+mma.editadress.land: Land
+mma.editadress.city: Stadt
+mma.editadress.streetnr: Strasse-Nr.
+mma.editadress.addnewadress: Neue Adresse hinzufügen
+########## EDIT LOGIN FORM ###############
+mma.editlogin.password: Password
+mma.editlogin.email: E-mail
+
+########## INGREDIENT FORM ###############
+mma.ingredient.name: Name
+mma.listofingredient.ingredients: Zutaten
+
+########## PRODUCT FORM ###############
+mma.product.name: Name
+mma.product.price: Preis
+mma.product.state: Status
+mma.product.category: Kategorie
+mma.product.fruts: Früchte
+mma.product.spice: Gewürze
+mma.product.flourandsemolina: Mehl und Gries
+mma.product.rawedmeat: Gefrohen Fleich
+mma.product.smokedmeat: Getrocknete Fleich
+mma.product.shellfish: Salzige Fish
+mma.product.cans: 
+mma.product.quantity: Menge
+mma.product.available: Vorhanden
+mma.product.offer: Angebot
+mma.product.reduction: Ermäßigung
+mma.product.offerstart: Angebot Startdatum
+mma.product.offerend: Angebot Enddatum
+mma.product.image: Bild
+
+########## RECIPE FORM ###############
+mma.recette.name: Name
+mma.recette.image: Bild
+mma.recette.reciept: Rezept
+
+########## SENREGISTRER FORM ###############
+mma.senregistrer.email: E-mail
+mma.senregistrer.password: Passwort
+########## STEP FORM ###############
+mma.step.time: Zeit
+mma.step.description: Beschreibung
+
+######### RECIPE CATALOG ###############
+mma.recipecatalog.searchrecipe: Rezept suchen ...
+mma.recipecatalog.recipename: Name
+
+######### CONFIGURE RECIPE ###############
+mma.configurerecipe.title: Rezept konfigurieren
+mma.configurerecipe.listofingredient: Liste der Zutaten
+mma.configurerecipe.cookingstep: Bereitung step 
+
+######### PRODUCT CATALOG ###############
+mma.productcatalog.searchproduct: Produkt suchen ...
+mma.productcatalog.productname: Name
+mma.productcatalog.productprice: Preis
+mma.productcatalog.productcategory: Kategorie
+mma.productcatalog.productquantity: Menge
+mma.productcatalog.productavailable: Vorhanden
+mma.productcatalog.productstate: Status
+
+######### CLIENT CATALOG ###############
+mma.clientcatalog.searchclient: Kunde suchen...
+mma.clientcatalog.clienttitle: Anrede
+mma.clientcatalog.clientfirstnameandlastname: Vor- und Nachname
+mma.clientcatalog.clientrole: Rolle
+
+
+######### DELIVERY WAY ###############
+mma.deliveryway.unitprice: Einzelnpreis
+mma.deliveryway.reference: Referenz
+mma.deliveryway.choosedeliveryway: LIEFERART WÄHLEN
+mma.deliveryway.confirmconditionofsale1: I read the general conditions of sale and I adhere to it without reservation. 
+mma.deliveryway.confirmconditionofsale2: (Read the Terms general sales terms) 
+mma.deliveryway.pay: Zahlen
+
+######### VERIFY ADRES ###############
+mma.verifyadress.choosedeliveryadress: LIEFERADRESSE WÄHLEN
+mma.verifyadress.addanaddress: ADRESSE HINZUFÜGEN
+mma.verifyadress.deliveryaddress: LIEFERADRESSE
+mma.verifyadress.continue: Weiter
+
+######### PAYEMENT ###############
+mma.payement.verifyyourdata: VERIFIZIEREN SIE BITTE IHRE DATEN
+mma.payement.payementmode: ZAHLUNGSMODE
+mma.payement.payementmodecheque: PER ÜBERWEISUNG

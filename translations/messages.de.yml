@@ -1,0 +1,200 @@
+mma.edit: Editieren
+mma.cancel: Abbrechen
+mma.create: Erstellen
+mma.add: Hinfügen
+mma.insert: Hinzufügen
+mma.search: Suchen...
+mma.03connexion: '03. Verbinden'
+mma.04adress: '04. Adresse'
+mma.05delivery: '05. Lieferung'
+mma.06payement: '06. Zahlen'
+mma.home: Home
+mma.home.depot: Lager
+mma.home.depot.comment: 'Wir haben ein Lager wo unsere Lebensmittel gelagert werden'
+mma.home.exposition: Ausstellung
+mma.home.exposition.comment: 'Unsere Produkte sind in mehr als 100 Laden in Europa zu finden'
+mma.home.import: Import
+mma.home.import.comment: 'Wir importieren unsere Lebensmittel per Boot'
+mma.home.origin: Herkunftsland
+mma.home.origin.comment: 'Auf die Karte grünmarkierte Länder stehen die Herkunftländer unserer Lebensmittel'
+mma.category: Kategorie
+mma.category.price: Preis
+mma.category.from: von
+mma.category.to: bis
+mma.category.action: 'produkt in Angebot'
+mma.category.numberofproduct1: 'Diese Kategorie beinhalte'
+mma.category.numberofproduct2: Produkte
+mma.category.displayin: Anzeige
+mma.category.liste: Liste
+mma.category.grille: Grill
+mma.category.fruits: Früchte
+mma.category.vegetables: Gemüse
+mma.category.flourandsemolina: 'Mehl und Grieß'
+mma.category.fishandshellfish: Fisch
+mma.category.fishandshellfishraw: 'roher Fisch'
+mma.category.fishandshellfishsmoke: 'geräucherter Fisch'
+mma.category.meat: Fleich
+mma.category.meatraw: 'roher Fleich'
+mma.category.meatsmoke: 'geräucherter Fleich'
+mma.category.cans: Dosen
+mma.category.spices: Gewürze
+mma.somerecipes: Kochrezept
+mma.some.recipe.norecipeconfigured: 'Kein Rezept konfiguriert'
+mma.delivery: Lieferung
+mma.contact: Kontakt
+mma.contact.reciever: Empfänger
+mma.contact.youremail: 'Deine Email'
+mma.contact.sent: Senden
+mma.contact.message: 'Dein Nachricht'
+mma.configuration: Konfiguration
+mma.configuration.editer.produit.action: Angebot
+mma.configuration.recipes: Rezept
+mma.configuration.products: Produkte
+mma.configuration.clients: Kunde
+mma.configuration.save.edited.product: Speichern
+mma.connection: Einloggen
+mma.logout: Ausloggen
+mma.connection.authenticateyourself: Identifikation
+mma.connection.createyouraccount: 'Konto erstellen'
+mma.connection.email: E-mail
+mma.connection.create: Erstellen
+mma.connection.alreafylogggedin: 'Schon eingeloggt?'
+mma.connection.password: Passwort
+mma.connection.passwordvorgoten: 'Ich habe mein Passwort vergessen'
+mma.delivery.where: 'Wir liefern nur in Europa'
+mma.delivery.deliverycostsmokedproduct: 'Versandkosten für gerauchte Lebensmittel'
+mma.delivery.weight: 'Gewicht des Pakets'
+mma.delivery.ratefrance: 'Netto Preis Frankreich(Euro)'
+mma.delivery.rateeurope: 'Netto Preis Europa(Euro)'
+mma.delivery.shippingcost: 'Versand Kosten'
+mma.delivery.additionalfeesfortax: 'Zusatz Kosten für Zoll und sonstiges'
+mma.delivery.deliverycostrawproduct: 'Versandkosten für Tiefkühlprodukte via CHRONOPOSTFOOD'
+mma.delivery.readattentivly: 'Bitte lesen'
+mma.delivery.readattentivly1: 'Produktversand in Frankreich geht um 14 Uhr nach Zahlungseingang los. Soltte euere Zahlung nach 14 Uhr ankommen dann wird eur Paket erst am kommenden Morgen versand werden und Sie erhalten die Ware spätestens um 24 Uhr nach dem Versand'
+mma.delivery.readattentivly2: 'Für Lieferungen in anderen Ländern in Europa ist der Versand gleich wie oben geregelt. Die Lieferung geschieht spätestens nach 3 Tage.'
+mma.delivery.readattentivly3: 'Wir gewährleisten kein Paketverlust wegen falscher Adresseingabe ihrerseits. Allerdings alle Paketverlust wegen Missachtung unsererseits wird so schnelll wie möglich von uns geregelt entweder durch Rückerstattung des Geldes oder durch erneute Sendung eines Paket mit beschleunigte Versandart.'
+mma.leftmenu.fruits: Früchte
+mma.leftmenu.vegetables: Gemüse
+mma.leftmenu.flourandsemolina: 'Mehl und Grieß'
+mma.leftmenu.fishandshellfish: 'Fische und Krebstiere'
+mma.leftmenu.fishandshellfishraw: 'Poissons et crustacés crus'
+mma.leftmenu.fishandshellfishsmoke: 'Poissons et crustacés fumés'
+mma.leftmenu.meat: Fleish
+mma.leftmenu.meatraw: 'Viandes crus'
+mma.leftmenu.meatsmoke: 'Viandes fumés'
+mma.leftmenu.cans: Dosen
+mma.leftmenu.spices: Gewürze
+mma.basket.product.count: Produkt(e)
+mma.basket.mybasket: 'Mein Warenkorb'
+mma.basket.yourbasketisempty: 'Dein Warenkorb ist leer'
+mma.basket.gotocashier: 'Zur kasse gehen'
+mma.basket.products: Produkte
+mma.basket.description: Beschreibung
+mma.basket.quantity: Menge
+mma.basket.totalprice: Gesamtpreis
+mma.basket.unitprice: Einzelnpreis
+mma.basket.reference: Referenz
+mma.basket.removefrombasket: 'Von Warenkorb entfernen'
+mma.basket.totalproductsttc: 'Gesamt Producte TTC'
+mma.basket.total: Gesamt
+mma.profil.myprofil: 'Mein profil'
+mma.profil.privateinformation: 'PRIVATE INFORMATIONEN'
+mma.profil.title: Anrede
+mma.profil.firstname: Vorname
+mma.profil.lastname: Nachname
+mma.profil.birthdate: Geburstag
+mma.profil.currentrole: 'Aktuelle Role'
+mma.profil.connexiondata: Verbindungsdaten
+mma.profil.email: E-mail
+mma.profil.password: Passwort
+mma.profil.adresses: Adressen
+mma.profil.adress: Adresse
+mma.profil.city: Stadt
+mma.profil.postalcode: PLZ
+mma.profil.streetnumber: 'Straße Nr.'
+mma.profil.editpersonaldata: 'Private Informationen editieren'
+mma.profil.editconnexiondata: 'Verbindungsdaten editieren'
+mma.profil.editadresses: 'Adresse editieren'
+ma.createaccount.land: Land
+ma.createaccount.city: Stadt
+ma.createaccount.postalcode: Postleitzahl
+ma.createaccount.streetnr: 'Straße Nr.'
+mma.addcard.addnameoncard: Kardname
+mma.addcard.cardnumber: Kardnummer
+mma.addcard.expiredate: Ablaufdatum
+mma.addcard.useasdefaultcard: 'Als Default Nützen'
+mma.client.ms: Ms
+mma.client.mme: Mme
+mma.client.firstname: Vorname
+mma.client.lastname: Nachname
+mma.client.birthdate: Geburtsdatum
+mma.client.role: Rolle
+mma.client.available: Vorhanden
+mma.client.image: Bild
+mma.createaccount.title: Anrede
+mma.createaccount.firstname: Vorname
+mma.createaccount.lastname: Nachname
+mma.createaccount.birthdate: Geburtsdatum
+mma.editadress.postalcode: Postleitzahl
+mma.editadress.land: Land
+mma.editadress.city: Stadt
+mma.editadress.streetnr: 'Strasse Nr.'
+mma.editadress.addnewadress: 'Neue Adresse hinzufügen'
+mma.editlogin.password: Password
+mma.editlogin.email: E-mail
+mma.ingredient.name: Name
+mma.listofingredient.ingredients: Zutaten
+mma.product.name: Name
+mma.product.price: Preis
+mma.product.state: Status
+mma.product.category: Kategorie
+mma.product.fruts: Früchte
+mma.product.spice: Gewürze
+mma.product.flourandsemolina: 'Mehl und Gries'
+mma.product.rawedmeat: 'Gefrohen Fleich'
+mma.product.smokedmeat: 'Getrocknete Fleich'
+mma.product.shellfish: 'Salzige Fish'
+mma.product.cans: null
+mma.product.quantity: Menge
+mma.product.available: Vorhanden
+mma.product.offer: Angebot
+mma.product.reduction: Ermäßigung
+mma.product.offerstart: 'Angebot Startdatum'
+mma.product.offerend: 'Angebot Enddatum'
+mma.product.image: Bild
+mma.recette.name: Name
+mma.recette.image: Bild
+mma.recette.reciept: Rezept
+mma.senregistrer.email: E-mail
+mma.senregistrer.password: Passwort
+mma.step.time: Zeit
+mma.step.description: Beschreibung
+mma.recipecatalog.searchrecipe: 'Rezept suchen ...'
+mma.recipecatalog.recipename: Name
+mma.configurerecipe.title: 'Rezept konfigurieren'
+mma.configurerecipe.listofingredient: 'Liste der Zutaten'
+mma.configurerecipe.cookingstep: 'Bereitung step'
+mma.productcatalog.searchproduct: 'Produkt suchen ...'
+mma.productcatalog.productname: Name
+mma.productcatalog.productprice: Preis
+mma.productcatalog.productcategory: Kategorie
+mma.productcatalog.productquantity: Menge
+mma.productcatalog.productavailable: Vorhanden
+mma.productcatalog.productstate: Status
+mma.clientcatalog.searchclient: 'Kunde suchen...'
+mma.clientcatalog.clienttitle: Anrede
+mma.clientcatalog.clientfirstnameandlastname: 'Vor- und Nachname'
+mma.clientcatalog.clientrole: Rolle
+mma.deliveryway.unitprice: Einzelnpreis
+mma.deliveryway.reference: Referenz
+mma.deliveryway.choosedeliveryway: 'LIEFERART WÄHLEN'
+mma.deliveryway.confirmconditionofsale1: 'I read the general conditions of sale and I adhere to it without reservation.'
+mma.deliveryway.confirmconditionofsale2: '(Read the Terms general sales terms)'
+mma.deliveryway.pay: Zahlen
+mma.verifyadress.choosedeliveryadress: 'LIEFERADRESSE WÄHLEN'
+mma.verifyadress.addanaddress: 'ADRESSE HINZUFÜGEN'
+mma.verifyadress.deliveryaddress: LIEFERADRESSE
+mma.verifyadress.continue: Weiter
+mma.payement.verifyyourdata: 'VERIFIZIEREN SIE BITTE IHRE DATEN'
+mma.payement.payementmode: ZAHLUNGSMODE
+mma.payement.payementmodecheque: 'PER ÜNBERWEISUNG'

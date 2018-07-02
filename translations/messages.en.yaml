@@ -32,7 +32,7 @@ mma.category.numberofproduct2: Product
 mma.category.displayin: display in
 mma.category.liste: List
 mma.category.grille: Grill
-mma.category.fruits: Fruits
+mma.category.fruits: Fruts
 mma.category.vegetables: Vegetables
 mma.category.flourandsemolina: Flour and semolina
 mma.category.fishandshellfish: Fish 
@@ -92,7 +92,7 @@ mma.delivery.readattentivly2: Pour les livraisons dans les autres pays d´europe
 mma.delivery.readattentivly3: Nous guarantissons pas les pertes de commande suite a une mauvaise adresse de livraison. Cependant toute perte de commande du à; une erreur de notre part sera régler dans les bref délais par des moyens express d´expédition ou part un remboursement avec compensation total de vos frais payements.
 
 ########## LEFT MENU ###############
-mma.leftmenu.fruits: Fruits
+mma.leftmenu.fruits: Fruts
 mma.leftmenu.vegetables: Vegetables
 mma.leftmenu.flourandsemolina: Flour and Semolina
 mma.leftmenu.fishandshellfish: Fish and Shellfish
@@ -106,7 +106,7 @@ mma.leftmenu.spices: Spices
 
 ########## PANIER ###############
 mma.basket.product.count: products
-mma.basket.mybasket: Mon panier
+mma.basket.mybasket: My basket
 mma.basket.yourbasketisempty: Your basket is empty
 mma.basket.gotocashier: Go to cashier
 mma.basket.products: Products
@@ -118,6 +118,10 @@ mma.basket.reference: Reference
 mma.basket.removefrombasket: Remove from the basket
 mma.basket.totalproductsttc: Total products TTC
 mma.basket.total: Total
+
+########## CONFIGURATION ###############
+mma.configuration.product.name: Name
+
 ########## PROFIL ###############
 mma.profil.myprofil: My profil
 mma.profil.privateinformation: PRIVATE INFORMATIONS
@@ -146,10 +150,10 @@ ma.createaccount.postalcode: Postal code
 ma.createaccount.streetnr: Street nr.
 
 ########## ADD CARD FORM ###############
-mma.addcard.addnameoncard: Nom sur la carte
+mma.addcard.addnameoncard: Name on the card
 mma.addcard.cardnumber: Card number
-mma.addcard.expiredate: Date d´expiration
-mma.addcard.useasdefaultcard: Utiliser cette carte par defaut
+mma.addcard.expiredate: Expired date
+mma.addcard.useasdefaultcard: Use this card as default
 
 ########## CLIENT FORM ###############
 mma.client.ms: Ms
@@ -190,7 +194,7 @@ mma.product.fruts: fruts
 mma.product.spice: spice
 mma.product.flourandsemolina: flour and semolina
 mma.product.rawedmeat: rawed meat
-mma.product.smokedmeat: Smoked 
+mma.product.smokedmeat: Smoked meat 
 mma.product.shellfish: shell fish
 mma.product.cans: cans
 mma.product.quantity: Quantity
@@ -220,7 +224,7 @@ mma.recipecatalog.recipename: Name
 ######### CONFIGURE RECIPE ###############
 mma.configurerecipe.title: Configure this recipe
 mma.configurerecipe.listofingredient: List of ingredient
-mma.configurerecipe.cookingstep: Cooking step 
+mma.configurerecipe.cookingstep: Cooking steps 
 
 ######### PRODUCT CATALOG ###############
 mma.productcatalog.searchproduct: Search product ...
@@ -255,4 +259,4 @@ mma.verifyadress.continue: Continue
 ######### PAYEMENT ###############
 mma.payement.verifyyourdata: VERIFY YOUR DATA
 mma.payement.payementmode: PAYEMENT MODE
-mma.payement.payementmodecheque: PAR VIREMENT
+mma.payement.payementmodecheque: Per cheque

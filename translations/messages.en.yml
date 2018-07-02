@@ -1,0 +1,202 @@
+mma.edit: Editer
+mma.cancel: Cancel
+mma.create: Create
+mma.add: Add
+mma.insert: Insert
+mma.search: Search...
+mma.03connexion: '03. Connexion'
+mma.04adress: '04. Adress'
+mma.05delivery: '05. Delivery'
+mma.06payement: '06. Payement'
+mma.home: Home
+mma.home.depot: Depot
+mma.home.depot.comment: 'We a main depot place from where we a approvision clients'
+mma.home.exposition: Ausstellung
+mma.home.exposition.comment: 'You can find ower foods in more than 100 lands'
+mma.home.import: Import
+mma.home.import.comment: 'We import ower foods per boat'
+mma.home.origin: 'Country of origin'
+mma.home.origin.comment: 'The green marked lands on the cart show the lands ower foods come from'
+mma.category: Category
+mma.category.price: Price
+mma.category.from: from
+mma.category.to: to
+mma.category.action: offert
+mma.category.numberofproduct1: 'This category containts'
+mma.category.numberofproduct2: Product
+mma.category.displayin: 'display in'
+mma.category.liste: List
+mma.category.grille: Grill
+mma.category.fruits: Fruits
+mma.category.vegetables: Vegetables
+mma.category.flourandsemolina: 'Flour and semolina'
+mma.category.fishandshellfish: Fish
+mma.category.fishandshellfishraw: 'Fish and shell fishraw'
+mma.category.fishandshellfishsmoke: 'Fish and smoked shellfish'
+mma.category.meat: Meat
+mma.category.meatraw: 'Rawed meat'
+mma.category.meatsmoke: 'Smoked meat'
+mma.category.cans: Cans
+mma.category.spices: Spices
+mma.somerecipes: Recipes
+mma.some.recipe.norecipeconfigured: 'No recipe configured'
+mma.delivery: Delivery
+mma.contact: Contact
+mma.contact.reciever: Reciever
+mma.contact.youremail: 'Your Email'
+mma.contact.sent: Sent
+mma.contact.message: 'Your message'
+mma.configuration: Configuration
+mma.configuration.editer.produit.action: Offer
+mma.configuration.recipes: recipes
+mma.configuration.products: Products
+mma.configuration.clients: Clients
+mma.configuration.save.edited.product: Save
+mma.connection: 'Log in'
+mma.logout: 'Log out'
+mma.connection.authenticateyourself: 'Authenticate yourself'
+mma.connection.createyouraccount: 'Create your account'
+mma.connection.email: E-mail
+mma.connection.create: Create
+mma.connection.alreafylogggedin: 'Already logged?'
+mma.connection.password: Password
+mma.connection.passwordvorgoten: 'password vorgoten'
+mma.deliver.where: 'We just deliver in europe'
+mma.delivery.deliverycostsmokedproduct: 'Deliverycost for smoked product'
+mma.delivery.weight: Weight
+mma.delivery.ratefrance: 'Rate france(Euro)'
+mma.delivery.rateeurope: 'Rate Europe(Euro)'
+mma.delivery.shippingcost: 'Shipping cost'
+mma.delivery.additionalfeesfortax: 'Additional fees for tax'
+mma.delivery.deliverycostrawproduct: 'Deliverycost for rawed product'
+mma.delivery.readattentivly: 'Read carefully'
+mma.delivery.readattentivly1: 'L´expédition des colis en france métropoliteine s´effectue à 14h après réception de votre payement. Si votre payement est arrivé après 14h alors l´expédition se fera le lendemain et la livraison s´effectuera au plus tard 24h après l´expédition.'
+mma.delivery.readattentivly2: 'Pour les livraisons dans les autres pays d´europe, l´expédition est éffectuer suivant les memes closes que celles décrites plus haut. La livraison s´effectue après au plus 3 jours.'
+mma.delivery.readattentivly3: 'Nous guarantissons pas les pertes de commande suite a une mauvaise adresse de livraison. Cependant toute perte de commande du à; une erreur de notre part sera régler dans les bref délais par des moyens express d´expédition ou part un remboursement avec compensation total de vos frais payements.'
+mma.leftmenu.fruits: Fruits
+mma.leftmenu.vegetables: Vegetables
+mma.leftmenu.flourandsemolina: 'Flour and Semolina'
+mma.leftmenu.fishandshellfish: 'Fish and Shellfish'
+mma.leftmenu.fishandshellfishraw: 'Raw Fish and Shellfish'
+mma.leftmenu.fishandshellfishsmoke: 'Smoked Shellfish'
+mma.leftmenu.meat: Meat
+mma.leftmenu.meatraw: 'Raw meat'
+mma.leftmenu.meatsmoke: 'Smoked meat'
+mma.leftmenu.cans: Cans
+mma.leftmenu.spices: Spices
+mma.basket.product.count: products
+mma.basket.mybasket: 'My basket'
+mma.basket.yourbasketisempty: 'Your basket is empty'
+mma.basket.gotocashier: 'Go to cashier'
+mma.basket.products: Products
+mma.basket.description: Description
+mma.basket.quantity: Quantity
+mma.basket.totalprice: 'Total price'
+mma.basket.unitprice: 'Unit price'
+mma.basket.reference: Reference
+mma.basket.removefrombasket: 'Remove from the basket'
+mma.basket.totalproductsttc: 'Total products TTC'
+mma.basket.total: Total
+mma.configuration.product.name: Name
+mma.profil.myprofil: 'My profil'
+mma.profil.privateinformation: 'PRIVATE INFORMATIONS'
+mma.profil.title: Title
+mma.profil.firstname: Firstname
+mma.profil.lastname: Lastname
+mma.profil.birthdate: Birthdate
+mma.profil.currentrole: 'Current right'
+mma.profil.connexiondata: 'Connexion data'
+mma.profil.email: E-mail
+mma.profil.password: Password
+mma.profil.adresses: Adresses
+mma.profil.adress: Adresse
+mma.profil.city: City
+mma.profil.postalcode: 'Postal code'
+mma.profil.streetnumber: 'Street nr.'
+mma.profil.editpersonaldata: 'Edit private information'
+mma.profil.editconnexiondata: 'Edit connexion data'
+mma.profil.editadresses: 'Edit adress'
+ma.createaccount.land: Land
+ma.createaccount.city: City
+ma.createaccount.postalcode: 'Postal code'
+ma.createaccount.streetnr: 'Street nr.'
+mma.addcard.addnameoncard: 'Name on the card'
+mma.addcard.cardnumber: 'Card number'
+mma.addcard.expiredate: 'Expired date'
+mma.addcard.useasdefaultcard: 'Use this card as default'
+mma.client.ms: Ms
+mma.client.mme: Mme
+mma.client.firstname: Firstname
+mma.client.lastname: Lastname
+mma.client.birthdate: Birthdate
+mma.client.role: Role
+mma.client.available: Available
+mma.client.image: Image
+mma.createaccount.title: Title
+mma.createaccount.firstname: Firstname
+mma.createaccount.lastname: Lastname
+mma.createaccount.birthdate: Birthdate
+mma.editadress.postalcode: 'Postal code'
+mma.editadress.land: Land
+mma.editadress.city: City
+mma.editadress.streetnr: 'Street nr.'
+mma.editadress.addnewadress: 'Add new adress'
+mma.editlogin.password: Password
+mma.editlogin.email: E-mail
+mma.ingredient.name: name
+mma.listofingredient.ingredients: ingredients
+mma.product.name: Name
+mma.product.price: Price
+mma.product.state: State
+mma.product.category: Category
+mma.product.fruts: fruts
+mma.product.spice: spice
+mma.product.flourandsemolina: 'flour and semolina'
+mma.product.rawedmeat: 'rawed meat'
+mma.product.smokedmeat: 'Smoked meat'
+mma.product.shellfish: 'shell fish'
+mma.product.cans: cans
+mma.product.quantity: Quantity
+mma.product.available: Available
+mma.product.offer: Offer
+mma.product.reduction: Reduction
+mma.product.offerstart: 'Offer startdate'
+mma.product.offerend: 'Offer enddate'
+mma.product.image: Image
+mma.recette.name: Name
+mma.recette.image: Image
+mma.recette.reciept: Reciept
+mma.senregistrer.email: E-mail
+mma.senregistrer.password: Password
+mma.step.time: Time
+mma.step.description: Description
+mma.recipecatalog.searchrecipe: 'Search recipe ...'
+mma.recipecatalog.recipename: Name
+mma.configurerecipe.title: 'Configure this recipe'
+mma.configurerecipe.listofingredient: 'List of ingredient'
+mma.configurerecipe.cookingstep: 'Cooking steps'
+mma.productcatalog.searchproduct: 'Search product ...'
+mma.productcatalog.productname: Name
+mma.productcatalog.productprice: Price
+mma.productcatalog.productcategory: Category
+mma.productcatalog.productquantity: Quantity
+mma.productcatalog.productavailable: Available
+mma.productcatalog.productstate: State
+mma.clientcatalog.searchclient: 'Search client...'
+mma.clientcatalog.clienttitle: Title
+mma.clientcatalog.clientfirstnameandlastname: 'Firstname Lastname'
+mma.clientcatalog.clientrole: Role
+mma.deliveryway.unitprice: 'Unit price'
+mma.deliveryway.reference: Reference
+mma.deliveryway.choosedeliveryway: 'CHOOSE DELIVERY WAY'
+mma.deliveryway.confirmconditionofsale1: 'I read the general conditions of sale and I adhere to it without reservation.'
+mma.deliveryway.confirmconditionofsale2: '(Read the Terms general sales terms)'
+mma.deliveryway.pay: Pay
+mma.verifyadress.choosedeliveryadress: 'Choose delivery adress'
+mma.verifyadress.addanaddress: 'Add an address'
+mma.verifyadress.deliveryaddress: 'DELIVERY ADDRESS'
+mma.verifyadress.continue: Continue
+mma.payement.verifyyourdata: 'VERIFY YOUR DATA'
+mma.payement.payementmode: 'PAYEMENT MODE'
+mma.payement.payementmodecheque: 'PAR VIREMENT'
+mma.delivery.where: __mma.delivery.where

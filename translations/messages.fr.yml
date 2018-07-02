@@ -1,0 +1,204 @@
+mma.edit: Editer
+mma.cancel: Cancel
+mma.create: Create
+mma.add: Ajouter
+mma.insert: Inserer
+mma.search: Chercher...
+mma.03connexion: '03. Connexion'
+mma.04adress: '04. Adresse'
+mma.05delivery: '05. Livraison'
+mma.06payement: '06. Payement'
+mma.home: Home
+mma.home.depot: Depot
+mma.home.depot.comment: 'Nous avons un depot de marchandise regroupant les vivres venant des pays cibler dans le monde'
+mma.home.exposition: Exposition
+mma.home.exposition.comment: 'Nos produits se retrouvent dans plus 100 maguazins en europe'
+mma.home.import: Import
+mma.home.import.comment: 'Limportation de nos vivre se fait par bateau'
+mma.home.origin: Provenance
+mma.home.origin.comment: 'Nous importons des vivres venant des pays en vert sur la carte'
+mma.category: Catégories
+mma.category.price: prix
+mma.category.from: 'allant de'
+mma.category.to: à
+mma.category.action: 'Produits en action'
+mma.category.numberofproduct1: 'cette categorie contient'
+mma.category.numberofproduct2: produits
+mma.category.displayin: 'Affichage en'
+mma.category.liste: Liste
+mma.category.grille: Grille
+mma.category.fruits: Fruits
+mma.category.vegetables: légumes
+mma.category.flourandsemolina: 'Fraines et sémoules'
+mma.category.fishandshellfish: 'Poissons et crustacés'
+mma.category.fishandshellfishraw: 'Poissons et crustacés crus'
+mma.category.fishandshellfishsmoke: 'Poissons et crustacés fumés'
+mma.category.meat: Viandes
+mma.category.meatraw: 'Viandes crus'
+mma.category.meatsmoke: 'Viandes fumés'
+mma.category.cans: conservers
+mma.category.spices: Épices
+mma.somerecipes: 'Quelque recettes'
+mma.some.recipe.norecipeconfigured: 'Aucune configurée jusqu´ici'
+mma.delivery: Livraison
+mma.contact: Contact
+mma.contact.reciever: Destinataire
+mma.contact.youremail: 'Votre adresse E-mail'
+mma.contact.sent: Envoyer
+mma.contact.message: 'Votre message'
+mma.configuration: Configuration
+mma.configuration.editer.produit.action: Action
+mma.configuration.recipe: Recettes
+mma.configuration.products: Produits
+mma.configuration.clients: Clients
+mma.configuration.save.edited.product: Sauvegarder
+mma.connection: Connexion
+mma.logout: Deconnexion
+mma.connection.authenticateyourself: Identifiez-vous
+mma.connection.createyouraccount: 'Créez votre compte'
+mma.connection.email: E-mail
+mma.connection.create: Creer
+mma.connection.alreafylogggedin: 'Déja inscrit?'
+mma.connection.password: 'Mot de passe'
+mma.connection.passwordvorgoten: 'J´ai oublié mon mot de passe'
+mma.delivery.where: 'Nos livraisons se font exclusivement dans l´union européene'
+mma.delivery.deliverycostsmokedproduct: 'Frais de livraison des produits secs ou fumés'
+mma.delivery.weight: 'Poids colis'
+mma.delivery.ratefrance: 'Tarif net france(Euro)'
+mma.delivery.rateeurope: 'Tarif net Europe(Euro)'
+mma.delivery.shippingcost: 'Frais de port'
+mma.delivery.additionalfeesfortax: 'Frais suplementaires de taxe et consore'
+mma.delivery.deliverycostrawproduct: 'Frais de livraison des produits surgelés avec CHRONOPOSTFOOD'
+mma.delivery.readattentivly: 'Lisez attentivement'
+mma.delivery.readattentivly1: 'L´expédition des colis en france métropoliteine s´effectue à 14h après réception de votre payement. Si votre payement est arrivé après 14h alors l´expédition se fera le lendemain et la livraison s´effectuera au plus tard 24h après l´expédition.'
+mma.delivery.readattentivly2: 'Pour les livraisons dans les autres pays d´europe, l´expédition est éffectuer suivant les memes closes que celles décrites plus haut. La livraison s´effectue après au plus 3 jours.'
+mma.delivery.readattentivly3: 'Nous guarantissons pas les pertes de commande suite a une mauvaise adresse de livraison. Cependant toute perte de commande du &aagrave; une erreur de notre part sera régler dans les bref délais par des moyens express d´expédition ou part un remboursement avec compensation total de vos frais payements.'
+mma.leftmenu.fruits: Fruits
+mma.leftmenu.vegetables: Legumes
+mma.leftmenu.flourandsemolina: 'Farines et sémoules'
+mma.leftmenu.fishandshellfish: 'Poissons et crustacés'
+mma.leftmenu.fishandshellfishraw: 'Poissons et crustacés crus'
+mma.leftmenu.fishandshellfishsmoke: 'Poissons et crustacés fumés'
+mma.leftmenu.meat: Viandes
+mma.leftmenu.meatraw: 'Viandes crus'
+mma.leftmenu.meatsmoke: 'Viandes fumés'
+mma.leftmenu.cans: Conserves
+mma.leftmenu.spices: Épices
+mma.basket.product.count: produits
+mma.basket.mybasket: 'Mon panier'
+mma.basket.yourbasketisempty: 'Votre panier est vide'
+mma.basket.gotocashier: 'Aller au guicher'
+mma.basket.products: Produits
+mma.basket.description: Description
+mma.basket.quantity: Quantité
+mma.basket.totalprice: 'Prix total'
+mma.basket.unitprice: 'Prix unitaire'
+mma.basket.reference: Reference
+mma.basket.removefrombasket: 'Enlever du panier'
+mma.basket.totalproductsttc: 'Produit Total TTC'
+mma.basket.total: Total
+mma.configuration.product.name: nom
+mma.profil.myprofil: 'Mon profil'
+mma.profil.privateinformation: 'DONNÉES PERSONNELLES'
+mma.profil.title: Titre
+mma.profil.firstname: Nom
+mma.profil.lastname: Prenom
+mma.profil.birthdate: 'Date de naissance'
+mma.profil.currentrole: 'Rolle actuel'
+mma.profil.connexiondata: 'DONNÉES D´ENREGISTREMENT'
+mma.profil.email: E-mail
+mma.profil.password: 'Mot de passe'
+mma.profil.adresses: ADRESSES
+mma.profil.adress: Adresse
+mma.profil.city: Ville
+mma.profil.postalcode: BP
+mma.profil.streetnumber: 'Rue  nr.'
+mma.profil.editpersonaldata: 'Editer les donn&eacute;es priv&eacute;es'
+mma.profil.editconnexiondata: 'Editer les donnés de connexion'
+mma.profil.editadresses: 'Editer l´adresse'
+ma.createaccount.land: Pays
+ma.createaccount.city: Ville
+ma.createaccount.postalcode: 'Code Postal'
+ma.createaccount.streetnr: Rue
+mma.addcard.addnameoncard: 'Nom sur la carte'
+mma.addcard.cardnumber: 'Card number'
+mma.addcard.expiredate: 'Date d´expiration'
+mma.addcard.useasdefaultcard: 'Utiliser cette carte par defaut'
+mma.client.ms: Ms
+mma.client.mme: Mme
+mma.client.firstname: Nom
+mma.client.lastname: Prenom
+mma.client.birthdate: 'Date de naissance'
+mma.client.role: Role
+mma.client.available: Disponible
+mma.client.image: Image
+mma.createaccount.title: Titre
+mma.createaccount.firstname: Nom
+mma.createaccount.lastname: Prenom
+mma.createaccount.birthdate: 'Date de naissance'
+mma.editadress.postalcode: 'Code Postal'
+mma.editadress.land: Pays
+mma.editadress.city: Ville
+mma.editadress.streetnr: Rue
+mma.editadress.addnewadress: 'Ajouter une adresse'
+mma.editlogin.password: 'Mot de passe'
+mma.editlogin.email: E-mail
+mma.ingredient.name: nom
+mma.listofingredient.ingredients: ingredients
+mma.product.name: nom
+mma.product.price: prix
+mma.product.status: status
+mma.product.category: Categorie
+mma.product.fruts: Fruits
+mma.product.spice: Épices
+mma.product.vegetables: Végeteaux
+mma.product.flourandsemolina: 'farine et sémoule'
+mma.product.rawedmeat: 'Viandes congelées'
+mma.product.smokedmeat: 'Viandes fumées'
+mma.product.shellfish: 'Poisson sallé'
+mma.product.cans: null
+mma.product.quantity: quantité
+mma.product.available: disponible
+mma.product.offer: Action
+mma.product.reduction: reduction
+mma.product.offerstart: 'Début de l´action'
+mma.product.offerend: 'Fin de l´action'
+mma.product.image: image
+mma.recette.name: Nom
+mma.recette.image: Image
+mma.recette.reciept: Recette
+mma.senregistrer.email: E-mail
+mma.senregistrer.password: 'Mot de passe'
+mma.step.time: Temps
+mma.step.description: Description
+mma.recipecatalog.searchrecipe: 'Chercher une recette ...'
+mma.recipecatalog.recipename: Nom
+mma.configurerecipe.title: 'Configurer cette recette'
+mma.configurerecipe.listofingredient: 'Liste des ingredients'
+mma.configurerecipe.cookingstep: 'Steps de cuisson'
+mma.productcatalog.searchproduct: 'Chercher un produit ...'
+mma.productcatalog.productname: Nom
+mma.productcatalog.productprice: Prix
+mma.productcatalog.productcategory: Categorie
+mma.productcatalog.productquantity: Quantité
+mma.productcatalog.productavailable: Disponible
+mma.productcatalog.productstatus: status
+mma.clientcatalog.searchclient: 'Cherhcer un client...'
+mma.clientcatalog.clienttitle: Titre
+mma.clientcatalog.clientfirstnameandlastname: 'Nom Prenom'
+mma.clientcatalog.clientrole: Rolle
+mma.deliveryway.unitprice: 'Prix unitaire'
+mma.deliveryway.reference: Reference
+mma.deliveryway.choosedeliveryway: 'CHOISIR LE MOYEN DE LIVRAISON'
+mma.deliveryway.confirmconditionofsale1: 'I read the general conditions of sale and I adhere to it without reservation.'
+mma.deliveryway.confirmconditionofsale2: '(Read the Terms general sales terms)'
+mma.deliveryway.pay: Payer
+mma.verifyadress.choosedeliveryadress: 'Choisir l´adresse de livraison'
+mma.verifyadress.addanaddress: 'Ajouter une adresse'
+mma.verifyadress.deliveryaddress: 'ADRESSE DE LIVRAISON'
+mma.verifyadress.continue: Continuer
+mma.payement.verifyyourdata: 'VERIFIER TES DONNÉES'
+mma.payement.payementmode: 'MODE DE PAYEMENT'
+mma.payement.payementmodecheque: 'PAR VIREMENT'
+mma.configuration.recipes: __mma.configuration.recipes
+mma.productcatalog.productstate: __mma.productcatalog.productstate

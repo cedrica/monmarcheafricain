@@ -28,13 +28,15 @@
 <script src="{{asset('js/fos_js_routes.js')}}"></script>
 
 <script src="{{asset('js/michouafroshop.core.js')}}"></script>
+
+<link href="{{ asset('css/michouafroshop.css') }}" rel="stylesheet" />
+<link href="{{ asset('css/card.css') }}" rel="stylesheet" />
+
+{% block stylesheets %}
+{% endblock %}
 {% block javascripts %}
 
 {% endblock %}
-{% block stylesheets %}
-{% endblock %}
-<link href="{{ asset('css/michouafroshop.css') }}" rel="stylesheet" />
-<link href="{{ asset('css/card.css') }}" rel="stylesheet" />
 </head>
 
 <body>

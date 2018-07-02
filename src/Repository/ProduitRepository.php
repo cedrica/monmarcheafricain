@@ -47,4 +47,15 @@ class ProduitRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findByFilter($cat,$minPrice,$maxPrice,$sortBy){
+    	return  $this->createQueryBuilder('p')
+    	->andWhere('p.categorie = :categorie')
+    	->andWhere('p.prix between :minprice and :maxprice')
+    	->setParameter('categorie', $cat)
+    	->setParameter('minprice', $minPrice)
+    	->setParameter('maxprice', $maxPrice)
+    	->orderBy('p.prix', $sortBy)
+    	->getQuery()
+    	->getResult();
+    }
 }

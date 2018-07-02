@@ -2,7 +2,13 @@
 mma.edit: Editer
 mma.cancel: Cancel
 mma.create: Create
-
+mma.add: Ajouter
+mma.insert: Inserer
+mma.search: Chercher...
+mma.03connexion: 03. Connexion
+mma.04adress: 04. Adresse
+mma.05delivery: 05. Livraison
+mma.06payement: 06. Payement
 ########## HOME ###############
 mma.home: Home
 mma.home.depot: Depot
@@ -98,7 +104,18 @@ mma.leftmenu.cans: Conserves
 mma.leftmenu.spices: Épices
 ########## PANIER ###############
 mma.basket.product.count: produits
-
+mma.basket.mybasket: Mon panier
+mma.basket.yourbasketisempty: Votre panier est vide
+mma.basket.gotocashier: Aller au guicher
+mma.basket.products: Produits
+mma.basket.description: Description 
+mma.basket.quantity: Quantité
+mma.basket.totalprice: Prix total
+mma.basket.unitprice: Prix unitaire
+mma.basket.reference: Reference
+mma.basket.removefrombasket: Enlever du panier
+mma.basket.totalproductsttc: Produit Total TTC
+mma.basket.total: Total
 ########## CONFIGURATION ###############
 mma.configuration.product.name: nom
 
@@ -109,10 +126,10 @@ mma.profil.title: Titre
 mma.profil.firstname: Nom
 mma.profil.lastname: Prenom
 mma.profil.birthdate: Date de naissance
-mma.profil.currentrole: Current right
+mma.profil.currentrole: Rolle actuel
 mma.profil.connexiondata: DONNÉES D´ENREGISTREMENT
 mma.profil.email: E-mail
-mma.profil.password: Password
+mma.profil.password: Mot de passe
 mma.profil.adresses: ADRESSES
 mma.profil.adress: Adresse
 mma.profil.city: Ville
@@ -122,24 +139,120 @@ mma.profil.editpersonaldata: Editer les donn&eacute;es priv&eacute;es
 mma.profil.editconnexiondata: Editer les donnés de connexion
 mma.profil.editadresses: Editer l´adresse
 
+########## CREATE ACCOUNT ###############
+ma.createaccount.land: Pays
+ma.createaccount.city: Ville
+ma.createaccount.postalcode: Code Postal 
+ma.createaccount.streetnr: Rue
+
+########## ADD CARD FORM ###############
+mma.addcard.addnameoncard: Nom sur la carte
+mma.addcard.cardnumber: Card number
+mma.addcard.expiredate: Date d´expiration
+mma.addcard.useasdefaultcard: Utiliser cette carte par defaut
+
+########## CLIENT FORM ###############
+mma.client.ms: Ms
+mma.client.mme: Mme
+mma.client.firstname: Nom
+mma.client.lastname: Prenom
+mma.client.birthdate: Date de naissance
+mma.client.role: Role
+mma.client.available: Disponible
+mma.client.image: Image
+
+########## CREER COMPTE FORM ###############
+mma.createaccount.title: Titre
+mma.createaccount.firstname: Nom
+mma.createaccount.lastname:  Prenom
+mma.createaccount.birthdate: Date de naissance
+
+########## EDIT ADRESSE FORM ###############
+mma.editadress.postalcode: Code Postal
+mma.editadress.land: Pays
+mma.editadress.city: Ville
+mma.editadress.streetnr: Rue
+mma.editadress.addnewadress: Ajouter une adresse
+########## EDIT LOGIN FORM ###############
+mma.editlogin.password: Mot de passe
+mma.editlogin.email: E-mail
+
+########## INGREDIENT FORM ###############
+mma.ingredient.name: nom
+mma.listofingredient.ingredients: ingredients
 ########## PRODUCT FORM ###############
-mma.product.name: name
-mma.product.price: price
-mma.product.state: state
-mma.product.category: category
-mma.product.fruts: fruts
-mma.product.spice: spice
-mma.product.vegetables: vegetables
-mma.product.flourandsemolina: flourandsemolina
-mma.product.rawedmeat: rawedmeat
-mma.product.smokedmeat: smokedmeat
-mma.product.shellfish: shellfish
-mma.product.cans: cans
-mma.product.quantity: quantity
-mma.product.available: available
-mma.product.offer: offer
+mma.product.name: nom
+mma.product.price: prix
+mma.product.status: status
+mma.product.category: Categorie
+mma.product.fruts: Fruits
+mma.product.spice: Épices
+mma.product.vegetables: Végeteaux
+mma.product.flourandsemolina: farine et sémoule
+mma.product.rawedmeat: Viandes congelées
+mma.product.smokedmeat: Viandes fumées 
+mma.product.shellfish: Poisson sallé
+mma.product.cans: 
+mma.product.quantity: quantité
+mma.product.available: disponible
+mma.product.offer: Action
 mma.product.reduction: reduction
-mma.product.offerstart: offerstart
-mma.product.offerend: offerend
+mma.product.offerstart: Début de l´action
+mma.product.offerend: Fin de l´action
 mma.product.image: image
 
+########## RECIPE FORM ###############
+mma.recette.name: Nom
+mma.recette.image: Image
+mma.recette.reciept: Recette
+
+########## SENREGISTRER FORM ###############
+mma.senregistrer.email: E-mail
+mma.senregistrer.password: Mot de passe
+########## STEP FORM ###############
+mma.step.time: Temps
+mma.step.description: Description
+
+######### RECIPE CATALOG ###############
+mma.recipecatalog.searchrecipe: Chercher une recette ...
+mma.recipecatalog.recipename: Nom
+
+######### CONFIGURE RECIPE ###############
+mma.configurerecipe.title: Configurer cette recette
+mma.configurerecipe.listofingredient: Liste des ingredients
+mma.configurerecipe.cookingstep: Steps de cuisson
+
+######### PRODUCT CATALOG ###############
+mma.productcatalog.searchproduct: Chercher un produit ...
+mma.productcatalog.productname: Nom
+mma.productcatalog.productprice: Prix
+mma.productcatalog.productcategory: Categorie
+mma.productcatalog.productquantity: Quantité
+mma.productcatalog.productavailable: Disponible
+mma.productcatalog.productstatus: status
+
+######### CLIENT CATALOG ###############
+mma.clientcatalog.searchclient: Cherhcer un client...
+mma.clientcatalog.clienttitle: Titre
+mma.clientcatalog.clientfirstnameandlastname: Nom Prenom
+mma.clientcatalog.clientrole: Rolle
+
+
+######### DELIVERY WAY ###############
+mma.deliveryway.unitprice: Prix unitaire
+mma.deliveryway.reference: Reference
+mma.deliveryway.choosedeliveryway: CHOISIR LE MOYEN DE LIVRAISON
+mma.deliveryway.confirmconditionofsale1: I read the general conditions of sale and I adhere to it without reservation. 
+mma.deliveryway.confirmconditionofsale2: (Read the Terms general sales terms) 
+mma.deliveryway.pay: Payer
+
+######### VERIFY ADRES ###############
+mma.verifyadress.choosedeliveryadress: Choisir l´adresse de livraison
+mma.verifyadress.addanaddress: Ajouter une adresse
+mma.verifyadress.deliveryaddress: ADRESSE DE LIVRAISON
+mma.verifyadress.continue: Continuer
+
+######### PAYEMENT ###############
+mma.payement.verifyyourdata: VERIFIER TES DONNÉES
+mma.payement.payementmode:  MODE DE PAYEMENT
+mma.payement.payementmodecheque: PAR VIREMENT
