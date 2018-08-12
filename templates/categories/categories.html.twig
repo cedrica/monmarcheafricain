@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="row">
-	<i class="fa fa-bars" style="color: #33cc33"></i> Categories
+	<i class="fa fa-bars" style="color: #33cc33"></i> {{ 'mma.categories'|trans }}
 </div>
 <div class="row divider"></div>
 <div class="row">
@@ -23,7 +23,7 @@
 			<div class="well">
 				<form method="post"  novalidate="novalidate" action="{{ path('categories_controller_filtre',{'cat': cat,'_locale':app.request.locale, 'affichage':affichage}) }}">
 					<div class="form-group">
-						<label for="amount">PRIX:</label>
+						<label for="amount">{{ 'mma.categories.filtre.price'|trans }}</label>
 						<div class="row">
 							<div class="col-lg-2">
 								<input type="number" id="minprice" name="minprice" 
@@ -41,18 +41,18 @@
 						
 					</div>
 					<div class="form-group">
-						<label>SORT BY:</label> 
+						<label>{{ 'mma.categories.filtre.sortby'|trans }}:</label> 
 						<select class="form-control" name="sortby" id="sortby">
-							<option value="null">--choisir--</option>
-							<option value="asc">Tarif croissant</option>
-							<option value="desc">Tarif décroissant</option>
+							<option value="null">{{ 'mma.categories.filtre.choose'|trans }}</option>
+							<option value="asc">{{ 'mma.categories.filtre.pricedescending'|trans }}</option>
+							<option value="desc">{{ 'mma.categories.filtre.priceascending'|trans }}</option>
 						</select>
 					</div>
 					<div class="form-group">
-						<label>PRODUITS EN ACTION:</label> <input type="checkbox" id="action" name="action"></input>
+						<label>{{ 'mma.categories.filtre.productoffer'|trans }}</label> <input type="checkbox" id="action" name="action"></input>
 					</div>
                     <div class="form-group">
-                    	<button type="submit" class="btn pull-right" style="background-color: lightgreen; color:#fff">FILTRER</button>
+                    	<button type="submit" class="btn pull-right" style="background-color: lightgreen; color:#fff">{{ 'mma.categories.filtre.filter'|trans }}</button>
                     </div>
 				</form>
 			</div>
@@ -66,9 +66,7 @@
 	</div>
 	<div class="col-lg-6">
 		<p class="pull-right">
-			cette categorie contient
-			{{ produits|length }}
-			produits
+			{{ 'mma.categories.productcount'|trans(productCount) }}
 		</p>
 	</div>
 </div>
@@ -77,18 +75,18 @@
 		class="col-lg-9></div>
 		<div class="col-lg-3">
 			<div class="form-group-row pull-right">
-				Affichage en:
+				{{ 'mma.categories.displayas'|trans }}
 				<div class="btn-group-vertical">
 					<a class="btn fa fa-list" 
 						href="/{{ app.request.locale }}/categories/{{ cat }}?affichage=lst"
 						style="font-size: 30px; color: #33cc33"></a>
-					<p style="font-size: 10px">Liste</p>
+					<p style="font-size: 10px">{{ 'mma.categories.displayaslist'|trans }}</p>
 				</div>
 				<div class="btn-group-vertical">
 					<a class="btn fa fa-th-large"
 						href="/{{ app.request.locale }}/categories/{{ cat }}?affichage=gr"
 						style="font-size: 30px; color: #33cc33"></a>
-					<p style="font-size: 10px">Grille</p>
+					<p style="font-size: 10px">{{ 'mma.categories.displayasgrid'|trans }}</p>
 				</div>
 			</div>
 		</div>
@@ -99,21 +97,22 @@
 		{%   if affichage == 'gr' %}
 		{% for produit in produits %}
 		<div class="col-md-4">
-			<div class="thumbnail">
+			<div class="thumbnail card">
 				<a
 				href="{{ path('produit_controller_produit',{'_locale':app.request.locale,'id':produit.id}) }}"
 				style="float: left"><img
 				src="/uploads/brochures/{{ produit.image }}"
-				style="width: 100%; height: 200px" class="img-rounded" /></a>
-				
-					<div class="caption">
+				style="width: 250px; min-height: 250px" class="img-rounded" /></a>
+			
+				</a>
+					
+					<div style="margin-top:20px">
 						<p>{{ produit.nom|upper }} (<b style="color:darkorange">{{ produit.prix }} Euro</b>)</p>
 					</div>
-				</a>
 				<div class="btn-group" style="width:100%">
 					<a class="btn btn-success fa fa-shopping-cart" href="{{ path('produit_controller_actualise',{'id':produit.id,'_locale':app.request.locale,'cat':cat, 'affichage':affichage}) }}"
 						style="font-size: 20px;width:30%"></a>
-					<button type="button" class="btn" style="width:70%">Add to basket</button>
+					<p class="btn" style="width:70%" disabled>{{ 'mma.categories.addtoshoppingcard'|trans }}</p>
 				</div>
 			</div>
 		</div>

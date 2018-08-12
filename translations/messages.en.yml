@@ -18,15 +18,19 @@ mma.home.import.comment: 'We import ower foods per boat'
 mma.home.origin: 'Country of origin'
 mma.home.origin.comment: 'The green marked lands on the cart show the lands ower foods come from'
 mma.category: Category
-mma.category.price: Price
-mma.category.from: from
-mma.category.to: to
-mma.category.action: offert
-mma.category.numberofproduct1: 'This category containts'
-mma.category.numberofproduct2: Product
-mma.category.displayin: 'display in'
-mma.category.liste: List
-mma.category.grille: Grill
+mma.categories: Categories
+mma.categories.filtre.price: PRICE
+mma.categories.filtre.sortby: 'SORT BY'
+mma.categories.filtre.choose: '--Choose--'
+mma.categories.filtre.pricedescending: 'price descending'
+mma.categories.filtre.priceascending: 'price ascending'
+mma.categories.filtre.productoffer: 'Product offer'
+mma.categories.filtre.filter: FILTER
+mma.categories.productcount: 'this category contains %productCount% products'
+mma.categories.displayas: 'display as'
+mma.categories.displayaslist: List
+mma.categories.displayasgrid: Grid
+mma.categories.addtoshoppingcard: 'Add to Shopingcard'
 mma.category.fruits: Fruits
 mma.category.vegetables: Vegetables
 mma.category.flourandsemolina: 'Flour and semolina'
@@ -38,6 +42,7 @@ mma.category.meatraw: 'Rawed meat'
 mma.category.meatsmoke: 'Smoked meat'
 mma.category.cans: Cans
 mma.category.spices: Spices
+mma.category.addtobasket: 'Add to basket'
 mma.somerecipes: Recipes
 mma.some.recipe.norecipeconfigured: 'No recipe configured'
 mma.delivery: Delivery
@@ -46,6 +51,7 @@ mma.contact.reciever: Reciever
 mma.contact.youremail: 'Your Email'
 mma.contact.sent: Sent
 mma.contact.message: 'Your message'
+mma.configuration.product.name: Name
 mma.configuration: Configuration
 mma.configuration.editer.produit.action: Offer
 mma.configuration.recipes: recipes
@@ -97,7 +103,6 @@ mma.basket.reference: Reference
 mma.basket.removefrombasket: 'Remove from the basket'
 mma.basket.totalproductsttc: 'Total products TTC'
 mma.basket.total: Total
-mma.configuration.product.name: Name
 mma.profil.myprofil: 'My profil'
 mma.profil.privateinformation: 'PRIVATE INFORMATIONS'
 mma.profil.title: Title
@@ -172,6 +177,7 @@ mma.step.time: Time
 mma.step.description: Description
 mma.recipecatalog.searchrecipe: 'Search recipe ...'
 mma.recipecatalog.recipename: Name
+mma.recipecatalog.recipenotconfigured: 'Recipe was not configured'
 mma.configurerecipe.title: 'Configure this recipe'
 mma.configurerecipe.listofingredient: 'List of ingredient'
 mma.configurerecipe.cookingstep: 'Cooking steps'
@@ -199,4 +205,14 @@ mma.verifyadress.continue: Continue
 mma.payement.verifyyourdata: 'VERIFY YOUR DATA'
 mma.payement.payementmode: 'PAYEMENT MODE'
 mma.payement.payementmodecheque: 'PAR VIREMENT'
+mma.category.price: Price
+mma.category.from: from
+mma.category.to: to
+mma.category.action: offert
+mma.category.numberofproduct1: 'This category containts'
+mma.category.numberofproduct2: Product
+mma.category.displayin: 'display in'
+mma.category.liste: List
+mma.category.grille: Grill
 mma.delivery.where: __mma.delivery.where
+'': __

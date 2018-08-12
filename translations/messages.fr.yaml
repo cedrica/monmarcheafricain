@@ -22,15 +22,19 @@ mma.home.origin.comment: Nous importons des vivres venant des pays en vert sur l
 
 ########## CATEGORY ###############
 mma.category: Catégories
-mma.category.price: prix
-mma.category.from: allant de
-mma.category.to: à
-mma.category.action: Produits en action
-mma.category.numberofproduct1: cette categorie contient 
-mma.category.numberofproduct2: produits
-mma.category.displayin: Affichage en
-mma.category.liste: Liste
-mma.category.grille: Grille
+mma.categories: Catégories
+mma.categories.filtre.price: PRIX
+mma.categories.filtre.sortby: FILTRAGE 
+mma.categories.filtre.choose: --Choisir--
+mma.categories.filtre.pricedescending: tarif décroissant
+mma.categories.filtre.priceascending: tarif croissant
+mma.categories.filtre.productoffer: PRODUIT EN OFFRE
+mma.categories.filtre.filter: FILTRER
+mma.categories.productcount: cette categorie contient %productCount% produits
+mma.categories.displayas: affichage en
+mma.categories.displayaslist: liste
+mma.categories.displayasgrid: grille
+mma.categories.addtoshoppingcard: Ajouter au panier
 mma.category.fruits: Fruits
 mma.category.vegetables: légumes
 mma.category.flourandsemolina: Fraines et sémoules
@@ -42,6 +46,7 @@ mma.category.meatraw: Viandes crus
 mma.category.meatsmoke: Viandes fumés
 mma.category.cans: conservers
 mma.category.spices: Épices
+mma.category.addtobasket: Ajouter au panier
 
 ########## SOME RECIPES ###############
 mma.somerecipes: Quelque recettes
@@ -58,6 +63,7 @@ mma.contact.sent: Envoyer
 mma.contact.message: Votre message
 
 ########## CONFIGURATION ###############
+mma.configuration.product.name: Nom
 mma.configuration: Configuration 
 mma.configuration.editer.produit.action: Action
 mma.configuration.recipe: Recettes
@@ -92,7 +98,7 @@ mma.delivery.readattentivly3: Nous guarantissons pas les pertes de commande suit
 
 ########## LEFT MENU ###############
 mma.leftmenu.fruits: Fruits
-mma.leftmenu.vegetables: Legumes
+mma.leftmenu.vegetables: Légumes
 mma.leftmenu.flourandsemolina: Farines et sémoules
 mma.leftmenu.fishandshellfish: Poissons et crustacés
 mma.leftmenu.fishandshellfishraw: Poissons et crustacés crus
@@ -116,9 +122,6 @@ mma.basket.reference: Reference
 mma.basket.removefrombasket: Enlever du panier
 mma.basket.totalproductsttc: Produit Total TTC
 mma.basket.total: Total
-########## CONFIGURATION ###############
-mma.configuration.product.name: nom
-
 ########## PROFIL ###############
 mma.profil.myprofil: Mon profil
 mma.profil.privateinformation: DONNÉES PERSONNELLES
@@ -184,7 +187,7 @@ mma.listofingredient.ingredients: ingredients
 mma.product.name: nom
 mma.product.price: prix
 mma.product.status: status
-mma.product.category: Categorie
+mma.product.category: Catégorie
 mma.product.fruts: Fruits
 mma.product.spice: Épices
 mma.product.vegetables: Végeteaux
@@ -216,7 +219,7 @@ mma.step.description: Description
 ######### RECIPE CATALOG ###############
 mma.recipecatalog.searchrecipe: Chercher une recette ...
 mma.recipecatalog.recipename: Nom
-
+mma.recipecatalog.recipenotconfigured: Cette recette n´a pas encore été configuré
 ######### CONFIGURE RECIPE ###############
 mma.configurerecipe.title: Configurer cette recette
 mma.configurerecipe.listofingredient: Liste des ingredients

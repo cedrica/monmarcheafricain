@@ -18,15 +18,19 @@ mma.home.import.comment: 'Wir importieren unsere Lebensmittel per Boot'
 mma.home.origin: Herkunftsland
 mma.home.origin.comment: 'Auf die Karte grünmarkierte Länder stehen die Herkunftländer unserer Lebensmittel'
 mma.category: Kategorie
-mma.category.price: Preis
-mma.category.from: von
-mma.category.to: bis
-mma.category.action: 'produkt in Angebot'
-mma.category.numberofproduct1: 'Diese Kategorie beinhalte'
-mma.category.numberofproduct2: Produkte
-mma.category.displayin: Anzeige
-mma.category.liste: Liste
-mma.category.grille: Grill
+mma.categories: Kategorien
+mma.categories.filtre.price: PRIX
+mma.categories.filtre.sortby: 'SORTIEREN NACH'
+mma.categories.filtre.choose: '--Bitte wählen--'
+mma.categories.filtre.pricedescending: 'Tarif décroissant'
+mma.categories.filtre.priceascending: 'Tarif croissant'
+mma.categories.filtre.productoffer: 'PRODUKT IN ANGEBOT'
+mma.categories.filtre.filter: FILTERN
+mma.categories.productcount: 'this category contains %productCount% products'
+mma.categories.displayas: 'Anzeige als'
+mma.categories.displayaslist: Liste
+mma.categories.displayasgrid: Grid
+mma.categories.addtoshoppingcard: 'In Warenkorb hinzufügen'
 mma.category.fruits: Früchte
 mma.category.vegetables: Gemüse
 mma.category.flourandsemolina: 'Mehl und Grieß'
@@ -38,6 +42,7 @@ mma.category.meatraw: 'roher Fleich'
 mma.category.meatsmoke: 'geräucherter Fleich'
 mma.category.cans: Dosen
 mma.category.spices: Gewürze
+mma.category.addtobasket: 'In Warenkorb hinfügen'
 mma.somerecipes: Kochrezept
 mma.some.recipe.norecipeconfigured: 'Kein Rezept konfiguriert'
 mma.delivery: Lieferung
@@ -46,6 +51,7 @@ mma.contact.reciever: Empfänger
 mma.contact.youremail: 'Deine Email'
 mma.contact.sent: Senden
 mma.contact.message: 'Dein Nachricht'
+mma.configuration.product.name: Name
 mma.configuration: Konfiguration
 mma.configuration.editer.produit.action: Angebot
 mma.configuration.recipes: Rezept
@@ -171,6 +177,7 @@ mma.step.time: Zeit
 mma.step.description: Beschreibung
 mma.recipecatalog.searchrecipe: 'Rezept suchen ...'
 mma.recipecatalog.recipename: Name
+mma.recipecatalog.recipenotconfigured: 'Rezept wurde noch nicht konfiguriert'
 mma.configurerecipe.title: 'Rezept konfigurieren'
 mma.configurerecipe.listofingredient: 'Liste der Zutaten'
 mma.configurerecipe.cookingstep: 'Bereitung step'
@@ -198,3 +205,14 @@ mma.verifyadress.continue: Weiter
 mma.payement.verifyyourdata: 'VERIFIZIEREN SIE BITTE IHRE DATEN'
 mma.payement.payementmode: ZAHLUNGSMODE
 mma.payement.payementmodecheque: 'PER ÜNBERWEISUNG'
+mma.category.price: Preis
+mma.category.from: von
+mma.category.to: bis
+mma.category.action: 'produkt in Angebot'
+mma.category.numberofproduct1: 'Diese Kategorie beinhalte'
+mma.category.numberofproduct2: Produkte
+mma.category.displayin: Anzeige
+mma.category.liste: Liste
+mma.category.grille: Grill
+'this category contains %productCount% products': 'this category contains %productCount% products'
+'': __

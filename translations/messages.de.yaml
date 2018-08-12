@@ -23,15 +23,19 @@ mma.home.origin.comment: Auf die Karte grünmarkierte Länder stehen die Herkunf
 
 ########## CATEGORY ###############
 mma.category: Kategorie
-mma.category.price: Preis
-mma.category.from: von
-mma.category.to: bis
-mma.category.action: Produkt in Angebot
-mma.category.numberofproduct1: Diese Kategorie beinhalte 
-mma.category.numberofproduct2: Produkte
-mma.category.displayin: Anzeige
-mma.category.liste: Liste
-mma.category.grille: Grill
+mma.categories: Kategorien
+mma.categories.filtre.price: PRIX
+mma.categories.filtre.sortby: SORTIEREN NACH
+mma.categories.filtre.choose: --Bitte wählen--
+mma.categories.filtre.pricedescending: Tarif décroissant
+mma.categories.filtre.priceascending: Tarif croissant
+mma.categories.filtre.productoffer: PRODUKT IN ANGEBOT
+mma.categories.filtre.filter: FILTERN
+mma.categories.productcount: Diese Kategorie beinhalte %productCount% Produkte
+mma.categories.displayas: Anzeige als
+mma.categories.displayaslist: Liste
+mma.categories.displayasgrid: Grid
+mma.categories.addtoshoppingcard: In Warenkorb hinzufügen
 mma.category.fruits: Früchte
 mma.category.vegetables: Gemüse
 mma.category.flourandsemolina: Mehl und Grieß
@@ -43,6 +47,7 @@ mma.category.meatraw: Roher Fleich
 mma.category.meatsmoke: Geräucherter Fleich
 mma.category.cans: Dosen
 mma.category.spices: Gewürze
+mma.category.addtobasket: In Warenkorb hinfügen
 
 
 ########## SOME RECIPES ###############
@@ -60,6 +65,7 @@ mma.contact.sent: Senden
 mma.contact.message: Dein Nachricht
 
 ########## CONFIGURATION ###############
+mma.configuration.product.name: Name
 mma.configuration: Konfiguration
 mma.configuration.editer.produit.action: Angebot
 mma.configuration.recipes: Rezept
@@ -220,7 +226,7 @@ mma.step.description: Beschreibung
 ######### RECIPE CATALOG ###############
 mma.recipecatalog.searchrecipe: Rezept suchen ...
 mma.recipecatalog.recipename: Name
-
+mma.recipecatalog.recipenotconfigured: Rezept wurde noch nicht konfiguriert
 ######### CONFIGURE RECIPE ###############
 mma.configurerecipe.title: Rezept konfigurieren
 mma.configurerecipe.listofingredient: Liste der Zutaten
