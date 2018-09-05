@@ -1,56 +1,5 @@
-{% extends 'base.html.twig' %}
 
-{% block body %}
-<div class="row">
-	<div class="col-lg-3">
-		<button onclick="goTo('connexion')">
-			{{ 'mma.03connexion'|trans }}
-		</button>
-		<div class="current-pos"></div>
-	</div>
-	<div class="col-lg-3">
-		<button "onclick="goTo('adress')">
-			{{ 'mma.04adress'|trans }}
-		</button>
-		<div class="current-pos"></div>
-	</div>
-	<div class="col-lg-3">
-		<button onclick="goTo('delivery')">
-			{{ 'mma.05delivery'|trans }}
-		</button>
-		<div class="current-pos"></div>
-	</div>
-	<div class="col-lg-3">
-		<button style="color: #33cc33;" onclick="goTo('payement')">
-			{{ 'mma.06payement'|trans }}
-		</button>
-		<div style="background-color: #33cc33" class="current-pos"></div>
-	</div>
-</div>
-<div class="row" style="margin-bottom: 30px"></div>
-
-{# <div class="row panel panel-default">#} {# <div class="panel-body">#}
-{# <div class="row">#} {# <div class="col-lg-6">Votre carte de
-credit</div>#} {# <div class="col-lg-3">Nom de la carte</div>#} {# <div
-class="col-lg-3">Date d´expiration</div>#} {# </div>#} {# <div
-class="row divider"></div>#} {# {% for carte in cartesDeCredit %}#} {#
-<div class="row alert alert-error" role="alert">#} {# <div
-class="col-lg-6">#} {# <input type="radio" name="carte"> <i#} {#
-class="fa fa-cc-mastercard" style="font-size: 20px;"
-checked="true"></i>#} {# {{ carte.nomDeLaCarte }}#} {# ending with#} {#
-{{ carte.numeroDeLaCarte|slice(carte.numeroDeLaCarte|length - 4,
-carte.numeroDeLaCarte|length) }}#} {# </div>#} {# <div
-class="col-lg-3">{{ carte.nomDeLaCarte }}</div>#} {# <div
-class="col-lg-2">{{ carte.dateDExpiration|date('Y/m') }}</div>#} {# <div
-class="col-lg-1"><a href="{{
-path('commander_controller_suprimer_carte',{'carteId':carte.id}) }}"
-class="btn fa fa-trash" style="color:red"></a></div>#} {# </div>#} {# {%
-endfor %}#} {# <span class="fa fa-plus"></span> <a href=""
-data-toggle="modal"#} {# data-target="#ajouterCarteModal">Ajouter un
-moyen de payement</a>#} {# </div>#} {# <div class="panel-footer"><a
-class="btn" href="{{ path('commander_controller_achever_le_payement')
-}}">Achever le payement</a></div>#} {# </div>#}
-<div class="col-lg-8">
+<div class="col-lg-12 form-group">
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			{{ 'mma.payement.verifyyourdata'|trans }}
@@ -107,35 +56,13 @@ class="btn" href="{{ path('commander_controller_achever_le_payement')
 		</div>
 	</div>
 </div>
-<div class="col-lg-4">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			{{ 'mma.payement.payementmode'|trans }}
-		</div>
-		<div class="panel-body">
-			<table>
-				<tr>
-					<td><div id="paypal-button-container"></div></td>
-				</tr>
-			</table>
-			<div class="divider"></div>
-			<table>
-				<tr>
-					<td><a class="btn"
-						style="background-color: darkorange; color: #fff"
-						href='{{ path('message_controller_facture',{'reciever':app.session.get('compte').login.email}) }}'>{{ 'mma.payement.payementmodecheque'|trans }}</a></td>
-				</tr>
-			</table>
-			
-		</div>
-	</div>
-
+<div class="col-lg-12 form-group">
+			<div id="paypal-button-container" ></div>
 </div>
 
 
 <script>
-	paypal.Button
-			.render(
+	paypal.Button.render(
 					{
 
 						// Set your environment
@@ -148,7 +75,7 @@ class="btn" href="{{ path('commander_controller_achever_le_payement')
 							label : 'buynow',
 							fundingicons : true, // optional
 							branding : true, // optional
-							size : 'small', // small | medium | large | responsive
+							size : 'responsive', // small | medium | large | responsive
 							shape : 'rect', // pill | rect
 							color : 'gold' // gold | blue | silve | black
 						},
@@ -185,8 +112,6 @@ class="btn" href="{{ path('commander_controller_achever_le_payement')
 
 					}, '#paypal-button-container');
 </script>
-{{  include("commander/ajouter-carte.html.twig") }}
-{% endblock %}
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ asset('css/proceedpayement.css') }}" />
 {% endblock %}

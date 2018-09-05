@@ -1,64 +1,39 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-	<div class="row">
-		<div class="col-lg-3">
-			<button onclick="goTo('connexion')">{{ 'mma.03connexion'|trans }}</button>
-			<div class="current-pos"></div>
-		</div>
-		<div class="col-lg-3">
-			<button style="color: #33cc33;" "onclick="goTo('adress')">{{ 'mma.04adress'|trans }}</button>
-			<div  style="background-color:#33cc33" class="current-pos"></div>
-		</div>
-		<div class="col-lg-3">
-			<button  onclick="goTo('delivery')">{{ 'mma.05delivery'|trans }}</button>
-			<div class="current-pos"></div>
-		</div>
-		<div class="col-lg-3">
-			<button onclick="goTo('payement')">{{ 'mma.06payement'|trans }}</button>
-			<div class="current-pos"></div>
-		</div>
-	</div>
-	<div class="row" style="height: 30px"></div>
-	<div class="row">
+	
 		<div class="row">
-			<div class="col-lg-6">
-			<form action="/{{ app.request.locale }}/add-delivery-adress-to-session" method="post">
-				<div class="form-group" style="margin-left: 10px">
-					<label for="adresse">{{ 'mma.verifyadress.choosedeliveryadress'|trans }}:</label> 
-					<select onchange="selectDeliveryAddress(this.value)" name="deliveryAdress"
-						class="form-control" id="adresse" name="adresseSelectionee">
-						<option value="">-- {{'mma.verifyadress.choosedeliveryadress'|trans}} --</option>
-						{% for adresse in adresses %}
-						<option  value={{ adresse.id }} name='adressId'>{{ adresse.rueEtNr }} </option>
-						{% endfor %}
-					</select>
-				</div>
-			</form>
-			</div>
-		</div>
-		<div class="col-lg-6">
-
-				<div class="panel panel-default">
-					<div class="panel-heading">
-					    {{ 'mma.verifyadress.deliveryaddress'|trans }}
-					    <div class="pull-right"><a class="fa fa-plus-circle" style="color:#33cc33" href="{{ path('commander_controller_ajouter_adresse',{'id': app.session.get('compte').id,'_locale':app.request.locale }) }}"></a></div>
-					</div>
-					<div class="panel-body">
+			<div class="col-lg-12">
+    			<form action="/{{ app.request.locale }}/add-delivery-adress-to-session" method="post">
+    				<div class="form-group" style="margin-left: 10px">
+    					<label for="adresse">{{ 'mma.verifyadress.choosedeliveryadress'|trans }}:</label> 
+    					<select onchange="selectDeliveryAddress(this.value)" name="deliveryAdress"
+    						class="form-control" id="adresse" name="adresseSelectionee">
+    						<option value="">-- {{'mma.verifyadress.choosedeliveryadress'|trans}} --</option>
     						{% for adresse in adresses %}
-    						{{ adresse.boitePostale }} {{ adresse.ville }}; {{ adresse.rueEtNr }} </br>
-    						<div class="divider"></div>
+    						<option  value={{ adresse.id }} name='adressId'>{{ adresse.rueEtNr }} </option>
     						{% endfor %}
-					</div>
+    					</select>
+    				</div>
+    			</form>
 			</div>
 		</div>
-		<div class="col-lg-6"></div>
-	</div>
-	<div class="row">
-		<div class="col-lg-10"></div><div class="col-lg-1" id="continue"><button class="btn" disabled>{{ 'mma.verifyadress.continue'|trans }}</a></div>
-	</div>
+		<div class="row">
+			<div class="col-lg-12 form-group">
+    				<div class="panel panel-default">
+    					<div class="panel-heading">
+    					    {{ 'mma.verifyadress.deliveryaddress'|trans }}
+    					    <div class="pull-right"><a class="fa fa-plus-circle" style="color:#33cc33" href="{{ path('commander_controller_ajouter_adresse',{'id': app.session.get('compte').id,'_locale':app.request.locale }) }}"></a></div>
+    					</div>
+    					<div class="panel-body">
+        						{% for adresse in adresses %}
+        						{{ adresse.boitePostale }} {{ adresse.ville }}; {{ adresse.rueEtNr }} </br>
+        						<div class="divider"></div>
+        						{% endfor %}
+    					</div>
+    			</div>
+    		</div>
+    	</div>
 	
 <script language = "javascript"> 
+
 		function myFunction() {
 		    var x = document.getElementById("adresse").value;
 		    $('.panel-body').html(x);
@@ -76,7 +51,8 @@
 	                    }, 
 	                    async:      true,  
 	                    success: function(data, status) { 
-	                        $('#continue').html('<a class="btn" style="color: #fff; background-color:#33cc33" href={{ path('mas_moyen_de_livraison') }}>{{ 'mma.verifyadress.continue'|trans }}</a>');
+							alert("yes");
+		                      
 	                    },  
 	                    error : function(xhr, textStatus, errorThrown) {  
 	               	 		alert('INVALID ADRESS');  
@@ -88,7 +64,6 @@
 			}
 		}
    </script>
-{% endblock %}
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ asset('css/proceedpayement.css') }}" />
 {% endblock %}

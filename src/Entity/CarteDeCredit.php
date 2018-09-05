@@ -48,7 +48,7 @@ class CarteDeCredit
     private $defaultCarte;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=25)
      */
     private $type;
     

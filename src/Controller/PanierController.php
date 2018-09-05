@@ -66,9 +66,16 @@ class PanierController extends Controller
         $compte = $repository->findOneBy(['id'=>$compte->getId()]);
         
         $adresses = $compte->getAdresses();
-        return $this->render('commander/verifier-adresse.html.twig', array(
-            'page' => 'verifier-adresse',
-            'adresses' => $adresses
+        return $this->render('commander/commander.html.twig', array(
+            'page' => 'commander',
+            'adresses' => $adresses,
+        		'payment' => false,
+        		'classconnexion' => '',
+        		'classdeliveryway' => 'not-active',
+        		'classdeliveryadress' => 'not-active',
+        		'classpayment' => 'not-active'
         ));
     }
+    
+    
 }

@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class SEnregistrerType extends AbstractType
 {
@@ -22,6 +23,16 @@ class SEnregistrerType extends AbstractType
     	->add('motDePass', PasswordType::class, array(
     			'label' => $translator->trans('mma.senregistrer.password'),
     			'required'=>true,'attr' => array('class' => 'form-control')));
+    	if ($options['admin-login']) {
+    		$builder->add('language', ChoiceType::class,  array('required'=>true,
+    		'choices' => array(
+    			"--Bitte wählen--"=>null,
+    			"en" => "en",
+    			"de" => "de",
+    			"fr" => "fr"
+    			),'attr' => array('class' => 'form-control form-group'))
+    		);
+    	}
     }
     /**
      * {@inheritdoc}
@@ -29,7 +40,8 @@ class SEnregistrerType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'App\Entity\Login'
+            'data_class' => 'App\Entity\Login',
+        	'admin-login' => false
         ));
         $resolver->setRequired('translator');
     }

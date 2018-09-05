@@ -233,7 +233,7 @@ mma.productcatalog.productcategory: Categorie
 mma.productcatalog.productquantity: Quantité
 mma.productcatalog.productavailable: Disponible
 mma.productcatalog.productstatus: status
-
+mma.productcatalog.activateproduct: activer
 ######### CLIENT CATALOG ###############
 mma.clientcatalog.searchclient: Cherhcer un client...
 mma.clientcatalog.clienttitle: Titre
@@ -259,3 +259,6 @@ mma.verifyadress.continue: Continuer
 mma.payement.verifyyourdata: VERIFIER TES DONNÉES
 mma.payement.payementmode:  MODE DE PAYEMENT
 mma.payement.payementmodecheque: PAR VIREMENT
+
+######### CONFIRM ###############
+mma.confirm.doyourealywanttoremovethisclient: Docyoucrealy want to remove this client?

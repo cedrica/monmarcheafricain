@@ -29,6 +29,12 @@ class Login
      */
     private $motDePass;
     
+    /**
+     * @var string
+     * @ORM\Column(name="language", type="string", nullable=true)
+     */
+    private $language;
+    
     
     /**
      * Get id
@@ -62,6 +68,29 @@ class Login
     public function getEmail()
     {
     	return $this->email;
+    }
+    
+    
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Login
+     */
+    public function setLanguage($language)
+    {
+    	$this->language = $language;
+    }
+    
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getLanguage()
+    {
+    	return $this->language;
     }
     
     /**

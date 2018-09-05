@@ -38,80 +38,9 @@ class CommanderController extends Controller
         ));
     }
 
-    /**
-     * @Route("/{_locale}/moyen-de-livraison", name="mas_moyen_de_livraison")
-     */
-    public function moyenDeLivraisonAction(Request $request)
-    {
-        
-        return $this->render('commander/moyen-de-livraison.html.twig', array(
-            'page' => 'moyen-de-livraison'
-        ));
-    }
-
-    /**
-     * @Route("/{_locale}/caisse/{compteId}", name="commander_controller_aller_a_la_caisse")
-     */
-    public function allerAlaCaisseAction(Request $request, $compteId)
-    {
-        $carteDeCredit = new CarteDeCredit();
-        $ajouterCarteForm = $this->createForm('App\Form\AjouterCarteType', $carteDeCredit,array('translator'=>new Translator($request->getLocale().'_'.strtoupper($request->getLocale()))));
-        $ajouterCarteForm->handleRequest($request);
-        $em = $this->getDoctrine()->getManager();
-        $compte = $em->getRepository(Compte::class)->find($compteId);
-        if ($ajouterCarteForm->isSubmitted() && $ajouterCarteForm->isValid()) {
-            $carteDeCredit->setCompte($compte);
-            $numeroDeLaCarte = $carteDeCredit->getNumeroDeLaCarte();
-            
-            $em->persist($carteDeCredit);
-            $compte->addCarteDeCredit($carteDeCredit);
-            $em->flush();
-            $request->getSession()->set('compte', $compte);
-            return $this->redirectToRoute('commander_controller_aller_a_la_caisse', 
-                array('compteId'=> $compteId));
-        }
-        $cartesDeCredit  = $compte->getCartesDeCredit();
-        return $this->render('commander/payement.html.twig', array(
-            'page' => 'payement',
-            'ajouterCarteForm' => $ajouterCarteForm->createView(),
-            'cartesDeCredit' => $cartesDeCredit
-        ));
-    }
-        
-    /**
-     * @Route("/{_locale}/caisse/suprimer-carte/{carteId}", name="commander_controller_suprimer_carte")
-     */
-    public function suprimerCarteCaisseAction(Request $request, $carteId)
-    {
-        $em = $this->getDoctrine()->getManager();
-        
-        /**
-         *
-         * @var Adresse $adresse
-         */
-        $carteDeCredit = $em->getRepository(CarteDeCredit::class)->find($carteId);
-        if($carteDeCredit != null){
-            $em->remove($carteDeCredit);
-            $em->flush();
-        }
-        return $this->redirectToRoute('commander_controller_aller_a_la_caisse',array(
-            'compteId' => $carteDeCredit->getCompte()->getId()
-        ));
-    }
     
     /**
-     * @Route("/{_locale}/caisse", name="commander_controller_achever_le_payement")
-     */
-    public function acheverPayementAction(Request $request)
-    {
-        
-        return $this->render('commander/solution-banque.html.twig', array(
-            'page' => 'solution'
-        ));
-    }
-    
-    /**
-     * @Route("/add-delivery-adress-to-session/{id}", name="add_delivery_adress_to_session")
+     * @Route("{_locale}/add-delivery-adress-to-session/{id}", name="add_delivery_adress_to_session")
      */
     public function addDeliveryAdressToSession(Request $request,$id){
     	$jsonData = array();
@@ -126,9 +55,80 @@ class CommanderController extends Controller
     	return new JsonResponse($jsonData);
     }
     
+    /**
+     * @Route("{_locale}/delivery-way", name="commander_controller_delivery_way")
+     */
+    public function deliveryWayAction(Request $request){
+    	$session = $request->getSession();
+    	$compte = $session->get('compte');
+    	if($compte == null){
+    		$em = $this->getDoctrine()->getManager();
+    		$repository = $em->getRepository(Compte::class);
+    		$compte = $repository->findOneBy(['id'=>$compte->getId()]);
+    	}
+    	
+    	$adresses = $compte->getAdresses();
+    	return $this->render('commander/commander.html.twig', array(
+    			'adresses' => $adresses,
+    			'page' => 'commander',
+    			'payment' => false,
+    			'classconnexion' => 'not-active',
+    			'classdeliveryway' => '',
+    			'classdeliveryadress' => 'not-active',
+    			'classpayment' => 'not-active'
+    	));
+    }
     
     /**
-     * @Route("/add-delivery-way-to-session/{way}", name="add_delivery_way_to_session")
+     * @Route("{_locale}/delivery-adress", name="commander_controller_delivery_adress")
+     */
+    public function deliveryAdressAction(Request $request){
+    	$session = $request->getSession();
+    	$compte = $session->get('compte');
+    	if($compte == null){
+    		$em = $this->getDoctrine()->getManager();
+    		$repository = $em->getRepository(Compte::class);
+    		$compte = $repository->findOneBy(['id'=>$compte->getId()]);
+    	}
+    	
+    	$adresses = $compte->getAdresses();
+    	return $this->render('commander/commander.html.twig', array(
+    			'adresses' => $adresses,
+    			'page' => 'commander',
+    			'classconnexion' => 'not-active',
+    			'classdeliveryway' => 'not-active',
+    			'classdeliveryadress' => '',
+    			'classpayment' => 'not-active',
+    			'payment' => false
+    	));
+    }
+    
+    /**
+     * @Route("{_locale}/payment", name="commander_controller_payment")
+     */
+    public function paymentAction(Request $request){
+    	$session = $request->getSession();
+    	$compte = $session->get('compte');
+    	if($compte == null){
+    		$em = $this->getDoctrine()->getManager();
+    		$repository = $em->getRepository(Compte::class);
+    		$compte = $repository->findOneBy(['id'=>$compte->getId()]);
+    	}
+    	
+    	$adresses = $compte->getAdresses();
+    	return $this->render('commander/commander.html.twig', array(
+    			'adresses' => $adresses,
+    			'page' => 'commander',
+    			'payment' => true,
+    			'classconnexion' => 'not-active',
+    			'classdeliveryway' => 'not-active',
+    			'classdeliveryadress' => 'not-active',
+    			'classpayment' => ''
+    	));
+    }
+    
+    /**
+     * @Route("{_locale}/add-delivery-way-to-session/{way}", name="add_delivery_way_to_session")
      */
     public function addDeliveryWayToSession(Request $request,$way){
     	$jsonData = array();
@@ -140,14 +140,5 @@ class CommanderController extends Controller
     	}
     	return new JsonResponse($jsonData);
     }
-    
-    
-    /**
-     * @Route("/achat-terminer", name="commander_controller_terminer")
-     */
-    public function teminer(){
-    	return $this->render('commander/achat-terminer.html.twig', array(
-    			'page' => 'achat-terminer'
-    	));
-    }
+
 }

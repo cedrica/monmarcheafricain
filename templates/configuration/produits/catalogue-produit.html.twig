@@ -4,30 +4,33 @@
 		</div>
     <table  class="col-lg-12">
     	<thead>
-    		<th></th>
+    		<th>{{ 'mma.productcatalog.activateproduct'|trans  }}</th>
     		<th>{{ 'mma.productcatalog.productname'|trans }}</th>
     		<th>{{ 'mma.productcatalog.productprice'|trans }}</th>
     		<th>{{ 'mma.productcatalog.productcategory'|trans }}</th>
     		<th>{{ 'mma.productcatalog.productquantity'|trans }}</th>
     		<th>{{ 'mma.productcatalog.productavailable'|trans }}</th>
     		<th>{{ 'mma.productcatalog.productstate'|trans }}</th>
-    		<th>-</th>
-    		<th><a class="fa fa-plus-circle" href="" style="color:#fff" data-toggle="modal" data-target="#produitModal"></a></th>
+    		<th></th>
+    		<th><a class="fa fa-plus-circle" href="" style="color:#33cc33;font-size:30px; text-align: center;align-content:center; " data-toggle="modal" data-target="#produitModal"></a></th>
     		
     	</thead>
     	<tbody id="tbProduits">
 		    {% for produit in produits %}
         		<tr>
-            		<td><input type="checkbox"></td>
+            		<td><input type="checkbox" onclick="return false;"></td>
             		<td>{{ produit.nom }}</td>
             		<td>{{ produit.prix }} €</td>
             		<td>{{ produit.categorie   }}</td>
             		<td>{{ produit.quantite }}</td>
             		<td>{% if produit.disponible == '1' %} oui {% else %} Non {% endif %}</td>
             		<td>{{ produit.etat }}</td>
-        			<td><a class="fa fa-edit" href="{{ path('configuration_produit_controller_editer',{'id':produit.id}) }}"  style="color:darkorange"></a></td>
-        			<td><a class="fa fa-trash" href="{{ path('configuration_produit_controller_delete',{'id':produit.id}) }}"  style="color:red"></a></td>
+        			<td><a class="fa fa-edit" href="{{ path('configuration_produit_controller_editer',{'id':produit.id}) }}"  style="color:darkorange;"></a></td>
+        			<td ><a class="fa fa-trash" style="margin-left: -3px; color:red; align-content:center; text-align: center;"
+					data-toggle="modal" data-target="#confirmModal{{produit.id}}"></a></td>
+        			
         		</tr>
+			{{  include("confirm/confirm.html.twig", {'stepId':produit.id,'todo':'remove_product', 'recetteId':produit.id, 'message':'Voulez vous vraiment suprimer ce produit?'}) }}
     		{% endfor %}
     	</tbody>
     </table>

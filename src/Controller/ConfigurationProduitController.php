@@ -24,38 +24,66 @@ class ConfigurationProduitController extends Controller
     {
     	$produitRepositorty = $this->getDoctrine()->getRepository(Produit::class);
     	$produit = $produitRepositorty->find($id);
-    	$ancienneImage = $produit->getImage();
-    	$editProduitForm = $this->createForm('App\Form\ProduitType', $produit,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
-        $editProduitForm->handleRequest($request);
-        $em = $this->getDoctrine()->getManager();
-        if ($editProduitForm->isSubmitted() && $editProduitForm->isValid()) {
-        	$fs = new FileSystem();
-        	$fs->remove($this->getParameter('brochures_directory').'/'.$ancienneImage);
-        	/** @var Symfony\Component\HttpFoundation\File\UploadedFile $image */
-        	$image = $produit->getImage();
-        	$fileName = md5(uniqid()) . '.' . $image->guessExtension();
-        	$image->move($this->getParameter('brochures_directory'), $fileName);
-        	$produit->setImage($fileName);
-        	$produit->setActif(true);
-        	$em->persist($produit);
-        	$em->flush();
-        	
-        	$produits = $produitRepositorty->findAll();
-        	return $this->redirectToRoute('configuration_controller_init_view', array(
-        			'page' => 'configuration',
-        			'message' => 'Le produit a été édité avec succès',
-        			'alertType' => 'succes',
-        			'message' => 'le produit ' . $produit->getNom() . ' a été sauvgardé avec succes',
-        			'cfg' => 'prod',
-        			'produits' => $produits
+    	$editProduitForm = $this->createForm('App\Form\ProduitType', $produit,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale)),
+    			'en' => true,
+    			'fr' => false,
+    			'de' => false
+    	));
+    	$editProduitForm = self::handleRequestAndSubmit($request,$editProduitForm,$produitRepositorty,$produit);
+    	
+    	
+    	$editProduitFormDE = $this->createForm('App\Form\ProduitType', $produit,array(
+    			'translator'=>new Translator($_locale.'_'.strtoupper($_locale)),
+    			'en' => false,
+    			'fr' => false,
+    			'de' => true
+        		));
+    	$editProduitFormDE = self::handleRequestAndSubmit($request,$editProduitFormDE,$produitRepositorty,$produit);
+        
+        $editProduitFormFR = $this->createForm('App\Form\ProduitType', $produit,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale)),
+        		'en' => false,
+        		'fr' => true,
+        		'de' => false
         	));
-        }
+        $editProduitFormFR = self::handleRequestAndSubmit($request,$editProduitFormFR,$produitRepositorty,$produit);
+        
         return $this->render('configuration/produits/editer-produit.html.twig', array(
             'page' => 'editer-produit',
-        	'editProduitForm' => $editProduitForm->createView(),
+        	'produit' => $produit,
+        	'editProduitFormEN' => $editProduitForm->createView(),
+        	'editProduitFormDE' => $editProduitFormDE->createView(),
+        	'editProduitFormFR' => $editProduitFormFR->createView(),
         ));
     }
     
+    public function handleRequestAndSubmit(Request $request,$form,$produitRepositorty,$produit){
+    	$form->handleRequest($request);
+    	if ($form->isSubmitted() && $form->isValid()) {
+    		$ancienneImage = $produit->getImage();
+    		$em = $this->getDoctrine()->getManager();
+    		$fs = new FileSystem();
+    		$fs->remove($this->getParameter('brochures_directory').'/'.$ancienneImage);
+    		/** @var Symfony\Component\HttpFoundation\File\UploadedFile $image */
+    		$image = $produit->getImage();
+    		$fileName = md5(uniqid()) . '.' . $image->guessExtension();
+    		$image->move($this->getParameter('brochures_directory'), $fileName);
+    		$produit->setImage($fileName);
+    		$em->persist($produit);
+    		$em->flush();
+    		
+    		$produits = $produitRepositorty->findAll();
+    		return $this->redirectToRoute('configuration_controller_init_view', array(
+    				'page' => 'configuration',
+    				'message' => 'Le produit a été édité avec succès',
+    				'alertType' => 'succes',
+    				'message' => 'le produit ' . $produit->getNom() . ' a été sauvgardé avec succes',
+    				'cfg' => 'prod',
+    				'produits' => $produits
+    		));
+    		
+    	}
+    	return $form;
+    }
     /**
      * @Route("/{_locale}/delete-produit/{id}", name="configuration_produit_controller_delete")
      */

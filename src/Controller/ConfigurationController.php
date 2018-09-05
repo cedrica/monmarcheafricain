@@ -103,26 +103,7 @@ class ConfigurationController extends Controller
 
 
 
-    /**
-     * @Route("/{_locale}/configuration/{id}", name="configuration_controller_toggle_active_prod")
-     */
-    public function toggleActiveProdAction(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $produit = $em->getRepository(Produit::class)->find($id);
-        if ($produit != null) {
-            $produit->setActif(! $produit->getActif());
-            $em->persist($produit);
-            $em->flush();
-        }
-        $produitRepositorty = $this->getDoctrine()->getRepository(Produit::class);
-        $produits = $produitRepositorty->findAll();
-        return $this->render('configuration/configuration.html.twig', array(
-            'page' => 'configuration',
-            'produits' => $produits
-        
-        ));
-    }
+
     
     
 }

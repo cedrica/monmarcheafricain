@@ -30,7 +30,7 @@
 <script src="{{asset('js/michouafroshop.core.js')}}"></script>
 
 <link href="{{ asset('css/michouafroshop.css') }}" rel="stylesheet" />
-<link href="{{ asset('css/card.css') }}" rel="stylesheet" />
+<link href="{{ asset('css/tree.css') }}" rel="stylesheet" />
 
 {% block stylesheets %}
 {% endblock %}
@@ -39,9 +39,9 @@
 {% endblock %}
 </head>
 
-<body>
-	<div class="col-lg-2 col-md-1 col-sm-1"></div>
-	<div class="col-lg-8 col-md-10 col-sm-10">
+<body >
+	<div class="col-lg-1 col-md-1 col-sm-1"></div>
+	<div class="col-lg-10 col-md-10 col-sm-10">
 			<div class="row" style="height: 10px"></div>
 			<div class="row">
 				<div class="col-lg-5"></div>
@@ -81,54 +81,10 @@
 			{{  include("menu-bar.html.twig") }}
 			<div class="conatiner">
 				<div class="row">
-						{% if (page == 'configuration') %}
-    						<div class="tab col-lg-3 col-md-4 col-sm-4" style="padding:0px">
-                                  <button class="tablinks" onclick="openCity(event, 'recettes')" id="defaultOpen">{{'mma.configuration.recipes'|trans }}</button>
-                                  <button class="tablinks" onclick="openCity(event, 'produits')">{{ 'mma.configuration.products'|trans }}</button>
-                                  <button class="tablinks" onclick="openCity(event, 'clients')">{{ 'mma.configuration.clients'|trans }}</button>
-    						</div>
-						{% elseif (page != 'start') %}
-    						<div class="col-lg-3 col-md-4 col-sm-4">
-    							<ul class="list-group">
-    								<li class="list-group-item"><a
-    									href="/{{ app.request.locale }}/categories/fruits?affichage=gr">{{ 'mma.leftmenu.fruits'|trans }}</a></li>
-    								<li class="list-group-item"><a
-    									href="/{{ app.request.locale }}/categories/légumes?affichage=gr">{{ 'mma.leftmenu.vegetables'|trans }}</a></li>
-    								<li class="list-group-item"><a href="">{{ 'mma.leftmenu.flourandsemolina'|trans }}</a></li>
-    								<li class="list-group-item"><a data-toggle="collapse"
-    									aria-expanded="false" href="#collapsePoissonsCrustaces"
-    									id="collapsePoissonsCrustacesHref"
-    									aria-controls="collapsePoissonsCrustaces">{{ 'mma.leftmenu.fishandshellfish'|trans }}</a> <i class="fa fa-plus-square pull-right"
-    									id="collapsePoissonsCrustacesHrefI" data-toggle="collapse"
-    									style="font-size: 24px; margin-bottom: 10px; color: #33cc33"></i></li>
-    								<div class="collapse" id="collapsePoissonsCrustaces">
-    									<div class="list-group-item">
-    										<a href="/{{ app.request.locale }}/categories/poissons et crustacés crus?affichage=gr">{{ 'mma.leftmenu.fishandshellfishraw'|trans }}</a>
-    									</div>
-    									<div class="list-group-item">
-    										<a href="/{{ app.request.locale }}/categories/poissons et crustacés fumés?affichage=gr">{{ 'mma.leftmenu.fishandshellfishsmoke'|trans }}</a>
-    									</div>
-    								</div>
-    
-    								<li class="list-group-item"><a data-toggle="collapse"
-    									href="#collapseViande" aria-expanded="false"
-    									aria-controls="collapseViande" id="collapseViandeHref">{{ 'mma.leftmenu.meat'|trans }}</a>
-    									<i id="collapseViandeHrefI"
-    									class="fa fa-plus-square pull-right"
-    									style="font-size: 24px; margin-bottom: 10px; color: #33cc33"></i></li>
-    								<div class="collapse" id="collapseViande">
-    									<div class="list-group-item">
-    										<a href="/{{ app.request.locale }}/categories/viandes crus?affichage=gr">{{ 'mma.leftmenu.meatraw'|trans }}</a>
-    									</div>
-    									<div class="list-group-item">
-    										<a href="/{{ app.request.locale }}/categories/viandes fumés?affichage=gr">{{ 'mma.leftmenu.meatsmoke'|trans }}</a>
-    									</div>
-    								</div>
-    								<li class="list-group-item"><a
-    									href="/{{ app.request.locale }}/categories/conserves?affichage=gr">{{ 'mma.leftmenu.cans'|trans }}</a></li>
-    								<li class="list-group-item"><a
-    									href="/{{ app.request.locale }}/categories/épices?affichage=gr">{{ 'mma.leftmenu.spices'|trans }}</a></li>
-    							</ul>
+				
+						{% if (page != 'start') %}
+    						<div class="col-lg-3 col-md-4 col-sm-4" >
+			                    {{  include("vertical-menu.html.twig") }}
     						</div>
 						{% endif %}
 						
@@ -145,22 +101,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-lg-2 col-md-1 col-sm-1"></div>
+	<div class="col-lg-1 col-md-1 col-sm-1"></div>
 	
 	<script>
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
+
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
@@ -170,19 +114,7 @@ document.getElementById("defaultOpen").click();
 			placeholder : "ui-state-highlight"
 		});
 	});
-    function goTo(where) {
-        var destination = "";
-        if(where === 'connexion'){
-        	destination = '/{{app.request.locale}}/connexion';
-        }else if(where === 'adress'){
-        	destination = '/{{app.request.locale}}/commander';
-        }else if(where === 'delivery'){
-        	destination = '/{{app.request.locale}}/moyen-de-livraison';
-        }else if(where === 'payement'){
-        	destination =  '/{{app.request.locale}}/caisse';
-        }
-		window.location="http://localhost:8000"+destination;  
-    }
+  
 </script>
 </body>
 </html>

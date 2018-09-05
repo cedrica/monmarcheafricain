@@ -189,6 +189,7 @@ mma.productcatalog.productcategory: Categorie
 mma.productcatalog.productquantity: Quantité
 mma.productcatalog.productavailable: Disponible
 mma.productcatalog.productstatus: status
+mma.productcatalog.activateproduct: activer
 mma.clientcatalog.searchclient: 'Cherhcer un client...'
 mma.clientcatalog.clienttitle: Titre
 mma.clientcatalog.clientfirstnameandlastname: 'Nom Prenom'
@@ -206,6 +207,7 @@ mma.verifyadress.continue: Continuer
 mma.payement.verifyyourdata: 'VERIFIER TES DONNÉES'
 mma.payement.payementmode: 'MODE DE PAYEMENT'
 mma.payement.payementmodecheque: 'PAR VIREMENT'
+mma.confirm.doyourealywanttoremovethisclient: 'Docyoucrealy want to remove this client?'
 mma.category.price: prix
 mma.category.from: 'allant de'
 mma.category.to: à
@@ -218,3 +220,6 @@ mma.category.grille: Grille
 mma.configuration.recipes: __mma.configuration.recipes
 mma.productcatalog.productstate: __mma.productcatalog.productstate
 '': __
+mma.changepassword.enteryouraccountemail: __mma.changepassword.enteryouraccountemail
+mma.change.password.requestnewpassword: __mma.change.password.requestnewpassword
+mma.messages.clickhiertoresetyourpassword: __mma.messages.clickhiertoresetyourpassword

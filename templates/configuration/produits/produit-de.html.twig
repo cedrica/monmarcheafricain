@@ -1,0 +1,64 @@
+
+{{ form_start(editProduitFormDE) }}
+<div class="row">
+    <div class="col-lg-6">
+        		{{ form_row(editProduitFormDE.nameDE) }}
+        		{{ form_row(editProduitFormDE.prix) }}
+        		{{ form_row(editProduitFormDE.etat) }}
+        		{{ form_row(editProduitFormDE.kategorie) }}
+        		{{ form_row(editProduitFormDE.quantite) }}
+        		<div style="float:left;margin-right:5px">{{ form_row(editProduitFormDE.disponible) }} </div>
+        		<i class="fa fa-info-circle" title="Activation" data-placement="top"  data-toggle="popover" 
+        		data-trigger="hover" data-content="En activant ce produit il sera presenté dans la liste des produits" style="color:darkorange"></i>
+        <br>
+    </div>
+    <div class="col-lg-6">
+        	<img src="/uploads/brochures/{{ produit.image }}"
+				style="width: 350px; min-height: 300px" class="img-rounded" ></img>
+    	<div class="form-group">
+    		{{ form_row(editProduitFormDE.image) }}
+    	</div>
+        <button class="btn">Upload foto</button>
+    </div>
+</div>
+<div class="col-lg-12 form-group"></div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel-group">
+          <div class="panel panel-default">
+          	<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" style="float:left;vertical-align: middle;"
+						href="#collapse1">{{ 'mma.product.offer'|trans }}</a>{{ form_row(editProduitFormDE.action) }}
+				</h4>
+			</div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="col-lg-6">
+                    {{ form_row(editProduitFormDE.actionDebut) }}
+                </div>
+                <div class="col-lg-6">
+                    {{ form_row(editProduitFormDE.actionFin) }}
+                </div>
+                <div class="col-lg-6">
+                	{{ form_row(editProduitFormDE.pourcentageDeRabait) }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>                        
+</diV>
+<div class="row">
+    <div class="col-lg-12">
+        Description
+        <textarea class="form-control" cols="5" rows="4"></textarea>
+    </div>
+</div>
+
+
+<div class="modal-footer">
+	<button type="submit" class="btn michou-btn">{{ 'mma.configuration.save.edited.product'|trans }}</button>
+	<a href="{{ path('configuration_controller_init_view',{'cfg':'prod'}) }}" class="btn btn-default">Annuler</a>
+</div>
+{{ form_end(editProduitFormDE) }}

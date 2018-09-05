@@ -1,39 +1,115 @@
-{% block body %}
-		<div class="form-group" class="col-lg-12">
-			<input id="tfRecherche" type="text" onchange="chercherCompte()"  class="form-control" placeholder="{{ 'mma.clientcatalog.searchclient'|trans }}">
-		</div>
-	<div id="tableau" >
-		<table class="col-lg-12">
-			<thead>
-				<th>{{ 'mma.clientcatalog.clienttitle'|trans }}</th>
-				<th>{{ 'mma.clientcatalog.clientfirstnameandlastname'|trans }}</th>
-				<th> {{ 'mma.clientcatalog.clientrole'|trans }}</th>
-				<th></th>
-				<th></th>
-			</thead>
-			<tbody id="tbClients">
-				{% for compte in comptes %}
-				<tr>
-					<td>{{ compte.titre }}</td>
-					<td>{{ compte.nom }} {{ compte.prenom }}</td>
-					<td>{{ compte.role }}</td>
-    				<td><a class="fa fa-edit"
-    					href="{{ path('compte_controller_edit',{'id':compte.id}) }}"></a></td>
-    				<td><a class="fa fa-trash" href="{{ path('compte_controller_delete',{'id':compte.id}) }}"  style="color:red"></a></td>
-				</tr>
-				{% endfor %}
-			</tbody>
-		</table>
+
+	<div class="tab" style="padding:0px; width: 20%;float:left;">
+	{% set counter = 0 %}
+        {% for compte in comptes %}
+      		<button class="tablinks2" onclick="openClient(event, '{{ compte.prenom }}')"  id="defaultOpen{{ counter }}">{{compte.prenom}}</button>
+      		{% set counter = counter + 1 %}
+  	    {% endfor %}
+    </div>
+
+    <div style="width: 80%; float:left; height:100%; padding-top: 1%">
+        {% for compte in comptes %}
+    		<div id="{{ compte.prenom }}" class="tabcontent2 col-lg-12">
+    			<table width="100%">
+    				<tr>
+    					<td><b>Nom:</b> {{ compte.nom }}</td>
+    					<td><b>Prenom:</b>  {{ compte.prenom }}</td>
+    				</tr>
+    				<tr>
+    					<td><b>Date de naissance:</b> </td>
+    					<td>{{ compte.dateDeNaissance|date("m/d/Y") }}</td>
+    				</tr>
+    				<tr>
+    					<td><b><u>Email:</u></b></td>
+    					<td> {{ compte.login.email }}</td>
+    				</tr>
+    				<tr>
+    					<td><b><u>Passwort:</u></b></td>
+    					<td>XXXXXXXXX</td>
+    				</tr>
+    				<tr>
+    					<td><input type="checkbox"> Desactiver</td>
+    				</tr>
+    				<tr>
+    					<td><b>Role:</b></td>
+    				</tr>
+    				<tr>
+    					<td colspan="2">
+                        <form action="/changer-role/{{ compte.id }}" novalidate="novalidate"
+                        		method="post">
+                        			<div class="col-lg-4">
+                        				<div class="form-group">
+                        					<select class="form-control" name="role">
+                        						<option selected="true">--choisir un role--</option>
+                        						<option value="ADMIN">Admin</option>
+                        						<option value="SIMPLE_CLIENT">Simple client</option>
+                        						<option value="WEB_MASTER">Webmaster</option>
+                        					</select>
+                        				</div>
+                        				<div class="form-group">
+                        					<button class="btn" type="submit">Valider</button>
+                        				</div>
+                        			</div>
+                        
+                        	</form>
+    					</td>
+    				</tr>
+    				<tr>
+    					<td><b>Adresses:</b></td>
+    				</tr>
+    				<tr width="100%">
+						<table >
+            				<tr>
+            					<td>Pays</td>
+            					<td>Ville</td>
+            					<td>Rues</td>
+            					<td>Boite Postale</td>
+            				</tr>
+            				    {% for adresse in compte.adresses %}
+            				    <tr>
+                					<td>{{ adresse.pays }}</td>
+                					<td>{{ adresse.ville }}</td>
+                					<td>{{ adresse.boitePostale }}</td>
+                					<td>{{ adresse.rueEtNr }}</td>
+                				</tr>
+            					{% endfor %}
+    					</table>
+    				</tr>
+    				
+    			</table>
+    		<div class="divider"></div>
+    			<div  width ="50%">
+					<a class="fa fa-trash btn" style="margin-left: 10px; color:red" data-toggle="modal" data-target="#confirmModal{{compte.id}}"> DELETE</a>
+					
+    				{{  include("confirm/confirm.html.twig", {'stepId':compte.id,'todo':'remove_client', 'recetteId':compte.id, 'message':'mma.confirm.doyourealywanttoremovethisclient'|trans }) }}
+    			</div>
+            </div>
+        {% endfor %}
 	</div>
+
+   	
 	<script>
-    $("#tfRecherche").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#tbClients tr").filter(function() {
-			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-    });
-	</script>
-{% endblock %}
-{% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('css/catalogs.css') }}" />
-{% endblock %}
+function openClient(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent2");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks2");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen0").click();
+	$(function() {
+		$(".sortable").sortable({
+			containment : "parent",
+			placeholder : "ui-state-highlight"
+		});
+	});
+
+</script>					

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProduitRepository")
@@ -25,6 +27,21 @@ class Produit
     private $nom;
     
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="text")
+     */
+    private $name;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nameDE", type="text")
+     */
+    private $nameDE;
+    
+    
+    /**
      * @var bool
      *
      * @ORM\Column(name="actif", type="boolean")
@@ -34,7 +51,7 @@ class Produit
     /**
      * @var decimal
      *
-     * @ORM\Column(name="prix", type="decimal", length=255)
+     * @ORM\Column(name="prix", type="decimal", length=25)
      */
     private $prix;
     
@@ -43,20 +60,36 @@ class Produit
     /**
      * @var string
      *
-     * @ORM\Column(name="etat", type="string", length=255, nullable=true)
+     * @ORM\Column(name="etat", type="string", length=10, nullable=true)
      */
     private $etat;
     /**
      * @var string
      *
-     * @ORM\Column(name="categorie", type="string", length=255)
+     * @ORM\Column(name="categorie", type="string", length=50)
      */
     private $categorie;
     
     /**
      * @var string
      *
-     * @ORM\Column(name="reference", type="string", length=255, nullable=false)
+     * @ORM\Column(name="category", type="string", length=50)
+     */
+    private $category;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="kategorie", type="string", length=50)
+     */
+    private $kategorie;
+    
+    
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="reference", type="string", length=50, nullable=false)
      */
     private $reference;
     
@@ -78,6 +111,8 @@ class Produit
     /**
      * @ORM\Column(type="string")
      *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a jpeg file.")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
      */
     private $image;
 
@@ -101,7 +136,24 @@ class Produit
      */
     private $actionFin;
     
-    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descriptionFR", type="string", length=255, nullable=true)
+     */
+    private $descriptionFR;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descriptionFEN", type="string", length=255, nullable=true)
+     */
+    private $descriptionEN;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descriptionDE", type="string", length=255, nullable=true)
+     */
+    private $descriptionDE;
     /**
      * Get id
      *
@@ -132,6 +184,42 @@ class Produit
     public function getNom()
     {
     	return $this->nom;
+    }
+    
+    
+    /**
+     * Set image
+     *
+     */
+    public function setName($name)
+    {
+    	$this->name = $name;
+    }
+    /**
+     * Get image
+     *
+     */
+    public function getName()
+    {
+    	return $this->name;
+    }
+    
+    
+    /**
+     * Set image
+     *
+     */
+    public function setNameDE($nameDE)
+    {
+    	$this->nameDE = $nameDE;
+    }
+    /**
+     * Get image
+     *
+     */
+    public function getNameDE()
+    {
+    	return $this->nameDE;
     }
     
     /**
@@ -199,6 +287,51 @@ class Produit
     public function getCategorie()
     {
     	return $this->categorie;
+    }
+    
+    
+    /**
+     * Set categorie
+     *
+     * @param string $categorie
+     *
+     * @return Produit
+     */
+    public function setCategory($category)
+    {
+    	$this->category = $category;
+    }
+    
+    /**
+     * Get category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+    	return $this->category;
+    }
+    
+    
+    /**
+     * Set kategorie
+     *
+     * @param string $kategorie
+     *
+     */
+    public function setKategorie($kategorie)
+    {
+    	$this->kategorie = $kategorie;
+    }
+    
+    /**
+     * Get kategorie
+     *
+     * @return string
+     */
+    public function getKategorie()
+    {
+    	return $this->kategorie;
     }
     
     /**
@@ -332,7 +465,39 @@ class Produit
 
         return $this;
     }
+
+    public function getDescriptionFR()
+    {
+    	return $this->descriptionFR;
+    }
     
+    public function setDescriptionFR($descriptionFR)
+    {
+    	$this->descriptionFR = $descriptionFR;
+    	
+    }
+    
+    public function getDescriptionEN()
+    {
+    	return $this->descriptionEN;
+    }
+    
+    public function setDescriptionEN($descriptionEN)
+    {
+    	$this->descriptionEN = $descriptionEN;
+    	
+    }
+    
+    public function getDescriptionDE()
+    {
+    	return $this->descriptionDE;
+    }
+    
+    public function setDescriptionDE($descriptionDE)
+    {
+    	$this->descriptionDE = $descriptionDE;
+    	
+    }
 }
 
 

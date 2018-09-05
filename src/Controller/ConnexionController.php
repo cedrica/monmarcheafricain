@@ -78,52 +78,104 @@ class ConnexionController extends Controller
      */
     public function motDePassOublierAction(Request $request)
     {
-        return $this->render('connexion/creer-mot-de-pass.html.twig', array(
-            'page' => 'creer-mot-de-pass',
+        return $this->render('connexion/confirmer-votre-compte.html.twig', array(
+            'page' => 'confirmer-votre-compte',
             'alertType' => null
         ));
     }
     
     /**
-     * @Route("{_locale}/creer-un-nouveau-mot-de-pass", name="connection_controller_creer_mot_de_pass")
+     * @Route("{_locale}/send-email-for-reseting-password", name="connection_controller_send-email-for-reseting-password")
      */
-    public function creerNouveauMotDePassAction(Request $request, ControllerHelper $helper)
+    public function sendEmailForResetingPasswordAction(Request $request,\Swift_Mailer $mailer, $_locale)
     {
-        $em = $this->getDoctrine()->getManager();
-        $email = $request->request->get('email');
-        $motDePass = $request->request->get('motDePasse'); 
-        $confirmerMotDePasse = $request->request->get('confirmerMotDePasse'); 
-        if (strcmp($confirmerMotDePasse, $motDePass) == 0) {
-            /**
-             * 
-             * @var \App\Entity\Compte $compte
-             */
-           $compte =  $helper->trouveLeCompteByEmail($email, $em);
-          
-           /**
-            * 
-            * @var \App\Entity\Login $login
-            */
-           if($compte != null){ 
-               $login = $compte->getLogin();
-               $encrypted_password = password_hash($motDePass, PASSWORD_DEFAULT);
-               $login->setMotDePass($encrypted_password);
-               $em->persist($login);
-               $em->flush();
-               return $this->render('connexion/creer-mot-de-pass-successfull.html.twig', array(
-                   'page' => 'creer-mot-de-passe-success',
-                   'alertType' => 'error',
-                   'message' => 'Mot de pass invalide'
-               ));
-           }else{
-               return $this->redirectToRoute('connexion_controller_connexion');
-           }
-        }else {
-            return $this->render('connexion/creer-mot-de-pass-successfull.html.twig', array(
-                'page' => 'connexion',
-                'alertType' => 'error',
-                'message' => 'Mot de pass invalide'
-            ));
-        }
+    	$reciever = $request->request->get("email");//reciever
+    	$translator = new Translator($_locale.'_'.strtoupper($_locale));
+    	$message = (new \Swift_Message('Reset your Password'))
+    	->setFrom("info@monmarcheafricain.com")
+    	->setTo($reciever)
+    	->setBody(
+    			$this->renderView(
+    					// templates/emails/registration.html.twig
+    					'emails/reset-password.html.twig',
+    					array('email' => $reciever)
+    					),
+    			'text/html'
+    			);
+    	
+    	$mailer->send($message);
+    	/*
+    	 You could alternatively use a different transport such as Sendmail:
+    	 
+    	 // Sendmail
+    	 $transport = new Swift_SendmailTransport('/usr/sbin/sendmail -bs');
+    	 */
+    	
+    	// Create the Mailer using your created Transport
+    	$mailer->send($message);
+    	return $this->render('/connexion/we-send-you-an-email.html.twig',
+    			array(
+    					'page'=>'we-send-you-an-email',
+    					'message' => $translator->trans('mma.messages.wesendyouanemailtothegivenadress')
+    			));
+    	
+ 
+    }
+    
+    /**
+     * @Route("{_locale}/enter-nouvelles-donnees", name="connection_controller_enter-nouvelles-donnees")
+     */
+    public function entrerLesNouvellesDonneesChangerAction(Request $request)
+    {
+    	$email = $request->get('email');
+    	var_dump($email);
+    	return $this->render('/connexion/we-send-you-an-email.html.twig',
+    			array(
+    					'page'=>'we-send-you-an-email',
+    					'message' => 'dd	'
+    			));
+    }
+    /**
+     * @Route("{_locale}/changer-mot-de-passe/{email}", name="connection_controller_changer_mot_de_passe")
+     */
+    public function motDePasseChangerAction(Request $request,$email)
+    {
+    	
+    	$em = $this->getDoctrine()->getManager();
+    	$motDePasse = $request->request->get('motDePasse');
+    	$confirmerMotDePasse = $request->request->get('confirmerMotDePasse');
+    	$translator = new Translator($_locale.'_'.strtoupper($_locale));
+    	if (strcmp($confirmerMotDePasse, $motDePasse) == 0) {
+    		/**
+    		 *
+    		 * @var \App\Entity\Compte $compte
+    		 */
+    		$compte =  $helper->trouveLeCompteByEmail($email, $em);
+    		
+    		/**
+    		 *
+    		 * @var \App\Entity\Login $login
+    		 */
+    		if($compte != null){
+    			$login = $compte->getLogin();
+    			$encrypted_password = password_hash($motDePass, PASSWORD_DEFAULT);
+    			$login->setMotDePass($encrypted_password);
+    			$em->persist($login);
+    			$em->flush();
+    			return $this->render('commun/error-info-success.html.twig', array(
+    					'page' => 'error-info-success',
+    					'alertType' => 'success',
+    					'message' => $translator->trans('mma.messages.passwordsuccessfulychanged')
+    			));
+    		}else{
+    			return $this->redirectToRoute('connexion_controller_connexion');
+    		}
+    	}else {
+    		return $this->render('connexion/creer-mot-de-pass-successfull.html.twig', array(
+    				'page' => 'connexion',
+    				'alertType' => 'error',
+    				'message' => 'Mot de pass invalide'
+    		));
+    	}
     }
 }

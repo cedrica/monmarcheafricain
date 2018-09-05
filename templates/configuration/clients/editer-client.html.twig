@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/admin-template.html.twig' %}
 
 {% block body %}
 	<div class="row">
@@ -35,13 +35,12 @@
 			<tr>
 		</table>
 	</div>
-	<form action="/changer-role/{{ compte.id }}" novalidate="novalidate"
-		method="post">
+	<form action="{{path('compte_controller_changer_role', {'_locale':app.request.locale, 'id':compte.id}) }}" method="post">
 		<div class="row">
 			<div class="col-lg-4 well">
 				<h4>Changer mon Role</h4>
 				<div class="form-group">
-					<select class="form-control" name="role">
+					<select class="form-control" name="role" onchange="chooseRole()">
 						<option selected="true">--choisir un role--</option>
 						<option value="ADMIN">Admin</option>
 						<option value="SIMPLE_CLIENT">Simple client</option>
@@ -49,10 +48,18 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<button>Valider</button>
+					<button type="submit">Valider</button>
 				</div>
 			</div>
 		</div>
 
 	</form>
+	<script>
+		function chooseRole(){
+			var value ="";
+			if(value != null){
+				alert(value);
+			}
+		}
+	</script>
 {% endblock %}

@@ -239,6 +239,7 @@ mma.productcatalog.productcategory: Category
 mma.productcatalog.productquantity: Quantity
 mma.productcatalog.productavailable: Available
 mma.productcatalog.productstate: State
+mma.productcatalog.activateproduct: activate
 
 ######### CLIENT CATALOG ###############
 mma.clientcatalog.searchclient: Search client...
@@ -265,3 +266,13 @@ mma.verifyadress.continue: Continue
 mma.payement.verifyyourdata: VERIFY YOUR DATA
 mma.payement.payementmode: PAYEMENT MODE
 mma.payement.payementmodecheque: Per cheque
+
+######### CHANGE  ###############
+mma.changepassword.enteryouraccountemail: Enter your account email
+mma.change.password.requestnewpassword: Send
+mma.messages.wesendyouanemailtothegivenadress: We send you an Email to the entered adress. Just check your Email box and follow the instruction insides
+mma.messages.clickhiertoresetyourpassword: Click hier to reset your password
+
+
+######### CONFIRM ###############
+mma.confirm.doyourealywanttoremovethisclient: Do you realy want to remove this client?

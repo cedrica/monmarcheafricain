@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Category</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+	<link rel="stylesheet" href="targenio.css">
+	<style>
+	.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+		color: #fff;
+		background-color: lightgreen;
+	}
+	.nav-pills > li{
+		min-width: 150px;
+	}
+	.nav-pills > li > a {
+		color: #000;
+		border-radius: 0px;
+		border-top: solid 1px lightgray;
+		border-right: solid 1px lightgray;
+		border-left: solid 1px lightgray;
+	}
+	.pointer {
+  cursor:pointer;
+}
+	#loadingImage {
+    position:absolute;
+    width:48px; /*image width */
+    height:48px; /*image height */
+    left:50%; 
+    top:75px;
+    margin-left:-24px; /*image width/2 */
+    margin-top:-24px; /*image height/2 */
+}
+.tree, .tree ul {
+    margin:0;
+    padding:0;
+    list-style:none
+}
+.tree ul {
+    margin-left:1em;
+    position:relative
+}
+.tree ul ul {
+    margin-left:.5em
+}
+.tree ul:before {
+    content:"";
+    display:block;
+    width:0;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    border-left:1px solid
+}
+.tree li {
+    margin:0;
+    padding:0 1em;
+    line-height:2em;
+    color:#369;
+    font-weight:700;
+    position:relative
+}
+.tree ul li:before {
+    content:"";
+    display:block;
+    width:10px;
+    height:0;
+    border-top:1px solid;
+    margin-top:-1px;
+    position:absolute;
+    top:1em;
+    left:0
+}
+.tree ul li:last-child:before {
+    background:#fff;
+    height:auto;
+    top:1em;
+    bottom:0
+}
+.indicator {
+    margin-right:5px;
+}
+.tree li a {
+    text-decoration: none;
+    color:#369;
+}
+.tree li button, .tree li button:active, .tree li button:focus {
+    text-decoration: none;
+    color:#369;
+    border:none;
+    background:transparent;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    outline: 0;
+}
+</style>
+</head>
+<body>
+
+<div class="">
+	<div class="row">
+		<div class="col-lg-12">
+			<ul class="nav nav-pills">
+				<li class="active"><a data-toggle="pill" href="#type">Art</a></li>
+				<li><a data-toggle="pill" href="#location">Ort</a></li>
+				<li><a data-toggle="pill" href="#reference-range">Bezugbereich</a></li>
+				<li><a data-toggle="pill" href="#category">Kategorie</a></li>
+			</ul>
+
+			<div class="tab-content" style="border: solid 1px lightgray; padding: 5px">
+				<div id="type" class="tab-pane fade in active">
+					<div class="row"> 
+						<div class="col-lg-12">
+							<div class="input-group">
+								<span class="input-group-btn">
+									<button class="btn"><i class=" fa fa-refresh"></i></button>
+								</span>
+								<input class="form-control"></input>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							 <ul id="tree1">
+								<li><a href="#">TECH</a>
+
+									<ul>
+										<li>Company Maintenance</li>
+										<li>Employees
+											<ul>
+												<li>Reports
+													<ul>
+														<li>Report1</li>
+														<li>Report2</li>
+														<li>Report3</li>
+													</ul>
+												</li>
+												<li>Employee Maint.</li>
+											</ul>
+										</li>
+										<li>Human Resources</li>
+									</ul>
+								</li>
+								<li>XRP
+									<ul>
+										<li>Company Maintenance</li>
+										<li>Employees
+											<ul>
+												<li>Reports
+													<ul>
+														<li>Report1</li>
+														<li>Report2</li>
+														<li>Report3</li>
+													</ul>
+												</li>
+												<li>Employee Maint.</li>
+											</ul>
+										</li>
+										<li>Human Resources</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="location" class="tab-pane fade">
+					<div class="row"> 
+						<div class="col-lg-12">
+							<div class="input-group">
+								<span class="input-group-btn">
+									<button class="btn"><i class=" fa fa-refresh"></i></button>
+								</span>
+								<input class="form-control"></input>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							 <ul id="tree2">
+								<li><a href="#">TECH</a>
+
+									<ul>
+										<li>Company Maintenance</li>
+										<li>Employees
+											<ul>
+												<li>Reports
+													<ul>
+														<li>Report1</li>
+														<li>Report2</li>
+														<li>Report3</li>
+													</ul>
+												</li>
+												<li>Employee Maint.</li>
+											</ul>
+										</li>
+										<li>Human Resources</li>
+									</ul>
+								</li>
+								<li>XRP
+									<ul>
+										<li>Company Maintenance</li>
+										<li>Employees
+											<ul>
+												<li>Reports
+													<ul>
+														<li>Report1</li>
+														<li>Report2</li>
+														<li>Report3</li>
+													</ul>
+												</li>
+												<li>Employee Maint.</li>
+											</ul>
+										</li>
+										<li>Human Resources</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="reference-range" class="tab-pane fade">
+					<div class="row"> 
+						<div class="col-lg-12">
+							<div class="input-group">
+								<span class="input-group-btn">
+									<button class="btn"><i class=" fa fa-refresh"></i></button>
+								</span>
+								<input class="form-control"></input>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<ul id="tree3">
+								<li><a href="#">TECH</a>
+
+									<ul>
+										<li>Company Maintenance</li>
+										<li>Employees
+											<ul>
+												<li>Reports
+													<ul>
+														<li>Report1</li>
+														<li>Report2</li>
+														<li>Report3</li>
+													</ul>
+												</li>
+												<li>Employee Maint.</li>
+											</ul>
+										</li>
+										<li>Human Resources</li>
+									</ul>
+								</li>
+								<li>XRP
+									<ul>
+										<li>Company Maintenance</li>
+										<li>Employees
+											<ul>
+												<li>Reports
+													<ul>
+														<li>Report1</li>
+														<li>Report2</li>
+														<li>Report3</li>
+													</ul>
+												</li>
+												<li>Employee Maint.</li>
+											</ul>
+										</li>
+										<li>Human Resources</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="category" class="tab-pane fade">
+					<div class="row"> 
+						<div class="col-lg-12">
+							<div class="input-group">
+								<span class="input-group-btn">
+									<button class="btn"><i class=" fa fa-refresh"></i></button>
+								</span>
+								<input class="form-control"></input>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							 <ul id="tree4">
+								<li><a href="#">TECH</a>
+
+									<ul>
+										<li>Company Maintenance</li>
+										<li>Employees
+											<ul>
+												<li>Reports
+													<ul>
+														<li>Report1</li>
+														<li>Report2</li>
+														<li>Report3</li>
+													</ul>
+												</li>
+												<li>Employee Maint.</li>
+											</ul>
+										</li>
+										<li>Human Resources</li>
+									</ul>
+								</li>
+								<li>XRP
+									<ul>
+										<li>Company Maintenance</li>
+										<li>Employees
+											<ul>
+												<li>Reports
+													<ul>
+														<li>Report1</li>
+														<li>Report2</li>
+														<li>Report3</li>
+													</ul>
+												</li>
+												<li>Employee Maint.</li>
+											</ul>
+										</li>
+										<li>Human Resources</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+	</div>
+</div>
+<script>
+$.fn.extend({
+    treed: function (o) {
+      
+      var openedClass = 'glyphicon-minus-sign';
+      var closedClass = 'glyphicon-plus-sign';
+      
+      if (typeof o != 'undefined'){
+        if (typeof o.openedClass != 'undefined'){
+        openedClass = o.openedClass;
+        }
+        if (typeof o.closedClass != 'undefined'){
+        closedClass = o.closedClass;
+        }
+      };
+      
+        //initialize each of the top levels
+        var tree = $(this);
+        tree.addClass("tree");
+        tree.find('li').has("ul").each(function () {
+            var branch = $(this); //li with children ul
+            branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
+            branch.addClass('branch');
+            branch.on('click', function (e) {
+                if (this == e.target) {
+                    var icon = $(this).children('i:first');
+                    icon.toggleClass(openedClass + " " + closedClass);
+                    $(this).children().children().toggle();
+                }
+            })
+            branch.children().children().toggle();
+        });
+        //fire event from the dynamically added icon
+      tree.find('.branch .indicator').each(function(){
+        $(this).on('click', function () {
+            $(this).closest('li').click();
+        });
+      });
+        //fire event to open branch if the li contains an anchor instead of text
+        tree.find('.branch>a').each(function () {
+            $(this).on('click', function (e) {
+                $(this).closest('li').click();
+                e.preventDefault();
+            });
+        });
+        //fire event to open branch if the li contains a button instead of text
+        tree.find('.branch>button').each(function () {
+            $(this).on('click', function (e) {
+                $(this).closest('li').click();
+                e.preventDefault();
+            });
+        });
+    }
+});
+
+//Initialization of treeviews
+
+$('#tree1').treed();
+$('#tree2').treed();
+$('#tree3').treed();
+$('#tree4').treed();
+
+//$('#tree2').treed({openedClass:'glyphicon-folder-open', closedClass:'glyphicon-folder-close'});
+
+//$('#tree3').treed({openedClass:'glyphicon-chevron-right', closedClass:'glyphicon-chevron-down'});
+</script>
+</body>
+</html>

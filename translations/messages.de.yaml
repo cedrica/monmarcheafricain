@@ -240,6 +240,7 @@ mma.productcatalog.productcategory: Kategorie
 mma.productcatalog.productquantity: Menge
 mma.productcatalog.productavailable: Vorhanden
 mma.productcatalog.productstate: Status
+mma.productcatalog.activateproduct: Aktivieren
 
 ######### CLIENT CATALOG ###############
 mma.clientcatalog.searchclient: Kunde suchen...

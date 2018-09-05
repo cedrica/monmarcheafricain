@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a id="nummer1" data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="{{ classconnexion }}" >{{ 'mma.03connexion'|trans }}</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">
+        Vos etes connecter avec succes
+         <a  href="{{ path('commander_controller_delivery_adress') }}" class="btn btn-success">Continue</a>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a id="nummer2" data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="{{ classdeliveryadress }}">{{ 'mma.04adress'|trans }}</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">
+        {{  include("commander/verifier-adresse.html.twig") }}
+        
+         <a  href="{{  path('commander_controller_delivery_way')  }}"  id="finish-verify-adress" class="btn btn-success">Continue</a>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a id="nummer3" data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="{{ classdeliveryway }}" >{{ 'mma.05delivery'|trans }}</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">
+        {{  include("commander/moyen-de-livraison.html.twig") }}
+         <a href="{{  path('commander_controller_payment')  }}"  class="btn btn-success">Continue</a>
+        
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a id="nummer4" data-toggle="collapse" data-parent="#accordion" href="#collapse4"  class="{{ classpayment }}" >{{ 'mma.06payement'|trans }}</a>
+        </h4>
+      </div>
+      <div id="collapse4" class="panel-collapse collapse">
+        <div class="panel-body">
+        {% if payment %}
+         {{  include("commander/payement.html.twig") }}
+         {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+   
+{% endblock %}
+
+{% block stylesheets %}
+ <style>
+      .not-active {
+          pointer-events: none;
+          cursor: default;
+          text-decoration: none;
+          color: red;
+    }
+  </style>
+{% endblock %}
