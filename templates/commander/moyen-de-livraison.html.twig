@@ -20,16 +20,21 @@
 <script language="javascript"> 
 
 		function selectDeliveryWay(way) {
+			
 				$(document).ready(function(){  
 					$.ajax({  
-	                    url:        '/add-delivery-way-to-session/'+way,  
+	                    url:        '/add-delivery-way-to-session',  
 	                    type:       'POST',   
 	                    dataType:   'json',
+	                    data:{'way':way},
 	                    async:      true,  
 	                    success: function(data, status) { 
+	                    	 if(data.way != null){
+			                    	$('#delivery-ay').attr('disabled',false);
+				                }
 	                    },  
 	                    error : function(xhr, textStatus, errorThrown) {  
-	               	 		alert('ERROR');  
+	               	 		alert('ERROR = '+ errorThrown+ textStatus);  
 	                    }  
 	    			});
 				});

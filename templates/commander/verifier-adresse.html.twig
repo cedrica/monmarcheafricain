@@ -43,16 +43,18 @@
 			if(adressId != '' ){
 				$(document).ready(function(){  
 					$.ajax({  
-	                    url:        '/add-delivery-adress-to-session/'+adressId,  
+	                    url:        '/add-delivery-adress-to-session',  
 	                    type:       'POST',   
 	                    dataType:   'json',
 	                    data : {
-	                    	search: adressId
+	                    	'adressId': adressId
 	                    }, 
 	                    async:      true,  
-	                    success: function(data, status) { 
-							alert("yes");
-		                      
+	                    success: function(data, status) {
+		                    if(data.adressId != null){
+		                    	$('#finish-verify-adress').attr('disabled',false);
+			                }
+		                    
 	                    },  
 	                    error : function(xhr, textStatus, errorThrown) {  
 	               	 		alert('INVALID ADRESS');  
@@ -60,7 +62,7 @@
 	    			});
 				});
 			}else {
-                $('#continue').html('<button class="btn" disabled>{{ 'mma.verifyadress.continue'|trans }}</a>');
+            	$('#finish-verify-adress').attr('disabled',true);
 			}
 		}
    </script>

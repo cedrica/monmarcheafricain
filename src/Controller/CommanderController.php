@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use App\Entity\Adresse;
+use App\Service\ToJson;
 use App\Entity\Compte;
 use App\Form\AjouterCarteType;
 use App\Entity\CarteDeCredit;
@@ -40,17 +41,19 @@ class CommanderController extends Controller
 
     
     /**
-     * @Route("{_locale}/add-delivery-adress-to-session/{id}", name="add_delivery_adress_to_session")
+     * @Route("/add-delivery-adress-to-session", name="add_delivery_adress_to_session")
      */
-    public function addDeliveryAdressToSession(Request $request,$id){
+    public function addDeliveryAdressToSession(Request $request){
     	$jsonData = array();
     	if ($request->isXmlHttpRequest()) {
-	    		$em = $this->getDoctrine()->getManager();
-	    		$adress = $em->getRepository(Adresse::class)->find($id);
-	    		$request->getSession()->set('deliveryAdress', $adress);
-	    		$jsonData = array(
-	    				'enableContinue' => 'true'
-	    		);
+    		$id = $request->request->get('adressId');
+    		
+    		$em = $this->getDoctrine()->getManager();
+    		$adress = $em->getRepository(Adresse::class)->find($id);
+    		$request->getSession()->set('deliveryAdress', $adress);
+    		$jsonData = array(
+    				'adressId' => $id
+    		);
     	}
     	return new JsonResponse($jsonData);
     }
@@ -71,7 +74,10 @@ class CommanderController extends Controller
     	return $this->render('commander/commander.html.twig', array(
     			'adresses' => $adresses,
     			'page' => 'commander',
+    			'connexion' => false,
+    			'deliveryWay' => true,
     			'payment' => false,
+    			'verifyAdress' => false,
     			'classconnexion' => 'not-active',
     			'classdeliveryway' => '',
     			'classdeliveryadress' => 'not-active',
@@ -95,42 +101,67 @@ class CommanderController extends Controller
     	return $this->render('commander/commander.html.twig', array(
     			'adresses' => $adresses,
     			'page' => 'commander',
+    			'connexion' => false,
+    			'deliveryWay' => false,
+    			'payment' => false,
+    			'verifyAdress' => true,
     			'classconnexion' => 'not-active',
     			'classdeliveryway' => 'not-active',
     			'classdeliveryadress' => '',
-    			'classpayment' => 'not-active',
-    			'payment' => false
+    			'classpayment' => 'not-active'
     	));
     }
-    
     /**
      * @Route("{_locale}/payment", name="commander_controller_payment")
      */
-    public function paymentAction(Request $request){
+    public function paymentAction(Request $request,$_locale){
     	$session = $request->getSession();
     	$compte = $session->get('compte');
-    	if($compte == null){
-    		$em = $this->getDoctrine()->getManager();
-    		$repository = $em->getRepository(Compte::class);
-    		$compte = $repository->findOneBy(['id'=>$compte->getId()]);
+    	$array = array(
+    			'payerId' => $compte->getId(),
+    			'payername' => $session->get('deliveryAdress'),
+    			'deliveryWay' => $session->get('deliveryWay')
+    	);
+    	$i = 0;
+    	foreach($session->get('panier')->getPanierItems() as $panierItem){
+    		$array['item'.$i] = array(
+    				'produit' => array(
+    						'name' => $panierItem->getProduit()->getName(),
+    						'price' => $panierItem->getProduit()->getPrix(),
+    						'State' => $panierItem->getProduit()->getEtat(),
+    						'Category' => $panierItem->getProduit()->getCategory(),
+    						'Reference' => $panierItem->getProduit()->getReference(),
+    						'Offer' => $panierItem->getProduit()->getAction(),
+    						'Reduction' => $panierItem->getProduit()->getPourcentageDeRabait(),
+    						'Periode' => $panierItem->getProduit()->getActionDebut().' - '.$panierItem->getProduit()->getActionFin(),
+    						'Description'=> $panierItem->getProduit()->getDescriptionEN()
+    				),
+    				'quantite' => $panierItem->getQuantite()
+    		);
+    		$i++;
     	}
-    	
-    	$adresses = $compte->getAdresses();
+    	$transactions = json_encode($array);
+    	var_dump($transactions);
     	return $this->render('commander/commander.html.twig', array(
-    			'adresses' => $adresses,
+    			'adresses' => array(),
     			'page' => 'commander',
     			'payment' => true,
+    			'connexion' => false,
+    			'deliveryWay' => false,
+    			'verifyAdress' => false,
     			'classconnexion' => 'not-active',
     			'classdeliveryway' => 'not-active',
     			'classdeliveryadress' => 'not-active',
-    			'classpayment' => ''
+    			'classpayment' => '',
+    			'transactions' => $transactions
     	));
     }
     
     /**
-     * @Route("{_locale}/add-delivery-way-to-session/{way}", name="add_delivery_way_to_session")
+     * @Route("/add-delivery-way-to-session", name="add_delivery_way_to_session")
      */
-    public function addDeliveryWayToSession(Request $request,$way){
+    public function addDeliveryWayToSession(Request $request){
+    	$way = $request->request->get('way');
     	$jsonData = array();
     	if ($request->isXmlHttpRequest()) {
     		$request->getSession()->set('deliveryWay', $way);
