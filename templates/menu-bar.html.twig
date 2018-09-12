@@ -1,22 +1,13 @@
 
-<div class="row">
-	<div class="col-lg-12 navbar navbar-light"
-		style="background-color: #33cc33;">
-		<div class="col-lg-2 menu-item">
-			<a class="nav-link" href="/{{ app.request.locale  }}">{{ 'mma.home'|trans }} <span class="sr-only"></span>
-			</a>
-		</div>
-		<div class="col-lg-3 menu-item">
-			<a class="nav-link" href="/{{ app.request.locale  }}/categories/fruits?affichage=gr">{{ 'mma.category'|trans }}</a>
-		</div>
-		<div class="col-lg-3 col-md-4 menu-item">
-			<a class="nav-link" href="/{{ app.request.locale  }}/quelque-recettes">{{ 'mma.somerecipes'|trans }}</a>
-		</div>
-		<div class="col-lg-2 menu-item">
-			<a class="nav-link" href="/{{ app.request.locale  }}/livraison">{{ 'mma.delivery'|trans }} </a>
-		</div>
-		<div class="col-lg-2 menu-item">
-			<a class="nav-link" href="/{{ app.request.locale  }}/contact">{{ 'mma.contact'|trans }}</a>
-		</div>
-	</div>
+<div class="menu-bar">
+	<a  href="/{{ app.request.locale  }}">{{ 'mma.home'|trans }}
+	</a>
+	<a  href="/{{ app.request.locale  }}/categories/fruits?affichage=gr">{{ 'mma.category'|trans }}</a>
+	<a  href="/{{ app.request.locale  }}/quelque-recettes">{{ 'mma.somerecipes'|trans }}</a>
+	<a  href="/{{ app.request.locale  }}/livraison">{{ 'mma.delivery'|trans }} </a>
+	<a  href="/{{ app.request.locale  }}/contact">{{ 'mma.contact'|trans }}</a>
 </div>
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/menu-bar.css') }}" />
+{% endblock %}
