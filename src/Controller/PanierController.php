@@ -64,12 +64,15 @@ class PanierController extends Controller
         $repository = $em->getRepository(Compte::class);
         
         $compte = $repository->findOneBy(['id'=>$compte->getId()]);
-        
+        $request->getSession()->set('compte', $compte);
         $adresses = $compte->getAdresses();
         return $this->render('commander/commander.html.twig', array(
-            'page' => 'commander',
-            'adresses' => $adresses,
+        		'adresses' => $adresses,
+            	'page' => 'commander',
+        		'connexion' => true,
+        		'deliveryWay' => false,
         		'payment' => false,
+        		'verifyAdress' => false,
         		'classconnexion' => '',
         		'classdeliveryway' => 'not-active',
         		'classdeliveryadress' => 'not-active',
