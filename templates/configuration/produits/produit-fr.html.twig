@@ -1,18 +1,18 @@
 <div class="row">
     <div class="col-lg-6">
     	<label>Nom</label>
-    	<input class="form-control form-group" name="name"  value="{{ produit.name }}"></input>
+    	<input class="form-control form-group" name="nomFR"  value="{{ produit.nom }}"></input>
     	<label>Prix</label>
-    	<input class="form-control form-group" name="price"  value="{{ produit.prix }}"></input>
+    	<input class="form-control form-group" ng-model='prix' value="{{ produit.prix }}"></input>
     	<label>Etat</label>
-    	<select class="form-control form-group" name="state"  value="{{ produit.etat }}">
-    		<option>Neuf</option>
-    		<option>En solde</option>
+    	<select class="form-control form-group" ng-model='etat' value="{{ produit.etat }}">
+    		<option value="New">Neuf</option>
+    		<option value="En solde">En solde</option>
     	</select>
     	<label>Categorie</label>
-    	<select class="form-control form-group" name="category"  value="{{ produit.category }}">
+    	<select class="form-control form-group" name="categorie"  value="{{ produit.category }}">
     		<option value="null">--Selectionez--<option>
-    			<option value="fruits" >fruits</option>
+    		<option value="fruits" >fruits</option>
     		<option value="épices">épices</option>
     		<option value="légumes">légumes</option>
     		<option value="farines et sémoules">farines et sémoules</option>
@@ -22,10 +22,14 @@
     		<option value="conserves">conserves</option>
     	</select>
     	<label>Quantite</label>
-    	<input class="form-control form-group" name="quantity"  value="{{ produit.quantite }}"></input>
+    	<input class="form-control form-group" ng-model='quantite' value="{{ produit.quantite }}"></input>
+		<div style="float:left;margin-right:5px">
+    		<label>Activ</label> 
+    		<input type="checkbox"  ng-model='actif'  value="{{ produit.actif }}"></input>
+		</div>
 		<div style="float:left;margin-right:5px">
     		<label>Disponible</label> 
-    		<input type="checkbox" name="available"  value="{{ produit.disponible }}"></input>
+    		<input type="checkbox" ng-model='disponible'  value="{{ produit.disponible }}"></input>
 		</div>
 		<i class="fa fa-info-circle" title="Activation" data-placement="top"  data-toggle="popover" data-trigger="hover" data-content="En activant ce produit il sera presenté dans la liste des produits" style="color:darkorange"></i>
         <br>

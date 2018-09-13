@@ -3,11 +3,11 @@
     	<label>Name</label>
     	<input class="form-control form-group" name="nameDE"  value="{{ produit.nameDE }}"></input>
     	<label>Preis</label>
-    	<input class="form-control form-group" name="price"  value="{{ produit.prix }}"></input>
+    	<input class="form-control form-group" name="prix"  ng-model='prix' value="{{ produit.prix }}"></input>
     	<label>Zustand</label>
-    	<select class="form-control form-group" name="state"  value="{{ produit.etat }}">
-    		<option>Neue</option>
-    		<option>In Angebot</option>
+    	<select class="form-control form-group" name="etat"  ng-model='etat' value="{{ produit.etat }}">
+    		<option value="New">Neue</option>
+    		<option value="In Angebot">In Angebot</option>
     	</select>
     	<label>Kategorie</label>
     	<select class="form-control form-group" name="kategorie"  value="{{ produit.kategorie }}">
@@ -22,10 +22,14 @@
     		<option value="conserves">Dosen</option>
     	</select>
     	<label>Menge</label>
-    	<input class="form-control form-group" name="quantity"  value="{{ produit.quantite }}"></input>
+    	<input class="form-control form-group" name="quantite" ng-model='quantite'   value="{{ produit.quantite }}"></input>
+		<div style="float:left;margin-right:5px">
+    		<label>Activ</label> 
+    		<input type="checkbox" name="actif"  ng-model='actif'  value="{{ produit.actif }}"></input>
+		</div>
 		<div style="float:left;margin-right:5px">
     		<label>Verfügbar</label> 
-    		<input type="checkbox" name="available"  value="{{ produit.disponible }}"></input>
+    		<input type="checkbox" name="disponible"  ng-model='disponible'  value="{{ produit.disponible }}"></input>
 		</div>
 		<i class="fa fa-info-circle" title="Activation" data-placement="top"  data-toggle="popover" data-trigger="hover" data-content="En activant ce produit il sera presenté dans la liste des produits" style="color:darkorange"></i>
         <br>

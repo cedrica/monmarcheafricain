@@ -4,7 +4,7 @@
             <li><a data-toggle="pill" href="#fr">FR</a></li>
             <li><a data-toggle="pill" href="#de">DE</a></li>
         </ul>
-<form method="post" action="">
+<form method="post" action="/{{ app.request.locale }}/save-product?cfg=prod&id={{ produit.id }}">
         <div class="tab-content" style="border: solid 1px lightgray; padding: 5px;background-color: #fff;">
             <div id="en" class="tab-pane fade in active"  style="background-color: transparent; color:#000">
     	         {{  include("configuration/produits/produit-en.html.twig") }}
@@ -17,7 +17,7 @@
             </div>
             <div class="modal-footer">
 	<button type="submit" class="btn michou-btn">{{ 'mma.configuration.save.edited.product'|trans }}</button>
-		<a href="{{ path('configuration_produit_controller_save_edited_product',{'cfg':'prod'}) }}" class="btn btn-default">Annuler</a>
+		<a href="{{ path('admin_controller_configuration') }}" class="btn btn-default">Annuler</a>
 	</div>
         </div>
  </form>

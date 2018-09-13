@@ -81,34 +81,35 @@ class ConfigurationProduitController extends Controller
     }
     
     /**
-     * @Route("/{_locale}/save-product/{id}", name="configuration_produit_controller_save_edited_product")
+     * @Route("/{_locale}/save-product", name="configuration_produit_controller_save_edited_product")
      */
-    public function saveEditedProduct(Request $request, $id)
+    public function saveEditedProduct(Request $request)
     {
+    	$id = $request->query->get('id');
     	$em = $this->getDoctrine()->getManager();
     	$produit = $em->getRepository(Produit::class)->find($id);
     	
-    	$nom = $request->request->get('nom');
-    	$name = $request->request->get('name');
-    	$nameDE = $request->request->get('nameDE');
-    	$categorie = $request->request->get('categorie');
-    	$category = $request->request->get('category');
-    	$kategorie = $request->request->get('kategorie');
+    	$nom = $request->request->get('nomFR');
     	$prix = $request->request->get('prix');
     	$etat = $request->request->get('etat');
-    	$quantite = $request->request->get('quantite');
-    	$disponible = $request->request->get('disponible');
+    	$name = $request->request->get('name');
+    	$nameDE = $request->request->get('nameDE');
+    	$action = $request->request->get('action');
     	$image = $request->request->get('image');
     	$actif = $request->request->get('actif');
-    	$action = $request->request->get('action');
+    	$quantite = $request->request->get('quantite');
+    	$category = $request->request->get('category');
+    	$categorie = $request->request->get('categorie');
+    	$kategorie = $request->request->get('kategorie');
+    	$disponible = $request->request->get('disponible');
     	$pourcentageDeRabait = $request->request->get('pourcentageDeRabait');
     	$actionDebut = $request->request->get('actionDebut');
     	$actionFin = $request->request->get('actionFin');
     	$descriptionFR = $request->request->get('descriptionFR');
     	$descriptionEN = $request->request->get('descriptionEN');
     	$descriptionDE = $request->request->get('descriptionDE');
-    	
-    	$produit->setNom($nom);
+    	var_dump($etat);
+    	//$produit->setNom($nom);
     	$produit->setName($name);
     	$produit->setNameDE($nameDE);
     	$produit->setCategorie($categorie);
@@ -128,14 +129,12 @@ class ConfigurationProduitController extends Controller
     	$produit->setDescriptionEN($descriptionEN);
     	$produit->setDescriptionDE($descriptionDE);
     	
-    	$em->persist($produit);
     	$em->flush();
-    	return $this->redirectToRoute('configuration_controller_init_view',
+    	return $this->redirectToRoute('admin_controller_configuration',
     			array(
-    					'cfg' => 'prod',
     					'_locale'=>$request->getLocale(),
     					'alertType' => 'succes',
-    					'message' => 'Produit enlevée avec succes'
+    					'message' => 'Produit editer avec succes'
     			));
     }
 
