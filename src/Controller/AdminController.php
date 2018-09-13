@@ -146,29 +146,12 @@ class AdminController extends Controller
      	));
      	$editProduitForm = self::handleRequestAndSubmit($request,$editProduitForm,$helper,$produit);
      	
-     	
-     	$editProduitFormDE = $this->createForm('App\Form\ProduitType', $produit,array(
-     			'translator'=>new Translator($_locale.'_'.strtoupper($_locale)),
-     			'en' => false,
-     			'fr' => false,
-     			'de' => true
-     	));
-     	$editProduitFormDE = self::handleRequestAndSubmit($request,$editProduitFormDE,$helper,$produit);
-     	
-     	$editProduitFormFR = $this->createForm('App\Form\ProduitType', $produit,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale)),
-     			'en' => false,
-     			'fr' => true,
-     			'de' => false
-     	));
-     	$editProduitFormFR = self::handleRequestAndSubmit($request,$editProduitFormFR,$helper,$produit);
      	return $this->render('configuration/configuration.html.twig', array(
      			'page' => 'configuration',
      			'produit' => $produit, 
      			'message' => $message,
      			'alertType' => $alertType,
-     			'editProduitFormEN' => $editProduitForm->createView(),
-     			'editProduitFormDE' => $editProduitFormDE->createView(),
-     			'editProduitFormFR' => $editProduitFormFR->createView(),
+     			'editProduitForm' => $editProduitForm->createView(),
      			'recette' => $createRecette->createView(),
      			'produits' => $produits,
      			'recettes' => $recettes,

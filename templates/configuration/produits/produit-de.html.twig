@@ -1,22 +1,40 @@
-
-{{ form_start(editProduitFormDE) }}
 <div class="row">
     <div class="col-lg-6">
-        		{{ form_row(editProduitFormDE.nameDE) }}
-        		{{ form_row(editProduitFormDE.prix) }}
-        		{{ form_row(editProduitFormDE.etat) }}
-        		{{ form_row(editProduitFormDE.kategorie) }}
-        		{{ form_row(editProduitFormDE.quantite) }}
-        		<div style="float:left;margin-right:5px">{{ form_row(editProduitFormDE.disponible) }} </div>
-        		<i class="fa fa-info-circle" title="Activation" data-placement="top"  data-toggle="popover" 
-        		data-trigger="hover" data-content="En activant ce produit il sera presenté dans la liste des produits" style="color:darkorange"></i>
+    	<label>Name</label>
+    	<input class="form-control form-group" name="nameDE"  value="{{ produit.nameDE }}"></input>
+    	<label>Preis</label>
+    	<input class="form-control form-group" name="price"  value="{{ produit.prix }}"></input>
+    	<label>Zustand</label>
+    	<select class="form-control form-group" name="state"  value="{{ produit.etat }}">
+    		<option>Neue</option>
+    		<option>In Angebot</option>
+    	</select>
+    	<label>Kategorie</label>
+    	<select class="form-control form-group" name="kategorie"  value="{{ produit.kategorie }}">
+    		<option value="null">--Bitte wählen--<option>
+    			<option value="fruits" >Früchte</option>
+    		<option value="épices">Gewürze</option>
+    		<option value="légumes">Gemüse</option>
+    		<option value="farines et sémoules">Mehl und Gries</option>
+    		<option value="viandes crus">Rohes Fleisch</option>
+    		<option value="viandes fumées">Getrockene Fleich</option>
+    		<option value="crustacés">Lax</option>
+    		<option value="conserves">Dosen</option>
+    	</select>
+    	<label>Menge</label>
+    	<input class="form-control form-group" name="quantity"  value="{{ produit.quantite }}"></input>
+		<div style="float:left;margin-right:5px">
+    		<label>Verfügbar</label> 
+    		<input type="checkbox" name="available"  value="{{ produit.disponible }}"></input>
+		</div>
+		<i class="fa fa-info-circle" title="Activation" data-placement="top"  data-toggle="popover" data-trigger="hover" data-content="En activant ce produit il sera presenté dans la liste des produits" style="color:darkorange"></i>
         <br>
     </div>
     <div class="col-lg-6">
         	<img src="/uploads/brochures/{{ produit.image }}"
 				style="width: 350px; min-height: 300px" class="img-rounded" ></img>
     	<div class="form-group">
-    		{{ form_row(editProduitFormDE.image) }}
+    		<input type="file"></input>
     	</div>
         <button class="btn">Upload foto</button>
     </div>
@@ -29,19 +47,22 @@
           	<div class="panel-heading">
 				<h4 class="panel-title">
 					<a data-toggle="collapse" data-parent="#accordion" style="float:left;vertical-align: middle;"
-						href="#collapse1">{{ 'mma.product.offer'|trans }}</a>{{ form_row(editProduitFormDE.action) }}
+						href="#collapse2">{{ 'mma.product.offer'|trans }}</a> <input type="checkbox" class="produit_action_cb" name="action" value="{{ produit.action }}"></input>
 				</h4>
 			</div>
-            <div id="collapse1" class="panel-collapse collapse">
+            <div id="collapse2" class="panel-collapse collapse">
               <div class="panel-body">
                 <div class="col-lg-6">
-                    {{ form_row(editProduitFormDE.actionDebut) }}
+                	<label>Start Datum</label> 
+                	<input class="form-control produit_action_tf js-datepicker form-group" ng-model='actionDebut' name="actionDebut" value="{{ produit.actionDebut }}"></input>
                 </div>
                 <div class="col-lg-6">
-                    {{ form_row(editProduitFormDE.actionFin) }}
+               		<label>End Datum</label> 
+                	<input class="form-control produit_action_tf js-datepicker form-group" ng-model='actionFin' name="actionFin" value="{{ produit.actionFin }}"></input>
                 </div>
                 <div class="col-lg-6">
-                	{{ form_row(editProduitFormDE.pourcentageDeRabait) }}
+                	<label>% Rabatt</label> 
+                    <input class="form-control produit_action_tf  form-group" ng-model='pourcentageDeRabait' name="pourcentageDeRabait" value="{{ produit.pourcentageDeRabait }}"></input>
                 </div>
               </div>
             </div>
@@ -51,14 +72,9 @@
 </diV>
 <div class="row">
     <div class="col-lg-12">
-        Description
-        <textarea class="form-control" cols="5" rows="4"></textarea>
+        <label>Beschreibung</label>
+        <textarea class="form-control" cols="5" name="descriptionDE" rows="4"></textarea>
     </div>
 </div>
 
 
-<div class="modal-footer">
-	<button type="submit" class="btn michou-btn">{{ 'mma.configuration.save.edited.product'|trans }}</button>
-	<a href="{{ path('configuration_controller_init_view',{'cfg':'prod'}) }}" class="btn btn-default">Annuler</a>
-</div>
-{{ form_end(editProduitFormDE) }}

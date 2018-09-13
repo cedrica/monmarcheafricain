@@ -97,24 +97,7 @@
 		{%   if affichage == 'gr' %}
 		{% for produit in produits %}
 		<div class="col-md-4">
-			<div class="thumbnail card">
-				<a
-				href="{{ path('produit_controller_produit',{'_locale':app.request.locale,'id':produit.id}) }}"
-				style="float: left"><img
-				src="/uploads/brochures/{{ produit.image }}"
-				style="width: 250px; min-height: 250px" class="img-rounded" /></a>
-			
-				</a>
-					
-					<div style="margin-top:20px">
-						<p>{{ produit.nom|upper }} (<b style="color:darkorange">{{ produit.prix }} Euro</b>)</p>
-					</div>
-				<div class="btn-group" style="width:100%">
-					<a class="btn btn-success fa fa-shopping-cart" href="{{ path('produit_controller_actualise',{'id':produit.id,'_locale':app.request.locale,'cat':cat, 'affichage':affichage}) }}"
-						style="font-size: 20px;width:30%"></a>
-					<p class="btn" style="width:70%" disabled>{{ 'mma.categories.addtoshoppingcard'|trans }}</p>
-				</div>
-			</div>
+			{{ include('categories/produit-profil.html.twig', {'produit': produit}) }}
 		</div>
 		{% endfor %}
 		{% elseif affichage == 'lst' %}
@@ -129,8 +112,7 @@
 						</p>
 						</br>
 						<p style="font-weight: bold">
-							{{ produit.prix }}
-							Euro
+							{{ produit.prix }}Euro
 						</p>
 						<br />
 						<div class="btn-group" style="width:100%">
@@ -192,7 +174,8 @@ function resetFilter(){
 	{% endblock %}
 {% block stylesheets %}
 
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+	<link rel="stylesheet" href="{{ asset('css/categories.css') }}" />
 {% endblock %}
 
 	{% block javascripts %}

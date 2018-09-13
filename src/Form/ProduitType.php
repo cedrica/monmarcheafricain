@@ -25,7 +25,7 @@ class ProduitType extends AbstractType
     {
     	$translator = $options['translator'];
     	
-    	if ($options['fr']) {
+    	//if ($options['fr']) {
     		$builder->add('nom', TextType::class, 
     			array(
     					'required'=>true,
@@ -44,10 +44,10 @@ class ProduitType extends AbstractType
     							"viandes fumés" => "viandes fumés",//$translator->trans('mma.product.smokedmeat'),
     							"crustacés" => "crustacés" ,//$translator->trans('mma.product.shellfish'),
     							"conserves" => "conserves",//$translator->trans('mma.product.cans'),
-    					),'attr' => array('class' => 'form-control form-group')));
-    	}
-    	if ($options['en']) {
-    		$builder->add('name', TextType::class,
+    					),'attr' => array('class' => 'form-control form-group')))
+    	//}
+    	//if ($options['en']) {
+    		->add('name', TextType::class,
     			array(
     				'required'=>true,
     				'label' => $translator->trans('mma.product.name'),
@@ -65,10 +65,10 @@ class ProduitType extends AbstractType
     							"shell fish" => "crustacés" ,//$translator->trans('mma.product.shellfish'),
     							"cans" => "conserves",//$translator->trans('mma.product.cans'),
     					),'attr' => array('class' => 'form-control form-group'))
-    					);
-    	}
-    	if ($options['de']) {
-    		$builder->add('nameDE', TextType::class,
+    					)
+    	//}
+    	//if ($options['de']) {
+    		->add('nameDE', TextType::class,
     				array(
     						'required'=>true,
     						'label' => $translator->trans('mma.product.name'),
@@ -86,9 +86,9 @@ class ProduitType extends AbstractType
     								"Laks" => "crustacés" ,//$translator->trans('mma.product.shellfish'),
     								"Dosen" => "conserves",//$translator->trans('mma.product.cans'),
     						),'attr' => array('class' => 'form-control form-group'))
-    						);
-    	}
-    	$builder->add('prix', MoneyType::class, 
+    						)
+    	//}
+    	->add('prix', MoneyType::class, 
         		array('required'=>true,
         				'label' => $translator->trans('mma.product.price'),
         				'attr' => array('class' => 'form-control form-group')

@@ -24,35 +24,13 @@ class ConfigurationProduitController extends Controller
     {
     	$produitRepositorty = $this->getDoctrine()->getRepository(Produit::class);
     	$produit = $produitRepositorty->find($id);
-    	$editProduitForm = $this->createForm('App\Form\ProduitType', $produit,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale)),
-    			'en' => true,
-    			'fr' => false,
-    			'de' => false
-    	));
+    	$editProduitForm = $this->createForm('App\Form\ProduitType', $produit,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
     	$editProduitForm = self::handleRequestAndSubmit($request,$editProduitForm,$produitRepositorty,$produit);
     	
-    	
-    	$editProduitFormDE = $this->createForm('App\Form\ProduitType', $produit,array(
-    			'translator'=>new Translator($_locale.'_'.strtoupper($_locale)),
-    			'en' => false,
-    			'fr' => false,
-    			'de' => true
-        		));
-    	$editProduitFormDE = self::handleRequestAndSubmit($request,$editProduitFormDE,$produitRepositorty,$produit);
-        
-        $editProduitFormFR = $this->createForm('App\Form\ProduitType', $produit,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale)),
-        		'en' => false,
-        		'fr' => true,
-        		'de' => false
-        	));
-        $editProduitFormFR = self::handleRequestAndSubmit($request,$editProduitFormFR,$produitRepositorty,$produit);
-        
         return $this->render('configuration/produits/editer-produit.html.twig', array(
             'page' => 'editer-produit',
         	'produit' => $produit,
-        	'editProduitFormEN' => $editProduitForm->createView(),
-        	'editProduitFormDE' => $editProduitFormDE->createView(),
-        	'editProduitFormFR' => $editProduitFormFR->createView(),
+        	'editProduitForm' => $editProduitForm->createView()
         ));
     }
     
@@ -92,6 +70,65 @@ class ConfigurationProduitController extends Controller
     	$em = $this->getDoctrine()->getManager();
     	$produit = $em->getRepository(Produit::class)->find($id);
     	$em->remove($produit);
+    	$em->flush();
+    	return $this->redirectToRoute('configuration_controller_init_view',
+    			array(
+    					'cfg' => 'prod',
+    					'_locale'=>$request->getLocale(),
+    					'alertType' => 'succes',
+    					'message' => 'Produit enlevée avec succes'
+    			));
+    }
+    
+    /**
+     * @Route("/{_locale}/save-product/{id}", name="configuration_produit_controller_save_edited_product")
+     */
+    public function saveEditedProduct(Request $request, $id)
+    {
+    	$em = $this->getDoctrine()->getManager();
+    	$produit = $em->getRepository(Produit::class)->find($id);
+    	
+    	$nom = $request->request->get('nom');
+    	$name = $request->request->get('name');
+    	$nameDE = $request->request->get('nameDE');
+    	$categorie = $request->request->get('categorie');
+    	$category = $request->request->get('category');
+    	$kategorie = $request->request->get('kategorie');
+    	$prix = $request->request->get('prix');
+    	$etat = $request->request->get('etat');
+    	$quantite = $request->request->get('quantite');
+    	$disponible = $request->request->get('disponible');
+    	$image = $request->request->get('image');
+    	$actif = $request->request->get('actif');
+    	$action = $request->request->get('action');
+    	$pourcentageDeRabait = $request->request->get('pourcentageDeRabait');
+    	$actionDebut = $request->request->get('actionDebut');
+    	$actionFin = $request->request->get('actionFin');
+    	$descriptionFR = $request->request->get('descriptionFR');
+    	$descriptionEN = $request->request->get('descriptionEN');
+    	$descriptionDE = $request->request->get('descriptionDE');
+    	
+    	$produit->setNom($nom);
+    	$produit->setName($name);
+    	$produit->setNameDE($nameDE);
+    	$produit->setCategorie($categorie);
+    	$produit->setCategory($category);
+    	$produit->setKategorie($kategorie);
+    	$produit->setPrix($prix);
+    	$produit->setEtat($etat);
+    	$produit->setQuantite($quantite);
+    	$produit->setDisponible($disponible);
+    	$produit->setImage($image);
+    	$produit->setActif($actif);
+    	$produit->setAction($action);
+    	$produit->setPourcentageDeRabait($pourcentageDeRabait);
+    	$produit->setActionDebut($actionDebut);
+    	$produit->setActionFin($actionFin);
+    	$produit->setDescriptionFR($descriptionFR);
+    	$produit->setDescriptionEN($descriptionEN);
+    	$produit->setDescriptionDE($descriptionDE);
+    	
+    	$em->persist($produit);
     	$em->flush();
     	return $this->redirectToRoute('configuration_controller_init_view',
     			array(

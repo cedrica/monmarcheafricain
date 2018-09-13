@@ -21,6 +21,11 @@
         <div id="clients" class="tabcontent">
             {{  include("configuration/clients/catalogue-clients.html.twig") }}
         </div>
+        
+<div class="modal-footer">
+	<button type="submit" class="btn michou-btn">{{ 'mma.configuration.save.edited.product'|trans }}</button>
+	<a href="{{ path('configuration_controller_init_view',{'cfg':'prod'}) }}" class="btn btn-default">Annuler</a>
+</div>
         <div id="produitModal" id="contact_dialog" class="modal fade" role="dialog">
         	<div class="modal-dialog modal-lg">
         
