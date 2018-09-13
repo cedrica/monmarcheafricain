@@ -14,7 +14,12 @@ class LivraisonController extends Controller
     {
     	$request->setLocale($_locale);
         return $this->render('livraison/livraison.html.twig', array(
-            'page'=>'livraison'
+            'page'=>'livraison',
+            'activehome' => '',
+            'activecategorie' => '',
+            'activerecettes' => '',
+            'activelivraison' => 'active',
+            'activecontact' => ''
         ));
     }
 

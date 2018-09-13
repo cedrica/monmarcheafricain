@@ -7,35 +7,46 @@
 	</div>
 	<div class="row divider"></div>
 	{% if recette.ingredients|length == 0 %}
-	<div class="row  alert alert-info" role="info">
-		<p>{{ 'mma.recipecatalog.recipenotconfigured'|trans }}</p>
-	</div>
-	{% else %}
-	<div class="row">
-		<div class="col-lg-6">
-			{% for step in recette.steps %}
-			<div class="panel panel-default">
-				<div class="panel-body">
-					{{ step.description }}
-					<span class="badge pull-right">{{ step.temps }} min</span>
-				</div>
-			</div>
-			{% endfor %}
+		<div class="row  alert alert-info" role="info">
+			<p>{{ 'mma.recipecatalog.recipenotconfigured'|trans }}</p>
 		</div>
-		<div class="col-lg-1 divider-vertical"></div>
-		<div class="col-lg-4">
+	{% else %}
+
+		<div class="row">
 			<div class="panel panel-success">
 				<div class="panel-heading">{{ 'mma.configurerecipe.listofingredient'|trans }}</div>
 				<div class="panel-body">
 					<ul>
 						{% for ingredient in recette.ingredients %}
-						<li>{{ ingredient.nom }}</li>
+							<li>{{ ingredient.nom }}</li>
 						{% endfor %}
 					</ul>
 				</div>
 			</div>
 		</div>
-	</div>
+		<div class="row" style="background-color: #474e5d;">
+			<div class="timeline">
+				{% set flag = 0 %}
+				{% for step in recette.steps %}
+					{% if flag % 2 == 0 %}
+						<div class="container left">
+							<div class="content">
+								<h2>{{ step.temps }} min</h2>
+								<p>{{ step.description }}</p>
+							</div>
+						</div>
+					{% elseif %}
+						<div class="container right">
+							<div class="content">
+								<h2>{{ step.temps }} min</h2>
+								<p>{{ step.description }}</p>
+							</div>
+						</div>
+					{% endif %}
+					{% set flag = flag + 1 %}
+				{% endfor %}
+			</div>
+		</div>
 	{% endif %}
 {% endblock %}
 
