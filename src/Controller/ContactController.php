@@ -14,7 +14,12 @@ class ContactController extends Controller
     public function contactAction()
     {
         return $this->render('contact/contact.html.twig', array(
-            'page'=>'contact'
+            'page'=>'contact',
+            'activehome' => '',
+            'activecategorie' => '',
+            'activerecettes' => '',
+            'activelivraison' => '',
+            'activecontact' => 'active'
         ));
     }
     

@@ -1,11 +1,10 @@
 
 <div class="menu-bar">
-	<a  href="/{{ app.request.locale  }}">{{ 'mma.home'|trans }}
-	</a>
-	<a  href="/{{ app.request.locale  }}/categories/fruits?affichage=gr">{{ 'mma.category'|trans }}</a>
-	<a  href="/{{ app.request.locale  }}/quelque-recettes">{{ 'mma.somerecipes'|trans }}</a>
-	<a  href="/{{ app.request.locale  }}/livraison">{{ 'mma.delivery'|trans }} </a>
-	<a  href="/{{ app.request.locale  }}/contact">{{ 'mma.contact'|trans }}</a>
+	<a  href="/{{ app.request.locale  }}" class="{{ activehome }}">{{ 'mma.home'|trans }}</a>
+	<a  href="/{{ app.request.locale  }}/categories/fruits?affichage=gr" class="{{ activecategorie }}">{{ 'mma.category'|trans }}</a>
+	<a  href="/{{ app.request.locale  }}/quelque-recettes" class="{{ activerecettes }}">{{ 'mma.somerecipes'|trans }}</a>
+	<a  href="/{{ app.request.locale  }}/livraison" class="{{ activelivraison }}">{{ 'mma.delivery'|trans }} </a>
+	<a  href="/{{ app.request.locale  }}/contact" class="{{ activecontact }}">{{ 'mma.contact'|trans }}</a>
 </div>
 
 {% block stylesheets %}

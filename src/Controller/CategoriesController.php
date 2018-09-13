@@ -29,7 +29,12 @@ class CategoriesController extends Controller
             'cat' => $cat,
             'affichage' => $affichage,
         	'produits' => $produits,
-        		'productCount' => $productCount
+            'productCount' => $productCount,
+            'activehome' => '',
+            'activecategorie' => 'active',
+            'activerecettes' => '',
+            'activelivraison' => '',
+            'activecontact' => ''
         ));
     }
     /**

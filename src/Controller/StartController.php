@@ -15,7 +15,12 @@ class StartController extends Controller
     	$session->set('_locale', $_locale);
     	$request->setLocale($_locale);
         return $this->render('start/start.html.twig', array(
-            'page'=>'start'
+            'page'=>'start',
+            'activehome' => 'active',
+            'activecategorie' => '',
+            'activerecettes' => '',
+            'activelivraison' => '',
+            'activecontact' => ''
         ));
     }
 }

@@ -21,7 +21,12 @@ class RecettesController extends Controller
         $recettes = $em->getRepository(Recette::class)->findAll();
         return $this->render('quelque-recettes/quelque-recettes.html.twig', array(
             'page' => 'recettes',
-            'recettes' => $recettes
+            'recettes' => $recettes,
+            'activehome' => '',
+            'activecategorie' => '',
+            'activerecettes' => 'active',
+            'activelivraison' => '',
+            'activecontact' => ''
         ));
     }
 

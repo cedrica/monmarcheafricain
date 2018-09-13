@@ -56,7 +56,12 @@ class ConnexionController extends Controller
         return $this->render('connexion/connexion.html.twig', array(
             'page' => 'connexion',
             'alertType' => null,
-            'sEnregisterForm' => $sEnregisterForm->createView()
+            'sEnregisterForm' => $sEnregisterForm->createView(),
+            'activehome' => '',
+            'activecategorie' => '',
+            'activerecettes' => '',
+            'activelivraison' => '',
+            'activecontact' => ''
         ));
     }
 
@@ -70,7 +75,13 @@ class ConnexionController extends Controller
         $request->getSession()->set('compte', null);
         $request->getSession()->set('deliveryAdress', null);
         $request->getSession()->set('deliveryWay', null);
-        return $this->redirectToRoute('connexion_controller_connexion');
+        return $this->redirectToRoute('connexion_controller_connexion', array(
+            'activehome' => '',
+            'activecategorie' => '',
+            'activerecettes' => '',
+            'activelivraison' => '',
+            'activecontact' => ''
+        ));
     }
     
     /**
