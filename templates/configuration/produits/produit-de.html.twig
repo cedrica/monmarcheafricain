@@ -1,16 +1,16 @@
 <div class="row">
-    <div class="col-lg-6">
+	<div class="col-lg-12">
     	<label>Name</label>
-    	<input class="form-control form-group" name="nameDE"  value="{{ produit.nameDE }}"></input>
+    	<input class="form-control form-group" name="nameDE"  value="{{ produit.nameDE }}" required></input>
     	<label>Preis</label>
-    	<input class="form-control form-group" name="prix"  ng-model='prix' value="{{ produit.prix }}"></input>
+    	<input class="form-control form-group" name="preis"  ng-model='prix' value="{{ produit.preis }}" required></input>
     	<label>Zustand</label>
     	<select class="form-control form-group" name="etat"  ng-model='etat' value="{{ produit.etat }}">
     		<option value="New">Neue</option>
     		<option value="In Angebot">In Angebot</option>
     	</select>
     	<label>Kategorie</label>
-    	<select class="form-control form-group" name="kategorie"  value="{{ produit.kategorie }}">
+    	<select class="form-control form-group" name="kategorie"  value="{{ produit.kategorie }}" required>
     		<option value="null">--Bitte wählen--<option>
     			<option value="fruits" >Früchte</option>
     		<option value="épices">Gewürze</option>
@@ -25,7 +25,7 @@
     	<input class="form-control form-group" name="quantite" ng-model='quantite'   value="{{ produit.quantite }}"></input>
 		<div style="float:left;margin-right:5px">
     		<label>Activ</label> 
-    		<input type="checkbox" name="actif"  ng-model='actif'  value="{{ produit.actif }}"></input>
+    		<input type="checkbox" name="actif"  ng-model='actif'  {{ produit.actif? 'checked':'' }}></input>
 		</div>
 		<div style="float:left;margin-right:5px">
     		<label>Verfügbar</label> 
@@ -33,15 +33,7 @@
 		</div>
 		<i class="fa fa-info-circle" title="Activation" data-placement="top"  data-toggle="popover" data-trigger="hover" data-content="En activant ce produit il sera presenté dans la liste des produits" style="color:darkorange"></i>
         <br>
-    </div>
-    <div class="col-lg-6">
-        	<img src="/uploads/brochures/{{ produit.image }}"
-				style="width: 350px; min-height: 300px" class="img-rounded" ></img>
-    	<div class="form-group">
-    		<input type="file"></input>
-    	</div>
-        <button class="btn">Upload foto</button>
-    </div>
+	</div>
 </div>
 <div class="col-lg-12 form-group"></div>
 <div class="row">
@@ -77,7 +69,7 @@
 <div class="row">
     <div class="col-lg-12">
         <label>Beschreibung</label>
-        <textarea class="form-control" cols="5" name="descriptionDE" rows="4"></textarea>
+        <textarea class="form-control" cols="5" name="descriptionDE" rows="4" value="{{ produit.descriptionDE }}"></textarea>
     </div>
 </div>
 

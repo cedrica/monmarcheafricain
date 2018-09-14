@@ -1,16 +1,16 @@
 <div class="row">
-    <div class="col-lg-6">
+	<div class="col-lg-12">
     	<label>Nom</label>
-    	<input class="form-control form-group" name="nomFR"  value="{{ produit.nom }}"></input>
+    	<input class="form-control form-group" name="nomFR"  value="{{ produit.nom }}" required></input>
     	<label>Prix</label>
-    	<input class="form-control form-group" ng-model='prix' value="{{ produit.prix }}"></input>
+    	<input class="form-control form-group" ng-model='prix' name="prix" value="{{ produit.prix }}" required></input>
     	<label>Etat</label>
-    	<select class="form-control form-group" ng-model='etat' value="{{ produit.etat }}">
+    	<select class="form-control form-group" ng-model='etat' >
     		<option value="New">Neuf</option>
     		<option value="En solde">En solde</option>
     	</select>
     	<label>Categorie</label>
-    	<select class="form-control form-group" name="categorie"  value="{{ produit.category }}">
+    	<select class="form-control form-group" name="categorie"  value="{{ produit.category }}" required>
     		<option value="null">--Selectionez--<option>
     		<option value="fruits" >fruits</option>
     		<option value="épices">épices</option>
@@ -22,26 +22,18 @@
     		<option value="conserves">conserves</option>
     	</select>
     	<label>Quantite</label>
-    	<input class="form-control form-group" ng-model='quantite' value="{{ produit.quantite }}"></input>
+    	<input class="form-control form-group" ng-model='quantite' ></input>
 		<div style="float:left;margin-right:5px">
     		<label>Activ</label> 
-    		<input type="checkbox"  ng-model='actif'  value="{{ produit.actif }}"></input>
+    		<input type="checkbox"  ng-model='actif' ></input>
 		</div>
 		<div style="float:left;margin-right:5px">
     		<label>Disponible</label> 
-    		<input type="checkbox" ng-model='disponible'  value="{{ produit.disponible }}"></input>
+    		<input type="checkbox" ng-model='disponible'></input>
 		</div>
 		<i class="fa fa-info-circle" title="Activation" data-placement="top"  data-toggle="popover" data-trigger="hover" data-content="En activant ce produit il sera presenté dans la liste des produits" style="color:darkorange"></i>
         <br>
-    </div>
-    <div class="col-lg-6">
-        	<img src="/uploads/brochures/{{ produit.image }}"
-				style="width: 350px; min-height: 300px" class="img-rounded" ></img>
-    	<div class="form-group">
-    		<input type="file"></input>
-    	</div>
-        <button class="btn">Upload foto</button>
-    </div>
+	</div>
 </div>
 <div class="col-lg-12 form-group"></div>
 <div class="row">
@@ -51,22 +43,22 @@
           	<div class="panel-heading">
 				<h4 class="panel-title">
 					<a data-toggle="collapse" data-parent="#accordion" style="float:left;vertical-align: middle;"
-						href="#collapse2">{{ 'mma.product.offer'|trans }}</a> <input type="checkbox" class="produit_action_cb" name="action" value="{{ produit.action }}"></input>
+						href="#collapse2">{{ 'mma.product.offer'|trans }}</a> <input type="checkbox" class="produit_action_cb" name="action" ></input>
 				</h4>
 			</div>
             <div id="collapse2" class="panel-collapse collapse">
               <div class="panel-body">
                 <div class="col-lg-6">
                 	<label>actionDebut</label> 
-                	<input class="form-control produit_action_tf js-datepicker form-group" ng-model='actionDebut' name="actionDebut" value="{{ produit.actionDebut }}"></input>
+                	<input class="form-control produit_action_tf js-datepicker form-group" ng-model='actionDebut' name="actionDebut"></input>
                 </div>
                 <div class="col-lg-6">
                		<label>actionFin</label> 
-                	<input class="form-control produit_action_tf js-datepicker form-group" ng-model='actionFin' name="actionFin" value="{{ produit.actionFin }}"></input>
+                	<input class="form-control produit_action_tf js-datepicker form-group" ng-model='actionFin' name="actionFin" ></input>
                 </div>
                 <div class="col-lg-6">
                 	<label>pourcentageDeRabait</label> 
-                    <input class="form-control produit_action_tf  form-group" ng-model='pourcentageDeRabait' name="pourcentageDeRabait" value="{{ produit.pourcentageDeRabait }}"></input>
+                    <input class="form-control produit_action_tf  form-group" ng-model='pourcentageDeRabait' name="pourcentageDeRabait" ></input>
                 </div>
               </div>
             </div>
@@ -77,7 +69,7 @@
 <div class="row">
     <div class="col-lg-12">
         <label>Description</label>
-        <textarea class="form-control" cols="5" rows="4" name ="descriptionFR"></textarea>
+        <textarea class="form-control" cols="5" rows="4" name ="descriptionFR" value="{{ produit.descriptionFR }}"></textarea>
     </div>
 </div>
 

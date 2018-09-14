@@ -31,7 +31,7 @@ mma.categories.displayas: 'display as'
 mma.categories.displayaslist: List
 mma.categories.displayasgrid: Grid
 mma.categories.addtoshoppingcard: 'Add to Shopingcard'
-mma.category.fruits: Fruits
+mma.category.fruits: Fruts
 mma.category.vegetables: Vegetables
 mma.category.flourandsemolina: 'Flour and semolina'
 mma.category.fishandshellfish: Fish
@@ -54,7 +54,7 @@ mma.contact.message: 'Your message'
 mma.configuration.product.name: Name
 mma.configuration: Configuration
 mma.configuration.editer.produit.action: Offer
-mma.configuration.recipes: recipes
+mma.configuration.recipes: Recipe
 mma.configuration.products: Products
 mma.configuration.clients: Clients
 mma.configuration.save.edited.product: Save
@@ -79,7 +79,7 @@ mma.delivery.readattentivly: 'Read carefully'
 mma.delivery.readattentivly1: 'L´expédition des colis en france métropoliteine s´effectue à 14h après réception de votre payement. Si votre payement est arrivé après 14h alors l´expédition se fera le lendemain et la livraison s´effectuera au plus tard 24h après l´expédition.'
 mma.delivery.readattentivly2: 'Pour les livraisons dans les autres pays d´europe, l´expédition est éffectuer suivant les memes closes que celles décrites plus haut. La livraison s´effectue après au plus 3 jours.'
 mma.delivery.readattentivly3: 'Nous guarantissons pas les pertes de commande suite a une mauvaise adresse de livraison. Cependant toute perte de commande du à; une erreur de notre part sera régler dans les bref délais par des moyens express d´expédition ou part un remboursement avec compensation total de vos frais payements.'
-mma.leftmenu.fruits: Fruits
+mma.leftmenu.fruits: Fruts
 mma.leftmenu.vegetables: Vegetables
 mma.leftmenu.flourandsemolina: 'Flour and Semolina'
 mma.leftmenu.fishandshellfish: 'Fish and Shellfish'
@@ -181,6 +181,7 @@ mma.recipecatalog.recipenotconfigured: 'Recipe was not configured'
 mma.configurerecipe.title: 'Configure this recipe'
 mma.configurerecipe.listofingredient: 'List of ingredient'
 mma.configurerecipe.cookingstep: 'Cooking steps'
+mma.productcatalog.productimage: image
 mma.productcatalog.searchproduct: 'Search product ...'
 mma.productcatalog.productname: Name
 mma.productcatalog.productprice: Price
@@ -205,20 +206,11 @@ mma.verifyadress.deliveryaddress: 'DELIVERY ADDRESS'
 mma.verifyadress.continue: Continue
 mma.payement.verifyyourdata: 'VERIFY YOUR DATA'
 mma.payement.payementmode: 'PAYEMENT MODE'
-mma.payement.payementmodecheque: 'PAR VIREMENT'
+mma.payement.payementmodecheque: 'Per cheque'
 mma.changepassword.enteryouraccountemail: 'Enter your account email'
 mma.change.password.requestnewpassword: Send
 mma.messages.wesendyouanemailtothegivenadress: 'We send you an Email to the entered adress. Just check your Email box and follow the instruction insides'
 mma.messages.clickhiertoresetyourpassword: 'Click hier to reset your password'
-mma.confirm.doyourealywanttoremovethisclient: 'Do youcrealy want to remove this client?'
-mma.category.price: Price
-mma.category.from: from
-mma.category.to: to
-mma.category.action: offert
-mma.category.numberofproduct1: 'This category containts'
-mma.category.numberofproduct2: Product
-mma.category.displayin: 'display in'
-mma.category.liste: List
-mma.category.grille: Grill
+mma.confirm.doyourealywanttoremovethisclient: 'Do you realy want to remove this client?'
+mma.messages.accountnotavailable: 'Account not available'
 mma.delivery.where: __mma.delivery.where
-'': __

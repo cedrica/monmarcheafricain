@@ -26,7 +26,12 @@ class CompteController extends Controller
             'email' => $email,
             'page' => 'creerCompte',
             'message' => null,
-            'alertType' => null
+            'alertType' => null,
+            'activehome' => '',
+            'activecategorie' => '',
+            'activerecettes' => '',
+            'activelivraison' => '',
+            'activecontact' => ''
         ));
     }
 
@@ -46,7 +51,12 @@ class CompteController extends Controller
                     'email' => $email,
                     'page' => 'creer-compte',
                     'message' => 'Incompatibilité entre le mot de passe et sa confirmation',
-                    'alertType' => 'error'
+                    'alertType' => 'error',
+                    'activehome' => '',
+                    'activecategorie' => '',
+                    'activerecettes' => '',
+                    'activelivraison' => '',
+                    'activecontact' => ''
                 ));
             }
             
@@ -56,7 +66,12 @@ class CompteController extends Controller
                     'email' => $email,
                     'page' => 'creer-compte',
                     'message' => 'Cette email est deja enrégistré',
-                    'alertType' => 'error'
+                    'alertType' => 'error',
+                    'activehome' => '',
+                    'activecategorie' => '',
+                    'activerecettes' => '',
+                    'activelivraison' => '',
+                    'activecontact' => ''
                 ));
             }
             $login = new Login();

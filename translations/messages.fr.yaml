@@ -226,6 +226,7 @@ mma.configurerecipe.listofingredient: Liste des ingredients
 mma.configurerecipe.cookingstep: Steps de cuisson
 
 ######### PRODUCT CATALOG ###############
+mma.productcatalog.productimage: image
 mma.productcatalog.searchproduct: Chercher un produit ...
 mma.productcatalog.productname: Nom
 mma.productcatalog.productprice: Prix
@@ -262,3 +263,7 @@ mma.payement.payementmodecheque: PAR VIREMENT
 
 ######### CONFIRM ###############
 mma.confirm.doyourealywanttoremovethisclient: Docyoucrealy want to remove this client?
+
+
+######### MESSAGES ###############
+mma.messages.accountnotavailable: Compte non existant

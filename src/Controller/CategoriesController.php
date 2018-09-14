@@ -15,7 +15,6 @@ class CategoriesController extends Controller
      */
 	public function categoriesAction(Request $request, $cat,$_locale)
     {
-    	$translator = new Translator($_locale);
     	$request->setLocale($_locale);
         $affichage = $request->query->get('affichage');
         $em = $this->getDoctrine()->getManager();

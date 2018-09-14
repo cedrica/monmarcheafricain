@@ -4,7 +4,7 @@
 		</div>
     <table  class="col-lg-12">
     	<thead>
-    		<th>{{ 'mma.productcatalog.activateproduct'|trans  }}</th>
+    		<th>{{ 'mma.productcatalog.productimage'|trans  }}</th>
     		<th>{{ 'mma.productcatalog.productname'|trans }}</th>
     		<th>{{ 'mma.productcatalog.productprice'|trans }}</th>
     		<th>{{ 'mma.productcatalog.productcategory'|trans }}</th>
@@ -18,7 +18,7 @@
     	<tbody id="tbProduits">
 		    {% for produit in produits %}
         		<tr>
-            		<td><input type="checkbox" onclick="return false;"></td>
+            		<td><img src="/uploads/brochures/{{produit.image}}" style="max-height: 150px; max-width: 150px"></img></td>
             		<td>{{ produit.nom }}</td>
             		<td>{{ produit.prix }} €</td>
             		<td>{{ produit.categorie   }}</td>
@@ -34,6 +34,22 @@
     		{% endfor %}
     	</tbody>
     </table>
+
+	<div id="produitModal" id="contact_dialog" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-lg">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Inserer un produit</h4>
+				</div>
+				<div class="modal-body">
+                    {{ include('configuration/produits/create.html.twig') }}
+				</div>
+			</div>
+		</div>
+	</div>
 <script>
     $("#tfFiltreProduit").on("keyup", function() {
         var value = $(this).val().toLowerCase();

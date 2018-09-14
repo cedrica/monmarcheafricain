@@ -30,44 +30,7 @@ class ConfigurationController extends Controller
         $produitRepositorty = $this->getDoctrine()->getRepository(Produit::class);
         $produits = $produitRepositorty->findAll();
         
-        if ($createProduitForm->isSubmitted() && $createProduitForm->isValid()) {
-            if ($helper->existeDeja($produit->getNom(), $em)) {
-                return $this->redirectToRoute('configuration_controller_init_view', array(
-                    'produit' => $produit,
-                    'page' => 'produit',
-                    'message' => 'Désolé un produit avec le nom ' . $produit->getNom() . ' existe déja',
-                    'alertType' => 'info',
-                    'nom' => $produit->getNom(),
-                    'produits' => $produits
-                ));
-            }
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $image */
-            $image = $produit->getImage();
-            $fileName = md5(uniqid()) . '.' . $image->guessExtension();
-            $image->move($this->getParameter('brochures_directory'), $fileName);
-            // This way to remove file work
-            // $fs = new Filesystem();
-            // $fs->remove("uploads/ebff62e127db54f09058ac980d029609.png");
-            // ///
-            $produit->setImage($fileName);
-            $dateTime = new \DateTime();
-            $format = 'Y-m-dH:i:s';
-            $formatedDT = $dateTime->format($format);
-            $formatedDT = str_replace("-", "", $formatedDT);
-            $formatedDT = str_replace(":", "", $formatedDT);
-            $produit->setReference($formatedDT);
-            $produit->setActif(true);
-            $em->persist($produit);
-            $em->flush();
-            return $this->redirectToRoute('configuration_controller_init_view', array(
-                'nom' => $produit->getNom(),
-                'page' => 'configuration',
-                'message' => 'Un produit ' . $produit->getNom() . ' a été sauvgardé avec succes',
-                'alertType' => 'succes',
-                'produits' => $produits
-            ));
-        }
-        
+
         $recette = new Recette();
         $createRecette = $this->createForm('App\Form\RecetteType', $recette,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
         $createRecette->handleRequest($request);
@@ -93,7 +56,6 @@ class ConfigurationController extends Controller
             'page' => 'configuration',
             'message' => $message,
             'alertType' => $alertType,
-            'produitForm' => $createProduitForm->createView(),
             'recette' => $createRecette->createView(),
             'produits' => $produits,
             'recettes' => $recettes,

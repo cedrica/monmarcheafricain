@@ -1,0 +1,79 @@
+
+        <ul class="nav nav-pills">
+            <li class="active"><a data-toggle="pill" href="#en">EN</a></li>
+            <li><a data-toggle="pill" href="#fr">FR</a></li>
+            <li><a data-toggle="pill" href="#de">DE</a></li>
+        </ul>
+
+        <form method="post" action="/{{ app.request.locale }}/edit-product?cfg=prod&id={{ produit.id }}"  enctype="multipart/form-data">
+            <div class="tab-content" style="border: solid 1px lightgray; padding: 5px;background-color: #fff;">
+                <div id="en" class="tab-pane fade in active"  style="background-color: transparent; color:#000">
+                    {{  include("configuration/produits/produit-en.html.twig") }}
+                </div>
+                <div id="fr" class="tab-pane fade" style="background-color: transparent; color:#000">
+                    {{  include("configuration/produits/produit-fr.html.twig") }}
+                </div>
+                <div id="de" class="tab-pane fade" style="background-color: transparent; color:#000">
+                    {{  include("configuration/produits/produit-de.html.twig") }}
+                </div>
+                <div class="form-group"></div>
+                <div class="well" style="display: block;margin-left: auto;margin-right: auto;width: 50%;">
+                    <img src="/uploads/brochures/{{ produit.image }}"></img>
+                    <div class="form-group">
+                        <input type="file" name="image"  required></input>
+                    </div>
+                    <button class="btn">Upload foto</button>
+                </div>
+
+
+                <div class="form-group"></div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn michou-btn">{{ 'mma.configuration.save.edited.product'|trans }}</button>
+                    <a href="{{ path('admin_controller_configuration') }}" class="btn btn-default">Annuler</a>
+                </div>
+            </div>
+         </form>
+        <div style="margin-top:30px"></div>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();  
+        $('.js-datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    });
+    initOffer();
+    $('.produit_action_cb').click(function(e){
+    	var value = this.checked;
+    	var tfs = document.getElementsByClassName('produit_action_tf');
+        for(var i = 0; i < tfs.length; i++){
+        	var tf = tfs[i];
+        	if(!value){
+            	tf.value = "";
+        	}
+        	tf.disabled =  !value;
+        }
+        var cbs = document.getElementsByClassName('produit_action_cb');
+        for(var i = 0; i < cbs.length; i++){
+        	var cb = cbs[i];
+        	cb.checked = value;
+        }
+    });
+    $('.available').click(function(e){
+        var availables = document.getElementsByClassName('available');
+        for(var i = 0; i < availables.length; i++){
+        	var available = availables[i];
+        	available.checked = this.checked;
+        }
+     });
+
+    function initOffer(){
+    	var tfs = document.getElementsByClassName('produit_action_tf');
+    	if(!$('.produit_action_cb').checked == true){
+    		for(var i = 0; i < tfs.length; i++){
+    			var tf = tfs[i];
+            	tf.disabled =  true;
+    		}
+        }
+		
+     }
+</script>

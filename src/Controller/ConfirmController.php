@@ -43,6 +43,8 @@ class ConfirmController extends Controller
         return $this->render('confirm/confirm.html.twig', array(
             'page' => 'confirm',
             'todo' => 'connexion',
+            'stepId' => null,
+            'recetteId' => null,
             'message' => 'Données de connexion invalide. Si vous n´avez pas encore de compte veuillez vous enregistrer grace à la fenetre de guauche'
         ));
     }

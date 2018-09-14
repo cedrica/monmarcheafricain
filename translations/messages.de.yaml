@@ -233,6 +233,7 @@ mma.configurerecipe.listofingredient: Liste der Zutaten
 mma.configurerecipe.cookingstep: Bereitung step 
 
 ######### PRODUCT CATALOG ###############
+mma.productcatalog.productimage: Bild
 mma.productcatalog.searchproduct: Produkt suchen ...
 mma.productcatalog.productname: Name
 mma.productcatalog.productprice: Preis
@@ -267,3 +268,6 @@ mma.verifyadress.continue: Weiter
 mma.payement.verifyyourdata: VERIFIZIEREN SIE BITTE IHRE DATEN
 mma.payement.payementmode: ZAHLUNGSMODE
 mma.payement.payementmodecheque: PER ÜBERWEISUNG
+
+######### MESSAGES ###############
+mma.messages.accountnotavailable: Konto nicht verfügbar

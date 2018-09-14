@@ -145,7 +145,7 @@ class Produit
     /**
      * @var string
      *
-     * @ORM\Column(name="descriptionFEN", type="string", length=255, nullable=true)
+     * @ORM\Column(name="descriptionEN", type="string", length=255, nullable=true)
      */
     private $descriptionEN;
     /**
@@ -154,6 +154,16 @@ class Produit
      * @ORM\Column(name="descriptionDE", type="string", length=255, nullable=true)
      */
     private $descriptionDE;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $price;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $preis;
     /**
      * Get id
      *
@@ -497,6 +507,30 @@ class Produit
     {
     	$this->descriptionDE = $descriptionDE;
     	
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getPreis(): ?float
+    {
+        return $this->preis;
+    }
+
+    public function setPreis(float $preis): self
+    {
+        $this->preis = $preis;
+
+        return $this;
     }
 }
 

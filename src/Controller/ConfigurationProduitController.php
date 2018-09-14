@@ -22,18 +22,16 @@ class ConfigurationProduitController extends Controller
      */
     public function editProduitAction(Request $request, $id, $_locale)
     {
-    	$produitRepositorty = $this->getDoctrine()->getRepository(Produit::class);
-    	$produit = $produitRepositorty->find($id);
-    	$editProduitForm = $this->createForm('App\Form\ProduitType', $produit,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
-    	$editProduitForm = self::handleRequestAndSubmit($request,$editProduitForm,$produitRepositorty,$produit);
-    	
+        $produitRepositorty = $this->getDoctrine()->getRepository(Produit::class);
+        $produit = $produitRepositorty->find($id);
+
         return $this->render('configuration/produits/editer-produit.html.twig', array(
             'page' => 'editer-produit',
-        	'produit' => $produit,
-        	'editProduitForm' => $editProduitForm->createView()
+            'produit' => $produit,
         ));
     }
-    
+
+
     public function handleRequestAndSubmit(Request $request,$form,$produitRepositorty,$produit){
     	$form->handleRequest($request);
     	if ($form->isSubmitted() && $form->isValid()) {
@@ -81,61 +79,150 @@ class ConfigurationProduitController extends Controller
     }
     
     /**
-     * @Route("/{_locale}/save-product", name="configuration_produit_controller_save_edited_product")
+     * @Route("/{_locale}/edit-product", name="configuration_produit_controller_save_edited_product")
      */
     public function saveEditedProduct(Request $request)
     {
-    	$id = $request->query->get('id');
-    	$em = $this->getDoctrine()->getManager();
-    	$produit = $em->getRepository(Produit::class)->find($id);
-    	
-    	$nom = $request->request->get('nomFR');
-    	$prix = $request->request->get('prix');
-    	$etat = $request->request->get('etat');
-    	$name = $request->request->get('name');
-    	$nameDE = $request->request->get('nameDE');
-    	$action = $request->request->get('action');
-    	$image = $request->request->get('image');
-    	$actif = $request->request->get('actif');
-    	$quantite = $request->request->get('quantite');
-    	$category = $request->request->get('category');
-    	$categorie = $request->request->get('categorie');
-    	$kategorie = $request->request->get('kategorie');
-    	$disponible = $request->request->get('disponible');
-    	$pourcentageDeRabait = $request->request->get('pourcentageDeRabait');
-    	$actionDebut = $request->request->get('actionDebut');
-    	$actionFin = $request->request->get('actionFin');
-    	$descriptionFR = $request->request->get('descriptionFR');
-    	$descriptionEN = $request->request->get('descriptionEN');
-    	$descriptionDE = $request->request->get('descriptionDE');
-    	var_dump($etat);
-    	//$produit->setNom($nom);
-    	$produit->setName($name);
-    	$produit->setNameDE($nameDE);
-    	$produit->setCategorie($categorie);
-    	$produit->setCategory($category);
-    	$produit->setKategorie($kategorie);
-    	$produit->setPrix($prix);
-    	$produit->setEtat($etat);
-    	$produit->setQuantite($quantite);
-    	$produit->setDisponible($disponible);
-    	$produit->setImage($image);
-    	$produit->setActif($actif);
-    	$produit->setAction($action);
-    	$produit->setPourcentageDeRabait($pourcentageDeRabait);
-    	$produit->setActionDebut($actionDebut);
-    	$produit->setActionFin($actionFin);
-    	$produit->setDescriptionFR($descriptionFR);
-    	$produit->setDescriptionEN($descriptionEN);
-    	$produit->setDescriptionDE($descriptionDE);
-    	
-    	$em->flush();
-    	return $this->redirectToRoute('admin_controller_configuration',
-    			array(
-    					'_locale'=>$request->getLocale(),
-    					'alertType' => 'succes',
-    					'message' => 'Produit editer avec succes'
-    			));
+        if($request->isMethod('POST')){
+
+            $nom = $request->request->get('nomFR');
+            $prix = $request->request->get('prix');
+            $price = $request->request->get('price');
+            $preis = $request->request->get('preis');
+            $etat = $request->request->get('etat');
+            $name = $request->request->get('name');
+            $nameDE = $request->request->get('nameDE');
+            $action = $request->request->get('action');
+            $actif = $request->request->get('actif');
+            $quantite = $request->request->get('quantite');
+            $category = $request->request->get('category');
+            $categorie = $request->request->get('categorie');
+            $kategorie = $request->request->get('kategorie');
+            $disponible = $request->request->get('disponible');
+            $pourcentageDeRabait = $request->request->get('pourcentageDeRabait');
+            $actionDebut = $request->request->get('actionDebut');
+            $actionFin = $request->request->get('actionFin');
+            $descriptionFR = $request->request->get('descriptionFR');
+            $descriptionEN = $request->request->get('descriptionEN');
+            $descriptionDE = $request->request->get('descriptionDE');
+            $fileName = $_FILES['image']['name'];
+            $bfileName = basename($fileName);
+            $tmpFile = $_FILES['image']['tmp_name'];
+            move_uploaded_file($tmpFile,"uploads/brochures/$bfileName");
+
+            $id = $request->query->get('id');
+            $em = $this->getDoctrine()->getManager();
+            $produit = $em->getRepository(Produit::class)->find($id);
+            $produit->setNom($nom);
+            $produit->setName($name);
+            $produit->setNameDE($nameDE);
+            $produit->setCategorie($categorie);
+            $produit->setCategory($category);
+            $produit->setKategorie($kategorie);
+            $produit->setPrix($prix);
+            $produit->setPreis($preis);
+            $produit->setPrice($price);
+            $produit->setEtat($etat);
+            $produit->setQuantite($quantite);
+            $produit->setDisponible($disponible == 'NULL'? false:true);
+            $produit->setImage($fileName);
+            $produit->setActif( $actif == 'NULL'? false:true);
+            $produit->setAction($action);
+            $produit->setPourcentageDeRabait($pourcentageDeRabait);
+            $produit->setActionDebut($actionDebut);
+            $produit->setActionFin($actionFin);
+            $produit->setDescriptionFR($descriptionFR);
+            $produit->setDescriptionEN($descriptionEN);
+            $produit->setDescriptionDE($descriptionDE);
+
+            $em->persist($produit);
+            $em->flush();
+
+            $em->flush();
+
+        }
+        return $this->redirectToRoute('admin_controller_configuration',
+            array(
+                '_locale'=>$request->getLocale(),
+                'alertType' => 'succes',
+                'message' => 'Produit editer avec succes'
+            ));
+    }
+
+    /**
+     * @Route("/{_locale}/create-product", name="configuration_produit_controller_create_product")
+     */
+    public function createProduct(Request $request)
+    {
+        if($request->isMethod('POST')){
+            $em = $this->getDoctrine()->getManager();
+            $produit = new Produit();
+            $nom = $request->request->get('nomFR');
+            $prix = $request->request->get('prix');
+            $etat = $request->request->get('etat');
+            $name = $request->request->get('name');
+            $nameDE = $request->request->get('nameDE');
+            $action = $request->request->get('action');
+            $actif = $request->request->get('actif');
+            $quantite = $request->request->get('quantite');
+            $category = $request->request->get('category');
+            $categorie = $request->request->get('categorie');
+            $kategorie = $request->request->get('kategorie');
+            $disponible = $request->request->get('disponible');
+            $pourcentageDeRabait = $request->request->get('pourcentageDeRabait');
+            $actionDebut = $request->request->get('actionDebut');
+            $actionFin = $request->request->get('actionFin');
+            $descriptionFR = $request->request->get('descriptionFR');
+            $descriptionEN = $request->request->get('descriptionEN');
+            $descriptionDE = $request->request->get('descriptionDE');
+            $fileName = $_FILES['image']['name'];
+            $bfileName = basename($fileName);
+            $tmpFile = $_FILES['image']['tmp_name'];
+            move_uploaded_file($tmpFile,"uploads/brochures/$bfileName");
+            // This way to remove file work
+            // $fs = new Filesystem();
+            // $fs->remove("uploads/ebff62e127db54f09058ac980d029609.png");
+            // ///
+            $dateTime = new \DateTime();
+            $format = 'Y-m-dH:i:s';
+            $formatedDT = $dateTime->format($format);
+            $formatedDT = str_replace("-", "", $formatedDT);
+            $formatedDT = str_replace(":", "", $formatedDT);
+
+            $produit->setNom($nom);
+            $produit->setName($name);
+            $produit->setNameDE($nameDE);
+            $produit->setCategorie($categorie);
+            $produit->setCategory($category);
+            $produit->setKategorie($kategorie);
+            $produit->setPrix($prix);
+            $produit->setEtat($etat);
+            $produit->setQuantite($quantite);
+            var_dump($disponible);
+            var_dump($actif);
+            var_dump($etat);
+            $produit->setDisponible($disponible == 'NULL'? false:true);
+            $produit->setImage($fileName);
+            $produit->setActif( $actif == 'NULL'? false:true);
+            $produit->setAction($action);
+            $produit->setPourcentageDeRabait($pourcentageDeRabait);
+            $produit->setActionDebut($actionDebut);
+            $produit->setActionFin($actionFin);
+            $produit->setDescriptionFR($descriptionFR);
+            $produit->setDescriptionEN($descriptionEN);
+            $produit->setDescriptionDE($descriptionDE);
+            $produit->setReference($formatedDT);
+
+            $em->persist($produit);
+            $em->flush();
+            return $this->redirectToRoute('admin_controller_configuration',
+                array(
+                    '_locale'=>$request->getLocale(),
+                    'alertType' => 'succes',
+                    'message' => 'Produit editer avec succes'
+                ));
+        }
+        return  $this->redirectToRoute('admin_controller_configuration');
     }
 
 }

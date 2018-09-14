@@ -26,7 +26,7 @@ mma.categories.filtre.pricedescending: 'Tarif décroissant'
 mma.categories.filtre.priceascending: 'Tarif croissant'
 mma.categories.filtre.productoffer: 'PRODUKT IN ANGEBOT'
 mma.categories.filtre.filter: FILTERN
-mma.categories.productcount: 'this category contains %productCount% products'
+mma.categories.productcount: 'Diese Kategorie beinhalte %productCount% Produkte'
 mma.categories.displayas: 'Anzeige als'
 mma.categories.displayaslist: Liste
 mma.categories.displayasgrid: Grid
@@ -38,8 +38,8 @@ mma.category.fishandshellfish: Fisch
 mma.category.fishandshellfishraw: 'roher Fisch'
 mma.category.fishandshellfishsmoke: 'geräucherter Fisch'
 mma.category.meat: Fleich
-mma.category.meatraw: 'roher Fleich'
-mma.category.meatsmoke: 'geräucherter Fleich'
+mma.category.meatraw: 'Roher Fleich'
+mma.category.meatsmoke: 'Geräucherter Fleich'
 mma.category.cans: Dosen
 mma.category.spices: Gewürze
 mma.category.addtobasket: 'In Warenkorb hinfügen'
@@ -81,13 +81,13 @@ mma.delivery.readattentivly2: 'Für Lieferungen in anderen Ländern in Europa is
 mma.delivery.readattentivly3: 'Wir gewährleisten kein Paketverlust wegen falscher Adresseingabe ihrerseits. Allerdings alle Paketverlust wegen Missachtung unsererseits wird so schnelll wie möglich von uns geregelt entweder durch Rückerstattung des Geldes oder durch erneute Sendung eines Paket mit beschleunigte Versandart.'
 mma.leftmenu.fruits: Früchte
 mma.leftmenu.vegetables: Gemüse
-mma.leftmenu.flourandsemolina: 'Mehl und Grieß'
+mma.leftmenu.flourandsemolina: 'Mehl und Gries'
 mma.leftmenu.fishandshellfish: 'Fische und Krebstiere'
-mma.leftmenu.fishandshellfishraw: 'Poissons et crustacés crus'
-mma.leftmenu.fishandshellfishsmoke: 'Poissons et crustacés fumés'
+mma.leftmenu.fishandshellfishraw: Lax
+mma.leftmenu.fishandshellfishsmoke: 'Getrockene Lax'
 mma.leftmenu.meat: Fleish
 mma.leftmenu.meatraw: 'Viandes crus'
-mma.leftmenu.meatsmoke: 'Viandes fumés'
+mma.leftmenu.meatsmoke: 'Getrockene Fleich'
 mma.leftmenu.cans: Dosen
 mma.leftmenu.spices: Gewürze
 mma.basket.product.count: Produkt(e)
@@ -100,7 +100,7 @@ mma.basket.quantity: Menge
 mma.basket.totalprice: Gesamtpreis
 mma.basket.unitprice: Einzelnpreis
 mma.basket.reference: Referenz
-mma.basket.removefrombasket: 'Von Warenkorb entfernen'
+mma.basket.removefrombasket: 'Aus Warenkorb entfernen'
 mma.basket.totalproductsttc: 'Gesamt Producte TTC'
 mma.basket.total: Gesamt
 mma.profil.myprofil: 'Mein profil'
@@ -108,7 +108,7 @@ mma.profil.privateinformation: 'PRIVATE INFORMATIONEN'
 mma.profil.title: Anrede
 mma.profil.firstname: Vorname
 mma.profil.lastname: Nachname
-mma.profil.birthdate: Geburstag
+mma.profil.birthdate: Geburstdatum
 mma.profil.currentrole: 'Aktuelle Role'
 mma.profil.connexiondata: Verbindungsdaten
 mma.profil.email: E-mail
@@ -124,7 +124,7 @@ mma.profil.editadresses: 'Adresse editieren'
 ma.createaccount.land: Land
 ma.createaccount.city: Stadt
 ma.createaccount.postalcode: Postleitzahl
-ma.createaccount.streetnr: 'Straße Nr.'
+ma.createaccount.streetnr: Straße-Nr.
 mma.addcard.addnameoncard: Kardname
 mma.addcard.cardnumber: Kardnummer
 mma.addcard.expiredate: Ablaufdatum
@@ -144,7 +144,7 @@ mma.createaccount.birthdate: Geburtsdatum
 mma.editadress.postalcode: Postleitzahl
 mma.editadress.land: Land
 mma.editadress.city: Stadt
-mma.editadress.streetnr: 'Strasse Nr.'
+mma.editadress.streetnr: Strasse-Nr.
 mma.editadress.addnewadress: 'Neue Adresse hinzufügen'
 mma.editlogin.password: Password
 mma.editlogin.email: E-mail
@@ -181,6 +181,7 @@ mma.recipecatalog.recipenotconfigured: 'Rezept wurde noch nicht konfiguriert'
 mma.configurerecipe.title: 'Rezept konfigurieren'
 mma.configurerecipe.listofingredient: 'Liste der Zutaten'
 mma.configurerecipe.cookingstep: 'Bereitung step'
+mma.productcatalog.productimage: Bild
 mma.productcatalog.searchproduct: 'Produkt suchen ...'
 mma.productcatalog.productname: Name
 mma.productcatalog.productprice: Preis
@@ -188,6 +189,7 @@ mma.productcatalog.productcategory: Kategorie
 mma.productcatalog.productquantity: Menge
 mma.productcatalog.productavailable: Vorhanden
 mma.productcatalog.productstate: Status
+mma.productcatalog.activateproduct: Aktivieren
 mma.clientcatalog.searchclient: 'Kunde suchen...'
 mma.clientcatalog.clienttitle: Anrede
 mma.clientcatalog.clientfirstnameandlastname: 'Vor- und Nachname'
@@ -204,15 +206,9 @@ mma.verifyadress.deliveryaddress: LIEFERADRESSE
 mma.verifyadress.continue: Weiter
 mma.payement.verifyyourdata: 'VERIFIZIEREN SIE BITTE IHRE DATEN'
 mma.payement.payementmode: ZAHLUNGSMODE
-mma.payement.payementmodecheque: 'PER ÜNBERWEISUNG'
-mma.category.price: Preis
-mma.category.from: von
-mma.category.to: bis
-mma.category.action: 'produkt in Angebot'
-mma.category.numberofproduct1: 'Diese Kategorie beinhalte'
-mma.category.numberofproduct2: Produkte
-mma.category.displayin: Anzeige
-mma.category.liste: Liste
-mma.category.grille: Grill
-'this category contains %productCount% products': 'this category contains %productCount% products'
-'': __
+mma.payement.payementmodecheque: 'PER ÜBERWEISUNG'
+mma.messages.accountnotavailable: 'Konto nicht verfügbar'
+mma.confirm.doyourealywanttoremovethisclient: __mma.confirm.doyourealywanttoremovethisclient
+mma.changepassword.enteryouraccountemail: __mma.changepassword.enteryouraccountemail
+mma.change.password.requestnewpassword: __mma.change.password.requestnewpassword
+mma.messages.clickhiertoresetyourpassword: __mma.messages.clickhiertoresetyourpassword

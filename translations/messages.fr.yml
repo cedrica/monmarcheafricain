@@ -26,7 +26,7 @@ mma.categories.filtre.pricedescending: 'tarif décroissant'
 mma.categories.filtre.priceascending: 'tarif croissant'
 mma.categories.filtre.productoffer: 'PRODUIT EN OFFRE'
 mma.categories.filtre.filter: FILTRER
-mma.categories.productcount: __mma.categories.productcount
+mma.categories.productcount: 'cette categorie contient %productCount% produits'
 mma.categories.displayas: 'affichage en'
 mma.categories.displayaslist: liste
 mma.categories.displayasgrid: grille
@@ -51,7 +51,7 @@ mma.contact.reciever: Destinataire
 mma.contact.youremail: 'Votre adresse E-mail'
 mma.contact.sent: Envoyer
 mma.contact.message: 'Votre message'
-mma.configuration.product.name: nom
+mma.configuration.product.name: Nom
 mma.configuration: Configuration
 mma.configuration.editer.produit.action: Action
 mma.configuration.recipe: Recettes
@@ -80,7 +80,7 @@ mma.delivery.readattentivly1: 'L´expédition des colis en france métropolitein
 mma.delivery.readattentivly2: 'Pour les livraisons dans les autres pays d´europe, l´expédition est éffectuer suivant les memes closes que celles décrites plus haut. La livraison s´effectue après au plus 3 jours.'
 mma.delivery.readattentivly3: 'Nous guarantissons pas les pertes de commande suite a une mauvaise adresse de livraison. Cependant toute perte de commande du &aagrave; une erreur de notre part sera régler dans les bref délais par des moyens express d´expédition ou part un remboursement avec compensation total de vos frais payements.'
 mma.leftmenu.fruits: Fruits
-mma.leftmenu.vegetables: Legumes
+mma.leftmenu.vegetables: Légumes
 mma.leftmenu.flourandsemolina: 'Farines et sémoules'
 mma.leftmenu.fishandshellfish: 'Poissons et crustacés'
 mma.leftmenu.fishandshellfishraw: 'Poissons et crustacés crus'
@@ -153,7 +153,7 @@ mma.listofingredient.ingredients: ingredients
 mma.product.name: nom
 mma.product.price: prix
 mma.product.status: status
-mma.product.category: Categorie
+mma.product.category: Catégorie
 mma.product.fruts: Fruits
 mma.product.spice: Épices
 mma.product.vegetables: Végeteaux
@@ -182,6 +182,7 @@ mma.recipecatalog.recipenotconfigured: 'Cette recette n´a pas encore été conf
 mma.configurerecipe.title: 'Configurer cette recette'
 mma.configurerecipe.listofingredient: 'Liste des ingredients'
 mma.configurerecipe.cookingstep: 'Steps de cuisson'
+mma.productcatalog.productimage: image
 mma.productcatalog.searchproduct: 'Chercher un produit ...'
 mma.productcatalog.productname: Nom
 mma.productcatalog.productprice: Prix
@@ -208,18 +209,9 @@ mma.payement.verifyyourdata: 'VERIFIER TES DONNÉES'
 mma.payement.payementmode: 'MODE DE PAYEMENT'
 mma.payement.payementmodecheque: 'PAR VIREMENT'
 mma.confirm.doyourealywanttoremovethisclient: 'Docyoucrealy want to remove this client?'
-mma.category.price: prix
-mma.category.from: 'allant de'
-mma.category.to: à
-mma.category.action: 'Produits en action'
-mma.category.numberofproduct1: 'cette categorie contient'
-mma.category.numberofproduct2: produits
-mma.category.displayin: 'Affichage en'
-mma.category.liste: Liste
-mma.category.grille: Grille
+mma.messages.accountnotavailable: 'Compte non existant'
 mma.configuration.recipes: __mma.configuration.recipes
 mma.productcatalog.productstate: __mma.productcatalog.productstate
-'': __
 mma.changepassword.enteryouraccountemail: __mma.changepassword.enteryouraccountemail
 mma.change.password.requestnewpassword: __mma.change.password.requestnewpassword
 mma.messages.clickhiertoresetyourpassword: __mma.messages.clickhiertoresetyourpassword

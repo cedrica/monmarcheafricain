@@ -67,7 +67,7 @@
 					<a class="fa fa-edit" href="{{ path('configure_recette_controller_editer_step',{'stepId':step.id,'recetteId':recette.id}) }}"
 						style="margin-left: 10px"></a>
 				</div>
-				{{  include("confirm/confirm.html.twig", {'stepId':step.id,'todo':'remove_step', 'recetteId':recette.id, 'message':'Voulez vous vraiment suprimer ce step?'}) }}
+				{{ include("confirm/confirm.html.twig", {'stepId':step.id,'todo':'remove_step', 'recetteId':recette.id, 'message':'Voulez vous vraiment suprimer ce step?'}) }}
 
 				{% endfor %}
 			</div>

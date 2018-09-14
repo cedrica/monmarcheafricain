@@ -232,6 +232,7 @@ mma.configurerecipe.listofingredient: List of ingredient
 mma.configurerecipe.cookingstep: Cooking steps 
 
 ######### PRODUCT CATALOG ###############
+mma.productcatalog.productimage: image
 mma.productcatalog.searchproduct: Search product ...
 mma.productcatalog.productname: Name
 mma.productcatalog.productprice: Price
@@ -276,3 +277,9 @@ mma.messages.clickhiertoresetyourpassword: Click hier to reset your password
 
 ######### CONFIRM ###############
 mma.confirm.doyourealywanttoremovethisclient: Do you realy want to remove this client?
+
+
+
+######### MESSAGES ###############
+mma.messages.accountnotavailable: Account not available
+

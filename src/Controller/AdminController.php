@@ -23,7 +23,7 @@ class AdminController extends Controller
      */
 	public function loginAction(Request $request, ControllerHelper $helper,$_locale)
     {
-    	
+            $translator = new Translator($_locale);
     		$login = new Login();
     		$sEnregisterForm = $this->createForm('App\Form\SEnregistrerType', $login,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale)),
     																						'admin-login' => true
@@ -34,7 +34,9 @@ class AdminController extends Controller
     			$em = $this->getDoctrine()->getManager();
     			$compteAdmin = $helper->trouveLeCompteByEmail($email, $em);
     			if($compteAdmin == null){
-    				return $this->redirectToRoute('confirm_controller_donnees_de_connexion_invalide');
+    				return $this->redirectToRoute('admin_controller_login', array(
+    				    'message' => $translator->trans('mma.messages.accountnotavailable')
+                    ));
     			}
     			$loginDB = $compteAdmin->getLogin();
     			if ($loginDB != null) {
@@ -58,6 +60,7 @@ class AdminController extends Controller
     		return $this->render('admin/login.html.twig', array(
     				'page' => 'login',
     				'alertType' => null,
+                    'message' => '',
     				'sEnregisterForm' => $sEnregisterForm->createView()
     		));
      }
