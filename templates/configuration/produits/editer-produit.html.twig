@@ -3,16 +3,9 @@
 {% block body %}
 
     <div class="col-sm-2"></div>
-	<div class="col-sm-8" style="background-color: #fff;"  ng-app="myApp" ng-controller="myCtrl">
+	<div class="col-sm-8" style="background-color: #fff;">
 		<div class="col-sm-12" style="height: 50px"></div>
 	{{ include('configuration/produits/edit.html.twig') }}
     </div>
     <div class="col-sm-2"></div>
-    	<script>
-	var app = angular.module('myApp', []);
-	app.controller('myCtrl', function($scope) {
-	    $scope.actionFin = "";
-	});
-
-</script>	
 {% endblock %}

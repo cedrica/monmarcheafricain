@@ -84,60 +84,10 @@ class ConfigurationProduitController extends Controller
     public function saveEditedProduct(Request $request)
     {
         if($request->isMethod('POST')){
-
-            $nom = $request->request->get('nomFR');
-            $prix = $request->request->get('prix');
-            $price = $request->request->get('price');
-            $preis = $request->request->get('preis');
-            $etat = $request->request->get('etat');
-            $name = $request->request->get('name');
-            $nameDE = $request->request->get('nameDE');
-            $action = $request->request->get('action');
-            $actif = $request->request->get('actif');
-            $quantite = $request->request->get('quantite');
-            $category = $request->request->get('category');
-            $categorie = $request->request->get('categorie');
-            $kategorie = $request->request->get('kategorie');
-            $disponible = $request->request->get('disponible');
-            $pourcentageDeRabait = $request->request->get('pourcentageDeRabait');
-            $actionDebut = $request->request->get('actionDebut');
-            $actionFin = $request->request->get('actionFin');
-            $descriptionFR = $request->request->get('descriptionFR');
-            $descriptionEN = $request->request->get('descriptionEN');
-            $descriptionDE = $request->request->get('descriptionDE');
-            $fileName = $_FILES['image']['name'];
-            $bfileName = basename($fileName);
-            $tmpFile = $_FILES['image']['tmp_name'];
-            move_uploaded_file($tmpFile,"uploads/brochures/$bfileName");
-
             $id = $request->query->get('id');
             $em = $this->getDoctrine()->getManager();
             $produit = $em->getRepository(Produit::class)->find($id);
-            $produit->setNom($nom);
-            $produit->setName($name);
-            $produit->setNameDE($nameDE);
-            $produit->setCategorie($categorie);
-            $produit->setCategory($category);
-            $produit->setKategorie($kategorie);
-            $produit->setPrix($prix);
-            $produit->setPreis($preis);
-            $produit->setPrice($price);
-            $produit->setEtat($etat);
-            $produit->setQuantite($quantite);
-            $produit->setDisponible($disponible == 'NULL'? false:true);
-            $produit->setImage($fileName);
-            $produit->setActif( $actif == 'NULL'? false:true);
-            $produit->setAction($action);
-            $produit->setPourcentageDeRabait($pourcentageDeRabait);
-            $produit->setActionDebut($actionDebut);
-            $produit->setActionFin($actionFin);
-            $produit->setDescriptionFR($descriptionFR);
-            $produit->setDescriptionEN($descriptionEN);
-            $produit->setDescriptionDE($descriptionDE);
-
-            $em->persist($produit);
-            $em->flush();
-
+            $produit = self::makeProduit($produit, $request,true);
             $em->flush();
 
         }
@@ -157,62 +107,7 @@ class ConfigurationProduitController extends Controller
         if($request->isMethod('POST')){
             $em = $this->getDoctrine()->getManager();
             $produit = new Produit();
-            $nom = $request->request->get('nomFR');
-            $prix = $request->request->get('prix');
-            $etat = $request->request->get('etat');
-            $name = $request->request->get('name');
-            $nameDE = $request->request->get('nameDE');
-            $action = $request->request->get('action');
-            $actif = $request->request->get('actif');
-            $quantite = $request->request->get('quantite');
-            $category = $request->request->get('category');
-            $categorie = $request->request->get('categorie');
-            $kategorie = $request->request->get('kategorie');
-            $disponible = $request->request->get('disponible');
-            $pourcentageDeRabait = $request->request->get('pourcentageDeRabait');
-            $actionDebut = $request->request->get('actionDebut');
-            $actionFin = $request->request->get('actionFin');
-            $descriptionFR = $request->request->get('descriptionFR');
-            $descriptionEN = $request->request->get('descriptionEN');
-            $descriptionDE = $request->request->get('descriptionDE');
-            $fileName = $_FILES['image']['name'];
-            $bfileName = basename($fileName);
-            $tmpFile = $_FILES['image']['tmp_name'];
-            move_uploaded_file($tmpFile,"uploads/brochures/$bfileName");
-            // This way to remove file work
-            // $fs = new Filesystem();
-            // $fs->remove("uploads/ebff62e127db54f09058ac980d029609.png");
-            // ///
-            $dateTime = new \DateTime();
-            $format = 'Y-m-dH:i:s';
-            $formatedDT = $dateTime->format($format);
-            $formatedDT = str_replace("-", "", $formatedDT);
-            $formatedDT = str_replace(":", "", $formatedDT);
-
-            $produit->setNom($nom);
-            $produit->setName($name);
-            $produit->setNameDE($nameDE);
-            $produit->setCategorie($categorie);
-            $produit->setCategory($category);
-            $produit->setKategorie($kategorie);
-            $produit->setPrix($prix);
-            $produit->setEtat($etat);
-            $produit->setQuantite($quantite);
-            var_dump($disponible);
-            var_dump($actif);
-            var_dump($etat);
-            $produit->setDisponible($disponible == 'NULL'? false:true);
-            $produit->setImage($fileName);
-            $produit->setActif( $actif == 'NULL'? false:true);
-            $produit->setAction($action);
-            $produit->setPourcentageDeRabait($pourcentageDeRabait);
-            $produit->setActionDebut($actionDebut);
-            $produit->setActionFin($actionFin);
-            $produit->setDescriptionFR($descriptionFR);
-            $produit->setDescriptionEN($descriptionEN);
-            $produit->setDescriptionDE($descriptionDE);
-            $produit->setReference($formatedDT);
-
+            $produit = self::makeProduit($produit, $request,false);
             $em->persist($produit);
             $em->flush();
             return $this->redirectToRoute('admin_controller_configuration',
@@ -223,6 +118,124 @@ class ConfigurationProduitController extends Controller
                 ));
         }
         return  $this->redirectToRoute('admin_controller_configuration');
+    }
+    
+    public function makeProduit($produit, $request,$editModus){
+    	$nom = $request->request->get('nom');
+    	$name = $request->request->get('name');
+    	$nameDE = $request->request->get('nameDE');
+    	
+    	$preis = $request->request->get('preis');
+    	$preis = ($preis == "")? 0:$preis;
+    	$prix = $preis;
+    	$price = $preis;
+    	
+    	$zustand = $request->request->get('zustand');
+    	$etat =$zustand;
+    	$state = $zustand;
+    	
+    	$angebot =  $request->request->get('angebot');
+    	$angebot = ($angebot != "1")? false:true;
+    	$action = $angebot;
+    	$offer = $angebot;
+    	
+    	$menge  = $request->request->get('menge');
+    	$menge = ($menge == "")? 0:$menge;
+    	$quantity = $menge;
+    	$quantite = $menge;
+    	
+    	$category = $request->request->get('category');
+    	$categorie = $request->request->get('categorie');
+    	$kategorie = $request->request->get('kategorie');
+    	
+    	$verfuegbar = $request->request->get('verfuegbar');
+    	var_dump($verfuegbar);
+    	$verfuegbar = ($verfuegbar != "1")? false:true;
+    	$available = $verfuegbar;
+    	$disponible = $verfuegbar;
+    	
+    	$rabatt =  $request->request->get('rabatt');
+    	$pourcentageDeRabait = $rabatt;
+    	$reduction = $rabatt;
+    	
+    	$angebotStartDatum =  $request->request->get('angebotStartDatum');
+    	$actionDebut = $angebotStartDatum;
+    	$offerStartDate = $angebotStartDatum;
+    	
+    	$angebotEndDatum = $request->request->get('angebotEndDatum');
+    	$actionFin = $angebotEndDatum;
+    	$offerEndDate = $angebotEndDatum;
+    	
+    	$descriptionFR = $request->request->get('descriptionFR');
+    	$descriptionEN = $request->request->get('descriptionEN');
+    	$descriptionDE = $request->request->get('descriptionDE');
+    	
+    	$fileName = $_FILES['image']['name'];
+    	$bfileName = basename($fileName);
+    	$tmpFile = $_FILES['image']['tmp_name'];
+    	move_uploaded_file($tmpFile,"uploads/brochures/$bfileName");
+    	// This way to remove file work
+    	// $fs = new Filesystem();
+    	// $fs->remove("uploads/ebff62e127db54f09058ac980d029609.png");
+    	// ///
+    	
+    	$produit->setNom($nom);
+    	$produit->setName($name);
+    	$produit->setNameDE($nameDE);
+    	
+    	$produit->setCategorie($categorie);
+    	$produit->setCategory($category);
+    	$produit->setKategorie($kategorie);
+    	
+    	$produit->setPrix($prix);
+    	$produit->setPrice($price);
+    	$produit->setPreis($preis);
+    	
+    	$produit->setEtat($etat);
+    	$produit->setState($state);
+    	$produit->setZustand($zustand);
+    	
+    	$produit->setQuantite($quantite);
+    	$produit->setQuantity($quantity);
+    	$produit->setMenge($menge);
+    	
+    	$produit->setDisponible($disponible);
+    	$produit->setAvailable($available);
+    	$produit->setVerfuegbar($verfuegbar);
+    	
+    	$produit->setImage($fileName);
+    	
+    	$produit->setAction($action);
+    	$produit->setAngebot($angebot);
+    	$produit->setOffer($offer);
+    	
+    	$produit->setPourcentageDeRabait($pourcentageDeRabait);
+    	$produit->setReduction($reduction);
+    	$produit->setRabatt($rabatt);
+    	
+    	$produit->setActionDebut($actionDebut);
+    	$produit->setOfferStartDate($offerStartDate);
+    	$produit->setAngebotStartDatum($angebotStartDatum);
+    	
+    	$produit->setActionFin($actionFin);
+    	$produit->setOfferEndDate($offerEndDate);
+    	$produit->setAngebotEndDatum($angebotEndDatum);
+    	
+    	$produit->setDescriptionFR($descriptionFR);
+    	$produit->setDescriptionEN($descriptionEN);
+    	$produit->setDescriptionDE($descriptionDE);
+    	
+    	if(!$editModus){
+    		$dateTime = new \DateTime();
+    		$format = 'Y-m-dH:i:s';
+    		$formatedDT = $dateTime->format($format);
+    		$formatedDT = str_replace("-", "", $formatedDT);
+    		$formatedDT = str_replace(":", "", $formatedDT);
+    		
+    		$produit->setReference($formatedDT);
+    		$produit->setCreatedAt(new \DateTime());
+    	}
+    	return $produit;
     }
 
 }

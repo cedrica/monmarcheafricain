@@ -3,15 +3,14 @@
     	<label>Name</label>
     	<input class="form-control form-group" name="name"  value="{{ produit.name }}" required></input>
     	<label>Price</label>
-    	<input class="form-control form-group" ng-model='prix' name="price" value="{{ produit.price }}"  required></input>
+    	<input class="form-control form-group" type="number" onkeyup="fillOderFields(this.value,'prix','preis')"   id="price" name="price" value="{{ produit.price }}"  required></input>
     	<label>State</label>
-    	<select class="form-control form-group" ng-model='etat' >
+    	<select class="form-control form-group" id="etat"   value="{{ produit.state }}">
     		<option value="New">New</option>
-    		<option>Offer</option>
+    		<option value="Offer">Offer</option>
     	</select>
     	<label>Category</label>
     	<select class="form-control form-group" name="category"  value="{{ produit.category }}" required>
-    		<option value="null">--Selectionez--<option>
     		<option value="fruits" >fruits</option>
     		<option value="épices">épices</option>
     		<option value="légumes">légumes</option>
@@ -22,14 +21,10 @@
     		<option value="conserves">conserves</option>
     	</select>
     	<label>Quantity</label>
-    	<input class="form-control form-group" ng-model='quantite'></input>
-		<div style="float:left;margin-right:5px">
-    		<label>Activ</label> 
-    		<input type="checkbox" ng-model='actif'></input>
-		</div>
+    	<input class="form-control form-group" id='quantity' type="number"  onkeyup="fillOderFields(this.value,'quantite','menge')"  value="{{ produit.quantity }}"></input>
 		<div style="float:left;margin-right:5px">
     		<label>Available</label> 
-    		<input type="checkbox" ng-model='disponible'></input>
+    		<input type="checkbox" id='available' class="available" value="{{ produit.available }}"></input>
 		</div>
 		<i class="fa fa-info-circle" title="Activation" data-placement="top"
 		  data-toggle="popover" data-trigger="hover" data-content="En activant ce produit il sera presenté dans la liste des produits" style="color:darkorange"></i>
@@ -44,22 +39,22 @@
           	<div class="panel-heading">
 				<h4 class="panel-title">
 					<a data-toggle="collapse" data-parent="#accordion" style="float:left;vertical-align: middle;"
-						href="#collapse2">Offer</a> <input type="checkbox" class="produit_action_cb" name="action" value="{{ produit.action }}"></input>
+						href="#collapseEN">Offer</a> <input type="checkbox" class="produit_action_cb" id="offer" name="action" value="{{ produit.offer }}"></input>
 				</h4>
 			</div>
-            <div id="collapse2" class="panel-collapse collapse">
+            <div id="collapseEN" class="panel-collapse collapse">
               <div class="panel-body">
                 <div class="col-lg-6">
                 	<label>Startdate</label> 
-                	<input class="form-control produit_action_tf js-datepicker form-group" ng-model='actionDebut' name="actionDebut" ></input>
+                	<input class="form-control produit_action_tf js-datepicker form-group" type="date" id='offerStartDate'   onfocus="fillOderFields(this.value,'angebotStartDatum','actionDebut')" value="{{ produit.angebotStartDatum }}"></input>
                 </div>
                 <div class="col-lg-6">
                		<label>Enddate</label> 
-                	<input class="form-control produit_action_tf js-datepicker form-group" ng-model='actionFin' name="actionFin" ></input>
+                	<input class="form-control produit_action_tf js-datepicker form-group" type="date" id='offerEndDate'  onfocus="fillOderFields(this.value,'angebotEndDatum','actionFin')" value="{{ produit.angebotEndDatum }}"></input>
                 </div>
                 <div class="col-lg-6">
                 	<label>% reduction</label> 
-                    <input class="form-control produit_action_tf  form-group" ng-model='pourcentageDeRabait' name="pourcentageDeRabait"></input>
+                    <input class="form-control produit_action_tf  form-group" id='reduction' type="number"  onkeyup="fillOderFields(this.value,'rabatt','pourcentageDeRabait')" value="{{ produit.rabatt }}"></input>
                 </div>
               </div>
             </div>
@@ -70,7 +65,7 @@
 <div class="row">
     <div class="col-lg-12">
         <label>Description</label>
-        <textarea class="form-control" cols="5" rows="4" name ="descriptionEN" value="{{ produit.descriptionEN }}"></textarea>
+        <textarea class="form-control" cols="5" rows="4" name ="descriptionEN"  name ="descriptionEN" value="{{ produit.descriptionEN }}"></textarea>
     </div>
 </div>
 

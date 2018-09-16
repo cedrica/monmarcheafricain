@@ -3,16 +3,15 @@
     	<label>Name</label>
     	<input class="form-control form-group" name="nameDE"  value="{{ produit.nameDE }}" required></input>
     	<label>Preis</label>
-    	<input class="form-control form-group" name="preis"  ng-model='prix' value="{{ produit.preis }}" required></input>
+    	<input class="form-control form-group" id="preis" type="number"  name="preis" onkeyup="fillOderFields(this.value,'prix','price')"  value="{{ produit.preis }}" required></input>
     	<label>Zustand</label>
-    	<select class="form-control form-group" name="etat"  ng-model='etat' value="{{ produit.etat }}">
-    		<option value="New">Neue</option>
-    		<option value="In Angebot">In Angebot</option>
+    	<select class="form-control form-group" name="zustand">
+    		<option value="Neue">Neue</option>
+    		<option value="Angebot">In Angebot</option>
     	</select>
     	<label>Kategorie</label>
-    	<select class="form-control form-group" name="kategorie"  value="{{ produit.kategorie }}" required>
-    		<option value="null">--Bitte wählen--<option>
-    			<option value="fruits" >Früchte</option>
+    	<select class="form-control form-group" name="kategorie" required>
+			<option value="fruits" >Früchte</option>
     		<option value="épices">Gewürze</option>
     		<option value="légumes">Gemüse</option>
     		<option value="farines et sémoules">Mehl und Gries</option>
@@ -22,14 +21,10 @@
     		<option value="conserves">Dosen</option>
     	</select>
     	<label>Menge</label>
-    	<input class="form-control form-group" name="quantite" ng-model='quantite'   value="{{ produit.quantite }}"></input>
-		<div style="float:left;margin-right:5px">
-    		<label>Activ</label> 
-    		<input type="checkbox" name="actif"  ng-model='actif'  {{ produit.actif? 'checked':'' }}></input>
-		</div>
+    	<input class="form-control form-group" name="menge" type="number" id='menge'  onkeyup="fillOderFields(this.value,'quantite','quantity')"  value="{{ produit.menge }}"></input>
 		<div style="float:left;margin-right:5px">
     		<label>Verfügbar</label> 
-    		<input type="checkbox" name="disponible"  ng-model='disponible'  value="{{ produit.disponible }}"></input>
+    		<input type="checkbox" name="verfuegbar"  id='verfuegbar'  value="{{ produit.verfuegbar }}" class="available" ></input>
 		</div>
 		<i class="fa fa-info-circle" title="Activation" data-placement="top"  data-toggle="popover" data-trigger="hover" data-content="En activant ce produit il sera presenté dans la liste des produits" style="color:darkorange"></i>
         <br>
@@ -43,22 +38,22 @@
           	<div class="panel-heading">
 				<h4 class="panel-title">
 					<a data-toggle="collapse" data-parent="#accordion" style="float:left;vertical-align: middle;"
-						href="#collapse2">{{ 'mma.product.offer'|trans }}</a> <input type="checkbox" class="produit_action_cb" name="action" value="{{ produit.action }}"></input>
+						href="#collapseDE">{{ 'mma.product.offer'|trans }}</a> <input type="checkbox" class="produit_action_cb" name="angebot" id="angebot" value="{{ produit.action }}"></input>
 				</h4>
 			</div>
-            <div id="collapse2" class="panel-collapse collapse">
+            <div id="collapseDE" class="panel-collapse collapse">
               <div class="panel-body">
                 <div class="col-lg-6">
                 	<label>Start Datum</label> 
-                	<input class="form-control produit_action_tf js-datepicker form-group" ng-model='actionDebut' name="actionDebut" value="{{ produit.actionDebut }}"></input>
+                	<input class="form-control produit_action_tf js-datepicker form-group" type="date" id='angebotStartDatum' name="angebotStartDatum" value="{{ produit.angebotStartDatum }}"  onfocus="fillOderFields(this.value,'offerStartDate','actionDebut')"></input>
                 </div>
                 <div class="col-lg-6">
                		<label>End Datum</label> 
-                	<input class="form-control produit_action_tf js-datepicker form-group" ng-model='actionFin' name="actionFin" value="{{ produit.actionFin }}"></input>
+                	<input class="form-control produit_action_tf js-datepicker form-group"  type="date" id='angebotEndDatum' name="angebotEndDatum" value="{{ produit.angebotEndDatum }}"  onfocus="fillOderFields(this.value,'offerEndDate','actionFin')"></input>
                 </div>
                 <div class="col-lg-6">
                 	<label>% Rabatt</label> 
-                    <input class="form-control produit_action_tf  form-group" ng-model='pourcentageDeRabait' name="pourcentageDeRabait" value="{{ produit.pourcentageDeRabait }}"></input>
+                    <input class="form-control produit_action_tf  form-group" id='rabatt'  type="number" name="rabatt" value="{{ produit.rabatt }}"  onkeyup="fillOderFields(this.value,'reduction','pourcentageDeRabait')"></input>
                 </div>
               </div>
             </div>
@@ -69,7 +64,7 @@
 <div class="row">
     <div class="col-lg-12">
         <label>Beschreibung</label>
-        <textarea class="form-control" cols="5" name="descriptionDE" rows="4" value="{{ produit.descriptionDE }}"></textarea>
+        <textarea class="form-control" cols="5" id="descriptionDE" name="descriptionDE" rows="4" value="{{ produit.descriptionDE }}"></textarea>
     </div>
 </div>
 
