@@ -106,12 +106,12 @@
 
 /* Place the container to the left */
 .timeline .left {
-	left: 0;
+	left: -25.5%;
 }
 
 /* Place the container to the right */
 .timeline .right {
-	left: 50%;
+	left: 25.5%;
 }
 
 /* Add arrows to the left container (pointing right) */

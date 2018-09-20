@@ -5,12 +5,12 @@
     	<label>Price</label>
     	<input class="form-control form-group" type="number" onkeyup="fillOderFields(this.value,'prix','preis')"   id="price" name="price" value="{{ produit.price }}"  required></input>
     	<label>State</label>
-    	<select class="form-control form-group" id="etat"   value="{{ produit.state }}">
+    	<select class="form-control form-group" id="state"  onchange="onChange('state', this.value, 'state')" value="{{ produit.state }}">
     		<option value="New">New</option>
     		<option value="Offer">Offer</option>
     	</select>
     	<label>Category</label>
-    	<select class="form-control form-group" name="category"  value="{{ produit.category }}" required>
+    	<select class="form-control form-group" id="category" name="category"  onchange="onChange('category', this.value,'cat')" value="{{ produit.category }}" required>
     		<option value="fruits" >fruits</option>
     		<option value="épices">épices</option>
     		<option value="légumes">légumes</option>

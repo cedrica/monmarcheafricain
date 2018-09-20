@@ -52,6 +52,82 @@
 	
     						{% block body %}
     						{% endblock %}
-						
+		
+<script>
+
+function fillOderFields(value, idx, idy){
+    	document.getElementById(idx).value = value;
+    	document.getElementById(idy).value = value;
+}
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();  
+    /*$('.js-datepicker').datepicker({
+        format: 'yyyy-mm-dd'
+    });*/
+});
+    $('.produit_action_cb').click(function(e){
+    	var value = this.checked;
+    	var tfs = document.getElementsByClassName('produit_action_tf');
+        for(var i = 0; i < tfs.length; i++){
+        	var tf = tfs[i];
+        	if(!value){
+            	tf.value = "";
+        	}
+        	tf.disabled =  !value;
+        }
+        var cbs = document.getElementsByClassName('produit_action_cb');
+        for(var i = 0; i < cbs.length; i++){
+        	var cb = cbs[i];
+        	cb.checked = value;
+        }
+    });
+    $('.available').click(function(e){
+        var availables = document.getElementsByClassName('available');
+        for(var i = 0; i < availables.length; i++){
+        	var available = availables[i];
+        	available.checked = this.checked;
+        }
+     });
+
+    function initOffer(){
+    	var tfs = document.getElementsByClassName('produit_action_tf');
+    	if(!$('.produit_action_cb').checked == true){
+    		for(var i = 0; i < tfs.length; i++){
+    			var tf = tfs[i];
+            	tf.disabled =  true;
+    		}
+        }
+		
+     }
+    function onChange(id,value,type){
+        id1 = id2 = "";
+        if(type == 'state'){
+        	if(id == 'state'){
+                id1 = 'zustand';
+                id2 = 'etat';
+            }else if(id == 'etat'){
+                id1 = 'zustand';
+                id2 = 'state';
+            }else if(id == 'zustand'){
+                id1 = 'etat';
+                id2 = 'state';
+            }
+        } else if(type == 'cat'){
+        	if(id == 'category'){
+                id1 = 'categorie';
+                id2 = 'kategorie';
+            }else if(id == 'categorie'){
+                id1 = 'category';
+                id2 = 'kategorie';
+            }else if(id == 'kategorie'){
+                id1 = 'categorie';
+                id2 = 'category';
+            }
+        }
+        
+    	$("#"+id1+" option[value='"+value+"']").attr("selected", true);
+    	$("#"+id2+" option[value='"+value+"']").attr("selected", true);
+    }
+</script>				
 </body>
 </html>

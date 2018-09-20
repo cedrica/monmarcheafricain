@@ -1,17 +1,27 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/admin-template.html.twig' %}
 
 {% block body %}
-	<div class="col-lg-12">{{ 'mma.configurerecipe.title'|trans }}</div>
-	<div class="col-lg-12 divider"></div>
 	<div class="row">
+		<div class="col-lg-2"></div>
+	{{ 'mma.configurerecipe.title'|trans }}</div>
+		<div class="row ">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-8 divider"></div>
+	</div>
+	<div class="row">
+		<div class="col-lg-2"></div>
 	{{  include("configuration/recettes/editer-recette.html.twig", {'recette':editerRecetteForm}) }}
-		<div class="col-lg-12"><b style="color:darkorange">{{ recette.nom }}</b>
+		<div class="col-lg-8"><b style="color:darkorange">{{ recette.nom }}</b>
 		<button data-toggle="modal" data-target="#creerRecetteModal" class="btn fa fa-edit pull-right"></button></div>
 		
 	</div>
-	<div class="row divider"></div>
 	<div class="row ">
-		<div class="col-lg-5 col-md-3 col-sm-3">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-8 divider"></div>
+	</div>
+	<div class="row ">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-4 col-md-3 col-sm-3">
 			<p>{{ 'mma.configurerecipe.listofingredient'|trans }}</p>
 			{{ form_start(createIngredientForm) }}
 			<div class="form-group">
@@ -35,7 +45,7 @@
 
 		</div>
 
-		<div class="col-lg-7 col-md-4 col-sm-3">
+		<div class="col-lg-4 col-md-4 col-sm-3">
 			<p>{{ 'mma.configurerecipe.cookingstep'|trans }}</p>
 			<div class="row well">
 				{{ form_start(decrireLeStepForm) }}

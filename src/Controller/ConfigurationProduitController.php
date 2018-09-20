@@ -149,20 +149,22 @@ class ConfigurationProduitController extends Controller
     	$kategorie = $request->request->get('kategorie');
     	
     	$verfuegbar = $request->request->get('verfuegbar');
-    	var_dump($verfuegbar);
     	$verfuegbar = ($verfuegbar != "1")? false:true;
     	$available = $verfuegbar;
     	$disponible = $verfuegbar;
     	
     	$rabatt =  $request->request->get('rabatt');
+    	$rabatt = ($rabatt == "")? 0:$rabatt;
     	$pourcentageDeRabait = $rabatt;
     	$reduction = $rabatt;
     	
     	$angebotStartDatum =  $request->request->get('angebotStartDatum');
+    	$angebotStartDatum = ($angebotStartDatum == "")? null:$angebotStartDatum;
     	$actionDebut = $angebotStartDatum;
     	$offerStartDate = $angebotStartDatum;
     	
     	$angebotEndDatum = $request->request->get('angebotEndDatum');
+    	$angebotEndDatum = ($angebotEndDatum == "")? null:$angebotEndDatum;
     	$actionFin = $angebotEndDatum;
     	$offerEndDate = $angebotEndDatum;
     	

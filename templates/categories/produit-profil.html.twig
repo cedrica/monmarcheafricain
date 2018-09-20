@@ -1,11 +1,11 @@
 
- <div class="card">
-  <img src="/uploads/brochures/{{ produit.image }}" alt="" style="width:100%">
+ <div class="card" style="padding: 3px">
+  <img src="/uploads/brochures/{{ produit.image }}" alt="" style="width:100%;max-height: 200px;min-height: 200px">
   <h1>{{ produit.nom|upper }}</h1>
   <p class="price">{{ produit.prix }} Euro</p>
   <p>produit description here</p>
-  <p><a class="button" href="{{ path('produit_controller_actualise',{'id':produit.id,'_locale':app.request.locale,'cat':cat, 'affichage':affichage}) }}"
-						style="font-size: 20px;width:30%">Add to card</a>
+  <p><a class="btn btn-primary" href="{{ path('produit_controller_actualise',{'id':produit.id,'_locale':app.request.locale,'cat':cat, 'affichage':affichage}) }}"
+						>Add to card</a>
   </p>
 </div> 
 

@@ -23,6 +23,9 @@ class ConfigurationController extends Controller
     {
         $message = $request->query->get('message');
         $alertType = $request->query->get('alertType');
+        $request->query->set('message',null);
+        $request->query->set('alertType',null);
+        
         $produit = new Produit();
         $createProduitForm = $this->createForm('App\Form\ProduitType', $produit,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
         $createProduitForm->handleRequest($request);

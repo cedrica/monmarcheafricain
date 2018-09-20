@@ -71,25 +71,24 @@
 	</div>
 </div>
 <div class="row">
-	<div
-		class="col-lg-9"></div>
-		<div class="col-lg-3">
-			<div class="form-group-row pull-right">
-				{{ 'mma.categories.displayas'|trans }}
-				<div class="btn-group-vertical">
-					<a class="btn fa fa-list" 
-						href="/{{ app.request.locale }}/categories/{{ cat }}?affichage=lst"
-						style="font-size: 30px; color: #33cc33"></a>
-					<p style="font-size: 10px">{{ 'mma.categories.displayaslist'|trans }}</p>
-				</div>
-				<div class="btn-group-vertical">
-					<a class="btn fa fa-th-large"
-						href="/{{ app.request.locale }}/categories/{{ cat }}?affichage=gr"
-						style="font-size: 30px; color: #33cc33"></a>
-					<p style="font-size: 10px">{{ 'mma.categories.displayasgrid'|trans }}</p>
-				</div>
+	<div class="col-lg-8"></div>
+	<div class="col-lg-4">
+		<div class="form-group-row pull-right">
+			{{ 'mma.categories.displayas'|trans }}
+			<div class="btn-group-vertical">
+				<a class="btn fa fa-list" 
+					href="/{{ app.request.locale }}/categories/{{ cat }}?affichage=lst"
+					style="font-size: 30px; color: #33cc33"></a>
+				<p style="font-size: 10px">{{ 'mma.categories.displayaslist'|trans }}</p>
+			</div>
+			<div class="btn-group-vertical">
+				<a class="btn fa fa-th-large"
+					href="/{{ app.request.locale }}/categories/{{ cat }}?affichage=gr"
+					style="font-size: 30px; color: #33cc33"></a>
+				<p style="font-size: 10px">{{ 'mma.categories.displayasgrid'|trans }}</p>
 			</div>
 		</div>
+	</div>
 	</div>
 	<div class="row divider"></div>
 	<div class="row">

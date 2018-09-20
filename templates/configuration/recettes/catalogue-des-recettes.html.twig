@@ -6,9 +6,7 @@
 	</div>
 	<table class="col-lg-12">
 		<thead>
-			<th></th>
 			<th>{{ 'mma.recipecatalog.recipename'|trans }}</th>
-			
 			<th>-</th>
 			<th><a href="" class="fa fa-plus-circle" data-toggle="modal"
 				data-target="#creerRecetteModal" style="color:#33cc33;font-size:30px; text-align: center;align-content:center;text-underline: none;text-decoration: none"></a></th>
@@ -16,7 +14,6 @@
 		<tbody id="tbRecettes">
 			{% for recette in recettes %}
 			<tr>
-				<td><input type="checkbox"></td>
 				<td>{{ recette.nom }}</td>
 				<td><a class="fa fa-edit"
 					href="{{ path('configure_recette_controller_configure_recette',{'id':recette.id}) }}"></a></td>

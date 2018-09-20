@@ -3,14 +3,14 @@
     	<label>Nom</label>
     	<input class="form-control form-group" name="nom"  value="{{ produit.nom }}" required></input>
     	<label>Prix</label>
-    	<input class="form-control form-group" type="number" onkeyup="fillOderFields(this.value,'preis','price')" id="prix"  name="prix" value="{{ produit.prix }}" required></input>
+    	<input class="form-control form-group" type="number" onkeyup="fillOderFields(this.value,'preis','price')" id="prix" name="prix" value="{{ produit.prix }}" required></input>
     	<label>Etat</label>
-    	<select class="form-control form-group" id="etat"  value="{{ produit.etat }}" >
-    		<option value="Neuf">Neuf</option>
-    		<option value="Solde">En solde</option>
+    	<select class="form-control form-group" id="etat"  value="{{ produit.etat }}" onchange="onChange('etat', this.value,'state')" value="{{ produit.etat }}" >
+    		<option value="New">Neuf</option>
+    		<option value="Offer">En solde</option>
     	</select>
     	<label>Categorie</label>
-    	<select class="form-control form-group" name="categorie"  value="{{ produit.categorie }}"  required>
+    	<select class="form-control form-group" id="categorie"  name="categorie"  value="{{ produit.categorie }}"   onchange="onChange('categorie', this.value,'cat')" required>
     		<option value="fruits" >fruits</option>
     		<option value="épices">épices</option>
     		<option value="légumes">légumes</option>
