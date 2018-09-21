@@ -242,6 +242,7 @@ mma.productcatalog.productquantity: Menge
 mma.productcatalog.productavailable: Vorhanden
 mma.productcatalog.productstate: Status
 mma.productcatalog.activateproduct: Aktivieren
+mma.editproduit.cancel: To return to productcatalog just clik on cancel
 
 ######### CLIENT CATALOG ###############
 mma.clientcatalog.searchclient: Kunde suchen...

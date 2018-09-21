@@ -20,14 +20,15 @@ class ConfigurationProduitController extends Controller
     /**
      * @Route("/{_locale}/editer-produit/{id}", name="configuration_produit_controller_editer")
      */
-    public function editProduitAction(Request $request, $id, $_locale)
+	public function editProduitAction(Request $request, ControllerHelper $helper,$id, $_locale)
     {
         $produitRepositorty = $this->getDoctrine()->getRepository(Produit::class);
         $produit = $produitRepositorty->find($id);
-
+        $categoryNodeList = $helper->convertXmlToObject('catalogs/categories.xml');
         return $this->render('configuration/produits/editer-produit.html.twig', array(
             'page' => 'editer-produit',
-            'produit' => $produit,
+        		'produit' => $produit,
+        		'categoryNodeList' => $categoryNodeList
         ));
     }
 

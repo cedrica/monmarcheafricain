@@ -11,14 +11,9 @@
     	</select>
     	<label>Kategorie</label>
     	<select class="form-control form-group" id="kategorie" name="kategorie" value="{{ produit.kategorie }}" onchange="onChange('kategorie', this.value,'cat')" required>
-			<option value="fruits" >Früchte</option>
-    		<option value="épices">Gewürze</option>
-    		<option value="légumes">Gemüse</option>
-    		<option value="farines et sémoules">Mehl und Gries</option>
-    		<option value="viandes crus">Rohes Fleisch</option>
-    		<option value="viandes fumées">Getrockene Fleich</option>
-    		<option value="crustacés">Lax</option>
-    		<option value="conserves">Dosen</option>
+    	{% for cn in  categoryNodeList %}
+			<option value="{{ cn.id }}" >{{ cn.de }}</option>
+		{% endfor %}
     	</select>
     	<label>Menge</label>
     	<input class="form-control form-group" name="menge" type="number" id='menge'  onkeyup="fillOderFields(this.value,'quantite','quantity')"  value="{{ produit.menge }}"></input>

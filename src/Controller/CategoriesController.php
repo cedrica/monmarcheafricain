@@ -6,26 +6,27 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use App\Entity\Produit;
 use Symfony\Component\Translation\Translator;
+use App\Service\ControllerHelper;
 
 class CategoriesController extends Controller
 {
 
     /**
-     * @Route("/{_locale}/categories/{cat}", name="categories_controller_categories")
+     * @Route("/{_locale}/categories/{catId}", name="categories_controller_categories")
      */
-	public function categoriesAction(Request $request, $cat,$_locale)
+	public function categoriesAction(Request $request, ControllerHelper $helper, $catId,$_locale)
     {
     	$request->setLocale($_locale);
         $affichage = $request->query->get('affichage');
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery('SELECT p
                                 FROM App:Produit p
-                                WHERE p.categorie = :categorie')->setParameter('categorie', $cat);
+                                WHERE p.categorie = :categorie')->setParameter('categorie', $catId);
         $produits = $query->getResult();
         $productCount = array('%productCount%' => sizeof($produits));
         return $this->render('categories/categories.html.twig', array(
             'page' => 'categories',
-            'cat' => $cat,
+            'cat' => $catId,
             'affichage' => $affichage,
         	'produits' => $produits,
             'productCount' => $productCount,

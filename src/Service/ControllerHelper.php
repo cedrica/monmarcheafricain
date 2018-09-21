@@ -7,6 +7,8 @@ use App\Entity\Login;
 use App\Entity\Produit;
 use App\Repository\LoginRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Component\DomCrawler\Crawler;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class ControllerHelper
 {
@@ -55,6 +57,7 @@ class ControllerHelper
         return $em->getRepository(Login::class)->findOneByEmail($email);
     }
 
+    
     /**
      *
      * @param
@@ -110,6 +113,61 @@ class ControllerHelper
     	$product = $query->setMaxResults(1)->getOneOrNullResult();
     	return $product != null;
     }
+    
+    public function convertXmlToObject($xmlFile)
+    {
+    	$xml=simplexml_load_file($xmlFile) or die("Error: Cannot create object");
+    	$categoryNodeList = new ArrayCollection();
+    	foreach($xml->children() as $cn) {
+    		$categoryNode = new CategoryNode();
+    		$categoryNode->setId($cn->id);
+    		$categoryNode->setParentId($cn->parentId);
+    		$categoryNode->setEn($cn->en);
+    		$categoryNode->setFr($cn->fr);
+    		$categoryNode->setDe($cn->de);
+    		$categoryNodeList->add($categoryNode);
+    	} 
+    	return $categoryNodeList;
+    }
+    
+    public function convertObjectToXml($xmlFile, $obj)
+    {
+    	$xml=simplexml_load_file($xmlFile) or die("Error: Cannot create object");
+    	$category = $xml->addChild('category');
+    	$lastId = findLastId($xml) + 1;
+    	$category->addChild('id',decbin($lastId));
+    	$category->addChild('parentId',$obj->getParentId());
+    	$category->addChild('en',$obj->getEn());
+    	$category->addChild('de',$obj->getDe());
+    	$category->addChild('fr',$obj->getFr());
+    }
+    
+    public function findLastId($xml){
+    	$dom = new DOMDocument;
+    	$dom->loadXML($xml);
+    	$ids = $dom->getElementsByTagName('id');
+    	$idList = new ArrayCollection();
+    	foreach ($ids as $id) {
+    		$idList->add(bindec($id->nodeValue));
+    	}
+    	return max($idList);
+    }
+    public function findCatById($catId,$xmlFile,$lang)
+    {
+    	$xml=simplexml_load_file($xmlFile) or die("Error: Cannot create object");
+    	foreach($xml->children() as $cn) {
+    		if(strcmp($cn->id , $catId)){
+    			if($lang == 'en'){
+    				return $cn->en;
+    			}else if($lang == 'de'){
+    				return $cn->de;
+    			}else if($lang == 'fr'){
+    				return $cn->fr;
+    			}
+    		}
+    	}
+    }
+    
     
 }
 

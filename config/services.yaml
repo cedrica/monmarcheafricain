@@ -30,5 +30,8 @@ services:
     
     #Helper        
     App\Service\ControllerHelper:
+    
+     #Extension       
+    App\Extension\AppExtension:
  
     

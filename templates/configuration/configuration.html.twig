@@ -4,22 +4,27 @@
 {{  include("commun/error-info-success.html.twig") }}
 
 	<div class="tab" style="padding:0px; width: 20%;float:left;">
-      <button class="tablinks" onclick="openCity(event, 'recettes')" id="defaultOpen">{{'mma.configuration.recipes'|trans }}</button>
-      <button class="tablinks" onclick="openCity(event, 'produits')">{{ 'mma.configuration.products'|trans }}</button>
+      <button class="tablinks" onclick="openCity(event, 'produits')" id="defaultOpen">{{ 'mma.configuration.products'|trans }}</button>
+      <button class="tablinks" onclick="openCity(event, 'recettes')">{{'mma.configuration.recipes'|trans }}</button>
       <button class="tablinks" onclick="openCity(event, 'clients')">{{ 'mma.configuration.clients'|trans }}</button>
+      <button class="tablinks" onclick="openCity(event, 'categories')">{{ 'mma.configuration.categories'|trans }}</button>
     </div>
 
     <div style="width: 80%; float:left; height:100%; padding-top: 1%" ng-app="myApp" ng-controller="myCtrl">
-		<div id="recettes" class="tabcontent">
-        	 {{  include("configuration/recettes/catalogue-des-recettes.html.twig") }}
-        </div>
-        
         <div id="produits" class="tabcontent">
             {{  include("configuration/produits/catalogue-produit.html.twig") }}
         </div>
         
+		<div id="recettes" class="tabcontent">
+        	 {{  include("configuration/recettes/catalogue-des-recettes.html.twig") }}
+        </div>
+        
         <div id="clients" class="tabcontent">
             {{  include("configuration/clients/catalogue-clients.html.twig") }}
+        </div>
+        
+        <div id="categories" class="tabcontent">
+            {{  include("configuration/categories/categories.html.twig") }}
         </div>
 
    	</div>
@@ -49,4 +54,8 @@ function openCity(evt, cityName) {
 
 </script>					
  
+{% endblock %}
+{% block stylesheets %}
+
+<link href="{{ asset('css/configuration.css') }}" rel="stylesheet" />
 {% endblock %}
