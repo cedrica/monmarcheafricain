@@ -122,7 +122,6 @@ class AdminController extends Controller
      	$categoryNodeForm = $this->createForm('App\Form\CategoryNodeType', $categoryNode,array('categories'=> $arr));
      	$categoryNodeForm->handleRequest($request);
      	if ($categoryNodeForm->isSubmitted() && $categoryNodeForm->isValid()) {
-     		echo $catalogueCategories->asXML();
      		$cCid = count($catalogueCategories)+1;
      		$categoryNode->setId($cCid);
      		$helper->addNewObjectToXml('catalogs/categories.xml',$categoryNode);
