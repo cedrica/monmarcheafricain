@@ -57,6 +57,7 @@ mma.configuration.editer.produit.action: Offer
 mma.configuration.recipes: Recipe
 mma.configuration.products: Products
 mma.configuration.clients: Clients
+mma.configuration.categories: __mma.configuration.categories
 mma.configuration.save.edited.product: Save
 mma.connection: 'Log in'
 mma.logout: 'Log out'
@@ -183,6 +184,7 @@ mma.configurerecipe.listofingredient: 'List of ingredient'
 mma.configurerecipe.cookingstep: 'Cooking steps'
 mma.productcatalog.productimage: image
 mma.productcatalog.searchproduct: 'Search product ...'
+mma.productcatalog.searchcataloguecategorie: 'Search categorie ...'
 mma.productcatalog.productname: Name
 mma.productcatalog.productprice: Price
 mma.productcatalog.productcategory: Category
@@ -190,6 +192,7 @@ mma.productcatalog.productquantity: Quantity
 mma.productcatalog.productavailable: Available
 mma.productcatalog.productstate: State
 mma.productcatalog.activateproduct: activate
+mma.editproduit.cancel: 'To return to productcatalog just clik on cancel'
 mma.clientcatalog.searchclient: 'Search client...'
 mma.clientcatalog.clienttitle: Title
 mma.clientcatalog.clientfirstnameandlastname: 'Firstname Lastname'

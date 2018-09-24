@@ -70,6 +70,7 @@ mma.configuration.editer.produit.action: Offer
 mma.configuration.recipes: Recipe
 mma.configuration.products: Products
 mma.configuration.clients: Clients
+mma.configuration.categories: Categories
 mma.configuration.save.edited.product: Save
 ########## CONNEXION ###############
 mma.connection: Log in
@@ -234,6 +235,7 @@ mma.configurerecipe.cookingstep: Cooking steps
 ######### PRODUCT CATALOG ###############
 mma.productcatalog.productimage: image
 mma.productcatalog.searchproduct: Search product ...
+mma.productcatalog.searchcataloguecategorie: Search categorie ...
 mma.productcatalog.productname: Name
 mma.productcatalog.productprice: Price
 mma.productcatalog.productcategory: Category

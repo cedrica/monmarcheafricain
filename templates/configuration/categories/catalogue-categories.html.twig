@@ -1,5 +1,5 @@
 	<div class="form-group" class="col-lg-12">
-			<input id="tfFiltreProduit" type="text"  class="form-control" placeholder="{{ 'mma.productcatalog.searchproduct'|trans }}">
+			<input id="tfFiltreCatalogueCategories" type="text"  class="form-control" placeholder="{{ 'mma.productcatalog.searchcataloguecategorie'|trans }}">
 		</div>
     <table  class="table table-hover">
     	<thead>
@@ -8,48 +8,40 @@
     		<th>EN</th>
     		<th>DE</th>
     		<th>FR</th>
-    		<th></th>
-    		<th><a class="fa fa-plus-circle" href="" style="color:#33cc33;font-size:30px; text-align: center;align-content:center; " data-toggle="modal" data-target="#produitModal"></a></th>
+    		<th><a class="fa fa-plus-circle" href="" style="color:#33cc33;font-size:30px; text-align: center;align-content:center; " data-toggle="modal" data-target="#categoryCatalogModal"></a></th>
     		
     	</thead>
-    	<tbody id="tbProduits">
-		    {% for cat in categories %}
+    	<tbody id="tbCatalogueCategories">
+		    {% for catCat in catalogueCategories %}
         		<tr scope="row">
-            		<td scope="col"></td>
-            		<td scope="col">{{ cat.id }}</td>
-            		<td scope="col">{{ cat.parentId }} €</td>
-            		<td scope="col">{{ cat.en}}</td>
-            		<td scope="col">{{ cat.de }}</td>
-            		<td scope="col">{{ cat.fr }}</td>
-        			<td scope="col"><a class="fa fa-edit" href="{{ path('configuration_produit_controller_editer',{'id':cat.id}) }}"  style="color:darkorange;"></a></td>
-        			<td scope="col"><a class="fa fa-trash" style="margin-left: -3px; color:red; align-content:center; text-align: center;"
-					data-toggle="modal" data-target="#confirmModal{{cat.id}}"></a></td>
-        			
+            		<td scope="col">{{ catCat.id }}</td>
+            		<td scope="col">{{ catCat.parentId }} </td>
+            		<td scope="col">{{ catCat.en}}</td>
+            		<td scope="col">{{ catCat.de }}</td>
+            		<td scope="col">{{ catCat.fr }}</td>
+        			<td scope="col"><a class="fa fa-edit" href="{{ path('configuration_produit_controller_editer',{'id':catCat.id}) }}"  style="color:darkorange;"></a></td>
         		</tr>
-			{{  include("confirm/confirm.html.twig", {'stepId':cat.id,'todo':'remove_product', 'recetteId':cat.id, 'message':'Voulez vous vraiment suprimer cette categorie?'}) }}
     		{% endfor %}
     	</tbody>
     </table>
 
-	<div id="produitModal" id="contact_dialog" class="modal fade" role="dialog">
+	<div id="categoryCatalogModal" id="catalog_category_dialog" class="modal fade" role="dialog">
 		<div class="modal-dialog modal-lg">
 
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Inserer une categorie</h4>
+					<h4 class="modal-title">Creer une categorie</h4>
 				</div>
-				<div class="modal-body">
                     {{ include('configuration/categories/create.html.twig') }}
-				</div>
 			</div>
 		</div>
 	</div>
 <script>
-    $("#tfFiltreProduit").on("keyup", function() {
+    $("#tfFiltreCatalogueCategories").on("keyup", function() {
         var value = $(this).val().toLowerCase();
-        $("#tbProduits tr").filter(function() {
+        $("#tbCatalogueCategories tr").filter(function() {
 			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });

@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\Login;
 use App\Entity\Produit;
+use App\Service\CategoryNode;
 use App\Entity\Recette;
 use App\Service\ControllerHelper;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -111,8 +112,24 @@ class AdminController extends Controller
      			'fr' => false,
      			'de' => false
      	));
-     	$editProduitForm = self::handleRequestAndSubmit($request,$editProduitForm,$helper,$produit);
      	
+     	$catalogueCategories = $helper->convertXmlToObject('catalogs/categories.xml');  
+     	$arr = array();
+     	foreach ($catalogueCategories as $value) {
+     		$arr[$value->getFr()." / ".$value->getEn()." / ".$value->getDe()] =  $value->getId();
+     	}
+     	$categoryNode = new CategoryNode();
+     	$categoryNodeForm = $this->createForm('App\Form\CategoryNodeType', $categoryNode,array('categories'=> $arr));
+     	$categoryNodeForm->handleRequest($request);
+     	if ($categoryNodeForm->isSubmitted() && $categoryNodeForm->isValid()) {
+     		echo $catalogueCategories->asXML();
+     		$cCid = count($catalogueCategories)+1;
+     		$categoryNode->setId($cCid);
+     		$helper->addNewObjectToXml('catalogs/categories.xml',$categoryNode);
+     		//return $this->redirectToRoute('admin_controller_configuration');
+     	}
+     	
+     	$editProduitForm = self::handleRequestAndSubmit($request,$editProduitForm,$helper,$produit);
      	return $this->render('configuration/configuration.html.twig', array(
      			'page' => 'configuration',
      			'produit' => $produit, 
@@ -123,7 +140,9 @@ class AdminController extends Controller
      			'produits' => $produits,
      			'recettes' => $recettes,
      			'comptes' => $comptes,
-     			'categoryNodeList' => $categoryNodeList
+     			'categoryNodeList' => $categoryNodeList,
+     			'catalogueCategories' => $catalogueCategories,
+     			'categoryNodeForm' => $categoryNodeForm->createView()
      	));
      }
      public function handleRequestAndSubmit(Request $request,$form,ControllerHelper $helper,$produit){

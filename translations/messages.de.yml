@@ -190,6 +190,7 @@ mma.productcatalog.productquantity: Menge
 mma.productcatalog.productavailable: Vorhanden
 mma.productcatalog.productstate: Status
 mma.productcatalog.activateproduct: Aktivieren
+mma.editproduit.cancel: 'To return to productcatalog just clik on cancel'
 mma.clientcatalog.searchclient: 'Kunde suchen...'
 mma.clientcatalog.clienttitle: Anrede
 mma.clientcatalog.clientfirstnameandlastname: 'Vor- und Nachname'
@@ -212,3 +213,5 @@ mma.confirm.doyourealywanttoremovethisclient: __mma.confirm.doyourealywanttoremo
 mma.changepassword.enteryouraccountemail: __mma.changepassword.enteryouraccountemail
 mma.change.password.requestnewpassword: __mma.change.password.requestnewpassword
 mma.messages.clickhiertoresetyourpassword: __mma.messages.clickhiertoresetyourpassword
+mma.productcatalog.searchcataloguecategorie: __mma.productcatalog.searchcataloguecategorie
+mma.configuration.categories: __mma.configuration.categories

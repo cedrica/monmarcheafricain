@@ -130,12 +130,11 @@ class ControllerHelper
     	return $categoryNodeList;
     }
     
-    public function convertObjectToXml($xmlFile, $obj)
+    public function addNewObjectToXml($xmlFile, $obj)
     {
     	$xml=simplexml_load_file($xmlFile) or die("Error: Cannot create object");
     	$category = $xml->addChild('category');
-    	$lastId = findLastId($xml) + 1;
-    	$category->addChild('id',decbin($lastId));
+    	$category->addChild('id',$obj->getId());
     	$category->addChild('parentId',$obj->getParentId());
     	$category->addChild('en',$obj->getEn());
     	$category->addChild('de',$obj->getDe());
