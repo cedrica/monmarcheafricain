@@ -41,7 +41,12 @@ class ConnexionController extends Controller
                         'page' => 'connexion',
                         'alertType' => 'error',
                         'message' => 'Mot de pass invalide',
-                        'sEnregisterForm' => $sEnregisterForm->createView()
+                    		'sEnregisterForm' => $sEnregisterForm->createView(),
+                    		'activehome' => '',
+                    		'activecategorie' => 'active',
+                    		'activerecettes' => '',
+                    		'activelivraison' => '',
+                    		'activecontact' => ''
                     ));
                 }
             } else {
@@ -49,7 +54,12 @@ class ConnexionController extends Controller
                     'page' => 'connexion',
                     'alertType' => 'error',
                     'message' => 'Cette email n´est pas encore inscrite',
-                    'sEnregisterForm' => $sEnregisterForm->createView()
+                		'sEnregisterForm' => $sEnregisterForm->createView(),
+                		'activehome' => '',
+                		'activecategorie' => 'active',
+                		'activerecettes' => '',
+                		'activelivraison' => '',
+                		'activecontact' => ''
                 ));
             }
         }

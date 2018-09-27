@@ -18,11 +18,8 @@ class CategoriesController extends Controller
     {
     	$request->setLocale($_locale);
         $affichage = $request->query->get('affichage');
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery('SELECT p
-                                FROM App:Produit p
-                                WHERE p.categorie = :categorie')->setParameter('categorie', $catId);
-        $produits = $query->getResult();
+        $produitRepositorty = $this->getDoctrine()->getRepository(Produit::class);
+        $produits =  $produitRepositorty->findByCategoryId(bindec($catId));
         $productCount = array('%productCount%' => sizeof($produits));
         return $this->render('categories/categories.html.twig', array(
             'page' => 'categories',

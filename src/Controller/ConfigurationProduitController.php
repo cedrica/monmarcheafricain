@@ -24,7 +24,7 @@ class ConfigurationProduitController extends Controller
     {
         $produitRepositorty = $this->getDoctrine()->getRepository(Produit::class);
         $produit = $produitRepositorty->find($id);
-        $categoryNodeList = $helper->convertXmlToObject('catalogs/categories.xml');
+        $categoryNodeList = $helper->convertXmlToObjectList('catalogs/categories.xml');
         return $this->render('configuration/produits/editer-produit.html.twig', array(
             'page' => 'editer-produit',
         		'produit' => $produit,

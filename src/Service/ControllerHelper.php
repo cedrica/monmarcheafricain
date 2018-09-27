@@ -9,6 +9,11 @@ use App\Repository\LoginRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Component\DomCrawler\Crawler;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 class ControllerHelper
 {
@@ -114,7 +119,7 @@ class ControllerHelper
     	return $product != null;
     }
     
-    public function convertXmlToObject($xmlFile)
+    public function convertXmlToObjectList($xmlFile)
     {
     	$xml=simplexml_load_file($xmlFile) or die("Error: Cannot create object");
     	$categoryNodeList = new ArrayCollection();
@@ -130,17 +135,96 @@ class ControllerHelper
     	return $categoryNodeList;
     }
     
-    public function addNewObjectToXml($xmlFile, $obj)
+    public function addNewObjectToXml($xmlFile, $objectList)
     {
-    	$xml=simplexml_load_file($xmlFile) or die("Error: Cannot create object");
-    	$category = $xml->addChild('category');
-    	$category->addChild('id',$obj->getId());
-    	$category->addChild('parentId',$obj->getParentId());
-    	$category->addChild('en',$obj->getEn());
-    	$category->addChild('de',$obj->getDe());
-    	$category->addChild('fr',$obj->getFr());
+    	$xml = "";
+    	foreach($objectList as $obj){
+    		$xml  .= "\n	<category>\n		<id>".$obj->getId().
+    		"</id>\n		<parentId>".$obj->getParentId().
+    		"</parentId>\n		<en>".$obj->getEn().
+    		"</en>\n		<fr>".$obj->getFr().
+    		"</fr>\n		<de>".$obj->getDe().
+    		"</de>\n	</category>";
+    	}
+    	$xml ="<?xml version='1.0' encoding='UTF-8'?>\n
+					<categories>\n".$xml."\n</categories>";
+    	$fileSystem = new FileSystem();
+    	$fileSystem->dumpFile($xmlFile, $xml);
+    }
+    public function calculTotalPrice($panierItems){
+    	$price = 0;
+    	
+    	foreach ($panierItems as $panierItem) {
+    		$price += $panierItem->getProduit()->getPrix();
+    	}
+    	return $price;
     }
     
+    public function findDescriptionByLanguage($produit, $lang){
+    	/*if($lang == 'en'){
+    		return $produit->getDescriptionEN();
+    	}else if($lang == 'de'){
+    		return $produit->getDescriptionDE();
+    	}else if($lang == 'fr'){
+    		return $produit->getDescriptionFR();
+    	}*/
+    	return "none";
+    }
+    
+    public function transformIntoTransaction($session, $tax, $shipping, $lang){
+    	$panierItems = $session->get('panier')->getPanierItems();
+    	$totalPrice = self::calculTotalPrice($panierItems);
+    	$transactions = 
+    	"[{
+    			amount:
+    			{
+    				total: $totalPrice,
+    				currency: EUR,
+    				details:
+	    			{
+		    			tax: 9,
+		    			shipping: $shipping
+	    			}
+    			},
+    			description: This is the payment transaction description.,
+    			custom: EBAY_EMS_90048630024435,
+    			invoice_number: 48787589673,
+    			payment_options:
+    			{
+    				allowed_payment_method: INSTANT_FUNDING_SOURCE
+    			},
+    			soft_descriptor: ECHI5786786,
+    			item_list:
+    			{
+    				items: [";
+    	$counter = 0;
+    	foreach ($panierItems as $panierItem) {
+    		$transactions .= "{
+		    			name: ".$panierItem->getProduit()->getName().",
+		    			description: ".self::findDescriptionByLanguage($panierItem->getProduit(),$lang).",
+		    			quantity: ". $panierItem->getQuantite().",
+		    			price: ".$panierItem->getProduit()->getPrix().",
+		    			currency: EUR
+    				}";
+    		$counter++;
+    		if($counter < count($panierItems)){
+    			$transactions .= ",";
+    		}
+    	}
+    			
+    	$transactions .= "],
+    			shipping_address:
+    			{
+	    			recipient_name: ".$session->get('compte')->getNom()." ".$session->get('compte')->getPrenom().",
+	    			city: ".$session->get('deliveryAdress')->getVille().",
+					postal_code: ".$session->get('deliveryAdress')->getBoitePostale().",
+					street: ".$session->get('deliveryAdress')->getRueEtNr()."
+    			}
+    		}
+    	}]";
+    	return $transactions;
+    	
+    }
     public function findLastId($xml){
     	$dom = new DOMDocument;
     	$dom->loadXML($xml);

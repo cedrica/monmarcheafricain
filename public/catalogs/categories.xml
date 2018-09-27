@@ -1,73 +1,75 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<categories>
+<?xml version='1.0' encoding='UTF-8'?>
+
+					<categories>
+
 	<category>
-		<id>0000000000000001</id>
-		<parentId>-1</parentId>
-		<en>Fruts</en>
-		<fr>Fruits</fr>
-		<de>Früchte</de>
+		<id>0000000000000001		</id>
+		<parentId>-1		</parentId>
+		<en>Fruts		</en>
+		<fr>Fruits		</fr>
+		<de>Früchte		</de>
 	</category>
 	<category>
-		<id>0000000000000010</id>
-		<parentId>-1</parentId>
-		<en>Vegetables</en>
-		<fr>Légumes</fr>
-		<de>Gemüse</de>
+		<id>0000000000000010		</id>
+		<parentId>-1		</parentId>
+		<en>Vegetables		</en>
+		<fr>Légumes		</fr>
+		<de>Gemüse		</de>
 	</category>
 	<category>
-		<id>0000000000000011</id>
-		<parentId>-1</parentId>
-		<en>Flour and semolina</en>
-		<fr>Farines et sémoule</fr>
-		<de>Mehl und Gries</de>
+		<id>0000000000000011		</id>
+		<parentId>-1		</parentId>
+		<en>Flour and semolina		</en>
+		<fr>Farines et sémoule		</fr>
+		<de>Mehl und Gries		</de>
 	</category>
 	<category>
-		<id>0000000000000100</id>
-		<parentId>-1</parentId>
-		<en>Fish</en>
-		<fr>Poisson</fr>
-		<de>Fisch</de>
+		<id>0000000000000100		</id>
+		<parentId>-1		</parentId>
+		<en>Fish		</en>
+		<fr>Poisson		</fr>
+		<de>Fisch		</de>
 	</category>
 	<category>
-		<id>0000000000000101</id>
-		<parentId>0000000000000100</parentId>
-		<en>Fish and shell fishraw </en>
-		<fr>poissons et crustacés crus</fr>
-		<de>Früchte</de>
+		<id>0000000000000101		</id>
+		<parentId>0000000000000100		</parentId>
+		<en>Fish and shell fishraw 		</en>
+		<fr>poissons et crustacés crus		</fr>
+		<de>Früchte		</de>
 	</category>
 	<category>
-		<id>0000000000000110</id>
-		<parentId>0000000000000100</parentId>
-		<en>Fish and smoked shellfish</en>
-		<fr>categories/poissons et crustacés fumés</fr>
-		<de>Fish und </de>
+		<id>0000000000000110		</id>
+		<parentId>0000000000000100		</parentId>
+		<en>Fish and smoked shellfish		</en>
+		<fr>categories/poissons et crustacés fumés		</fr>
+		<de>Fish und 		</de>
 	</category>
 	<category>
-		<id>0000000000000111</id>
-		<parentId>-1</parentId>
-		<en>Somked meat</en>
-		<fr>Viandes fumées</fr>
-		<de>Getrockene Fleisch</de>
-	</category>	
+		<id>0000000000000111		</id>
+		<parentId>-1		</parentId>
+		<en>Somked meat		</en>
+		<fr>Viandes fumées		</fr>
+		<de>Getrockene Fleisch		</de>
+	</category>
 	<category>
-		<id>0000000000001000</id>
-		<parentId>0000000000000111</parentId>
-		<en>Rawed meat</en>
-		<fr>Viande congelé</fr>
-		<de>gefrohene Fleish</de>
-	</category>	
+		<id>0000000000001000		</id>
+		<parentId>0000000000000111		</parentId>
+		<en>Rawed meat		</en>
+		<fr>Viande congelé		</fr>
+		<de>gefrohene Fleish		</de>
+	</category>
 	<category>
-		<id>0000000000001001</id>
-		<parentId>-1</parentId>
-		<en>Cans</en>
-		<fr>Conserves</fr>
-		<de>Dosen</de>
-	</category>	
+		<id>0000000000001001		</id>
+		<parentId>-1		</parentId>
+		<en>Cans		</en>
+		<fr>Conserves		</fr>
+		<de>Dosen		</de>
+	</category>
 	<category>
-		<id>0000000000001011</id>
-		<parentId>-1</parentId>
-		<en>Spices</en>
-		<fr>Épices</fr>
-		<de>Gewürze</de>
+		<id>0000000000001011		</id>
+		<parentId>-1		</parentId>
+		<en>Spices		</en>
+		<fr>Épices		</fr>
+		<de>Gewürze		</de>
 	</category>
 </categories>

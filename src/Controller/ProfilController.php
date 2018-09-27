@@ -58,7 +58,12 @@ class ProfilController extends Controller
             $em->persist($compte);
             $em->flush();
             return $this->redirectToRoute('profil_controller_open_profil', array(
-                "id" => $compte->getId()
+            		"id" => $compte->getId(),
+            		'activehome' => '',
+            		'activecategorie' => 'active',
+            		'activerecettes' => '',
+            		'activelivraison' => '',
+            		'activecontact' => ''
             ));
         }
         
@@ -79,7 +84,12 @@ class ProfilController extends Controller
             'compte' => $compte,
             'editerLoginForm'=>$editerLoginForm->createView(),
             'editerDonneesPersoForm'=>$editerDonneesPersoForm->createView(),
-            'editerAdresseForm' => $editerAdresseForm->createView()
+        		'editerAdresseForm' => $editerAdresseForm->createView(),
+        		'activehome' => '',
+        		'activecategorie' => 'active',
+        		'activerecettes' => '',
+        		'activelivraison' => '',
+        		'activecontact' => ''
         ));
     }
     
@@ -115,7 +125,12 @@ class ProfilController extends Controller
             $em->flush();
         }
         return $this->redirectToRoute('profil_controller_open_profil', array(
-            'id' => $compte_id
+        		'id' => $compte_id,
+        		'activehome' => '',
+        		'activecategorie' => 'active',
+        		'activerecettes' => '',
+        		'activelivraison' => '',
+        		'activecontact' => ''
         ));
     }
     
@@ -150,7 +165,12 @@ class ProfilController extends Controller
             $em->flush();
         }
         return $this->redirectToRoute('profil_controller_open_profil', array(
-            'id' => $adresse->getCompte()->getId()
+        		'id' => $adresse->getCompte()->getId(),
+        		'activehome' => '',
+        		'activecategorie' => 'active',
+        		'activerecettes' => '',
+        		'activelivraison' => '',
+        		'activecontact' => ''
         ));
     }
     
@@ -171,7 +191,12 @@ class ProfilController extends Controller
             $em->flush();
         }
         return $this->redirectToRoute('profil_controller_open_profil', array(
-            'id' => $adresse->getCompte()->getId()
+        		'id' => $adresse->getCompte()->getId(),
+        		'activehome' => '',
+        		'activecategorie' => 'active',
+        		'activerecettes' => '',
+        		'activelivraison' => '',
+        		'activecontact' => ''
         ));
     }
     

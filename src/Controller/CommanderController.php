@@ -8,8 +8,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use App\Entity\Adresse;
 use App\Service\ToJson;
 use App\Entity\Compte;
+use App\Service\ControllerHelper;
 use App\Form\AjouterCarteType;
 use App\Entity\CarteDeCredit;
+use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Translation\Translator;
 class CommanderController extends Controller
 {
@@ -35,7 +37,12 @@ class CommanderController extends Controller
         
         return $this->render('ajouter-adresse/ajouter-adresse.html.twig', array(
             'page' => 'ajouter-adresse',
-            'adresseForm' => $adresseForm->createView()
+        		'adresseForm' => $adresseForm->createView(),
+        		'activehome' => '',
+        		'activecategorie' => 'active',
+        		'activerecettes' => '',
+        		'activelivraison' => '',
+        		'activecontact' => ''
         ));
     }
 
@@ -81,7 +88,12 @@ class CommanderController extends Controller
     			'classconnexion' => 'not-active',
     			'classdeliveryway' => '',
     			'classdeliveryadress' => 'not-active',
-    			'classpayment' => 'not-active'
+    			'classpayment' => 'not-active',
+    			'activehome' => '',
+    			'activecategorie' => 'active',
+    			'activerecettes' => '',
+    			'activelivraison' => '',
+    			'activecontact' => ''
     	));
     }
     
@@ -108,40 +120,20 @@ class CommanderController extends Controller
     			'classconnexion' => 'not-active',
     			'classdeliveryway' => 'not-active',
     			'classdeliveryadress' => '',
-    			'classpayment' => 'not-active'
+    			'classpayment' => 'not-active',
+    			'activehome' => '',
+    			'activecategorie' => 'active',
+    			'activerecettes' => '',
+    			'activelivraison' => '',
+    			'activecontact' => ''
     	));
     }
     /**
      * @Route("{_locale}/payment", name="commander_controller_payment")
      */
-    public function paymentAction(Request $request,$_locale){
+    public function paymentAction(Request $request,ControllerHelper $helper,$_locale){
     	$session = $request->getSession();
-    	$compte = $session->get('compte');
-    	$array = array(
-    			'payerId' => $compte->getId(),
-    			'payername' => $session->get('deliveryAdress'),
-    			'deliveryWay' => $session->get('deliveryWay')
-    	);
-    	$i = 0;
-    	foreach($session->get('panier')->getPanierItems() as $panierItem){
-    		$array['item'.$i] = array(
-    				'produit' => array(
-    						'name' => $panierItem->getProduit()->getName(),
-    						'price' => $panierItem->getProduit()->getPrix(),
-    						'State' => $panierItem->getProduit()->getEtat(),
-    						'Category' => $panierItem->getProduit()->getCategory(),
-    						'Reference' => $panierItem->getProduit()->getReference(),
-    						'Offer' => $panierItem->getProduit()->getAction(),
-    						'Reduction' => $panierItem->getProduit()->getPourcentageDeRabait(),
-    						'Periode' => $panierItem->getProduit()->getActionDebut().' - '.$panierItem->getProduit()->getActionFin(),
-    						'Description'=> $panierItem->getProduit()->getDescriptionEN()
-    				),
-    				'quantite' => $panierItem->getQuantite()
-    		);
-    		$i++;
-    	}
-    	$transactions = json_encode($array);
-    	var_dump($transactions);
+    	$transactions = $helper->transformIntoTransaction($session,2,3,$_locale);
     	return $this->render('commander/commander.html.twig', array(
     			'adresses' => array(),
     			'page' => 'commander',
@@ -153,7 +145,12 @@ class CommanderController extends Controller
     			'classdeliveryway' => 'not-active',
     			'classdeliveryadress' => 'not-active',
     			'classpayment' => '',
-    			'transactions' => $transactions
+    			'transactions' => $transactions,
+    			'activehome' => '',
+    			'activecategorie' => 'active',
+    			'activerecettes' => '',
+    			'activelivraison' => '',
+    			'activecontact' => ''
     	));
     }
     

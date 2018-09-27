@@ -77,7 +77,7 @@ class AdminController extends Controller
      	$message = $request->query->get('message');
      	$alertType = $request->query->get('alertType');
      	
-     	$categoryNodeList = $helper->convertXmlToObject('catalogs/categories.xml');
+     	$categoryNodeList = $helper->convertXmlToObjectList('catalogs/categories.xml');
      	
      	$produit = new Produit();
      	$em = $this->getDoctrine()->getManager();
@@ -113,8 +113,9 @@ class AdminController extends Controller
      			'de' => false
      	));
      	
-     	$catalogueCategories = $helper->convertXmlToObject('catalogs/categories.xml');  
+     	$catalogueCategories = $helper->convertXmlToObjectList('catalogs/categories.xml');  
      	$arr = array();
+     	$arr["--select--"]=-1;
      	foreach ($catalogueCategories as $value) {
      		$arr[$value->getFr()." / ".$value->getEn()." / ".$value->getDe()] =  $value->getId();
      	}
@@ -124,7 +125,8 @@ class AdminController extends Controller
      	if ($categoryNodeForm->isSubmitted() && $categoryNodeForm->isValid()) {
      		$cCid = count($catalogueCategories)+1;
      		$categoryNode->setId($cCid);
-     		$helper->addNewObjectToXml('catalogs/categories.xml',$categoryNode);
+     		$catalogueCategories->add($categoryNode);
+     		$helper->addNewObjectToXml('catalogs/categories.xml',$catalogueCategories);
      		//return $this->redirectToRoute('admin_controller_configuration');
      	}
      	

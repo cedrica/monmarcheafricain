@@ -45,7 +45,12 @@ class PanierController extends Controller
             'panier' => $panier,
             'page' => 'panier',
             'totalProduit' => $totalProduit,
-            'fraisDeTransport' => $fraisDeTransport
+        		'fraisDeTransport' => $fraisDeTransport,
+        		'activehome' => '',
+        		'activecategorie' => '',
+        		'activerecettes' => '',
+        		'activelivraison' => '',
+        		'activecontact' => ''
         ));
     }
     
@@ -76,7 +81,12 @@ class PanierController extends Controller
         		'classconnexion' => '',
         		'classdeliveryway' => 'not-active',
         		'classdeliveryadress' => 'not-active',
-        		'classpayment' => 'not-active'
+        		'classpayment' => 'not-active',
+        		'activehome' => '',
+        		'activecategorie' => 'active',
+        		'activerecettes' => '',
+        		'activelivraison' => '',
+        		'activecontact' => ''
         ));
     }
     

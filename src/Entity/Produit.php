@@ -243,6 +243,11 @@ class Produit
      */
     private $createdAt;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $tax;
+
 
     /**
      * Get id
@@ -798,6 +803,18 @@ class Produit
     public function setCreatedAt(?\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getTax(): ?float
+    {
+        return $this->tax;
+    }
+
+    public function setTax(float $tax): self
+    {
+        $this->tax = $tax;
 
         return $this;
     }

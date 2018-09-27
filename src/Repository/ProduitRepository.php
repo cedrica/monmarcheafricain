@@ -47,6 +47,15 @@ class ProduitRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findByCategoryId($catId){
+    	return $this->createQueryBuilder('p')
+    	->andWhere('p.categorie = 10')
+    	//->setParameter('catId', $catId)
+    	->getQuery()
+    	->getResult();
+    }
+
+    
     public function findByFilter($cat,$minPrice,$maxPrice,$sortBy){
     	return  $this->createQueryBuilder('p')
     	->andWhere('p.categorie = :categorie')

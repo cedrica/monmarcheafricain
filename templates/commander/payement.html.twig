@@ -92,7 +92,8 @@
 
 						payment : function(data, actions) {
 							return actions.payment.create({
-								transactions : [{
+								transactions : {{transactions}}
+									/*[{
 								    amount:
 								    {
 								      total: "30.11",
@@ -148,7 +149,7 @@
 								        state: "CA"
 								      }
 								    }
-								  }]
+								  }]*/
 							});
 						},
 

@@ -46,9 +46,14 @@ class ProduitController extends Controller
     	$produit = $produitRepositorty->find($id);
     	$quantite = self::ajouterLeproduitAuPanier($request, $produit,$helper,1);
     	return $this->redirectToRoute('categories_controller_categories', array(
-    			'cat' => $cat,
+    			'catId' => $cat,
     			'_locale' => $request->getLocale(),
-    			'affichage' => $affichage
+    			'affichage' => $affichage,
+    			'activehome' => '',
+    			'activecategorie' => 'active',
+    			'activerecettes' => '',
+    			'activelivraison' => '',
+    			'activecontact' => ''
     	));
     }
     public function ajouterLeproduitAuPanier(Request $request, Produit $produit, ControllerHelper $helper,$quantite) {
