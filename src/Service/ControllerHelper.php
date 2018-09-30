@@ -186,7 +186,6 @@ class ControllerHelper
 		    			shipping: $shipping
 	    			}
     			},
-    			description: ThisIsThePaymentTransactionDescription.,
     			custom: EBAY_EMS_90048630024435,
     			invoice_number: 48787589673,
     			payment_options:
@@ -215,10 +214,10 @@ class ControllerHelper
     	$transactions .= "],
     			shipping_address:
     			{
-	    			recipient_name: ".$session->get('compte')->getNom()." ".$session->get('compte')->getPrenom().",
+	    			recipient_name: ".str_replace(" ","_",$session->get('compte')->getNom()." ".$session->get('compte')->getPrenom()).",
 	    			city: ".$session->get('deliveryAdress')->getVille().",
 					postal_code: ".$session->get('deliveryAdress')->getBoitePostale().",
-					street: ".$session->get('deliveryAdress')->getRueEtNr()."
+					street: ".str_replace(" ","_",$session->get('deliveryAdress')->getRueEtNr())."
     			}
     		}
     	}]";

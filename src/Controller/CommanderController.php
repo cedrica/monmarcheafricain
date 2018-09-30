@@ -133,8 +133,8 @@ class CommanderController extends Controller
      */
     public function paymentAction(Request $request,ControllerHelper $helper,$_locale){
     	$session = $request->getSession();
-    	$transactions = $helper->transformIntoTransaction($session,2,3,$_locale);
-    	/*$transactions =
+    	//$transactions = $helper->transformIntoTransaction($session,2,3,$_locale);
+    	$transactions =
     	"[{
     			amount:
     			{
@@ -146,9 +146,8 @@ class CommanderController extends Controller
 		    			shipping: 3
 	    			}
     			},
-				description: \"This is the payment transaction description\"
-			}]";*/
-    	var_dump($transactions);
+				description: ww
+			}]";
     	return $this->render('commander/commander.html.twig', array(
     			'adresses' => array(),
     			'page' => 'commander',
@@ -165,7 +164,13 @@ class CommanderController extends Controller
     			'activecategorie' => 'active',
     			'activerecettes' => '',
     			'activelivraison' => '',
-    			'activecontact' => ''
+    			'activecontact' => '',
+    			
+    			'total' => 22,
+    			'tax' => 22,
+    			'scost' => 22,
+    			'fee' => 22,
+    			'ins' => 22
     	));
     }
     
