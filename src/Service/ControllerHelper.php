@@ -186,7 +186,7 @@ class ControllerHelper
 		    			shipping: $shipping
 	    			}
     			},
-    			description: This is the payment transaction description.,
+    			description: ThisIsThePaymentTransactionDescription.,
     			custom: EBAY_EMS_90048630024435,
     			invoice_number: 48787589673,
     			payment_options:

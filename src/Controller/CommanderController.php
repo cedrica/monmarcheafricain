@@ -134,6 +134,21 @@ class CommanderController extends Controller
     public function paymentAction(Request $request,ControllerHelper $helper,$_locale){
     	$session = $request->getSession();
     	$transactions = $helper->transformIntoTransaction($session,2,3,$_locale);
+    	/*$transactions =
+    	"[{
+    			amount:
+    			{
+    				total: 3,
+    				currency: EUR,
+    				details:
+	    			{
+		    			tax: 9,
+		    			shipping: 3
+	    			}
+    			},
+				description: \"This is the payment transaction description\"
+			}]";*/
+    	var_dump($transactions);
     	return $this->render('commander/commander.html.twig', array(
     			'adresses' => array(),
     			'page' => 'commander',
@@ -145,7 +160,7 @@ class CommanderController extends Controller
     			'classdeliveryway' => 'not-active',
     			'classdeliveryadress' => 'not-active',
     			'classpayment' => '',
-    			'transactions' => $transactions,
+    			'transacts' => $transactions,
     			'activehome' => '',
     			'activecategorie' => 'active',
     			'activerecettes' => '',
