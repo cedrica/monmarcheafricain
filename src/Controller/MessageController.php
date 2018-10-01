@@ -38,8 +38,8 @@ class MessageController extends Controller
      */
     public function facturationAction(Request $request, \Swift_Mailer $mailer)
     {
-    	$reciever = $request->request->get("webmaster@monmarcheafricain.com");//reciever
-    	$sender = $request->request->get('webmaster@monmarcheafricain.com');
+    	$reciever = $request->request->get("webmaster@Monmarcheafricain.com");//reciever
+    	$sender = $request->request->get('webmaster@Monmarcheafricain.com');
     	$msgbody = $request->request->get('msgbody');
     	$message = (new \Swift_Message('Un client vous a laisser un méssage'))
     	->setFrom($sender)

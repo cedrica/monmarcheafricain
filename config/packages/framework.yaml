@@ -28,3 +28,35 @@ framework:
 
         # APCu (not recommended with heavy random-write workloads as memory fragmentation can cause perf issues)
         #app: cache.adapter.apcu
+
+    authorizenet:
+
+        # authorizenet keys
+        login_id: XXXXXXXXXXXX
+        tran_key: XXXXXXXXXXXX
+        test_mode: true
+
+        # By default, controller route is /payment/authorizenet/execute
+        controller_route: /my/custom/route
+
+        # Configuration for payment success redirection
+        #
+        # Route defines which route will redirect if payment success
+        # If order_append is true, Bundle will append cart identifier into route
+        #    taking order_append_field value as parameter name and
+        #    PaymentOrderWrapper->getOrderId() value
+        payment_success:
+            route: cart_thanks
+            order_append: true
+            order_append_field: order_id
+
+        # Configuration for payment fail redirection
+        #
+        # Route defines which route will redirect if payment fails
+        # If cart_append is true, Bundle will append cart identifier into route
+        #    taking cart_append_field value as parameter name and
+        #    PaymentCartWrapper->getCartId() value
+        payment_fail:
+            route: cart_view
+            cart_append: false
+            cart_append_field: cart_id

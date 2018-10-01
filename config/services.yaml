@@ -33,5 +33,16 @@ services:
     
     #Extension       
     App\Extension\AppExtension:
-    
-   
+
+    payment.bridge:
+        class: App\PaymentBridgeBundle\Services\PaymentBridge
+
+    payment.event.listener:
+        class:     App\Monmarcheafricain\PaymentBridgeBundle\EventListener\Payment
+        arguments: [@doctrine.orm.entity_manager, @mailer]
+        tags:
+        - { name: kernel.event_listener, event: payment.order.done, method: onPaymentOrderDone }
+        - { name: kernel.event_listener, event: payment.order.created, method: onPaymentOrderCreated }
+        - { name: kernel.event_listener, event: payment.order.load, method: onPaymentLoad }
+        - { name: kernel.event_listener, event: payment.order.success, method: onPaymentSuccess }
+        - { name: kernel.event_listener, event: payment.order.fail, method: onPaymentFail }

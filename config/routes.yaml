@@ -3,3 +3,7 @@ index:
     controller: App\Controller\LangueController::configureLangueAction
     requirements:
         _locale: en|fr|de
+
+authorizenet_payment_routes:
+    resource: .
+    type: authorizenet

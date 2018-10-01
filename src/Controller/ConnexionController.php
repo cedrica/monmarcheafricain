@@ -113,7 +113,7 @@ class ConnexionController extends Controller
     	$reciever = $request->request->get("email");//reciever
     	$translator = new Translator($_locale.'_'.strtoupper($_locale));
     	$message = (new \Swift_Message('Reset your Password'))
-    	->setFrom("info@monmarcheafricain.com")
+    	->setFrom("info@Monmarcheafricain.com")
     	->setTo($reciever)
     	->setBody(
     			$this->renderView(
