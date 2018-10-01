@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f81ec84963e2626e2f4004e52263a7b",
+    "content-hash": "6e01f6674dfa0cfa4e15b397e6fdc994",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1511,34 +1511,33 @@
         },
         {
             "name": "ocramius/proxy-manager",
-            "version": "2.2.2",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/ProxyManager.git",
-                "reference": "14b137b06b0f911944132df9d51e445a35920ab1"
+                "reference": "e18ac876b2e4819c76349de8f78ccc8ef1554cd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/14b137b06b0f911944132df9d51e445a35920ab1",
-                "reference": "14b137b06b0f911944132df9d51e445a35920ab1",
+                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/e18ac876b2e4819c76349de8f78ccc8ef1554cd7",
+                "reference": "e18ac876b2e4819c76349de8f78ccc8ef1554cd7",
                 "shasum": ""
             },
             "require": {
-                "ocramius/package-versions": "^1.1.3",
-                "php": "^7.2.0",
-                "zendframework/zend-code": "^3.3.0"
+                "ocramius/package-versions": "^1.1.1",
+                "php": "^7.1.0",
+                "zendframework/zend-code": "^3.1.0"
             },
             "require-dev": {
-                "couscous/couscous": "^1.6.1",
+                "couscous/couscous": "^1.5.2",
                 "ext-phar": "*",
-                "humbug/humbug": "1.0.0-RC.0@RC",
-                "nikic/php-parser": "^3.1.1",
-                "padraic/phpunit-accelerator": "dev-master@DEV",
+                "humbug/humbug": "dev-master@DEV",
+                "nikic/php-parser": "^3.0.4",
                 "phpbench/phpbench": "^0.12.2",
-                "phpstan/phpstan": "dev-master#856eb10a81c1d27c701a83f167dc870fd8f4236a as 0.9.999",
-                "phpstan/phpstan-phpunit": "dev-master#5629c0a1f4a9c417cb1077cf6693ad9753895761",
-                "phpunit/phpunit": "^6.4.3",
-                "squizlabs/php_codesniffer": "^2.9.1"
+                "phpstan/phpstan": "^0.6.4",
+                "phpunit/phpunit": "^5.6.4",
+                "phpunit/phpunit-mock-objects": "^3.4.1",
+                "squizlabs/php_codesniffer": "^2.7.0"
             },
             "suggest": {
                 "ocramius/generated-hydrator": "To have very fast object to array to object conversion for ghost objects",
@@ -1577,113 +1576,7 @@
                 "proxy pattern",
                 "service proxies"
             ],
-            "time": "2018-09-27T13:45:01+00:00"
-        },
-        {
-            "name": "paymentsuite/authorizenet-bundle",
-            "version": "v1.5.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PaymentSuite/AuthorizenetBundle.git",
-                "reference": "27902d6b417de05c9b57e77d4953ab075ee16e1a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/PaymentSuite/AuthorizenetBundle/zipball/27902d6b417de05c9b57e77d4953ab075ee16e1a",
-                "reference": "27902d6b417de05c9b57e77d4953ab075ee16e1a",
-                "shasum": ""
-            },
-            "require": {
-                "paymentsuite/payment-core-bundle": ">=1.1",
-                "php": ">=5.3.3"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PaymentSuite\\AuthorizenetBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marc Morera",
-                    "email": "yuhu@mmoreram.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/PaymentSuite/paymentsuite/contributors"
-                }
-            ],
-            "description": "Authorize.net PaymentSuite Component",
-            "keywords": [
-                "authorizenet",
-                "ecommerce",
-                "payment"
-            ],
-            "time": "2015-02-10T02:08:17+00:00"
-        },
-        {
-            "name": "paymentsuite/payment-core-bundle",
-            "version": "v1.5.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PaymentSuite/PaymentCoreBundle.git",
-                "reference": "f4f08066327e174e54d1213b044a906689b7f80e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/PaymentSuite/PaymentCoreBundle/zipball/f4f08066327e174e54d1213b044a906689b7f80e",
-                "reference": "f4f08066327e174e54d1213b044a906689b7f80e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "psr/log": "~1.0",
-                "symfony/config": ">=2.2",
-                "symfony/dependency-injection": ">=2.2",
-                "symfony/event-dispatcher": ">=2.2",
-                "symfony/http-kernel": ">=2.2"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PaymentSuite\\PaymentCoreBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marc Morera",
-                    "email": "yuhu@mmoreram.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/PaymentSuite/paymentsuite/contributors"
-                }
-            ],
-            "description": "PaymentCore PaymentSuite Component",
-            "keywords": [
-                "ecommerce",
-                "payment",
-                "paymentsuite"
-            ],
-            "time": "2015-03-16T15:18:19+00:00"
+            "time": "2017-05-04T11:12:50+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",

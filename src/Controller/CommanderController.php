@@ -188,5 +188,13 @@ class CommanderController extends Controller
     	}
     	return new JsonResponse($jsonData);
     }
+    
+    /**
+     * @Route("/finish-payment", name="finish_payment_commander_controller")
+     */
+    public function finischPayment(){
+    	//send mail to client
+    	//show confirm payment
+    }
 
 }

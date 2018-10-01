@@ -2,82 +2,105 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<div id="myCarousel" class="carousel slide content"
-		data-ride="carousel">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-			<li data-target="#myCarousel" data-slide-to="3"></li>
-
-		</ol>
-
-		<div class="carousel-inner">
-			<div class="item active" id="depot">
-				<img src="/images/marche2.png" style="min-height:500px;max-height:500px;width:100%"/>
-
-				<div class="carousel-caption d-none d-md-block">
-					<h3>{{ 'mma.home.depot'|trans }}</h3>
-					<p>{{ 'mma.home.depot.comment'|trans }}</p>
-				</div>
-			</div>
-			<div class="item" id="exposition">
-				<img src="/images/marche1.png"  style="min-height:500px;max-height:500px;width:100%"/>
-				<div class="carousel-caption d-none d-md-block">
-					<h3>{{ 'mma.home.exposition'|trans }}</h3>
-					<p>{{ 'mma.home.exposition.comment'|trans }}</p>
-				</div>
-			</div>
-			<div class="item" id="transport">
-				<img src="/images/transport.png" style="min-height:500px;max-height:500px;width:100%" />
-				<div class="carousel-caption d-none d-md-block">
-					<h3>{{ 'mma.home.import'|trans }}</h3>
-					<p>{{ 'mma.home.import.comment'|trans }}</p>
-				</div>
-			</div>
-			<div class="item" id="region">
-				<img src="/images/regionsdeprovenance.png"  style="min-height:500px;max-height:500px;width:100%"/>
-				<div class="carousel-caption d-none d-md-block">
-					<h3>{{ 'mma.home.origin'|trans }}</h3>
-					<p>{{ 'mma.home.origin.comment'|trans }}</p>
-				</div>
-			</div>
-		</div>
-
-		<!-- Left and right controls -->
-		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-			<span class="glyphicon glyphicon-chevron-left"></span> <span
-			class="sr-only"></span>
-		</a> <a class="right carousel-control" href="#myCarousel"
-			data-slide="next"> <span
-			class="glyphicon glyphicon-chevron-right"></span> <span
-			class="sr-only"></span>
-		</a>
+<div class="row">
+    <div class="col-lg-9">
+    	<div id="myCarousel" class="carousel slide content"
+    		data-ride="carousel">
+    		<!-- Indicators -->
+    		<ol class="carousel-indicators">
+    			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    			<li data-target="#myCarousel" data-slide-to="1"></li>
+    			<li data-target="#myCarousel" data-slide-to="2"></li>
+    			<li data-target="#myCarousel" data-slide-to="3"></li>
+    
+    		</ol>
+    
+    		<div class="carousel-inner">
+    			<div class="item active" id="depot">
+    				<img src="/images/marche2.png" style="min-height:500px;max-height:500px;width:100%"/>
+    
+    				<div class="carousel-caption d-none d-md-block">
+    					<h3>{{ 'mma.home.depot'|trans }}</h3>
+    					<p>{{ 'mma.home.depot.comment'|trans }}</p>
+    				</div>
+    			</div>
+    			<div class="item" id="exposition">
+    				<img src="/images/marche1.png"  style="min-height:500px;max-height:500px;width:100%"/>
+    				<div class="carousel-caption d-none d-md-block">
+    					<h3>{{ 'mma.home.exposition'|trans }}</h3>
+    					<p>{{ 'mma.home.exposition.comment'|trans }}</p>
+    				</div>
+    			</div>
+    			<div class="item" id="transport">
+    				<img src="/images/transport.png" style="min-height:500px;max-height:500px;width:100%" />
+    				<div class="carousel-caption d-none d-md-block">
+    					<h3>{{ 'mma.home.import'|trans }}</h3>
+    					<p>{{ 'mma.home.import.comment'|trans }}</p>
+    				</div>
+    			</div>
+    			<div class="item" id="region">
+    				<img src="/images/regionsdeprovenance.png"  style="min-height:500px;max-height:500px;width:100%"/>
+    				<div class="carousel-caption d-none d-md-block">
+    					<h3>{{ 'mma.home.origin'|trans }}</h3>
+    					<p>{{ 'mma.home.origin.comment'|trans }}</p>
+    				</div>
+    			</div>
+    		</div>
+    
+    		<!-- Left and right controls -->
+    		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    			<span class="glyphicon glyphicon-chevron-left"></span> <span
+    			class="sr-only"></span>
+    		</a> <a class="right carousel-control" href="#myCarousel"
+    			data-slide="next"> <span
+    			class="glyphicon glyphicon-chevron-right"></span> <span
+    			class="sr-only"></span>
+    		</a>
+    	</div>
 	</div>
-	<div class="row" style="margin-top: 30px">
-		<div class="col-lg-12">
-			<div class="col-lg-2 shakeme">
-                {{  include("commun/simple-product.html.twig", {'image':'/images/legumes/gombo.PNG', 'nom':'Gombo','price':'2 EURO'}) }}
-			</div>
-			<div class="col-lg-2 shakeme">
-                {{  include("commun/simple-product.html.twig", {'image':'/images/legumes/ignameblanc.PNG', 'nom':'Igname blanc','price':'2 EURO'}) }}
-			</div>
-			<div class="col-lg-2 shakeme">
-                {{  include("commun/simple-product.html.twig", {'image':'/images/legumes/mais.PNG', 'nom':'Mais','price':'2 EURO'}) }}
-			</div>
-			<div class="col-lg-2 shakeme">
-                {{  include("commun/simple-product.html.twig", {'image':'/images/legumes/plantain.PNG', 'nom':'Plantain','price':'2 EURO'}) }}
-			</div>
-			<div class="col-lg-2 shakeme">
-                {{  include("commun/simple-product.html.twig", {'image':'/images/legumes/pommes-de-terre.PNG', 'nom':'Pommes','price':'2 EURO'}) }}
-			</div>
-			<div class="col-lg-2 shakeme">
-                {{  include("commun/simple-product.html.twig", {'image':'/images/legumes/riz.PNG', 'nom':'Riz','price':'2 EURO'}) }}
-			</div>
-		</div>
+	<div class="col-lg-3">
+	
+		<a href="#" class="fa-start  fa fa-facebook"></a>
+		<a href="#" class="fa-start fa fa-twitter"></a>
+		<a href="#" class="fa-start fa fa-youtube"></a>
+		
+		<form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <img src="/images/avatar2.png" alt="Avatar" class="avatar">
+    </div>
 
+    <div class="container-connection">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" class="form-control" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" class="form-control" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+
+  </form>
 	</div>
+</div>
+<div class="row" style="margin-top: 30px">
+
+		<div class="col-lg-3 shakeme">
+            {{  include("commun/simple-product.html.twig", {'image':'/images/legumes/gombo.PNG', 'nom':'Gombo','price':'2 EURO'}) }}
+		</div>
+		<div class="col-lg-3 shakeme">
+            {{  include("commun/simple-product.html.twig", {'image':'/images/legumes/ignameblanc.PNG', 'nom':'Igname blanc','price':'2 EURO'}) }}
+		</div>
+		<div class="col-lg-3 shakeme">
+            {{  include("commun/simple-product.html.twig", {'image':'/images/legumes/mais.PNG', 'nom':'Mais','price':'2 EURO'}) }}
+		</div>
+		<div class="col-lg-3 shakeme">
+            {{  include("commun/simple-product.html.twig", {'image':'/images/legumes/plantain.PNG', 'nom':'Plantain','price':'2 EURO'}) }}
+		</div>
+</div>
 {% endblock %}
 
 {% block stylesheets %}

@@ -1,7 +1,4 @@
 {
-    "authorizenet/authorizenet": {
-        "version": "1.9.7"
-    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -83,20 +80,8 @@
     "fig/link-util": {
         "version": "1.0.0"
     },
-    "goetas-webservices/xsd2php-runtime": {
-        "version": "v0.2.8"
-    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
-    },
-    "jms/metadata": {
-        "version": "1.6.0"
-    },
-    "jms/parser-lib": {
-        "version": "1.0.0"
-    },
-    "jms/serializer": {
-        "version": "1.13.0"
     },
     "monolog/monolog": {
         "version": "1.23.0"
@@ -107,15 +92,6 @@
     "ocramius/proxy-manager": {
         "version": "2.1.1"
     },
-    "paymentsuite/authorizenet-bundle": {
-        "version": "v1.5.3"
-    },
-    "paymentsuite/payment-core-bundle": {
-        "version": "v1.5.3"
-    },
-    "phpcollection/phpcollection": {
-        "version": "0.5.0"
-    },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
     },
@@ -124,9 +100,6 @@
     },
     "phpdocumentor/type-resolver": {
         "version": "0.4.0"
-    },
-    "phpoption/phpoption": {
-        "version": "1.5.0"
     },
     "psr/cache": {
         "version": "1.0.1"
