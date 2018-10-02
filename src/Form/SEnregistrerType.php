@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -22,7 +23,10 @@ class SEnregistrerType extends AbstractType
     			'required'=>true,'attr' => array('class' => 'form-control')))
     	->add('motDePass', PasswordType::class, array(
     			'label' => $translator->trans('mma.senregistrer.password'),
-    			'required'=>true,'attr' => array('class' => 'form-control')));
+    			'required'=>true,'attr' => array('class' => 'form-control')))
+        ->add('rememberMe', CheckboxType::class, array(
+                'label' => $translator->trans('mma.senregistrer.rememberMe'),
+                'required'=>true,'attr' => array('class' => 'form-group')));
     	if ($options['admin-login']) {
     		$builder->add('language', ChoiceType::class,  array('required'=>true,
     		'choices' => array(

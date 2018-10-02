@@ -34,6 +34,11 @@ class Login
      * @ORM\Column(name="language", type="string", nullable=true)
      */
     private $language;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $rememberMe;
     
     
     /**
@@ -115,6 +120,18 @@ class Login
     public function getMotDePass()
     {
     	return $this->motDePass;
+    }
+
+    public function getRememberMe(): ?bool
+    {
+        return $this->rememberMe;
+    }
+
+    public function setRememberMe(?bool $rememberMe): self
+    {
+        $this->rememberMe = $rememberMe;
+
+        return $this;
     }
     
 }

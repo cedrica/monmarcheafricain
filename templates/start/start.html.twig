@@ -2,6 +2,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {{  include("commun/error-info-success.html.twig") }}
 <div class="row">
     <div class="col-lg-9">
     	<div id="myCarousel" class="carousel slide content"
@@ -66,21 +67,19 @@
 		
 		<form class="modal-content animate" action="/action_page.php">
     <div class="imgcontainer">
-      <img src="/images/avatar2.png" alt="Avatar" class="avatar">
+      <img src="/images/avatar2.png" alt="Avatar" class="avatar" style="height: 80px; width: 80px">
     </div>
 
     <div class="container-connection">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" class="form-control" placeholder="Enter Username" name="uname" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" class="form-control" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-      <span class="psw">Forgot <a href="#">password?</a></span>
+        {{ form_start(sEnregisterForm) }}
+        {{ form_widget(sEnregisterForm) }}
+		<div class="modal-footer" style="padding-left:0px;padding-right:0px">
+			<button type="submit" style="width: 100%" class="pull-left" >
+                {{ 'mma.connection'|trans }}
+			</button>
+			<a href="{{ path('connection_controller_mot_de_pas_oublie',{'_locale':app.request.locale}) }}" class="pull-left">{{ 'mma.connection.passwordvorgoten'|trans }}</a>
+		</div>
+        {{ form_end(sEnregisterForm) }}
     </div>
 
   </form>

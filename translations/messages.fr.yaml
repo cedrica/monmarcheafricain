@@ -212,6 +212,8 @@ mma.recette.reciept: Recette
 ########## SENREGISTRER FORM ###############
 mma.senregistrer.email: E-mail
 mma.senregistrer.password: Mot de passe
+mma.senregistrer.rememberMe: me rappeler
+
 ########## STEP FORM ###############
 mma.step.time: Temps
 mma.step.description: Description

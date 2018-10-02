@@ -185,6 +185,7 @@ mma.editadress.addnewadress: Add new adress
 ########## EDIT LOGIN FORM ###############
 mma.editlogin.password: Password
 mma.editlogin.email: E-mail
+mma.editlogin.rememberMe: remember me
 
 ########## INGREDIENT FORM ###############
 mma.ingredient.name: name
@@ -218,6 +219,7 @@ mma.recette.reciept: Reciept
 ########## SENREGISTRER FORM ###############
 mma.senregistrer.email: E-mail
 mma.senregistrer.password: Password
+mma.senregistrer.rememberMe: remember me
 ########## STEP FORM ###############
 mma.step.time: Time
 mma.step.description: Description
