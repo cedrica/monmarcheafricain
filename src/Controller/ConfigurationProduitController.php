@@ -92,7 +92,7 @@ class ConfigurationProduitController extends Controller
             $em->flush();
 
         }
-        return $this->redirectToRoute('admin_controller_configuration',
+        return $this->redirectToRoute('configuration_controller_init',
             array(
                 '_locale'=>$request->getLocale(),
                 'alertType' => 'succes',
@@ -111,14 +111,14 @@ class ConfigurationProduitController extends Controller
             $produit = self::makeProduit($produit, $request,false);
             $em->persist($produit);
             $em->flush();
-            return $this->redirectToRoute('admin_controller_configuration',
+            return $this->redirectToRoute('configuration_controller_init',
                 array(
                     '_locale'=>$request->getLocale(),
                     'alertType' => 'succes',
                     'message' => 'Produit editer avec succes'
                 ));
         }
-        return  $this->redirectToRoute('admin_controller_configuration');
+        return  $this->redirectToRoute('configuration_controller_init');
     }
     
     public function makeProduit($produit, $request,$editModus){

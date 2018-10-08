@@ -28,7 +28,7 @@
 					<a class="btn michou-btn"
 						href="{{ path('configuration_recette_controller_remove',{'recetteId': recetteId}) }}">Oui</a>
 					<a type="button" class="btn btn-default"
-						href="{{ path('configuration_controller_init_view',{'cfg':'rct'}) }}">Non</a>
+						href="{{ path('configuration_controller_update',{'cfg':'rct'}) }}">Non</a>
 					{% elseif todo == 'remove_step'%}
 					<a class="btn michou-btn" type="button"
 						href="{{ path('confirm_controller_remove_step',{'recetteId':recetteId, 'stepId':step.id})}}">Oui</a>

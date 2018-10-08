@@ -19,7 +19,7 @@ class CategoriesController extends Controller
     	$request->setLocale($_locale);
         $affichage = $request->query->get('affichage');
         $produitRepositorty = $this->getDoctrine()->getRepository(Produit::class);
-        $produits =  $produitRepositorty->findByCategoryId(bindec($catId));
+        $produits =  $produitRepositorty->findByCategoryId($catId);
         $productCount = array('%productCount%' => sizeof($produits));
         return $this->render('categories/categories.html.twig', array(
             'page' => 'categories',
@@ -44,7 +44,6 @@ class CategoriesController extends Controller
 	    	$maxPrice = $request->request->get('maxprice');
 	    	$sortBy = $request->request->get('sortby');
 	    	$sortBy = ($sortBy == "null")? 'asc':$sortBy;
-	    	var_dump($sortBy);
 	    	$action = $request->request->get('action');
 	    	$request->setLocale($_locale);
 	    	$affichage = $request->query->get('affichage');
@@ -56,13 +55,23 @@ class CategoriesController extends Controller
 	    			'cat' => $cat,
 	    			'affichage' => $affichage,
 	    			'produits' => $produits,
-	    			'productCount' => $productCount
+	    			'productCount' => $productCount,
+	    			'activehome' => '',
+	    			'activecategorie' => 'active',
+	    			'activerecettes' => '',
+	    			'activelivraison' => '',
+	    			'activecontact' => ''
 	    	));
     	}
     	return $this->redirectToRoute('categories_controller_categories', array(
     			'page' => 'categories',
     			'cat' => null,
-    			'affichage' => null
+    			'affichage' => null,
+    			'activehome' => '',
+    			'activecategorie' => 'active',
+    			'activerecettes' => '',
+    			'activelivraison' => '',
+    			'activecontact' => ''
     	));
     }
 }

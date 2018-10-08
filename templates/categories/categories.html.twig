@@ -93,38 +93,37 @@
 	</div>
 	<div class="row divider"></div>
 	<div class="row">
-
 		{%   if affichage == 'gr' %}
-		{% for produit in produits %}
-		<div class="col-md-4">
-			{{ include('categories/produit-profil.html.twig', {'produit': produit}) }}
-		</div>
-		{% endfor %}
+    		{% for produit in produits %}
+        		<div class="col-lg-4">
+        			{{ include('categories/produit-profil.html.twig', {'produit': produit}) }}
+        		</div>
+    		{% endfor %}
 		{% elseif affichage == 'lst' %}
-		<table>
-			<tbody>
-				{% for produit in produits %}
-				<tr>
-					<td><div class="thumbnail"><img src="/uploads/brochures/{{produit.image}}"
-						height="200px" width="200px" class="img-rounded"></img></div></td>
-					<td><p>
-							{{ produit.nom }}
-						</p>
-						</br>
-						<p style="font-weight: bold">
-							{{ produit.prix }}Euro
-						</p>
-						<br />
-						<div class="btn-group" style="width:100%">
-							<a class="btn btn-success fa fa-shopping-cart" href="{{ path('produit_controller_actualise',{'id':produit.id,'_locale':app.request.locale,'cat':cat, 'affichage':affichage}) }}"
-									style="font-size: 20px;width:30%"></a>
-							<button type="button" class="btn" style="width:70%">Add to basket</button>
-						</div>
-					</td>
-				</tr>
-				{% endfor %}
-			</tbody>
-		</table>
+    		<table>
+    			<tbody>
+    				{% for produit in produits %}
+    				<tr>
+    					<td><div class="thumbnail"><img src="/uploads/brochures/{{produit.image}}"
+    						height="200px" width="200px" class="img-rounded"></img></div></td>
+    					<td><p>
+    							{{ produit.nom }}
+    						</p>
+    						</br>
+    						<p style="font-weight: bold">
+    							{{ produit.prix }}Euro
+    						</p>
+    						<br />
+    						<div class="btn-group" style="width:100%">
+    							<a class="btn btn-success fa fa-shopping-cart" href="{{ path('produit_controller_actualise',{'id':produit.id,'_locale':app.request.locale,'cat':cat, 'affichage':affichage}) }}"
+    									style="font-size: 20px;width:30%"></a>
+    							<button type="button" class="btn" style="width:70%">Add to basket</button>
+    						</div>
+    					</td>
+    				</tr>
+    				{% endfor %}
+    			</tbody>
+    		</table>
 		{% endif %}
 
 	</div>

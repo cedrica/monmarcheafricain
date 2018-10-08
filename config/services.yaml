@@ -30,6 +30,8 @@ services:
     
     #Helper        
     App\Service\ControllerHelper:
+    #MailUtil       
+    App\Util\MailUtil:
     
     #Extension       
     App\Extension\AppExtension:

@@ -8,6 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use App\Entity\Adresse;
 use App\Service\ToJson;
 use App\Entity\Compte;
+use App\Util\MailUtil;
+use App\Entity\Panier;
 use App\Service\ControllerHelper;
 use App\Form\AjouterCarteType;
 use App\Entity\CarteDeCredit;
@@ -190,11 +192,29 @@ class CommanderController extends Controller
     }
     
     /**
-     * @Route("/finish-payment", name="finish_payment_commander_controller")
+     * @Route("{_locale}/finish-payment", name="commander_controller_finish_payment")
      */
-    public function finischPayment(){
-    	//send mail to client
-    	//show confirm payment
+    public function finischPayment(Request $request,MailUtil $mailUtil, \Swift_Mailer $mailer, $_locale){
+    	$session = $request->getSession();
+    	$login = $session->get('compte')->getLogin();
+    	$reciever = $login->getEmail();
+    	$message = $this->renderView('/emails/facture.html.twig');
+    	$mailUtil->sendInvoicePerMailTo($request,$mailer,$reciever,$message);
+    	$mailUtil->sendInvoicePerMailTo($request,$mailer,'Karmelle.canton-bacara@orange.fr','Vous avez recu un message. veuillez verifier votre boite strato svp');
+    	
+    	$session->set('panier', null);
+    	$session->set('quantite', 0);
+    	//$session->set('deliveryAdress', null);
+    	//$session->set('allerALaCaisse', false);
+    	return $this->render('/commander/achat-terminer.html.twig',
+    			array(
+    					'page'=>'achat-terminer',
+    					'activehome' => '',
+    					'activecategorie' => 'active',
+    					'activerecettes' => '',
+    					'activelivraison' => '',
+    					'activecontact' => '',
+    			));
     }
 
 }

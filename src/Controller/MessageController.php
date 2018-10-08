@@ -29,7 +29,12 @@ class MessageController extends Controller
         $mailer->send($message);
         return $this->render('/contact/message-envoye/message-envoye.html.twig',
             array(
-                'page'=>'message-envoye'
+            		'page'=>'message-envoye',
+            		'activehome' => '',
+            		'activecategorie' => '',
+            		'activerecettes' => '',
+            		'activelivraison' => '',
+            		'activecontact' => 'active'
             ));
     }
     
@@ -47,7 +52,7 @@ class MessageController extends Controller
     	->setBody(
     			$this->renderView(
     					// templates/emails/registration.html.twig
-    					'emails/facture.html.twig'
+    					'/emails/facture.html.twig'
     					),
     			'text/html'
     			);

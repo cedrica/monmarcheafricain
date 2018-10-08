@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% block title %}mon marché africain{% endblock %}</title>
 
-<link rel="icon" type="image/x-icon" href="{{ asset('/images/mon-marche-africain-ico.ico') }}" />
+<link rel="icon" type="image/x-icon" href="{{ asset('images/mon-marche-africain-ico.ico') }}" />
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet" />
@@ -31,27 +31,21 @@
 <link href="{{ asset('css/michouafroshop.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/tree.css') }}" rel="stylesheet" />
 
+{% block javascripts %}
+
+{% endblock %}
+
+
+{% block stylesheets %}
+{% endblock %}
 </head>
 
 <body >
-
-
-{{  include("commun/error-info-success.html.twig") }}
-<div style="width:100%">
-
-    <div style="width:50%; margin: 0 auto; margin-top:50px">
-        <p style="text-align: center;">{{ 'mma.changepassword.enteryouraccountemail'|trans }}</p>
-        <form action="{{path('connection_controller_send-email-for-reseting-password', {'_locale':app.request.locale}) }}" method="post">
-        <div class="well">
-        	<input type="email"
-        			required="true" class="form-control form-group" id="email"
-        			placeholder="l´e-mail de votre compte" name="email">
-        	<button style="background-color: #33cc33; color: #fff" class="btn form-group"
-        	type="submit">{{ 'mma.change.password.requestnewpassword'|trans }}</button>
-        			
-    		</div>
-    	</form>
+    <div class="conatiner">
+    	<div class="row">
+			{% block body %}
+            {% endblock %}
+		</div>
     </div>
-</div>
 </body>
 </html>

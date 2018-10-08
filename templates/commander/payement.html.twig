@@ -5,59 +5,53 @@
 			{{ 'mma.payement.verifyyourdata'|trans }}
 		</div>
 		<div class="panel-body">
-			<table>
+			<table width="100%">
 				<tr>
-					<td>KUNDENNUMMER:</td>
+					<td width="30%" style="text-align: left;">KUNDENNUMMER:</td>
 					<td>{{ app.session.get('compte').id }}</td>
 				</tr>
 				<tr>
-					<td>NOM ET PRENOM:</td>
-					<td>{{ app.session.get('compte').nom }} {{ app.session.get('compte').prenom }}</td>
+					<td style="text-align: left;">NOM ET PRENOM:</td>
+					<td style="text-align: left;">{{ app.session.get('compte').nom }} {{ app.session.get('compte').prenom }}</td>
 				</tr>
 			</table>
 			<div class="divider"></div>
-			<table>
+			<table width="100%">
 				<tr>
-					<td>BOITE POSTALE & VILLE:</td>
-					<td>{{ app.session.get('deliveryAdress').boitePostale }} {{ app.session.get('deliveryAdress').ville }}
+					<td  width="30%" style="text-align: left;">BOITE POSTALE & VILLE:</td>
+					<td style="text-align: left;">{{ app.session.get('deliveryAdress').boitePostale }} {{ app.session.get('deliveryAdress').ville }}
 					</td>
 				</tr>
 				<tr>
-					<td>RUE:</td>
-					<td>{{ app.session.get('deliveryAdress').rueEtNr }}</td>
+					<td style="text-align: left;">RUE:</td>
+					<td style="text-align: left;">{{ app.session.get('deliveryAdress').rueEtNr }}</td>
 				</tr>
 			</table>
 			<div class="divider"></div>
-			<table>
+			<table width="100%">
 				<tr>
-					<td>MOYEN DE LIVRAISON:</td>
-					<td>{{ app.session.get('deliveryWay') }}</td>
+					<td  width="30%" style="text-align: left;">MOYEN DE LIVRAISON:</td>
+					<td style="text-align: left;">{{ app.session.get('deliveryWay') }}</td>
 				</tr>
 			</table>
 			
 			<div class="divider"></div>
-			<table class="table">
+			<table  width="100%">
 				{%   for panierItem in app.session.get('panier').panieritems %}
-				<tr valign="center">
-					<table>
 						<tr>
-							<td>
-									<b>{{  panierItem.produit.nom }} ({{  panierItem.quantite }} )</b>
+							<td style="text-align: left;" width="30%" >
+									<b>{{  panierItem.produit.nom }}</b>
 								</td>
-								<td>{{ 'mma.deliveryway.unitprice'|trans }}: {{  panierItem.produit.prix }}
+								<td style="text-align: left;">{{ 'mma.deliveryway.unitprice'|trans }}: {{  panierItem.produit.prix }}
 								€</td>
 						</tr>
-					</table>
-					</td>
-
-				</tr>
 				{%  endfor %}
 			</table>
 		</div>
 	</div>
 </div>
 <div class="col-lg-12 form-group">
-			<a href="{{ path('') }}" class="btn btn-primary">Finish payment</a>
+			<a href="{{ path('commander_controller_finish_payment',{'_locale':app.request.locale}) }}" class="btn btn-primary">Finish payment</a>
 </div>
 
 

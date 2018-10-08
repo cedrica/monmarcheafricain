@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Compte;
+use App\Entity\Login;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -36,25 +37,5 @@ class CompteRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Compte
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
     
-    public function findByEmail($email): ?Compte
-    {
-    		return $this->createQueryBuilder('c')
-    		->leftJoin('c.login', 'l')
-    		->addSelect('c')
-    		->andWhere('l.email = :email')
-    		->setParameter('email', $email)
-    		->getQuery()->getOneOrNullResult();
-    }
 }

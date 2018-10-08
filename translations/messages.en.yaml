@@ -70,8 +70,10 @@ mma.configuration.editer.produit.action: Offer
 mma.configuration.recipes: Recipe
 mma.configuration.products: Products
 mma.configuration.clients: Clients
-mma.configuration.categories: Categories
+mma.configuration.categoriescatalog: Categories
 mma.configuration.save.edited.product: Save
+mma.configuration.messages: Texts
+
 ########## CONNEXION ###############
 mma.connection: Log in
 mma.logout: Log out

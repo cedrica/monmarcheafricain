@@ -6,6 +6,6 @@
     	<button type="submit" class="btn btn-">
     	    {{ 'mma.save'|trans }}
     	</button>
-    	<a href="{{ path('admin_controller_configuration',{'_locale':app.request.locale}) }}" class="btn btn-primary" style="margin-right: 10px">Annuler</a>
+    	<a href="{{ path('configuration_controller_init',{'_locale':app.request.locale}) }}" class="btn btn-primary" style="margin-right: 10px">Annuler</a>
     </div>
     {{ form_end(categoryNodeForm) }}

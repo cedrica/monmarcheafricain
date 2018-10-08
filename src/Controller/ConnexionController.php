@@ -149,7 +149,6 @@ class ConnexionController extends Controller
     public function entrerLesNouvellesDonneesChangerAction(Request $request)
     {
     	$email = $request->get('email');
-    	var_dump($email);
     	return $this->render('/connexion/we-send-you-an-email.html.twig',
     			array(
     					'page'=>'we-send-you-an-email',

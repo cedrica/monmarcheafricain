@@ -1,36 +1,52 @@
+<p>Chere monsieurs/madame<br>
+merci pour votre achat sur notre cite. ci dessous la liste de votre commande 
+y compris les données de tranfer d´argent. Une fois votre virement recu nous enverons votre colis selon le moyen d´envoie
+que vous avez selection<br>
 
-<div class="panel panel-default">
-	<div class="panel-heading">
-		{{ 'mma.payement.verifyyourdata'|trans }}
-	</div>
-	<div>
-		<table>
+Très coordialement
+
+Votre marché africain<p>
+
+		<table border="1px solid black" style="width:100%">
 			<tr>
-				<td>KUNDENNUMMER:</td>
-				<td>{{ app.session.get('compte').id }}</td>
+				<td width="50%" style="padding: 5px; font-weight: bold;">KUNDENNUMMER:</td>
+				<td style="padding: 5px; text-align: left;">{{ app.session.get('compte').id }}</td>
 			</tr>
-			<tr>
-				<td>NOM ET PRENOM:</td>
-				<td>{{ app.session.get('compte').nom }} {{ app.session.get('compte').prenom }}</td>
+			<tr >
+				<td style="padding: 5px; font-weight: bold;">NOM ET PRENOM:</td>
+				<td style="padding: 5px; text-align: left;">{{ app.session.get('compte').nom }} {{ app.session.get('compte').prenom }}</td>
 			</tr>
 		</table>
-		<table>
+		<table  border="1px solid black" style="width:100%">
 			<tr>
-				<td>BOITE POSTALE & VILLE:</td>
-				<td>{{ app.session.get('deliveryAdress').boitePostale }} {{ app.session.get('deliveryAdress').ville }}
+				<td width="50%" style="padding: 5px; font-weight: bold;">BOITE POSTALE & VILLE:</td>
+				<td style="padding: 5px; text-align: left;">{{ app.session.get('deliveryAdress').boitePostale }} {{ app.session.get('deliveryAdress').ville }}
 				</td>
 			</tr>
 			<tr>
-				<td>RUE:</td>
-				<td>{{ app.session.get('deliveryAdress').rueEtNr }}</td>
+				<td style="padding: 5px; font-weight: bold;">RUE:</td>
+				<td style="padding: 5px; text-align: left;">{{ app.session.get('deliveryAdress').rueEtNr }}</td>
 			</tr>
 		</table>
-		<div class="divider"></div>
-		<table>
+		<table  border="1px solid black" style="width:100%">
 			<tr>
-				<td>MOYEN DE LIVRAISON:</td>
-				<td>{{ app.session.get('deliveryWay') }}</td>
+				<td width="50%" style="padding: 5px; font-weight: bold;">MOYEN DE LIVRAISON:</td>
+				<td style="padding: 5px; text-align: left;">{{ app.session.get('deliveryWay') }}</td>
 			</tr>
 		</table>
-	</div>
-</div>
+		
+		<table  border="1px solid black"style="width:100%">
+		    {% if app.session.get('panier') != null %}
+				{%   for panierItem in app.session.get('panier').panieritems %}
+						<tr>
+							<td width="50%" style="padding: 5px">
+									<b>{{  panierItem.produit.nom }} ({{  panierItem.quantite }} )</b>
+								</td>
+							<td width="50%" style="padding: 5px; text-align: left;">
+							    {{ 'mma.deliveryway.unitprice'|trans }}: {{  panierItem.produit.prix }}€ <br>
+							    {{ 'mma.basket.quantity'|trans }}: {{  panierItem.quantite }}
+							</td>
+						</tr>
+				{%  endfor %}
+		    {% endif %}
+		</table>

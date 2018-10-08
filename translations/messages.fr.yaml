@@ -70,6 +70,8 @@ mma.configuration.recipe: Recettes
 mma.configuration.products: Produits
 mma.configuration.clients: Clients
 mma.configuration.save.edited.product: Sauvegarder
+mma.configuration.categoriescatalog: Categories
+mma.configuration.messages: Textes
 
 ########## CONNEXION ###############
 mma.connection: Connexion
@@ -264,6 +266,13 @@ mma.verifyadress.continue: Continuer
 mma.payement.verifyyourdata: VERIFIER TES DONNÉES
 mma.payement.payementmode:  MODE DE PAYEMENT
 mma.payement.payementmodecheque: PAR VIREMENT
+
+
+######### CHANGE  ###############
+mma.changepassword.enteryouraccountemail: Entrez votre Email 
+mma.change.password.requestnewpassword: Envoyer
+mma.messages.wesendyouanemailtothegivenadress: Nous avons envoyé une Email veuillez contacter votre boite et suivez les instructions qui y sont décrites
+mma.messages.clickhiertoresetyourpassword: Changer de mot de passe
 
 ######### CONFIRM ###############
 mma.confirm.doyourealywanttoremovethisclient: Docyoucrealy want to remove this client?

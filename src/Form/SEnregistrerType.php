@@ -25,8 +25,8 @@ class SEnregistrerType extends AbstractType
     			'label' => $translator->trans('mma.senregistrer.password'),
     			'required'=>true,'attr' => array('class' => 'form-control')))
         ->add('rememberMe', CheckboxType::class, array(
-                'label' => $translator->trans('mma.senregistrer.rememberMe'),
-                'required'=>true,'attr' => array('class' => 'form-group')));
+        		'required'=>false,
+                'label' => $translator->trans('mma.senregistrer.rememberMe')));
     	if ($options['admin-login']) {
     		$builder->add('language', ChoiceType::class,  array('required'=>true,
     		'choices' => array(

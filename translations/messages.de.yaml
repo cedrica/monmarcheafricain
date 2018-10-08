@@ -72,6 +72,8 @@ mma.configuration.recipes: Rezept
 mma.configuration.products: Produkte
 mma.configuration.clients: Kunde
 mma.configuration.save.edited.product: Speichern
+mma.configuration.categoriescatalog: Kategorien
+mma.configuration.messages: Texts
 ########## CONNEXION ###############
 mma.connection: Einloggen
 mma.logout: Ausloggen
@@ -271,6 +273,12 @@ mma.verifyadress.continue: Weiter
 mma.payement.verifyyourdata: VERIFIZIEREN SIE BITTE IHRE DATEN
 mma.payement.payementmode: ZAHLUNGSMODE
 mma.payement.payementmodecheque: PER ÜBERWEISUNG
+
+######### CHANGE  ###############
+mma.changepassword.enteryouraccountemail: Email bitte eingeben
+mma.change.password.requestnewpassword: Senden
+mma.messages.wesendyouanemailtothegivenadress: Wir haben Ihnen einen Nachricht geschickt prüfen Sie ihr Postfach und folgen Sie die beschrieben Hinweise
+mma.messages.clickhiertoresetyourpassword: Password ändern
 
 ######### MESSAGES ###############
 mma.messages.accountnotavailable: Konto nicht verfügbar

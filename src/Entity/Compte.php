@@ -54,10 +54,6 @@ class Compte
      */
     private $adresses;
     
-    /**
-     * @ORM\OneToMany(targetEntity="CarteDeCredit", mappedBy="compte",cascade={"persist"}, orphanRemoval=true)
-     */
-    private $cartesDeCredit;
     
     /**
      * @ORM\OneToOne(targetEntity="Login",cascade={"persist"})
@@ -68,7 +64,6 @@ class Compte
     
     public function  __construct(){
     	$this->adresses = new ArrayCollection();
-    	$this->cartesDeCredit = new ArrayCollection();
     }
     /**
      * Get id
@@ -200,27 +195,6 @@ class Compte
     {
     	return $this->login;
     }
-    /**
-     * CarteDeCredit $carteDeCredit
-     */
-    public function getCartesDeCredit()
-    {
-    	return $this->cartesDeCredit;
-    }
-    
-    public function addCarteDeCredit(CarteDeCredit $carteDeCredit)
-    {
-    	if ($this->cartesDeCredit->contains($carteDeCredit)) {
-    		return;
-    	}
-    	
-    	$this->cartesDeCredit[] = $carteDeCredit;
-    }
-    
-    public function removeCarteDeCredit(CarteDeCredit $carteDeCredit)
-    {
-    	$this->cartesDeCredit->removeElement($carteDeCredit);
-    }
     
     public function addAdresse(Adresse $adresse)
     {
@@ -273,30 +247,5 @@ class Compte
 
         return $this;
     }
-
-    public function addCartesDeCredit(CarteDeCredit $cartesDeCredit): self
-    {
-        if (!$this->cartesDeCredit->contains($cartesDeCredit)) {
-            $this->cartesDeCredit[] = $cartesDeCredit;
-            $cartesDeCredit->setCompte($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCartesDeCredit(CarteDeCredit $cartesDeCredit): self
-    {
-        if ($this->cartesDeCredit->contains($cartesDeCredit)) {
-            $this->cartesDeCredit->removeElement($cartesDeCredit);
-            // set the owning side to null (unless already changed)
-            if ($cartesDeCredit->getCompte() === $this) {
-                $cartesDeCredit->setCompte(null);
-            }
-        }
-
-        return $this;
-    }
-    
-    
 }
 

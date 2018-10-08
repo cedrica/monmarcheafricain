@@ -58,6 +58,7 @@ mma.configuration.recipe: Recettes
 mma.configuration.products: Produits
 mma.configuration.clients: Clients
 mma.configuration.save.edited.product: Sauvegarder
+mma.configuration.categories: __mma.configuration.categories
 mma.connection: Connexion
 mma.logout: Deconnexion
 mma.connection.authenticateyourself: Identifiez-vous
@@ -174,6 +175,7 @@ mma.recette.image: Image
 mma.recette.reciept: Recette
 mma.senregistrer.email: E-mail
 mma.senregistrer.password: 'Mot de passe'
+mma.senregistrer.rememberMe: 'me rappeler'
 mma.step.time: Temps
 mma.step.description: Description
 mma.recipecatalog.searchrecipe: 'Chercher une recette ...'
@@ -209,12 +211,13 @@ mma.verifyadress.continue: Continuer
 mma.payement.verifyyourdata: 'VERIFIER TES DONNÉES'
 mma.payement.payementmode: 'MODE DE PAYEMENT'
 mma.payement.payementmodecheque: 'PAR VIREMENT'
+mma.changepassword.enteryouraccountemail: __mma.changepassword.enteryouraccountemail
+mma.change.password.requestnewpassword: __mma.change.password.requestnewpassword
+mma.messages.wesendyouanemailtothegivenadress: 'Nous avons envoyé une Email veuillez contacter votre boite et suivez les instructions qui y sont décrites'
+mma.messages.clickhiertoresetyourpassword: __mma.messages.clickhiertoresetyourpassword
 mma.confirm.doyourealywanttoremovethisclient: 'Docyoucrealy want to remove this client?'
 mma.messages.accountnotavailable: 'Compte non existant'
 mma.configuration.recipes: __mma.configuration.recipes
 mma.productcatalog.productstate: __mma.productcatalog.productstate
-mma.changepassword.enteryouraccountemail: __mma.changepassword.enteryouraccountemail
-mma.change.password.requestnewpassword: __mma.change.password.requestnewpassword
-mma.messages.clickhiertoresetyourpassword: __mma.messages.clickhiertoresetyourpassword
 mma.productcatalog.searchcataloguecategorie: __mma.productcatalog.searchcataloguecategorie
-mma.configuration.categories: __mma.configuration.categories
+mma.save: __mma.save

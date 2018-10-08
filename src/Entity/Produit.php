@@ -244,7 +244,7 @@ class Produit
     private $createdAt;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float", nullable=true)
      */
     private $tax;
 

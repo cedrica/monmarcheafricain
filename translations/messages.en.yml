@@ -149,6 +149,7 @@ mma.editadress.streetnr: 'Street nr.'
 mma.editadress.addnewadress: 'Add new adress'
 mma.editlogin.password: Password
 mma.editlogin.email: E-mail
+mma.editlogin.rememberMe: 'remember me'
 mma.ingredient.name: name
 mma.listofingredient.ingredients: ingredients
 mma.product.name: Name
@@ -174,6 +175,7 @@ mma.recette.image: Image
 mma.recette.reciept: Reciept
 mma.senregistrer.email: E-mail
 mma.senregistrer.password: Password
+mma.senregistrer.rememberMe: 'remember me'
 mma.step.time: Time
 mma.step.description: Description
 mma.recipecatalog.searchrecipe: 'Search recipe ...'
@@ -217,3 +219,4 @@ mma.messages.clickhiertoresetyourpassword: 'Click hier to reset your password'
 mma.confirm.doyourealywanttoremovethisclient: 'Do you realy want to remove this client?'
 mma.messages.accountnotavailable: 'Account not available'
 mma.delivery.where: __mma.delivery.where
+mma.save: __mma.save
