@@ -3,7 +3,6 @@
 namespace App\Repository;
 
 use App\Entity\Compte;
-use App\Entity\Login;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -36,6 +35,18 @@ class CompteRepository extends ServiceEntityRepository
         ;
     }
     */
-
+    public function findByLoginId($loginId): ?Login
+    {
+    	$arr =  $this->createQueryBuilder('c')
+    	// p.category refers to the "category" property on product
+    	->leftJoin('c.login', 'l')
+    	// selects all the category data to avoid the query
+    	->select('l')
+    	->where('l.id = :loginId')
+    	->setParameter('loginId', $loginId)
+    	->getQuery()
+    	->getOneOrNullResult();
+    	return $arr;
+    }
     
 }

@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Controller;
 
 use App\Entity\Login;
+use App\Entity\Compte;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -21,14 +23,14 @@ class ConnexionController extends Controller
         $sEnregisterForm->handleRequest($request);
         if ($sEnregisterForm->isSubmitted() && $sEnregisterForm->isValid()) {
             $email = $login->getEmail();
-            $em = $this->getDoctrine()->getManager();
-            $compte = $helper->trouveLeCompteByEmail($email, $em);
-            if($compte == null){
+            $loginRepository = $this->getDoctrine()->getRepository(Login::class);
+            $loginDB = $loginRepository->findOneByEmail($email);
+            if($loginDB == null){
                 return $this->redirectToRoute('confirm_controller_donnees_de_connexion_invalide');
             }
-            $loginDB = $compte->getLogin();
             if ($loginDB != null) {
                 if (password_verify($login->getMotDePass(), $loginDB->getMotDePass())) {
+                	$compte = $loginDB->getCompte();
                     $allerAlaCaisse = $request->getSession()->get('allerALaCaisse');
                     $request->getSession()->set("compte", $compte);
                     if ($allerAlaCaisse != null && $allerAlaCaisse == true) {
