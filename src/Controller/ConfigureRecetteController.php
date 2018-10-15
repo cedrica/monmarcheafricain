@@ -174,7 +174,7 @@ class ConfigureRecetteController extends Controller
     		$em->flush();
     	}
     	
-    	return $this->redirectToRoute('configuration_controller_init_view', array(
+    	return $this->redirectToRoute('configuration_controller_init', array(
     			"cfg" => 'rct',
     			'_locale'=>$request->getLocale(),
     			'alertType' => 'succes',

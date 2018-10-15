@@ -9,6 +9,7 @@ mma.03connexion: 03. Connexion
 mma.04adress: 04. Adress
 mma.05delivery: 05. Delivery
 mma.06payement: 06. Payement
+mma.save: Save
 
 ########## HOME ###############
 mma.home: Home
@@ -278,8 +279,6 @@ mma.payement.payementmodecheque: Per cheque
 ######### CHANGE  ###############
 mma.changepassword.enteryouraccountemail: Enter your account email
 mma.change.password.requestnewpassword: Send
-mma.messages.wesendyouanemailtothegivenadress: We send you an Email to the entered adress. Just check your Email box and follow the instruction insides
-mma.messages.clickhiertoresetyourpassword: Click hier to reset your password
 
 
 ######### CONFIRM ###############
@@ -289,4 +288,12 @@ mma.confirm.doyourealywanttoremovethisclient: Do you realy want to remove this c
 
 ######### MESSAGES ###############
 mma.messages.accountnotavailable: Account not available
-
+mma.messages.invalidconnectiondata: Données de connexion invalide. Si vous n´avez pas encore de compte veuillez vous enregistrer grace à la fenetre de guauche
+mma.messages.passwordmissmatch: Password missmatch
+mma.messages.emailnotregistered: Email not registered
+mma.messages.checkyouremail: Please check your email box
+mma.messages.checkyouremailforpayementmodalities: Nous vous avons envoyé les modalités de payement à votre boite email
+mma.messages.gobacktostart: Go back
+mma.messages.wesendyouanemail: We send you an Email to the entered adress. Just check your Email box and follow the instruction insides
+mma.messages.clickhiertoresetyourpassword: Click hier to reset your password
+mma.messages.goback: Go back

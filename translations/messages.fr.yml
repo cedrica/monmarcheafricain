@@ -8,6 +8,7 @@ mma.03connexion: '03. Connexion'
 mma.04adress: '04. Adresse'
 mma.05delivery: '05. Livraison'
 mma.06payement: '06. Payement'
+mma.save: __mma.save
 mma.home: Home
 mma.home.depot: Depot
 mma.home.depot.comment: 'Nous avons un depot de marchandise regroupant les vivres venant des pays cibler dans le monde'
@@ -58,7 +59,8 @@ mma.configuration.recipe: Recettes
 mma.configuration.products: Produits
 mma.configuration.clients: Clients
 mma.configuration.save.edited.product: Sauvegarder
-mma.configuration.categories: __mma.configuration.categories
+mma.configuration.categoriescatalog: Categories
+mma.configuration.messages: Textes
 mma.connection: Connexion
 mma.logout: Deconnexion
 mma.connection.authenticateyourself: Identifiez-vous
@@ -213,11 +215,24 @@ mma.payement.payementmode: 'MODE DE PAYEMENT'
 mma.payement.payementmodecheque: 'PAR VIREMENT'
 mma.changepassword.enteryouraccountemail: __mma.changepassword.enteryouraccountemail
 mma.change.password.requestnewpassword: __mma.change.password.requestnewpassword
-mma.messages.wesendyouanemailtothegivenadress: 'Nous avons envoyé une Email veuillez contacter votre boite et suivez les instructions qui y sont décrites'
-mma.messages.clickhiertoresetyourpassword: __mma.messages.clickhiertoresetyourpassword
 mma.confirm.doyourealywanttoremovethisclient: 'Docyoucrealy want to remove this client?'
 mma.messages.accountnotavailable: 'Compte non existant'
+mma.messages.invalidconnectiondata: 'Données de connexion invalide. Si vous n´avez pas encore de compte veuillez vous enregistrer grace à la fenetre de guauche'
+mma.messages.passwordmissmatch: 'Incompatibilité entre le mot de passe et sa confirmation'
+mma.messages.emailnotregistered: 'Cette email est deja enrégistré'
+mma.messages.checkyouremail: 'Vous avez recu un message. Veuillez verifier votre boite svp'
+mma.messages.checkyouremailforpayementmodalities: 'Nous vous avons envoyé les modalités de payement à votre boite email'
+mma.messages.gobacktostart: 'Retourner à la page d´acceuil'
+mma.messages.wesendyouanemail: 'Nous avons envoyé une Email veuillez contacter votre boite et suivez les instructions qui y sont décrites'
+mma.messages.clickhiertoresetyourpassword: __mma.messages.clickhiertoresetyourpassword
+mma.messages.goback: Retour
+mma.messages.wesendyouanemailtothegivenadress: 'Nous avons envoyé une Email veuillez contacter votre boite et suivez les instructions qui y sont décrites'
+mma.configuration.categories: __mma.configuration.categories
 mma.configuration.recipes: __mma.configuration.recipes
 mma.productcatalog.productstate: __mma.productcatalog.productstate
 mma.productcatalog.searchcataloguecategorie: __mma.productcatalog.searchcataloguecategorie
-mma.save: __mma.save
+mma.messagecatalog.searchmessage: __mma.messagecatalog.searchmessage
+mma.messagecatalog.id: __mma.messagecatalog.id
+mma.messagecatalog.en: __mma.messagecatalog.en
+mma.messagecatalog.de: __mma.messagecatalog.de
+mma.messagecatalog.fr: __mma.messagecatalog.fr

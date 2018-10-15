@@ -9,6 +9,7 @@ mma.03connexion: 03. Verbinden
 mma.04adress: 04. Adresse
 mma.05delivery: 05. Lieferung
 mma.06payement: 06. Zahlen
+mma.save: Speichern
 
 ########## HOME ###############
 mma.home: Home
@@ -277,8 +278,16 @@ mma.payement.payementmodecheque: PER ÜBERWEISUNG
 ######### CHANGE  ###############
 mma.changepassword.enteryouraccountemail: Email bitte eingeben
 mma.change.password.requestnewpassword: Senden
-mma.messages.wesendyouanemailtothegivenadress: Wir haben Ihnen einen Nachricht geschickt prüfen Sie ihr Postfach und folgen Sie die beschrieben Hinweise
-mma.messages.clickhiertoresetyourpassword: Password ändern
+
 
 ######### MESSAGES ###############
 mma.messages.accountnotavailable: Konto nicht verfügbar
+mma.messages.invalidconnectiondata: Données de connexion invalide. Si vous n´avez pas encore de compte veuillez vous enregistrer grace à la fenetre de guauche
+mma.messages.passwordmissmatch: Passwörte stimmen nict überein
+mma.messages.emailnotregistered: Email nicht registriert
+mma.messages.checkyouremail: Wir haben ihnen eine Email gesendet
+mma.messages.checkyouremailforpayementmodalities: Die Zahlungsanweisungen sowie Rechnung wurden ihnen per Email gesendet. Sobald wir eueren Zahlungseingang erhalten dann senden wir Ihnen die Bestellung
+mma.messages.gobacktostart: Zurück zur Startseite
+mma.messages.wesendyouanemail: Wir haben Ihnen einen Nachricht geschickt prüfen Sie ihr Postfach und folgen Sie die beschrieben Hinweise
+mma.messages.clickhiertoresetyourpassword: Password ändern
+mma.messages.goback: Zurück

@@ -1,0 +1,19 @@
+{% extends 'messages/empty-base.html.twig' %}
+
+{% block body %}
+	<div class="outer">
+    	<div class="middle">
+        	<div class="inner">
+        		<div  class="inner well">
+        			<div style="text-align: center;"><p>{{ message }}</p></div>
+            		<div class="inner" style="width:200px"><a style="text-align: center;" href="{{ path('start_controller_start') }}"><span class="fa fa-check-circle"
+                		style="color: green; font-size: 100px"></span> {{ 'mma.messages.gobacktostart'|trans }}
+                		</a>
+                		</div>
+        		</div>
+        	
+        	</div>
+		</div>
+    	
+	</div>
+{% endblock %}

@@ -2,10 +2,10 @@
     <div class="modal-body">
         {{ form_widget(categoryNodeForm) }}
 	</div>
-    <div class="modal-footer" style="padding-left:0px;padding-right:0px">
+    <div class="modal-footer" style="padding-left:0px;padding-right:15px">
     	<button type="submit" class="btn btn-">
     	    {{ 'mma.save'|trans }}
     	</button>
-    	<a href="{{ path('configuration_controller_init',{'_locale':app.request.locale}) }}" class="btn btn-primary" style="margin-right: 10px">Annuler</a>
+        <button class="btn btn-danger" data-dismiss="modal">{{ 'mma.cancel'|trans }}</button>
     </div>
     {{ form_end(categoryNodeForm) }}

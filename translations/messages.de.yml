@@ -8,6 +8,7 @@ mma.03connexion: '03. Verbinden'
 mma.04adress: '04. Adresse'
 mma.05delivery: '05. Lieferung'
 mma.06payement: '06. Zahlen'
+mma.save: __mma.save
 mma.home: Home
 mma.home.depot: Lager
 mma.home.depot.comment: 'Wir haben ein Lager wo unsere Lebensmittel gelagert werden'
@@ -58,7 +59,8 @@ mma.configuration.recipes: Rezept
 mma.configuration.products: Produkte
 mma.configuration.clients: Kunde
 mma.configuration.save.edited.product: Speichern
-mma.configuration.categories: __mma.configuration.categories
+mma.configuration.categoriescatalog: Kategorien
+mma.configuration.messages: Texts
 mma.connection: Einloggen
 mma.logout: Ausloggen
 mma.connection.authenticateyourself: Identifikation
@@ -212,9 +214,22 @@ mma.payement.payementmode: ZAHLUNGSMODE
 mma.payement.payementmodecheque: 'PER ÜBERWEISUNG'
 mma.changepassword.enteryouraccountemail: __mma.changepassword.enteryouraccountemail
 mma.change.password.requestnewpassword: __mma.change.password.requestnewpassword
-mma.messages.wesendyouanemailtothegivenadress: 'Wir haben Ihnen einen Nachricht geschickt prüfen Sie ihr Postfach und folgen Sie die beschrieben Hinweise'
-mma.messages.clickhiertoresetyourpassword: __mma.messages.clickhiertoresetyourpassword
 mma.messages.accountnotavailable: 'Konto nicht verfügbar'
+mma.messages.invalidconnectiondata: 'Données de connexion invalide. Si vous n´avez pas encore de compte veuillez vous enregistrer grace à la fenetre de guauche'
+mma.messages.passwordmissmatch: 'Passwörte stimmen nict überein'
+mma.messages.emailnotregistered: 'Email nicht registriert'
+mma.messages.checkyouremail: 'Wir haben ihnen eine Email gesendet'
+mma.messages.checkyouremailforpayementmodalities: 'Die Zahlungsanweisungen sowie Rechnung wurden ihnen per Email gesendet. Sobald wir eueren Zahlungseingang erhalten dann senden wir Ihnen die Bestellung'
+mma.messages.gobacktostart: 'Zurück zur Startseite'
+mma.messages.wesendyouanemail: 'Wir haben Ihnen einen Nachricht geschickt prüfen Sie ihr Postfach und folgen Sie die beschrieben Hinweise'
+mma.messages.clickhiertoresetyourpassword: __mma.messages.clickhiertoresetyourpassword
+mma.messages.goback: Zurück
+mma.messages.wesendyouanemailtothegivenadress: 'Wir haben Ihnen einen Nachricht geschickt prüfen Sie ihr Postfach und folgen Sie die beschrieben Hinweise'
+mma.configuration.categories: __mma.configuration.categories
 mma.confirm.doyourealywanttoremovethisclient: __mma.confirm.doyourealywanttoremovethisclient
 mma.productcatalog.searchcataloguecategorie: __mma.productcatalog.searchcataloguecategorie
-mma.save: __mma.save
+mma.messagecatalog.searchmessage: __mma.messagecatalog.searchmessage
+mma.messagecatalog.id: __mma.messagecatalog.id
+mma.messagecatalog.en: __mma.messagecatalog.en
+mma.messagecatalog.de: __mma.messagecatalog.de
+mma.messagecatalog.fr: __mma.messagecatalog.fr

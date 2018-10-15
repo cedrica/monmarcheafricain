@@ -235,16 +235,14 @@ class Compte
         return $this;
     }
 
-    public function getLogin(): ?self
+    public function getLogin()
     {
         return $this->login;
     }
 
-    public function setLogin(self $login): self
+    public function setLogin($login)
     {
         $this->login = $login;
-
-        return $this;
     }
 
 }

@@ -9,6 +9,8 @@ mma.03connexion: 03. Connexion
 mma.04adress: 04. Adresse
 mma.05delivery: 05. Livraison
 mma.06payement: 06. Payement
+mma.save: Sauveguarder
+
 ########## HOME ###############
 mma.home: Home
 mma.home.depot: Depot
@@ -271,8 +273,6 @@ mma.payement.payementmodecheque: PAR VIREMENT
 ######### CHANGE  ###############
 mma.changepassword.enteryouraccountemail: Entrez votre Email 
 mma.change.password.requestnewpassword: Envoyer
-mma.messages.wesendyouanemailtothegivenadress: Nous avons envoyé une Email veuillez contacter votre boite et suivez les instructions qui y sont décrites
-mma.messages.clickhiertoresetyourpassword: Changer de mot de passe
 
 ######### CONFIRM ###############
 mma.confirm.doyourealywanttoremovethisclient: Docyoucrealy want to remove this client?
@@ -280,3 +280,12 @@ mma.confirm.doyourealywanttoremovethisclient: Docyoucrealy want to remove this c
 
 ######### MESSAGES ###############
 mma.messages.accountnotavailable: Compte non existant
+mma.messages.invalidconnectiondata: Données de connexion invalide. Si vous n´avez pas encore de compte veuillez vous enregistrer grace à la fenetre de guauche
+mma.messages.passwordmissmatch: Incompatibilité entre le mot de passe et sa confirmation
+mma.messages.emailnotregistered: Cette email est deja enrégistré
+mma.messages.checkyouremail: Vous avez recu un message. Veuillez verifier votre boite svp
+mma.messages.checkyouremailforpayementmodalities: Nous vous avons envoyé les modalités de payement à votre boite email
+mma.messages.gobacktostart: Retourner à la page d´acceuil
+mma.messages.wesendyouanemail: Nous avons envoyé une Email veuillez contacter votre boite et suivez les instructions qui y sont décrites
+mma.messages.clickhiertoresetyourpassword: Changer de mot de passe
+mma.messages.goback: Retour

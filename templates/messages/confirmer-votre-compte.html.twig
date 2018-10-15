@@ -1,0 +1,20 @@
+{% extends 'messages/empty-base.html.twig' %}
+
+{% block body %}
+<div style="width:100%">
+
+    <div style="width:50%; margin: 0 auto; margin-top:50px">
+        <p style="text-align: center;">{{ 'mma.changepassword.enteryouraccountemail'|trans }}</p>
+        <form action="{{path('connection_controller_send-email-for-reseting-password', {'_locale':app.request.locale}) }}" method="post">
+        <div class="well">
+        	<input type="email"
+        			required="true" class="form-control form-group" id="email"
+        			placeholder="l´e-mail de votre compte" name="email">
+        	<button style="background-color: #33cc33; color: #fff" class="btn form-group"
+        	type="submit">{{ 'mma.change.password.requestnewpassword'|trans }}</button>
+        			
+    		</div>
+    	</form>
+    </div>
+</div>
+{% endblock %}

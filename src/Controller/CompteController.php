@@ -10,23 +10,28 @@ use App\Entity\Compte;
 use App\Entity\Login;
 use App\Service\ControllerHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Translation\Translator;
+
 class CompteController extends Controller
 {
 
     /**
      * @Route("/{_locale}/creer-compte", name="compte_controller_creercompte")
      */
-    public function creerCompteAction(Request $request)
+	public function creerCompteAction(Request $request, $_locale)
     {
-        $email = "";
+    	
+    	$alertType = $request->request->get('alertType');
+    	$message = $request->request->get('message');
+    	$email = $request->request->get('email');
         if ($request->getMethod() == 'POST') {
             $email = $request->request->get('email');
         }
         return $this->render('connexion/creer-compte/creer-compte.html.twig', array(
             'email' => $email,
             'page' => 'creerCompte',
-            'message' => null,
-            'alertType' => null,
+        	'message' => $message,
+        	'alertType' => $alertType,
             'activehome' => '',
             'activecategorie' => '',
             'activerecettes' => '',
@@ -38,7 +43,7 @@ class CompteController extends Controller
     /**
      * @Route("/{_locale}/ouverture-de-compte-reussi", name="compte_controller_creercomptereussi")
      */
-    public function ouvertureDeCompteReussiAction(Request $request, ControllerHelper $helper)
+    public function ouvertureDeCompteReussiAction(Request $request, ControllerHelper $helper, $_locale)
     {
         if ($request->getMethod() == 'POST') {
             $em = $this->getDoctrine()->getManager();
@@ -46,38 +51,29 @@ class CompteController extends Controller
             $email = $request->request->get('email');
             $motDePasse = $request->request->get('motDePasse');
             $confirmerMotDePasse = $request->request->get('confirmerMotDePasse');
+            $translator = new Translator($_locale.'_'.strtoupper($_locale));
             if (strcmp($motDePasse, $confirmerMotDePasse) != 0) {
-                return $this->render('connexion/creer-compte/creer-compte.html.twig', array(
+            	return $this->redirectToRoute('compte_controller_creercompte', array(
                     'email' => $email,
-                    'page' => 'creer-compte',
-                    'message' => 'Incompatibilité entre le mot de passe et sa confirmation',
-                    'alertType' => 'error',
-                    'activehome' => '',
-                    'activecategorie' => '',
-                    'activerecettes' => '',
-                    'activelivraison' => '',
-                    'activecontact' => ''
+            		'message' => $translator->trans('mma.messages.passwordmissmatch'),
+                    'alertType' => 'error'
                 ));
             }
             
             if ($helper->emailExisteDeja($email, $em)) {
                 
-                return $this->render('connexion/creer-compte/creer-compte.html.twig', array(
+            	return $this->redirectToRoute('compte_controller_creercompte', array(
                     'email' => $email,
-                    'page' => 'creer-compte',
                     'message' => 'Cette email est deja enrégistré',
-                    'alertType' => 'error',
-                    'activehome' => '',
-                    'activecategorie' => '',
-                    'activerecettes' => '',
-                    'activelivraison' => '',
-                    'activecontact' => ''
+                    'alertType' => 'error'
                 ));
             }
             $login = new Login();
             $login->setEmail($email);
             $encrypted_password = password_hash($motDePasse, PASSWORD_DEFAULT);
             $login->setMotDePass($encrypted_password);
+            $em->persist($login);
+            $em->flush();
             // ADRESSE
             $pays = $request->request->get('pays');
             $ville = $request->request->get('ville');
@@ -109,11 +105,15 @@ class CompteController extends Controller
             $em->persist($compte);
             $em->flush();
             
+            $login->setCompte($compte);
+            $em->persist($login);
+            $em->flush();
+            
             $adresse->setCompte($compte);
             $em->persist($adresse);
             $em->flush();
         }
-        return $this->render('connexion/creer-compte/ouverture-de-compte-reussi/ouverture-de-compte.-reussi.html.twig', array(
+        return $this->render('messages/ouverture-de-compte.-reussi.html.twig', array(
             'page' => 'ouvertureDeCompteReussi'
         ));
     }
@@ -129,7 +129,9 @@ class CompteController extends Controller
     	$compte = $em->getRepository(Compte::class)->find($id);
     	$em->remove($compte);
     	$em->flush();
-    	return $this->redirectToRoute('configuration_controller_init_view', 
+    	$request->request->set('alertType',null);
+    	$request->request->set('message',null);
+    	return $this->redirectToRoute('configuration_controller_init', 
     			array(
     			'cfg' => 'cli',
     			'_locale'=>$request->getLocale(),

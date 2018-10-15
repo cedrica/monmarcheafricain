@@ -95,7 +95,7 @@
 	<div class="row">
 		{%   if affichage == 'gr' %}
     		{% for produit in produits %}
-        		<div class="col-lg-4">
+        		<div class="col-lg-4 form-group-top">
         			{{ include('categories/produit-profil.html.twig', {'produit': produit}) }}
         		</div>
     		{% endfor %}

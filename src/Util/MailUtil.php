@@ -7,7 +7,7 @@ class MailUtil
 {
 	public function sendInvoicePerMailTo(Request $request, \Swift_Mailer $mailer,$reciever, $emailContent)
 	{
-		$sender = 'webmaster@Monmarcheafricain.com';
+		$sender = 'info@Monmarcheafricain.com';
 		$message = (new \Swift_Message('Un client vous a laisser un méssage'))
 		->setFrom($sender)
 		->setTo($reciever)
@@ -17,6 +17,7 @@ class MailUtil
 				);
 		
 		$mailer->send($message);
+
 	}    
 }
 

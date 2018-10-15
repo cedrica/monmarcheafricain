@@ -25,40 +25,38 @@ class AdminController extends Controller
 	public function loginAction(Request $request, ControllerHelper $helper,$_locale)
     {
     	$translator = new Translator($_locale);
-    		$login = new Login();
-    		$sEnregisterForm = $this->createForm('App\Form\SEnregistrerType', 
+    	$login = new Login();
+    	$alertType = $request->request->get('alertType');
+    	$message = $request->request->get('message');
+    	$sEnregisterForm = $this->createForm('App\Form\SEnregistrerType', 
     				$login,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale)),'admin-login' => true));
-    		$sEnregisterForm->handleRequest($request);
-    		if ($sEnregisterForm->isSubmitted() && $sEnregisterForm->isValid()) {
-    			$email = $login->getEmail();
-    			$loginDB = $this->getDoctrine()->getRepository(Login::class)->findOneByEmail($email);
-    			if($loginDB == null){
-    				return $this->render('admin/login.html.twig', array(
-    						'page' => 'login',
-    						'alertType' => 'error',
-    						'message' => 'Cette email n´est pas encore inscrite',
-    						'sEnregisterForm' => $sEnregisterForm->createView()
+    	$sEnregisterForm->handleRequest($request);
+    	if ($sEnregisterForm->isSubmitted() && $sEnregisterForm->isValid()) {
+    		$email = $login->getEmail();
+   			$loginDB = $this->getDoctrine()->getRepository(Login::class)->findOneByEmail($email);
+   			if($loginDB == null){
+   				return $this->redirectToRoute('admin_controller_login', array(
+   						'alertType' => 'error', 
+   						'message' => $translator->trans('mma.messages.invalidconnectiondata')
+    			));
+    		} else {
+    			$compteAdmin = $loginDB->getCompte();
+    			if (password_verify($login->getMotDePass(), $loginDB->getMotDePass()) && strcmp($compteAdmin->getRole(), "ADMIN") == 0) {
+   					$request->getSession()->set('compteAdmin',$compteAdmin) ;
+   					return $this->redirectToRoute('configuration_controller_init', array(
+   							'page' => 'configuration',
+   							'message' =>null, 
+   							'alertType' => null
     				));
-    			} else {
-    				$compteRepository = $this->getDoctrine()->getRepository(Compte::class);
-    				$compteAdmin = $compteRepository->findOneBy(['login_id' => $loginDB->getId()]);
-    				return $this->render('configuration/conf.html.twig');
-    				if (password_verify($login->getMotDePass(), $loginDB->getMotDePass()) && strcmp($compteAdmin->getRole(), "ADMIN") == 0) {
-    					$request->getSession()->set('compteAdmin',$compteAdmin) ;
-    					return $this->redirectToRoute('configuration_controller_init', array(
-    							'page' => 'configuration',
-    							'message' =>null,
-    							'alertType' => null
-    					));
-    				}
-    			} 
-    		}
-    		return $this->render('admin/login.html.twig', array(
+    			}
+    		} 
+    	}
+    	return $this->render('admin/login.html.twig', array(
     				'page' => 'login',
-    				'alertType' => null,
-                    'message' => '',
+    				'alertType' => $alertType,
+    				'message' => $message,
     				'sEnregisterForm' => $sEnregisterForm->createView()
-    		));
+   		));
      }
     
      /**

@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use App\Entity\Compte;
+use App\Service\CategoryNode;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Translation\Translator;
@@ -17,7 +18,7 @@ class ConfigurationController extends Controller
 {
 
     /**
-     * @Route("/{_locale}/configuration", name="configuration_controller_update")
+     * @Route("/{_locale}/configuration/update", name="configuration_controller_update")
      */
 	public function adminAction(Request $request, ControllerHelper $helper,$_locale)
     {
@@ -67,13 +68,12 @@ class ConfigurationController extends Controller
     }
     
     /**
-     * @Route("/{_locale}/configuration/init", name="configuration_controller_init")
+     * @Route("/{_locale}/configuration", name="configuration_controller_init")
      */
     public function configurationAction(Request $request, ControllerHelper $helper,$_locale)
     {
-    	return $this->render('configuration/conf.html.twig');
     	
-    	/*if($request->getSession()->get('compteAdmin') == null){
+    	if($request->getSession()->get('compteAdmin') == null){
     		return $this->redirectToRoute('admin_controller_login');
     	}
     	
@@ -90,7 +90,7 @@ class ConfigurationController extends Controller
     	$createRecette->handleRequest($request);
     	if ($createRecette->isSubmitted() && $createRecette->isValid()) {
     		$em = $this->getDoctrine()->getManager();
-    		/** @var Symfony\Component\HttpFoundation\File\UploadedFile $image
+    		/** @var Symfony\Component\HttpFoundation\File\UploadedFile $image */
     		$image = $recette->getImage();
     		$fileName = md5(uniqid()) . '.' . $image->guessExtension();
     		$image->move($this->getParameter('brochures_directory'), $fileName);
@@ -144,13 +144,13 @@ class ConfigurationController extends Controller
     			'categoryNodeList' => $categoryNodeList,
     			'catalogueCategories' => $catalogueCategories,
     			'categoryNodeForm' => $categoryNodeForm->createView()
-    	)); */
+    	)); 
     }
     public function handleRequestAndSubmit(Request $request,$form,ControllerHelper $helper,$produit){
     	$form->handleRequest($request);
     	if ($form->isSubmitted() && $form->isValid()) {
     		if ($helper->existeDeja($produit->getNom(), $em)) {
-    			return $this->redirectToRoute('configuration_controller_init_view', array(
+    			return $this->redirectToRoute('configuration_controller_init', array(
     					'produit' => $produit,
     					'page' => 'produit',
     					'message' => 'Désolé un produit avec le nom ' . $produit->getNom() . ' existe déja',
@@ -172,7 +172,7 @@ class ConfigurationController extends Controller
     		$produit->setReference($formatedDT);
     		$em->persist($produit);
     		$em->flush();
-    		return $this->redirectToRoute('configuration_controller_init_view', array(
+    		return $this->redirectToRoute('configuration_controller_init', array(
     				'nom' => $produit->getNom(),
     				'page' => 'configuration',
     				'message' => 'Un produit ' . $produit->getNom() . ' a été sauvgardé avec succes',

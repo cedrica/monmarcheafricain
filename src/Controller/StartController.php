@@ -18,18 +18,24 @@ class StartController extends Controller
     	$session = $request->getSession();
     	$session->set('_locale', $_locale);
     	$request->setLocale($_locale);
+    	$translator = new Translator($_locale.'_'.strtoupper($_locale));
         $login = new Login();
+        $alertType = $request->request->get('alertType');
+        $message = $request->request->get('message');
         $sEnregisterForm = $this->createForm('App\Form\SEnregistrerType', $login,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
         $sEnregisterForm->handleRequest($request);
         if ($sEnregisterForm->isSubmitted() && $sEnregisterForm->isValid()) {
             $email = $login->getEmail();
             $em = $this->getDoctrine()->getManager();
-            $compte = $helper->trouveLeCompteByEmail($email, $em);
-            if($compte == null){
-                return $this->redirectToRoute('confirm_controller_donnees_de_connexion_invalide');
-            }
-            $loginDB = $compte->getLogin();
-            if ($loginDB != null) {
+            $loginRepository = $em->getRepository(Login::class);
+            $loginDB = $loginRepository->findOneByEmail($email);
+            if($loginDB == null){
+            	return $this->redirectToRoute('start_controller_start', array(
+            			'alertType' => 'error',
+            			'message' => $translator->trans('mma.messages.invalidconnectiondata')
+            	));
+            }else{
+            	$compte =  $loginDB->getCompte();
                 if (password_verify($login->getMotDePass(), $loginDB->getMotDePass())) {
                     $request->getSession()->set("compte", $compte);
                     return $this->redirectToRoute('profil_controller_open_profil',array('id'=>$compte->getId()));
@@ -47,23 +53,12 @@ class StartController extends Controller
                         'activecontact' => ''
                     ));
                 }
-            } else {
-                return $this->render('start/start.html.twig', array(
-                    'page' => 'start',
-                    'alertType' => 'error',
-                    'message' => 'Cette email n´est pas encore inscrite',
-                    'sEnregisterForm' => $sEnregisterForm->createView(),
-                    'activehome' => 'active',
-                    'activecategorie' => '',
-                    'activerecettes' => '',
-                    'activelivraison' => '',
-                    'activecontact' => ''
-                ));
-            }
+            } 
         }
         return $this->render('start/start.html.twig', array(
             'page'=>'start',
-            'alertType' => null,
+        	'alertType' => $alertType,
+        	'message' =>	$message,
             'sEnregisterForm' => $sEnregisterForm->createView(),
             'activehome' => 'active',
             'activecategorie' => '',
