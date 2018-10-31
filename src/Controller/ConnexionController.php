@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Controller;
 
 use App\Entity\Login;
+use App\Entity\Compte;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -19,16 +21,21 @@ class ConnexionController extends Controller
         $login = new Login();
         $sEnregisterForm = $this->createForm('App\Form\SEnregistrerType', $login,array('translator'=>new Translator($_locale.'_'.strtoupper($_locale))));
         $sEnregisterForm->handleRequest($request);
+        $translator = new Translator($_locale.'_'.strtoupper($_locale));
         if ($sEnregisterForm->isSubmitted() && $sEnregisterForm->isValid()) {
             $email = $login->getEmail();
-            $em = $this->getDoctrine()->getManager();
-            $compte = $helper->trouveLeCompteByEmail($email, $em);
-            if($compte == null){
-                return $this->redirectToRoute('confirm_controller_donnees_de_connexion_invalide');
+            $loginRepository = $this->getDoctrine()->getRepository(Login::class);
+            $loginDB = $loginRepository->findOneByEmail($email);
+            if($loginDB == null){
+            	return $this->redirectToRoute('connexion_controller_connexion', array(
+            			'page' => 'connexion',
+            			'alertType' => 'error',
+            			'message' => $translator->trans('mma.messages.invalidconnectiondata')));
             }
-            $loginDB = $compte->getLogin();
             if ($loginDB != null) {
                 if (password_verify($login->getMotDePass(), $loginDB->getMotDePass())) {
+                	$compte = $loginDB->getCompte();
+                	$compte->setLogin($loginDB);
                     $allerAlaCaisse = $request->getSession()->get('allerALaCaisse');
                     $request->getSession()->set("compte", $compte);
                     if ($allerAlaCaisse != null && $allerAlaCaisse == true) {
@@ -99,7 +106,7 @@ class ConnexionController extends Controller
      */
     public function motDePassOublierAction(Request $request)
     {
-        return $this->render('connexion/confirmer-votre-compte.html.twig', array(
+        return $this->render('messages/confirmer-votre-compte.html.twig', array(
             'page' => 'confirmer-votre-compte',
             'alertType' => null
         ));
@@ -123,21 +130,11 @@ class ConnexionController extends Controller
     					),
     			'text/html'
     			);
-    	
     	$mailer->send($message);
-    	/*
-    	 You could alternatively use a different transport such as Sendmail:
-    	 
-    	 // Sendmail
-    	 $transport = new Swift_SendmailTransport('/usr/sbin/sendmail -bs');
-    	 */
-    	
-    	// Create the Mailer using your created Transport
-    	$mailer->send($message);
-    	return $this->render('/connexion/we-send-you-an-email.html.twig',
+    	return $this->render('/messages/we-send-you-an-email.html.twig',
     			array(
     					'page'=>'we-send-you-an-email',
-    					'message' => $translator->trans('mma.messages.wesendyouanemailtothegivenadress')
+    					'message' => $translator->trans('mma.messages.wesendyouanemail')
     			));
     	
  
@@ -149,7 +146,7 @@ class ConnexionController extends Controller
     public function entrerLesNouvellesDonneesChangerAction(Request $request)
     {
     	$email = $request->get('email');
-    	return $this->render('/connexion/we-send-you-an-email.html.twig',
+    	return $this->render('/messages/we-send-you-an-email.html.twig',
     			array(
     					'page'=>'we-send-you-an-email',
     					'message' => 'dd	'
@@ -166,11 +163,9 @@ class ConnexionController extends Controller
     	$confirmerMotDePasse = $request->request->get('confirmerMotDePasse');
     	$translator = new Translator($_locale.'_'.strtoupper($_locale));
     	if (strcmp($confirmerMotDePasse, $motDePasse) == 0) {
-    		/**
-    		 *
-    		 * @var \App\Entity\Compte $compte
-    		 */
-    		$compte =  $helper->trouveLeCompteByEmail($email, $em);
+    		$loginRepository = $em->getRepository(Login::class);
+    		$login = $loginRepository->findOneByEmail($email);
+    		$compte =  $login->getCompte();
     		
     		/**
     		 *
@@ -191,7 +186,7 @@ class ConnexionController extends Controller
     			return $this->redirectToRoute('connexion_controller_connexion');
     		}
     	}else {
-    		return $this->render('connexion/creer-mot-de-pass-successfull.html.twig', array(
+    		return $this->render('messages/creer-mot-de-pass-successfull.html.twig', array(
     				'page' => 'connexion',
     				'alertType' => 'error',
     				'message' => 'Mot de pass invalide'

@@ -53,12 +53,14 @@ class Compte
      * @ORM\OneToMany(targetEntity="Adresse", mappedBy="compte",cascade={"persist"}, orphanRemoval=true)
      */
     private $adresses;
-    
-    
+
     /**
-     * @ORM\OneToOne(targetEntity="Login",cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Login", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $login;
+
+    
     
     
     
@@ -180,21 +182,6 @@ class Compte
     	$this->adresses = $adresses;
     }
     
-    /**
-     * @param  $login
-     */
-    public function setLogin($login)
-    {
-    	$this->login = $login;
-    }
-    
-    /**
-     * @return  $login
-     */
-    public function getLogin()
-    {
-    	return $this->login;
-    }
     
     public function addAdresse(Adresse $adresse)
     {
@@ -247,5 +234,16 @@ class Compte
 
         return $this;
     }
+
+    public function getLogin()
+    {
+        return $this->login;
+    }
+
+    public function setLogin($login)
+    {
+        $this->login = $login;
+    }
+
 }
 

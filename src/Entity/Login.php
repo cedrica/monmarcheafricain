@@ -39,6 +39,11 @@ class Login
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $rememberMe;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Compte", cascade={"persist", "remove"})
+     */
+    private $compte;
     
     
     /**
@@ -130,6 +135,18 @@ class Login
     public function setRememberMe(?bool $rememberMe): self
     {
         $this->rememberMe = $rememberMe;
+
+        return $this;
+    }
+
+    public function getCompte(): ?Compte
+    {
+        return $this->compte;
+    }
+
+    public function setCompte(Compte $compte): self
+    {
+        $this->compte = $compte;
 
         return $this;
     }

@@ -60,10 +60,10 @@
 	</category>
 	<category>
 		<id>9</id>
-		<parentId>-1		</parentId>
-		<en>Cans		</en>
-		<fr>Conserves		</fr>
-		<de>Dosen		</de>
+		<parentId>3</parentId>
+		<en>Conserves		</en>
+		<fr></fr>
+		<de></de>
 	</category>
 	<category>
 		<id>10</id>
@@ -71,5 +71,12 @@
 		<en>Spices		</en>
 		<fr>Épices		</fr>
 		<de>Gewürze		</de>
+	</category>
+	<category>
+		<id>11</id>
+		<parentId>-1</parentId>
+		<en>i am a test</en>
+		<fr>je suis un test</fr>
+		<de>ich bin ein test</de>
 	</category>
 </categories>

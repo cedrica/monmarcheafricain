@@ -79,22 +79,7 @@ class ControllerHelper
         return $repository->findByLoginId($loginId);
     }
 
-    
-    /**
-     *
-     * @param
-     *            $email
-     * @param
-     *            $em
-     * @return Compte
-     */
-    public function trouveLeCompteByEmail($email, $em)
-    {
-    	if ($email == null || ! self::isNotEmpty($email))
-    		return null;
-    	$repository = $em->getRepository(Compte::class);
-    	return $repository->findByEmail($email);
-    }
+
     
     /**
      *

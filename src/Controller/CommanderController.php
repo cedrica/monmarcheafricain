@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use App\Entity\Adresse;
+use App\Entity\Login;
 use App\Service\ToJson;
 use App\Entity\Compte;
 use App\Util\MailUtil;
@@ -195,17 +196,18 @@ class CommanderController extends Controller
      * @Route("{_locale}/finish-payment", name="commander_controller_finish_payment")
      */
     public function finischPayment(Request $request,MailUtil $mailUtil, \Swift_Mailer $mailer, $_locale){
-    	$session = $request->getSession();
-    	$login = $session->get('compte')->getLogin();
+    	$compte = $request->getSession()->get('compte');
+    	$login = $compte->getLogin();
+    	$em = $this->getDoctrine()->getManager();
+    	$repository = $em->getRepository(Login::class);
+    	$login = $repository->find($login->getId());
     	$reciever = $login->getEmail();
     	$message = $this->renderView('/emails/facture.html.twig');
     	$mailUtil->sendInvoicePerMailTo($request,$mailer,$reciever,$message);
-    	$mailUtil->sendInvoicePerMailTo($request,$mailer,'Karmelle.canton-bacara@orange.fr','Vous avez recu un message. veuillez verifier votre boite strato svp');
-    	
-    	$session->set('panier', null);
-    	$session->set('quantite', 0);
-    	//$session->set('deliveryAdress', null);
-    	//$session->set('allerALaCaisse', false);
+    	$translator = new Translator($_locale.'_'.strtoupper($_locale));
+    	$mailUtil->sendInvoicePerMailTo($request,$mailer,$reciever,$message);
+    	$request->getSession()->set('panier', null);
+    	$request->getSession()->set('quantite', 0);
     	return $this->render('/commander/achat-terminer.html.twig',
     			array(
     					'page'=>'achat-terminer',

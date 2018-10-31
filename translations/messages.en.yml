@@ -8,6 +8,7 @@ mma.03connexion: '03. Connexion'
 mma.04adress: '04. Adress'
 mma.05delivery: '05. Delivery'
 mma.06payement: '06. Payement'
+mma.save: __mma.save
 mma.home: Home
 mma.home.depot: Depot
 mma.home.depot.comment: 'We a main depot place from where we a approvision clients'
@@ -57,8 +58,9 @@ mma.configuration.editer.produit.action: Offer
 mma.configuration.recipes: Recipe
 mma.configuration.products: Products
 mma.configuration.clients: Clients
-mma.configuration.categories: __mma.configuration.categories
+mma.configuration.categoriescatalog: Categories
 mma.configuration.save.edited.product: Save
+mma.configuration.messages: Texts
 mma.connection: 'Log in'
 mma.logout: 'Log out'
 mma.connection.authenticateyourself: 'Authenticate yourself'
@@ -214,9 +216,22 @@ mma.payement.payementmode: 'PAYEMENT MODE'
 mma.payement.payementmodecheque: 'Per cheque'
 mma.changepassword.enteryouraccountemail: 'Enter your account email'
 mma.change.password.requestnewpassword: Send
-mma.messages.wesendyouanemailtothegivenadress: 'We send you an Email to the entered adress. Just check your Email box and follow the instruction insides'
-mma.messages.clickhiertoresetyourpassword: 'Click hier to reset your password'
 mma.confirm.doyourealywanttoremovethisclient: 'Do you realy want to remove this client?'
 mma.messages.accountnotavailable: 'Account not available'
+mma.messages.invalidconnectiondata: 'Données de connexion invalide. Si vous n´avez pas encore de compte veuillez vous enregistrer grace à la fenetre de guauche'
+mma.messages.passwordmissmatch: 'Password missmatch'
+mma.messages.emailnotregistered: 'Email not registered'
+mma.messages.checkyouremail: 'Please check your email box'
+mma.messages.checkyouremailforpayementmodalities: 'Nous vous avons envoyé les modalités de payement à votre boite email'
+mma.messages.gobacktostart: 'Go back'
+mma.messages.wesendyouanemail: 'We send you an Email to the entered adress. Just check your Email box and follow the instruction insides'
+mma.messages.clickhiertoresetyourpassword: 'Click hier to reset your password'
+mma.messages.goback: 'Go back'
+mma.messages.wesendyouanemailtothegivenadress: 'We send you an Email to the entered adress. Just check your Email box and follow the instruction insides'
+mma.configuration.categories: __mma.configuration.categories
 mma.delivery.where: __mma.delivery.where
-mma.save: __mma.save
+mma.messagecatalog.searchmessage: __mma.messagecatalog.searchmessage
+mma.messagecatalog.id: __mma.messagecatalog.id
+mma.messagecatalog.en: __mma.messagecatalog.en
+mma.messagecatalog.de: __mma.messagecatalog.de
+mma.messagecatalog.fr: __mma.messagecatalog.fr

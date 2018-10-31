@@ -1,0 +1,33 @@
+ 	<div id="categoryCatalogEditModal{{ categoryNode.id }}" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-lg">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Edit une categorie</h4>
+				</div>
+				<form action="/{{ app.request.locale }}/edit-category/{{ categoryNode.id }}" method="post">
+			       <div class="modal-body">
+                	<input class="form-control form-group" name="en" value="{{ categoryNode.en }}"></input>
+                	<input class="form-control form-group" name="en" value="{{ categoryNode.de }}"></input>
+                	<input class="form-control form-group" name="en" value="{{ categoryNode.fr }}"></input>
+                	<select class="form-control form-group" name="parentId">
+                	    {% for cnl in categoryNodeList %}
+                			<option value="{{ cnl.id }}">{{ cnl.en }} / {{ cnl.de }} /  {{  cnl.fr }}</option>
+                	    {% endfor %}
+                	</select>
+                	</div>
+                    <div class="modal-footer" style="padding-left:0px;padding-right:15px">
+                    	<button class="btn btn-success"  type="submit" class="btn btn-">
+                    	    {{ 'mma.save'|trans }}
+                    	</button>
+                    	<button class="btn btn-danger" data-dismiss="modal">{{ 'mma.cancel'|trans }}</button>
+                    </div>
+				</form>
+         
+			</div>
+		</div>
+	</div>
+	
+

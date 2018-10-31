@@ -1,0 +1,28 @@
+{% extends 'messages/empty-base.html.twig' %}
+
+{% block body %}
+<div class="outer">
+    <div class="middle">
+    	<div class="inner">
+            <div style="text-align: center;"><p>{{ 'mma.changepassword.enteryouraccountemail'|trans }}</p></div>
+            
+            	<form action="{{ app.request.locale }}/changer-mot-de-passe" method="post">
+            		<div class="well">
+            			<div class="form-group">
+            				<input type="email"
+            					required="true" class="form-control" id="mot-de-pas"
+            					placeholder="Mot de passe" name="motDePasse"></div>
+            			<div class="form-group">
+            				<input type="email"
+            					required="true" class="form-control" id="confirmerMotDePass"
+            					placeholder="Confirmez votre mot de pass" name="confirmerMotDePass"></div>
+            			<button style="background-color: #33cc33; color: #fff"
+            				type="submit">{{ 'mma.change.password.requestnewpassword'|trans }}</button>
+                			
+                		</div>
+            	</form>
+    	</div>
+    </div>
+</div>
+    	
+{% endblock %}

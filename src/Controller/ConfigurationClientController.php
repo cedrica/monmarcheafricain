@@ -29,7 +29,7 @@ class ConfigurationClientController extends Controller
         $em->flush();
         $message = $translator->trans('mma.clientcatalog.roleediter');
         $alertType = 'success';
-        return $this->redirectToRoute('configuration_controller_init_view', array(
+        return $this->redirectToRoute('configuration_controller_init', array(
         		'message' => $message,
         		'alertType' => $alertType 
         ));

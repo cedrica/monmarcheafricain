@@ -49,7 +49,7 @@ class ConfigurationProduitController extends Controller
     		$em->flush();
     		
     		$produits = $produitRepositorty->findAll();
-    		return $this->redirectToRoute('configuration_controller_init_view', array(
+    		return $this->redirectToRoute('configuration_controller_init', array(
     				'page' => 'configuration',
     				'message' => 'Le produit a été édité avec succès',
     				'alertType' => 'succes',
@@ -70,7 +70,7 @@ class ConfigurationProduitController extends Controller
     	$produit = $em->getRepository(Produit::class)->find($id);
     	$em->remove($produit);
     	$em->flush();
-    	return $this->redirectToRoute('configuration_controller_init_view',
+    	return $this->redirectToRoute('configuration_controller_init',
     			array(
     					'cfg' => 'prod',
     					'_locale'=>$request->getLocale(),

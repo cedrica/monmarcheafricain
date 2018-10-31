@@ -35,17 +35,5 @@ class ConfirmController extends Controller
             'id' => $recetteId
         ));
     }
-    /**
-     * @Route("{_locale}/confirm", name="confirm_controller_donnees_de_connexion_invalide")
-     */
-    public function connexionAction()
-    {
-        return $this->render('confirm/confirm.html.twig', array(
-            'page' => 'confirm',
-            'todo' => 'connexion',
-            'stepId' => null,
-            'recetteId' => null,
-            'message' => 'Données de connexion invalide. Si vous n´avez pas encore de compte veuillez vous enregistrer grace à la fenetre de guauche'
-        ));
-    }
+
 }

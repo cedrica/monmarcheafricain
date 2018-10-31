@@ -8,7 +8,7 @@
     		<th>EN</th>
     		<th>DE</th>
     		<th>FR</th>
-    		<th><a class="fa fa-plus-circle" href="" style="color:#33cc33;font-size:30px; text-align: center;align-content:center; " data-toggle="modal" data-target="#categoryCatalogModal"></a></th>
+    		<th><a class="fa fa-plus-circle" href="" style="color:#33cc33;font-size:30px; text-align: center;align-content:center; " data-toggle="modal" data-target="#categoryCatalogCreateModal"></a></th>
     		
     	</thead>
     	<tbody id="tbCatalogueCategories">
@@ -19,13 +19,15 @@
             		<td scope="col">{{ catCat.en}}</td>
             		<td scope="col">{{ catCat.de }}</td>
             		<td scope="col">{{ catCat.fr }}</td>
-        			<td scope="col"><a class="fa fa-edit" href="{{ path('configuration_produit_controller_editer',{'id':catCat.id}) }}"  style="color:darkorange;"></a></td>
+        			<td scope="col"><a class="fa fa-edit" style="margin-left: -3px; color:darkorange; align-content:center; text-align: center;"
+					data-toggle="modal" data-target="#categoryCatalogEditModal{{catCat.id}}"></a></td>
         		</tr>
+        		{{  include("configuration/categories/edit.html.twig", {'categoryNode':catCat, 'categoryNodeList':categoryNodeList}) }}
     		{% endfor %}
     	</tbody>
     </table>
 
-	<div id="categoryCatalogModal" id="catalog_category_dialog" class="modal fade" role="dialog">
+	<div id="categoryCatalogCreateModal" class="modal fade" role="dialog">
 		<div class="modal-dialog modal-lg">
 
 			<!-- Modal content-->
