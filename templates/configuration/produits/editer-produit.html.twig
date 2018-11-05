@@ -5,6 +5,14 @@
     <div class="col-sm-2"></div>
 	<div class="col-sm-8" style="background-color: #fff;">
 	<p><i class="fa fa-info-circle" style="color:darkorange;margin: 20px 20px 0px 0px;">   {{ 'mma.editproduit.cancel'|trans }}</i></p>
+	{% if errors is not null and errors != 'null' and errors|length > 0 %}
+    	<h3 style="color:red">{{ 'mma.messages.validationerrors'|trans }}</h3>
+        <ul>
+        {% for error in errors %}
+            <li style="color:red">{{ error.message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
 	{{ include('configuration/produits/edit.html.twig' , {'produit': produit}) }}
     </div>
     <div class="col-sm-2"></div>

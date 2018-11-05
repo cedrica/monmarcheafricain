@@ -13,25 +13,60 @@ use App\Entity\Compte;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Translation\Translator;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class ConfigurationProduitController extends Controller
 {
 
     /**
-     * @Route("/{_locale}/editer-produit/{id}", name="configuration_produit_controller_editer")
+     * @Route("/{_locale}/editer-produit/{id}/{errors}", name="configuration_produit_controller_editer")
      */
 	public function editProduitAction(Request $request, ControllerHelper $helper,$id, $_locale)
     {
         $produitRepositorty = $this->getDoctrine()->getRepository(Produit::class);
         $produit = $produitRepositorty->find($id);
         $categoryNodeList = $helper->convertXmlToObjectList('catalogs/categories.xml');
+        $errors = $request->get('errors');
+        //echo $errors;
         return $this->render('configuration/produits/editer-produit.html.twig', array(
             'page' => 'editer-produit',
         		'produit' => $produit,
+        		'errors' => $errors,
         		'categoryNodeList' => $categoryNodeList
         ));
     }
 
+    /**
+     * @Route("/{_locale}/edit-product", name="configuration_produit_controller_save_edited_product")
+     */
+    public function saveEditedProduct(Request $request,ValidatorInterface $validator, ControllerHelper $helper)
+    {
+    	if($request->isMethod('POST') ){
+    		$id = $request->query->get('id');
+    		$em = $this->getDoctrine()->getManager();
+    		$produit = $em->getRepository(Produit::class)->find($id);
+    		$produit = self::makeProduit($produit, $request,true);
+    		$errors = $validator->validate($produit);
+    		if (count($errors) > 0) {
+    			$categoryNodeList = $helper->convertXmlToObjectList('catalogs/categories.xml');
+    			return $this->render('configuration/produits/editer-produit.html.twig', array(
+    					'page' => 'editer-produit',
+    					'produit' => $produit,
+    					'errors' => $errors,
+    					'categoryNodeList' => $categoryNodeList
+    			));
+    		}
+    		$em->flush();
+    		
+    	}
+    	return $this->redirectToRoute('configuration_controller_init',
+    			array(
+    					'_locale'=>$request->getLocale(),
+    					'alertType' => 'succes',
+    					'message' => 'Produit editer avec succes',
+    					'errors' => $errors
+    			));
+    }
 
     public function handleRequestAndSubmit(Request $request,$form,$produitRepositorty,$produit){
     	$form->handleRequest($request);
@@ -79,26 +114,7 @@ class ConfigurationProduitController extends Controller
     			));
     }
     
-    /**
-     * @Route("/{_locale}/edit-product", name="configuration_produit_controller_save_edited_product")
-     */
-    public function saveEditedProduct(Request $request)
-    {
-        if($request->isMethod('POST')){
-            $id = $request->query->get('id');
-            $em = $this->getDoctrine()->getManager();
-            $produit = $em->getRepository(Produit::class)->find($id);
-            $produit = self::makeProduit($produit, $request,true);
-            $em->flush();
 
-        }
-        return $this->redirectToRoute('configuration_controller_init',
-            array(
-                '_locale'=>$request->getLocale(),
-                'alertType' => 'succes',
-                'message' => 'Produit editer avec succes'
-            ));
-    }
 
     /**
      * @Route("/{_locale}/create-product", name="configuration_produit_controller_create_product")

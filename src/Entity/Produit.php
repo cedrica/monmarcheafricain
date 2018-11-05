@@ -21,21 +21,36 @@ class Produit
     
     /**
      * @var string
-     *
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 10,
+     *      minMessage = "le nom doit avoir au moins {{ limit }} charactères",
+     *      maxMessage = "le nom doit doit avoir au plus{{ limit }} charactères"
+     * )
      * @ORM\Column(name="nom", type="text")
      */
     private $nom;
     
     /**
      * @var string
-     *
+      * @Assert\Length(
+     *      min = 2,
+     *      max = 10,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
      * @ORM\Column(name="name", type="text")
      */
     private $name;
     
     /**
      * @var string
-     *
+      * @Assert\Length(
+     *      min = 2,
+     *      max = 10,
+     *      minMessage = "name muss mindestens {{ limit }} Character",
+     *      maxMessage = "name muss max  {{ limit }} Character haben"
+     * )
      * @ORM\Column(name="nameDE", type="text")
      */
     private $nameDE;
@@ -104,8 +119,6 @@ class Produit
     /**
      * @ORM\Column(type="string")
      *
-     * @Assert\NotBlank(message="Please, upload the product brochure as a jpeg file.")
-     * @Assert\File(mimeTypes={ "image/jpeg" })
      */
     private $image;
 

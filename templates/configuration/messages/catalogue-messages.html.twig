@@ -18,7 +18,7 @@
             		<td scope="col">{{ produit.prix }} €</td>
             		<td scope="col">{{ produit.categorie|findvalue(app.request.locale) }}</td>
             		<td scope="col">{{ produit.quantite }}</td>
-        			<td scope="col"><a class="fa fa-edit" href="{{ path('configuration_produit_controller_editer',{'id':produit.id}) }}"  style="color:darkorange;"></a></td>
+        			<td scope="col"><a class="fa fa-edit" href="{{ path('configuration_produit_controller_editer',{'id':produit.id,'errors':'null'}) }}"  style="color:darkorange;"></a></td>
         			<td scope="col"><a class="fa fa-trash" style="margin-left: -3px; color:red; align-content:center; text-align: center;"
 					data-toggle="modal" data-target="#confirmModal{{produit.id}}"></a></td>
         			
