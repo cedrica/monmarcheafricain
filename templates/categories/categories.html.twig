@@ -25,16 +25,16 @@
 					<div class="form-group">
 						<label for="amount">{{ 'mma.categories.filtre.price'|trans }}</label>
 						<div class="row">
-							<div class="col-lg-2">
+							<div class="col-lg-2 col-md-2">
 								<input type="number" id="minprice" name="minprice" 
-								readonly style="border: 0; color: #f6931f; font-weight: bold;width: 80px">
+								readonly style="border: 0; color: #f6931f; font-weight: bold;width: 100%">
 							</div>
-							<div class="col-lg-8">
+							<div class="col-lg-8 col-md-8">
 								<div id="slider-range"></div>
 							</div>
-							<div class="col-lg-2">
+							<div class="col-lg-2  col-md-2">
 								<input type="number" id="maxprice" name="maxprice" 
-								readonly style="border: 0; color: #f6931f; font-weight: bold;width: 80px">
+								readonly style="border: 0; color: #f6931f; font-weight: bold;width: 100%">
 							</div>
 						</div> 
 						
@@ -93,11 +93,13 @@
 	<div class="row divider"></div>
 	<div class="row">
 		{%   if affichage == 'gr' %}
+		<div class="col-lg-12">
     		{% for produit in produits %}
-        		<div class="col-lg-4 form-group-top">
+        		<div class="col-lg-3 col-md-4  col-sm-6 form-group-top">
         			{{ include('categories/produit-profil.html.twig', {'produit': produit}) }}
         		</div>
     		{% endfor %}
+    	</div>
 		{% elseif affichage == 'lst' %}
     		<table>
     			<tbody>

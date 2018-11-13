@@ -1,7 +1,7 @@
 
  <div class="card" style="padding: 3px">
-  <img src="/uploads/brochures/{{ produit.image }}" alt="" style="width:100%;max-height: 200px;min-height: 200px">
-  <h1>{{ app.request.locale|findProduitName(produit)|upper }}</h1>
+  <img src="/uploads/brochures/{{ produit.image }}" alt="" style="width:100%;max-width:200px; max-height: 150px;min-height: 150px">
+  <h3>{{ app.request.locale|findProduitName(produit)|upper }}</h3>
   <p class="price">{{ produit.prix }} Euro</p>
   <a href="#" data-placement="top" data-toggle="popover" title="Description" data-content="{{ app.request.locale|findProduitDescription(produit) }}">
       {{ app.request.locale|findProduitDescription(produit)|slice(0,12) }} ...
