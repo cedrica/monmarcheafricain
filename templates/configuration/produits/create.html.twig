@@ -28,10 +28,21 @@
                     </div>
                 <div class="form-group"></div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn michou-btn">{{ 'mma.configuration.save.edited.product'|trans }}</button>
+                    <button id ="save" type="submit" class="btn michou-btn">{{ 'mma.configuration.save.edited.product'|trans }}</button>
                     <a href="{{ path('configuration_controller_init') }}" class="btn btn-default">Annuler</a>
                 </div>
             </div>
 
          </form>
         <div style="margin-top:30px"></div>
+        <div id="errors" style="color:red"></div>
+        <script>
+
+            function checkNameLength(value){
+                if(value.length > 12){
+                    alert('Ich bin weg');
+                    $("#errors").text("too long");
+
+                }
+            }
+        </script>

@@ -111,16 +111,24 @@
 	<div class="col-lg-1 col-md-1 col-sm-1"></div>
 	
 	<script>
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').each(function () {
+				$("#"+this.id).popover({
+					content : function () {
+						return $("#content-"+this.id).html();
+                    }
+				});
+            });
+        });
 
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-	$(function() {
-		$(".sortable").sortable({
-			containment : "parent",
-			placeholder : "ui-state-highlight"
+			// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+		$(function() {
+				$(".sortable").sortable({
+					containment : "parent",
+					placeholder : "ui-state-highlight"
+				});
 		});
-	});
   
 </script>
 </body>

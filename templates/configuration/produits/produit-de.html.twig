@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-lg-12">
     	<label>Name</label>
-    	<input class="form-control form-group" name="nameDE"  value="{{ produit.nameDE }}" required></input>
+    	<input class="form-control form-group" onkeyup="checkNameLength(this.value)" name="nameDE"  value="{{ produit.nameDE }}" required></input>
     	<label>Preis</label>
     	<input class="form-control form-group" id="preis" type="number"  name="preis" onkeyup="fillOderFields(this.value,'prix','price')"  value="{{ produit.preis }}" required></input>
     	<label>Zustand</label>

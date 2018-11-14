@@ -3,16 +3,20 @@
   <img src="/uploads/brochures/{{ produit.image }}" alt="" style="width:100%;max-width:200px; max-height: 150px;min-height: 150px">
   <h3>{{ app.request.locale|findProduitName(produit)|upper }}</h3>
   <p class="price">{{ produit.prix }} Euro</p>
-  <a href="#" data-placement="top" data-toggle="popover" title="Description" data-content="{{ app.request.locale|findProduitDescription(produit) }}">
+  <a href="#" id="tip{{ produit.id }}" data-container="body" tabindex="0" data-trigger="focus" data-html="true" data-toggle="popover" data-placement="top">
       {{ app.request.locale|findProduitDescription(produit)|slice(0,12) }} ...
   </a>
   <p><a class="btn btn-primary" href="{{ path('produit_controller_actualise',{'id':produit.id,'_locale':app.request.locale,'cat':cat, 'affichage':affichage}) }}"
 						>Add to card</a>
   </p>
-</div> 
+</div>
+ <div  id="content-tip{{ produit.id }}" class="hidden">
+ {% if app.request.locale|findProduitDescription(produit) is empty %}
+  <h3 style="color:darkorange">Description</h3>
+     no description
+  {% else %}
+      <h3 style="color:darkorange">Description</h3>
+      {{ app.request.locale|findProduitDescription(produit) }}
+  {% endif %}
 
-<script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover();   
-});
-</script>
+ </div>
