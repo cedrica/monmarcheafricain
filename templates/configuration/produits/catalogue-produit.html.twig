@@ -12,11 +12,11 @@
     		<th>{{ 'mma.productcatalog.productstate'|trans }}</th>
     		<th></th>
     		<th><a class="fa fa-plus-circle" href="" style="color:#33cc33;font-size:30px; text-align: center;align-content:center; " data-toggle="modal" data-target="#produitModal"></a></th>
-    		
+    		<th></th>
     	</thead>
     	<tbody id="tbProduits">
 		    {% for produit in produits %}
-        		<tr scope="row">
+        		<tr scope="row" class="tip" id="tip-produit{{ produit.id }}">
             		<td scope="col"><img src="/uploads/brochures/{{produit.image}}" style="max-height: 150px; max-width: 150px"></img></td>
             		<td scope="col">{{ produit.nom }}</td>
             		<td scope="col">{{ produit.prix }} €</td>
@@ -24,16 +24,17 @@
             		<td scope="col">{{ produit.quantite }}</td>
             		<td scope="col">{% if produit.disponible == '1' %} oui {% else %} Non {% endif %}</td>
             		<td scope="col">{{ produit.etat }}</td>
-        			<td scope="col"><a class="fa fa-edit" href="{{ path('configuration_produit_controller_editer',{'id':produit.id}) }}"  style="color:darkorange;"></a></td>
+        			<td scope="col"><a class="fa fa-edit" href="{{ path('configuration_produit_controller_editer',{'id':produit.id,'errors':'null'}) }}"  style="color:darkorange;"></a></td>
         			<td scope="col"><a class="fa fa-trash" style="margin-left: -3px; color:red; align-content:center; text-align: center;"
 					data-toggle="modal" data-target="#confirmModal{{produit.id}}"></a></td>
-        			
+        			<td><a id="tip{{ produit.id }}" style="font-size: 16px" class="fa fa-question" data-container="body" tabindex="0" data-trigger="focus" data-html="true" data-toggle="popover" data-placement="left"></a></td>
         		</tr>
-			{{  include("confirm/confirm.html.twig", {'stepId':produit.id,'todo':'remove_product', 'recetteId':produit.id, 'message':'Voulez vous vraiment suprimer ce produit?'}) }}
+        		{{ include('configuration/produits/tooltip.html.twig',{'produit':produit}) }}
+			    {{  include("confirm/confirm.html.twig", {'stepId':produit.id,'todo':'remove_product', 'recetteId':produit.id, 'message':'Voulez vous vraiment suprimer ce produit?'}) }}
+			
     		{% endfor %}
     	</tbody>
     </table>
-
 	<div id="produitModal" id="contact_dialog" class="modal fade" role="dialog">
 		<div class="modal-dialog modal-lg">
 
@@ -56,4 +57,14 @@
 			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
+	  
+	  $("[data-toggle=popover]").each(function(i, obj) {
+		  $(this).popover({
+		    html: true,
+		    content: function() {
+		    	 var id = $(this).attr('id')
+		    	    return $('#' + id).html();
+		    }
+		  });
+	  });
 </script>

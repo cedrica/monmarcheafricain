@@ -30,7 +30,7 @@ class ProduitType extends AbstractType
     			array(
     					'required'=>true,
     					'label' => $translator->trans('mma.product.name'),
-    					'attr' => array('class' => 'form-control form-group')
+    					'attr' => array('maxlength' => 12,'class' => 'form-control form-group')
     					
     			)) ->add('categorie', ChoiceType::class,  array('required'=>true,
     					'label' => $translator->trans('mma.product.category'),
@@ -51,7 +51,8 @@ class ProduitType extends AbstractType
     			array(
     				'required'=>true,
     				'label' => $translator->trans('mma.product.name'),
-    				'attr' => array('class' => 'form-control form-group')
+    				'attr' => array('class' => 'form-control form-group',
+												'maxlength' => 12)
     							
     			))->add('category', ChoiceType::class,  array('required'=>true,
     					'choices' => array(
@@ -72,7 +73,8 @@ class ProduitType extends AbstractType
     				array(
     						'required'=>true,
     						'label' => $translator->trans('mma.product.name'),
-    						'attr' => array('class' => 'form-control form-group')
+    						'attr' => array('class' => 'form-control form-group',
+    								'maxlength' => 12)
     						
     				))->add('kategorie', ChoiceType::class,  array('required'=>true,
     						'choices' => array(

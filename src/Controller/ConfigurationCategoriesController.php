@@ -34,6 +34,7 @@ class ConfigurationCategoriesController extends Controller
     		}
     		$helper->addNewObjectToXml('catalogs/categories.xml',$catalogueCategories);
     		return $this->redirectToRoute('configuration_controller_init');
+    		
     	}
     	
     }

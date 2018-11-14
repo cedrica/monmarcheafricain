@@ -10,6 +10,8 @@ class AppExtension extends AbstractExtension
     {
         return array(
             new TwigFilter('findvalue', array($this, 'findvalueFilter')),
+        		new TwigFilter('findProduitName', array($this, 'findProduitFilter')),
+        		new TwigFilter('findProduitDescription', array($this, 'findProduitDescriptionFilter')),
         );
     }
 
@@ -28,6 +30,29 @@ class AppExtension extends AbstractExtension
     		}
     	}
         return "";
+    }
+    
+    public function findProduitFilter($lang,$produit)
+    {
+    	if($lang == 'en'){
+    		return $produit->getName();
+    	}else if($lang == 'de'){
+    		return $produit->getNameDE();
+    	}else if($lang == 'fr'){
+    		return $produit->getNom();
+    	}
+    	return "";
+    }
+    public function findProduitDescriptionFilter($lang,$produit)
+    {
+    	if($lang == 'en'){
+    		return $produit->getDescriptionEN();
+    	}else if($lang == 'de'){
+    		return $produit->getDescriptionDE();
+    	}else if($lang == 'fr'){
+    		return $produit->getDescriptionFR();
+    	}
+    	return "";
     }
 }
 ?>
